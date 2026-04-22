@@ -68,6 +68,7 @@ export default function VirtualInternshipPage() {
   const [aiNarration, setAiNarration] = useState<string | null>(null);
   const [aiProvider, setAiProvider] = useState<string | null>(null);
   const [aiLoading, setAiLoading] = useState(false);
+  const [speakerOn, setSpeakerOn] = useState(true);
 
   if (!sim) {
     return (
@@ -119,6 +120,23 @@ export default function VirtualInternshipPage() {
     return `Simulation complete. Your decision style indicates ${outcome}. ${getStoryBeat(tone)} Continue exploring to evolve this story arc.`;
   }, [aiNarration, isIntro, pickedCount, scene, sim.intro, sim.scenes.length, step, tone]);
   const typedNarrator = useTypewriter(narratorText, 18);
+
+  useEffect(() => {
+    if (!speakerOn) return;
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    if (!narratorText.trim()) return;
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(narratorText);
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    window.speechSynthesis.speak(utterance);
+
+    return () => {
+      window.speechSynthesis.cancel();
+    };
+  }, [narratorText, speakerOn]);
 
   useEffect(() => {
     const context = {
@@ -189,9 +207,18 @@ export default function VirtualInternshipPage() {
       <section className={`${cardClass} overflow-hidden p-0`}>
         <img src={sceneImage(sim.roleTitle, scene?.title ?? "intro", step)} alt={`${sim.roleTitle} simulation scene`} className="h-52 w-full object-cover sm:h-64" />
         <div className="p-5">
-          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-800 dark:text-emerald-300">
-            Dynamic narrator
-          </p>
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-800 dark:text-emerald-300">
+              Dynamic narrator
+            </p>
+            <button
+              type="button"
+              onClick={() => setSpeakerOn((v) => !v)}
+              className="rounded-md border-2 border-[var(--cg-3d-border)] bg-white px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-cg-text shadow-[2px_2px_0_0_var(--cg-3d-border)]"
+            >
+              {speakerOn ? "Speaker on" : "Speaker off"}
+            </button>
+          </div>
           <p className="mb-2 text-[11px] font-semibold text-cg-muted">
             Engine: {aiProvider ?? "grok-style fallback"} {aiLoading ? "· generating..." : ""}
           </p>

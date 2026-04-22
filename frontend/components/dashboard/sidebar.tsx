@@ -25,7 +25,6 @@ const NAV = [
     match: (p: string, h: string, t?: string | null) =>
       (p === "/overview" && (!t || t === "overview")) || (p === "/dashboard" && h !== "#popular" && h !== "#explore")
   },
-  { label: "Career Dashboard", href: "/overview?tab=career-dashboard", icon: IconOverview, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "career-dashboard" },
   { label: "Assessments", href: "/overview?tab=assessments", icon: IconCourses, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "assessments" },
   { label: "IQ Games", href: "/overview?tab=iq-games", icon: IconSchedule, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "iq-games" },
   { label: "Physiology Games", href: "/overview?tab=physiology-games", icon: IconSchedule, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "physiology-games" },
