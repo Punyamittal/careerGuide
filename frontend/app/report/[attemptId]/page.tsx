@@ -74,9 +74,36 @@ export default function ReportPage() {
 
   useEffect(() => {
     if (!user || !attemptId) return;
-    api<{ report: Report }>(`/reports/attempts/${attemptId}`)
-      .then((res) => setReport(res.data?.report ?? null))
-      .catch((e) => setErr(e instanceof Error ? e.message : "Failed to load report"));
+    let cancelled = false;
+    async function loadOrGenerateReport() {
+      try {
+        const res = await api<{ report: Report }>(`/reports/attempts/${attemptId}`);
+        if (!cancelled) setReport(res.data?.report ?? null);
+      } catch (e) {
+        const status = typeof e === "object" && e && "status" in e ? Number((e as { status?: number }).status) : undefined;
+        if (status === 404) {
+          try {
+            const generated = await api<{ report: Report }>(`/reports/attempts/${attemptId}/generate`, {
+              method: "POST"
+            });
+            if (!cancelled) setReport(generated.data?.report ?? null);
+            return;
+          } catch (generateErr) {
+            if (!cancelled) {
+              setErr(generateErr instanceof Error ? generateErr.message : "Failed to generate report");
+            }
+            return;
+          }
+        }
+        if (!cancelled) {
+          setErr(e instanceof Error ? e.message : "Failed to load report");
+        }
+      }
+    }
+    void loadOrGenerateReport();
+    return () => {
+      cancelled = true;
+    };
   }, [user, attemptId]);
 
   const progressItems = useMemo((): ProgressItem[] => {
@@ -232,7 +259,7 @@ export default function ReportPage() {
                       href={`/internship/${encodeURIComponent(sim)}`}
                       className="shrink-0 rounded-lg border-2 border-[var(--cg-3d-border)] bg-amber-50 px-3 py-1.5 text-center text-[11px] font-bold uppercase tracking-wide text-amber-950 shadow-[2px_2px_0_0_var(--cg-3d-border)] transition hover:bg-amber-100 dark:bg-amber-950/50 dark:text-amber-100"
                     >
-                      Virtual internship
+                      Open Career Match
                     </Link>
                   ) : null}
                 </li>

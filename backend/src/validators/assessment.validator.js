@@ -85,6 +85,23 @@ export const chatSchema = z.object({
   })
 });
 
+export const adaptiveCareerQuizNextSchema = z.object({
+  body: z.object({
+    track: assessmentKeyEnum.optional(),
+    targetQuestions: z.number().int().min(15).max(20).optional(),
+    history: z
+      .array(
+        z.object({
+          code: z.string().trim().min(1).max(64),
+          domain: z.enum(["big5", "riasec"]).optional(),
+          axis: z.string().trim().min(1).max(10).optional(),
+          likertValue: z.number().int().min(1).max(5)
+        })
+      )
+      .default([])
+  })
+});
+
 export const reportIdParamSchema = z.object({
   params: z.object({ id: uuidString })
 });

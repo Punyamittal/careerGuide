@@ -65,7 +65,7 @@ export const generateWithOpenAI = async (prompt) => {
 };
 
 /**
- * Try Ollama, then xAI Grok, then OpenAI, then static fallback.
+ * Try xAI Grok first, then OpenAI, then Ollama, then static fallback.
  */
 export const generateWithXAI = async (prompt) => {
   if (!env.xai.apiKey) throw new Error("xAI not configured");
@@ -100,13 +100,13 @@ export const generateWithXAI = async (prompt) => {
 
 export const generateText = async (prompt) => {
   try {
-    return await generateWithOllama(prompt);
+    return await generateWithXAI(prompt);
   } catch {
     try {
-      return await generateWithXAI(prompt);
+      return await generateWithOpenAI(prompt);
     } catch {
       try {
-        return await generateWithOpenAI(prompt);
+        return await generateWithOllama(prompt);
       } catch {
         return {
           text: "AI narrative unavailable. See structured scores and career matches below.",

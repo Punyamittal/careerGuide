@@ -1,4 +1,5 @@
 import { getSupabaseAdmin } from "../config/supabase.js";
+import { getAdaptiveCareerQuizStep } from "../services/adaptiveQuiz.service.js";
 import { careerChat } from "../services/chat.service.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { sendSuccess } from "../utils/apiResponse.js";
@@ -25,4 +26,14 @@ export const postChat = asyncHandler(async (req, res) => {
 
   const { reply, provider } = await careerChat(message, serverContext);
   return sendSuccess(res, { reply, provider });
+});
+
+export const postAdaptiveCareerQuizNext = asyncHandler(async (req, res) => {
+  const { track, history = [], targetQuestions } = req.body;
+  const step = await getAdaptiveCareerQuizStep({
+    track,
+    history,
+    targetQuestions
+  });
+  return sendSuccess(res, step);
 });

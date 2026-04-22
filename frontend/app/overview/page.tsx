@@ -132,10 +132,10 @@ function OverviewPageContent() {
                   <p className="mt-2 font-display text-base font-bold text-cg-text">{a.title}</p>
                   <p className="mt-1 text-xs text-cg-muted">{a.tagline}</p>
                   <div className="mt-3 flex gap-2">
-                    <Link href={`/onboarding?track=${a.key}`} className="rounded-lg border border-[var(--cg-3d-border)] bg-white px-2.5 py-1.5 text-xs font-semibold text-cg-text">
+                    <Link href={`/assessment?track=${a.key}`} className="rounded-lg border border-[var(--cg-3d-border)] bg-white px-2.5 py-1.5 text-xs font-semibold text-cg-text">
                       Onboarding
                     </Link>
-                    <Link href={`/overview?tab=assessments&track=${a.key}`} className="rounded-lg border border-[var(--cg-3d-border)] bg-emerald-800 px-2.5 py-1.5 text-xs font-semibold text-white">
+                    <Link href={`/assessment?track=${a.key}`} className="rounded-lg border border-[var(--cg-3d-border)] bg-emerald-800 px-2.5 py-1.5 text-xs font-semibold text-white">
                       Start here
                     </Link>
                   </div>
