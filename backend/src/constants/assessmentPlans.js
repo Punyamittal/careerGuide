@@ -1,12 +1,59 @@
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, "../../../frontend/data");
+const bigFivePath = join(dataDir, "psychometric-v2-big-five.json");
+const riasecPath = join(dataDir, "psychometric-v2-riasec.json");
 
-const bigFiveBank = JSON.parse(readFileSync(join(dataDir, "psychometric-v2-big-five.json"), "utf8"));
-const riasecBank = JSON.parse(readFileSync(join(dataDir, "psychometric-v2-riasec.json"), "utf8"));
+const fallbackBigFiveCodes = [
+  "BF_O_01",
+  "BF_O_02",
+  "BF_O_03",
+  "BF_C_01",
+  "BF_C_02",
+  "BF_C_03",
+  "BF_E_01",
+  "BF_E_02",
+  "BF_E_03",
+  "BF_A_01",
+  "BF_A_02",
+  "BF_A_03",
+  "BF_N_01",
+  "BF_N_02",
+  "BF_N_03"
+];
+
+const fallbackRiasecCodes = [
+  "RIA_R_01",
+  "RIA_R_02",
+  "RIA_I_01",
+  "RIA_I_02",
+  "RIA_A_01",
+  "RIA_A_02",
+  "RIA_S_01",
+  "RIA_S_02",
+  "RIA_E_01",
+  "RIA_E_02",
+  "RIA_C_01",
+  "RIA_C_02"
+];
+
+let bigFiveBank = [];
+let riasecBank = [];
+
+if (existsSync(bigFivePath)) {
+  bigFiveBank = JSON.parse(readFileSync(bigFivePath, "utf8"));
+} else {
+  console.warn("[assessmentPlans] Missing psychometric-v2-big-five.json. Using fallback code list.");
+}
+
+if (existsSync(riasecPath)) {
+  riasecBank = JSON.parse(readFileSync(riasecPath, "utf8"));
+} else {
+  console.warn("[assessmentPlans] Missing psychometric-v2-riasec.json. Using fallback code list.");
+}
 
 /** Fixed order — must match seed.mjs */
 export const APTITUDE_CODES = [
@@ -24,8 +71,12 @@ export const APTITUDE_CODES = [
   "APT_V_4"
 ];
 
-export const BIG_FIVE_CODES = bigFiveBank.map((row) => row.code);
-export const RIASEC_CODES = riasecBank.map((row) => row.code);
+export const BIG_FIVE_CODES = bigFiveBank.length
+  ? bigFiveBank.map((row) => row.code)
+  : fallbackBigFiveCodes;
+export const RIASEC_CODES = riasecBank.length
+  ? riasecBank.map((row) => row.code)
+  : fallbackRiasecCodes;
 
 export const MOTIVATION_CODES = [
   "MOT_01",
