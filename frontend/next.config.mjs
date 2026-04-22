@@ -1,20 +1,9 @@
-import type { NextConfig } from "next";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-/**
- * Next.js only inlines NEXT_PUBLIC_* for the browser. Many setups use VITE_* in .env;
- * map them so client code receives the same values without renaming files.
- */
 const backendOrigin =
   process.env.BACKEND_ORIGIN?.replace(/\/$/, "") || "http://127.0.0.1:5000";
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactCompiler: false,
-  outputFileTracingRoot: path.join(__dirname),
-  /** Proxy API in dev/prod so the browser uses same-origin `/api/v1/*` (avoids CORS / flaky localhost:5000 fetches). */
   async rewrites() {
     return [
       {

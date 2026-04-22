@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { CareerCard, CareerCardWide } from "@/components/dashboard/career-card";
 import { DashboardHeader } from "@/components/dashboard/dashboard-header";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
@@ -63,7 +63,7 @@ const ASSESSMENTS = [
   }
 ] as const;
 
-export default function OverviewPage() {
+function OverviewPageContent() {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab") ?? "overview";
   const [query, setQuery] = useState("");
@@ -312,5 +312,19 @@ export default function OverviewPage() {
       </>
       ) : null}
     </DashboardShell>
+  );
+}
+
+export default function OverviewPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-cg-canvas text-cg-muted">
+          Loading overview...
+        </div>
+      }
+    >
+      <OverviewPageContent />
+    </Suspense>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { IconClose, IconMenu } from "./icons";
 import { Sidebar } from "./sidebar";
 
@@ -38,7 +38,9 @@ export function DashboardShell({ children, right }: DashboardShellProps) {
         <aside
           className={`fixed inset-y-0 left-0 z-50 flex h-full min-h-0 w-[260px] max-w-[85vw] flex-col overflow-hidden bg-cg-card shadow-[4px_0_0_0_var(--cg-3d-border)] transition-transform duration-200 ease-out lg:static lg:z-0 lg:h-full lg:max-w-none lg:min-h-0 lg:flex-shrink-0 lg:self-stretch lg:shadow-none ${open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
         >
-          <Sidebar onNavigate={() => setOpen(false)} />
+          <Suspense fallback={<div className="p-4 text-sm text-cg-muted">Loading menu...</div>}>
+            <Sidebar onNavigate={() => setOpen(false)} />
+          </Suspense>
         </aside>
 
         <div className="flex min-h-0 min-w-0 flex-1 flex-col xl:flex-row">
