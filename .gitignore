@@ -1,0 +1,16 @@
+# Environment variables (secrets, local config)
+.env
+**/.env
+.env.*
+!.env.example
+
+# Local datasets and archives (IPIP/RIASEC sources, notebooks, etc.)
+frontend/data/
+
+# Dependencies / build outputs
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+dist/
+build/

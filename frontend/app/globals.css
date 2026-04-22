@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* CareerGuide canvas + neo-brutalist / shadcn-style design tokens */
+:root {
+  --background: #f5e9dc;
+  --foreground: #121212;
+
+  --nb-main: #88aaee;
+  --nb-overlay: rgba(0, 0, 0, 0.8);
+  --nb-bg: #dfe5f2;
+  --nb-bw: #ffffff;
+  --nb-blank: #000000;
+  --nb-border: #121212;
+  --nb-text: #121212;
+  --nb-mtext: #121212;
+  --nb-ring: #121212;
+  --nb-ring-offset: #ffffff;
+  --nb-box-shadow-x: 4px;
+  --nb-box-shadow-y: 4px;
+  --nb-shadow: var(--nb-box-shadow-x) var(--nb-box-shadow-y) 0 0 var(--nb-border);
+  --nb-shadow-pressed: 2px 2px 0 0 var(--nb-border);
+  --nb-radius: 5px;
+
+  --cg-3d-border: #121212;
+  --cg-3d-shadow: 4px 4px 0 0 var(--cg-3d-border);
+  --cg-3d-shadow-hover: 5px 5px 0 0 var(--cg-3d-border);
+
+  --cg-scrollbar-thumb: rgba(180, 150, 100, 0.28);
+  --cg-scrollbar-thumb-hover: rgba(140, 110, 75, 0.42);
+  --cg-scrollbar-track: transparent;
+
+  --cg-card: #ffffff;
+  --cg-text: #121212;
+  --cg-muted: #4a4a4a;
+
+  /* Cireern aliases mapped to existing site style */
+  --primary: #121212;
+  --secondary: #5b9fd4;
+  --accent: #e891b0;
+  --success: #0f766e;
+  --warning: #f4b400;
+  --physio: #5fb8b0;
+  --iq: #f4b400;
+  --btob: #6c3483;
+  --btoc: #5b9fd4;
+  --card: var(--cg-card);
+  --muted: var(--cg-muted);
+  --radius-card: 16px;
+  --shadow-card: var(--cg-3d-shadow);
+}
+
+.dark {
+  --background: #272933;
+  --foreground: #e6e6e6;
+  --nb-bg: #272933;
+  --nb-bw: #212121;
+  --nb-blank: #ffffff;
+  --nb-border: #000000;
+  --nb-text: #e6e6e6;
+  --nb-mtext: #121212;
+  --nb-ring: #ffffff;
+  --nb-ring-offset: #000000;
+  --nb-shadow: var(--nb-box-shadow-x) var(--nb-box-shadow-y) 0 0 var(--nb-border);
+  --cg-scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --cg-scrollbar-thumb-hover: rgba(255, 255, 255, 0.32);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-plus-jakarta);
+  --font-display: var(--font-bricolage);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-bricolage);
+
+  --color-cg-canvas: #f5e9dc;
+  --color-cg-card: #ffffff;
+  --color-cg-accent: #f4b400;
+  --color-cg-accent-soft: #fff3d6;
+  --color-cg-text: #121212;
+  --color-cg-muted: #4a4a4a;
+  --color-cg-line: #e5e5e5;
+  --color-cg-shadow: rgba(0, 0, 0, 0.06);
+  --color-cg-blue: #5b9fd4;
+  --color-cg-pink: #e891b0;
+  --color-cg-teal: #5fb8b0;
+
+  --color-main: var(--nb-main);
+  --color-overlay: var(--nb-overlay);
+  --color-bg: var(--nb-bg);
+  --color-bw: var(--nb-bw);
+  --color-blank: var(--nb-blank);
+  --color-text: var(--nb-text);
+  --color-mtext: var(--nb-mtext);
+  --color-border: var(--nb-border);
+  --color-ring: var(--nb-ring);
+  --color-ring-offset: var(--nb-ring-offset);
+  --color-secondary-black: #212121;
+
+  --radius-base: 5px;
+  --shadow-brut: var(--nb-shadow);
+  --shadow-brut-pressed: var(--nb-shadow-pressed);
+
+  --font-weight-heading: 700;
+  --font-weight-base: 500;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Custom scrollbars — minimal, rounded, aligned with warm canvas (no layout) */
+/* -------------------------------------------------------------------------- */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cg-scrollbar-thumb) var(--cg-scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--cg-scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--cg-scrollbar-thumb);
+  border-radius: 999px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--cg-scrollbar-thumb-hover);
+}
