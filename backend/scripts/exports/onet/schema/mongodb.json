@@ -1,0 +1,71 @@
+{
+  "collections": {
+    "occupations": {
+      "indexes": [
+        {
+          "key": {
+            "soc_code": 1
+          },
+          "unique": true
+        },
+        {
+          "key": {
+            "title": "text",
+            "description": "text"
+          }
+        },
+        {
+          "key": {
+            "holland_codes": 1
+          }
+        },
+        {
+          "key": {
+            "job_zone": 1
+          }
+        }
+      ]
+    },
+    "occupation_ratings": {
+      "indexes": [
+        {
+          "key": {
+            "soc_code": 1,
+            "domain": 1
+          }
+        },
+        {
+          "key": {
+            "element_id": 1
+          }
+        }
+      ]
+    },
+    "alternate_titles": {
+      "indexes": [
+        {
+          "key": {
+            "soc_code": 1
+          }
+        },
+        {
+          "key": {
+            "alternate_title": "text"
+          }
+        }
+      ]
+    }
+  },
+  "recommendation_pipeline": {
+    "vector_field": "riasec_vector",
+    "profile_field": "profile_v1_vector",
+    "match_keys": [
+      "ria_R",
+      "ria_I",
+      "ria_A",
+      "ria_S",
+      "ria_E",
+      "ria_C"
+    ]
+  }
+}

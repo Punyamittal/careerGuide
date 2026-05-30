@@ -178,7 +178,7 @@ export default function AssessmentPage() {
   }, [attempt, router]);
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-4 py-6">
+    <main className="mx-auto w-full max-w-5xl px-3 py-4 sm:px-4 sm:py-6">
       <div className="rounded-2xl border-2 border-[var(--cg-3d-border)] bg-cg-card p-5 shadow-[var(--cg-3d-shadow)]">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-cg-muted">Assessment</p>
         <h1 className="mt-1 font-display text-2xl font-bold text-cg-text">{TRACK_LABELS[track]}</h1>
@@ -209,7 +209,7 @@ export default function AssessmentPage() {
         <section className="mt-6 rounded-2xl border-2 border-[var(--cg-3d-border)] bg-cg-card p-6 shadow-[var(--cg-3d-shadow)]">
           <h2 className="font-display text-xl font-bold text-cg-text">Assessment complete</h2>
           <p className="mt-2 text-sm text-cg-muted">All adaptive steps are done. Submit to generate your report.</p>
-          <div className="mt-4 flex gap-3">
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
               onClick={() => void finishAttempt()}
@@ -244,7 +244,7 @@ export default function AssessmentPage() {
               placeholder="Write your response..."
             />
           ) : step.nextQuestion.useLikert ? (
-            <div className="mt-4 grid gap-2 sm:grid-cols-5">
+            <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-5">
               {[1, 2, 3, 4, 5].map((value) => (
                 <button
                   key={value}
@@ -279,7 +279,7 @@ export default function AssessmentPage() {
             </div>
           )}
 
-          <div className="mt-5 flex gap-3">
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <button
               type="button"
               onClick={() => void submitCurrentAnswer()}

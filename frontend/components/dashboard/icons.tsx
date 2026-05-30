@@ -57,6 +57,19 @@ export function IconSearch({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
+export function IconLifeJourney({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6v6l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h2M17.5 12h2M12 4.5V6.5M12 17.5v2" />
+    </svg>
+  );
+}
+
 export function IconMenu({ className = "h-5 w-5" }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>

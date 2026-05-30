@@ -18,7 +18,7 @@ const FAQ = [
   },
   {
     q: "Do I need a local AI model?",
-    a: "No. Reports and chat may use Ollama when available, or fall back to OpenAI / rule-based content depending on your backend configuration."
+    a: "Reports and chat use xAI Grok when your backend XAI_API_KEY is configured, with optional OpenAI fallback or structured content if AI is unavailable."
   }
 ] as const;
 

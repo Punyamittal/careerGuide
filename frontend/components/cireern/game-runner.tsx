@@ -5,9 +5,21 @@ import Link from "next/link";
 import { useCireernStore } from "@/lib/cireern-store";
 import { ProgressBar } from "@/components/cireern/ui";
 import { api } from "@/lib/api";
-import { gameCatalog } from "@/lib/cireern-data";
+import { gameCatalog, getGameMaxLevel } from "@/lib/cireern-data";
 
-type Props = { gameId: string; level?: number };
+type Props = { gameId: string; level?: number; /** Layout seed for maze games — new seed = new maze */ mazeSeed?: number };
+
+const MAZE_GAME_IDS = ["maze-navigation", "pattern-logic"] as const;
+
+function isMazeGame(gameId: string) {
+  return (MAZE_GAME_IDS as readonly string[]).includes(gameId);
+}
+
+/** Fresh random layout each time the link is followed */
+export function mazePlayHref(gameId: string, level: number) {
+  const seed = Math.floor(Math.random() * 2_147_483_647);
+  return `/play/${gameId}?level=${level}&seed=${seed}`;
+}
 
 function createRng(seed: number) {
   let value = seed >>> 0;
@@ -45,10 +57,25 @@ function hasPath(size: number, walls: Set<string>) {
   return false;
 }
 
-function generateMazeWalls(size: number, level: number) {
-  const density = Math.min(0.4, 0.12 + level * 0.02);
+function getMazeSize(level: number) {
+  return Math.min(16, 4 + Math.ceil(level * 0.65));
+}
+
+function getMazeDensity(level: number) {
+  return Math.min(0.48, 0.1 + level * 0.018);
+}
+
+function getMazeTier(level: number) {
+  if (level <= 5) return "Easy";
+  if (level <= 10) return "Medium";
+  if (level <= 15) return "Hard";
+  return "Expert";
+}
+
+function generateMazeWalls(size: number, level: number, layoutSeed: number) {
+  const density = getMazeDensity(level);
   const maxWalls = Math.floor(size * size * density);
-  const rng = createRng(level * 9871 + size * 31);
+  const rng = createRng((layoutSeed >>> 0) ^ level * 9871 ^ size * 31);
   const walls = new Set<string>();
   let attempts = 0;
   while (walls.size < maxWalls && attempts < size * size * 20) {
@@ -67,15 +94,19 @@ function generateMazeWalls(size: number, level: number) {
 
 function MazeGame({
   level,
+  layoutSeed,
   onAction,
   onFinish
 }: {
   level: number;
+  layoutSeed: number;
   onAction: (success: boolean) => void;
   onFinish: (score: number, accuracy: number, errors: number, duration: number) => void;
 }) {
-  const size = Math.min(12, 4 + level);
-  const walls = useMemo(() => generateMazeWalls(size, level), [size, level]);
+  const size = getMazeSize(level);
+  const tier = getMazeTier(level);
+  const cellSize = Math.max(18, Math.floor(320 / size));
+  const walls = useMemo(() => generateMazeWalls(size, level, layoutSeed), [size, level, layoutSeed]);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [errors, setErrors] = useState(0);
   const [moves, setMoves] = useState(0);
@@ -129,14 +160,22 @@ function MazeGame({
 
   return (
     <div>
-      <p className="mb-3 text-sm">Level {level}: Use arrow keys to reach the bottom-right tile.</p>
+      <p className="mb-3 text-sm">
+        Level {level} · {tier} · {size}×{size} grid — reach the bottom-right tile (arrow keys or buttons).
+      </p>
       <div className="mb-3 flex gap-2">
         <button type="button" onClick={() => move(0, -1)} className="rounded-lg bg-slate-800 px-3 py-1 text-xs text-white">Up</button>
         <button type="button" onClick={() => move(-1, 0)} className="rounded-lg bg-slate-800 px-3 py-1 text-xs text-white">Left</button>
         <button type="button" onClick={() => move(1, 0)} className="rounded-lg bg-slate-800 px-3 py-1 text-xs text-white">Right</button>
         <button type="button" onClick={() => move(0, 1)} className="rounded-lg bg-slate-800 px-3 py-1 text-xs text-white">Down</button>
       </div>
-      <div className="grid w-[300px] gap-1" style={{ gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))` }}>
+      <div
+        className="grid gap-1"
+        style={{
+          width: cellSize * size + (size - 1) * 4,
+          gridTemplateColumns: `repeat(${size}, ${cellSize}px)`
+        }}
+      >
         {Array.from({ length: size * size }).map((_, index) => {
           const x = index % size;
           const y = Math.floor(index / size);
@@ -146,7 +185,8 @@ function MazeGame({
           return (
             <div
               key={index}
-              className={`h-8 rounded ${
+              style={{ width: cellSize, height: cellSize }}
+              className={`rounded ${
                 goal ? "bg-emerald-300" : active ? "bg-blue-500" : wall ? "bg-slate-900" : "bg-slate-100"
               }`}
             />
@@ -398,8 +438,16 @@ function BalanceGame({
   );
 }
 
-export function GameRunner({ gameId, level = 1 }: Props) {
-  const safeLevel = Math.max(1, Math.min(10, level));
+export function GameRunner({ gameId, level = 1, mazeSeed }: Props) {
+  const maxLevel = getGameMaxLevel(gameId);
+  const safeLevel = Math.max(1, Math.min(maxLevel, level));
+  const layoutSeed = useMemo(() => {
+    if (!isMazeGame(gameId)) return 0;
+    if (mazeSeed != null && Number.isFinite(mazeSeed) && mazeSeed > 0) {
+      return Math.floor(mazeSeed);
+    }
+    return Math.floor(Math.random() * 2_147_483_647);
+  }, [gameId, mazeSeed]);
   const [result, setResult] = useState<null | { score: number; accuracy: number; errors: number; duration: number }>(null);
   const addSession = useCireernStore((state) => state.addSession);
   const addAction = useCireernStore((state) => state.addAction);
@@ -452,8 +500,8 @@ export function GameRunner({ gameId, level = 1 }: Props) {
   };
 
   if (result) {
-    const nextLevel = Math.min(10, safeLevel + 1);
-    const hasNextLevel = safeLevel < 10;
+    const nextLevel = Math.min(maxLevel, safeLevel + 1);
+    const hasNextLevel = safeLevel < maxLevel;
     return (
       <section className="space-y-4 rounded-2xl bg-white p-6 shadow-[var(--shadow-card)]">
         <h2 className="font-display text-2xl">Session Complete</h2>
@@ -466,7 +514,7 @@ export function GameRunner({ gameId, level = 1 }: Props) {
         <div className="flex flex-wrap gap-2 pt-1">
           {hasNextLevel ? (
             <Link
-              href={`/play/${gameId}?level=${nextLevel}`}
+              href={isMazeGame(gameId) ? mazePlayHref(gameId, nextLevel) : `/play/${gameId}?level=${nextLevel}`}
               className="rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white"
             >
               Next Level (L{nextLevel})
@@ -477,7 +525,7 @@ export function GameRunner({ gameId, level = 1 }: Props) {
             </span>
           )}
           <Link
-            href={`/play/${gameId}?level=${safeLevel}`}
+            href={isMazeGame(gameId) ? mazePlayHref(gameId, safeLevel) : `/play/${gameId}?level=${safeLevel}`}
             className="rounded-xl border border-[var(--cg-3d-border)] bg-white px-4 py-2 text-sm font-semibold text-cg-text"
           >
             Play Again
@@ -495,8 +543,14 @@ export function GameRunner({ gameId, level = 1 }: Props) {
 
   return (
     <section className="rounded-2xl bg-white p-6 shadow-[var(--shadow-card)]">
-      {["maze-navigation", "pattern-logic"].includes(gameId) ? (
-        <MazeGame level={safeLevel} onAction={logAction} onFinish={finalize} />
+      {isMazeGame(gameId) ? (
+        <MazeGame
+          key={`${safeLevel}-${layoutSeed}`}
+          level={safeLevel}
+          layoutSeed={layoutSeed}
+          onAction={logAction}
+          onFinish={finalize}
+        />
       ) : null}
       {["memory-sequence", "focus-grid"].includes(gameId) ? (
         <MemoryGame level={safeLevel} onAction={logAction} onFinish={finalize} />

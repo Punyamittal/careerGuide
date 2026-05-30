@@ -29,13 +29,33 @@ function formatErrorMessage(error) {
   return msg;
 }
 
+/** Supabase/PostgREST sometimes passes plain objects into `next()`, not `Error` instances. */
+function normalizeError(error) {
+  if (error instanceof Error) return error;
+  if (error && typeof error === "object") {
+    const msg =
+      typeof error.message === "string"
+        ? error.message
+        : typeof error.error_description === "string"
+          ? error.error_description
+          : "Request failed";
+    const wrapped = new Error(msg);
+    const code = error.statusCode ?? error.status ?? error.code;
+    if (typeof code === "number") wrapped.statusCode = code;
+    if (error.details != null) wrapped.details = error.details;
+    return wrapped;
+  }
+  return new Error(String(error));
+}
+
 export const errorHandler = (error, _req, res, _next) => {
+  const err = normalizeError(error);
   const statusCode =
-    error.statusCode ?? error.status ?? StatusCodes.INTERNAL_SERVER_ERROR;
+    err.statusCode ?? err.status ?? StatusCodes.INTERNAL_SERVER_ERROR;
 
   res.status(statusCode).json({
     success: false,
     data: null,
-    error: formatErrorMessage(error)
+    error: formatErrorMessage(err)
   });
 };

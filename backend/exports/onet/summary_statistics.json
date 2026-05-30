@@ -1,0 +1,20 @@
+{
+  "total_occupations": 923,
+  "total_alternate_titles": 49579,
+  "total_skills": 17880,
+  "total_abilities": 92976,
+  "total_knowledge": 59004,
+  "total_tasks": 0,
+  "total_emerging_tasks": 0,
+  "total_technology_skills": 32773,
+  "total_competencies": 0,
+  "total_related_occupations": 18460,
+  "total_ratings_rows": 175398,
+  "duplicate_cleanup_count": 0,
+  "discarded_removed": 93,
+  "missing_data_percentages": {
+    "description": 0,
+    "job_zone": 0,
+    "median_salary": 100
+  }
+}

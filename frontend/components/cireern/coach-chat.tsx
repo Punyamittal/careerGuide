@@ -1,9 +1,69 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useCireernStore } from "@/lib/cireern-store";
 import { careerProfiles, cosineSimilarity } from "@/lib/cireern-data";
 import { api } from "@/lib/api";
+import { cn } from "@/lib/utils";
+
+function ChatRowTail({ toward, variant }: { toward: "left" | "right"; variant: "coach" | "user" }) {
+  if (toward === "left") {
+    return (
+      <span
+        className={cn(
+          "pointer-events-none absolute top-[28%] z-10 -mt-1 -translate-y-1/2 border-y-[7px] border-r-[9px] border-y-transparent",
+          variant === "coach"
+            ? "border-r-white dark:border-r-zinc-800"
+            : "border-r-emerald-700"
+        )}
+        style={{ left: -8 }}
+        aria-hidden
+      />
+    );
+  }
+  return (
+    <span
+      className={cn(
+        "pointer-events-none absolute top-[28%] z-10 -mt-1 -translate-y-1/2 border-y-[7px] border-l-[9px] border-y-transparent",
+        variant === "user" ? "border-l-emerald-700" : "border-l-white dark:border-l-zinc-800"
+      )}
+      style={{ right: -8 }}
+      aria-hidden
+    />
+  );
+}
+
+function CoachCharacterMessage({ message }: { message: { role: "user" | "coach"; content: string } }) {
+  const isCoach = message.role === "coach";
+  return (
+    <div className={cn("flex items-end gap-2", isCoach ? "flex-row" : "flex-row-reverse")}>
+      <div className="relative h-14 w-11 shrink-0">
+        <Image
+          src={isCoach ? "/raghav.png" : "/dolly.png"}
+          alt={isCoach ? "Career coach" : "You"}
+          fill
+          className="object-contain object-bottom"
+          sizes="44px"
+        />
+      </div>
+      <div
+        className={cn(
+          "relative min-w-0 max-w-[calc(100%-3.5rem)] rounded-[16px] border px-3 py-2.5 text-sm leading-relaxed shadow-sm",
+          isCoach
+            ? "border-black/10 bg-white text-slate-800 dark:border-white/10 dark:bg-zinc-800 dark:text-zinc-100"
+            : "border-emerald-900/25 bg-emerald-700 text-white dark:bg-emerald-700"
+        )}
+      >
+        <ChatRowTail toward={isCoach ? "left" : "right"} variant={isCoach ? "coach" : "user"} />
+        <span className="block text-[10px] font-bold uppercase tracking-wide opacity-80">
+          {isCoach ? "Raghav · coach" : "You"}
+        </span>
+        <p className="mt-1 whitespace-pre-wrap">{message.content}</p>
+      </div>
+    </div>
+  );
+}
 
 const starterPrompts = [
   "What career suits me?",
@@ -95,14 +155,26 @@ export function CoachChat() {
         },
         ...(provider ? [{ role: "coach" as const, content: `Model: ${provider}` }] : [])
       ]);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "coach",
-          content: `${quickContext} Keep practicing with one IQ game and one physiology game today.`
-        }
-      ]);
+    } catch (err: unknown) {
+      const e = err as Error & { status?: number };
+      let hint =
+        `${quickContext} Keep practicing with one IQ game and one physiology game today.`;
+
+      if (typeof e?.message === "string" && e.message.includes("Cannot reach API")) {
+        hint =
+          "Cannot reach the app server. Start the backend on port 5000 (see project README) or check your network / NEXT_PUBLIC_API_URL.";
+      } else if (e.status === 401) {
+        hint = "Your session expired or the sign-in token is invalid. Please sign out and sign in again, then try the coach.";
+      } else if (e.status === 503) {
+        hint =
+          "The server could not verify your account (Supabase unreachable). Check backend .env and connectivity, then retry.";
+      } else if (e.status === 400) {
+        hint = e.message || "That message could not be sent. Try shortening it or wording it differently.";
+      } else if (typeof e?.message === "string" && e.message.trim()) {
+        hint = e.message.trim();
+      }
+
+      setMessages((prev) => [...prev, { role: "coach", content: hint }]);
     } finally {
       setSending(false);
     }
@@ -203,10 +275,20 @@ export function CoachChat() {
         onPointerCancel={() => {
           dragStateRef.current = null;
         }}
-        className="fixed z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--secondary)] text-xs font-semibold text-white shadow-lg touch-none select-none"
+        className="fixed z-50 h-16 w-16 touch-none select-none overflow-hidden rounded-full border-2 border-white bg-[var(--secondary)] p-0 shadow-lg ring-2 ring-emerald-600/30"
         style={{ left: `${buttonPosition.x}px`, top: `${buttonPosition.y}px` }}
+        aria-label="Open career coach"
       >
-        Coach
+        <span className="relative block h-full w-full">
+          <Image
+            src="/face.jpeg"
+            alt=""
+            fill
+            className="object-cover object-center"
+            sizes="64px"
+            priority
+          />
+        </span>
       </button>
       {open ? (
         <div
@@ -220,19 +302,19 @@ export function CoachChat() {
         >
           <div className="flex h-full flex-col gap-3">
             <h3 className="font-display text-lg text-[var(--primary)]">Career Coach</h3>
-            <div className="flex-1 space-y-2 overflow-auto rounded-xl bg-[var(--background)] p-3">
-              {messages.map((message, index) => (
-                <p
-                  key={`${message.role}-${index}`}
-                  className={
-                    message.role === "coach"
-                      ? "rounded-xl bg-white p-2 text-sm"
-                      : "rounded-xl bg-[var(--secondary)] p-2 text-sm text-white"
-                  }
-                >
-                  {message.content}
-                </p>
-              ))}
+            <div className="flex-1 space-y-3 overflow-auto rounded-xl bg-[var(--background)] p-3">
+              {messages.map((message, index) =>
+                message.content.startsWith("Model:") ? (
+                  <p
+                    key={`${message.role}-${index}`}
+                    className="text-center text-[10px] text-slate-400 dark:text-slate-500"
+                  >
+                    {message.content}
+                  </p>
+                ) : (
+                  <CoachCharacterMessage key={`${message.role}-${index}-${message.content.slice(0, 24)}`} message={message} />
+                )
+              )}
             </div>
             <div className="flex flex-wrap gap-2">
               {starterPrompts.map((prompt) => (

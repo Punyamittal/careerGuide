@@ -143,6 +143,25 @@ export async function recordGameSession(userId, payload) {
     metadata: payload.metadata ?? {}
   });
   if (error) throw new ApiError(StatusCodes.BAD_REQUEST, error.message);
+
+  const metricsPayload = [
+    { metric_type: "score", value: Number(payload.score ?? 0) },
+    { metric_type: "accuracy", value: Number(payload.accuracy ?? 0) * 100 },
+    { metric_type: "errors", value: Number(payload.errors ?? 0) },
+    { metric_type: "duration_seconds", value: Number(payload.durationSeconds ?? 0) },
+    { metric_type: "level", value: Number(payload.level ?? 0) }
+  ].map((m) => ({
+    user_id: userId,
+    game_id: payload.gameId,
+    metric_type: m.metric_type,
+    value: Number.isFinite(m.value) ? m.value : 0
+  }));
+
+  const { error: metricErr } = await supabase.from("game_metrics").insert(metricsPayload);
+  if (metricErr && !/game_metrics|does not exist|schema cache|PGRST/i.test(String(metricErr.message || ""))) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, metricErr.message);
+  }
+
   return { ok: true };
 }
 

@@ -4,7 +4,11 @@
   "scripts": {
     "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
     "dev:backend": "npm run dev --prefix backend",
-    "dev:frontend": "npm run dev --prefix frontend"
+    "dev:frontend": "npm run dev --prefix frontend",
+    "etl:onet": "npm run etl:onet --prefix backend",
+    "etl:onet:validate": "npm run etl:onet:validate --prefix backend",
+    "etl:mbs": "npm run etl:mbs --prefix backend",
+    "etl:mbs:dry-run": "npm run etl:mbs --prefix backend -- --dry-run"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

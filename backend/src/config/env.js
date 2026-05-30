@@ -21,17 +21,21 @@ export const env = {
   clientOrigin:
     process.env.CLIENT_ORIGIN ||
     "http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001",
-  ollama: {
-    baseUrl: process.env.OLLAMA_BASE_URL || "http://localhost:11434",
-    model: process.env.OLLAMA_MODEL || "llama3.2",
-    timeoutMs: Number(process.env.OLLAMA_TIMEOUT_MS) || 120000
-  },
   openai: {
     apiKey: process.env.OPENAI_API_KEY || "",
     model: process.env.OPENAI_MODEL || "gpt-4o-mini"
   },
   xai: {
     apiKey: process.env.XAI_API_KEY || "",
-    model: process.env.XAI_MODEL || "grok-2-latest"
+    model: process.env.XAI_MODEL || "grok-2-latest",
+    timeoutMs: Number(process.env.XAI_TIMEOUT_MS) || 120000
+  },
+  occupational: {
+    /** When false, submit skips O*NET matching (legacy flow only). */
+    matchingEnabled: process.env.OCCUPATION_MATCHING_ENABLED !== "false",
+    /** Optional override; otherwise uses onet_releases.is_active = true */
+    activeReleaseId: process.env.ONET_ACTIVE_RELEASE_ID?.trim() || null,
+    defaultMatchLimit: Math.min(50, Math.max(1, Number(process.env.ONET_MATCH_LIMIT) || 12)),
+    catalogCacheTtlMs: Number(process.env.ONET_CATALOG_CACHE_TTL_MS) || 300_000
   }
 };

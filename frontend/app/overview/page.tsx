@@ -1,16 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { CareerCard, CareerCardWide } from "@/components/dashboard/career-card";
 import { DashboardHeader } from "@/components/dashboard/dashboard-header";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { RightPanel } from "@/components/dashboard/right-panel";
 import { SectionBlock } from "@/components/dashboard/section-block";
+import { MotivationModulesGrid } from "@/components/assessment-engine/MotivationModulesGrid";
+import { api } from "@/lib/api";
 import { gameCatalog } from "@/lib/cireern-data";
 import { useCireernStore } from "@/lib/cireern-store";
-
 const PROGRAMME_OVERVIEW = {
   eyebrow: "Learning stages · school-friendly documentation",
   title: "Assessment overview",
@@ -64,17 +65,70 @@ const ASSESSMENTS = [
 ] as const;
 
 function OverviewPageContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab") ?? "overview";
+
+  useEffect(() => {
+    if (tab === "life-journey") {
+      router.replace("/life-journey");
+    }
+    if (tab === "profile" || tab === "settings") {
+      router.replace("/profile");
+    }
+  }, [tab, router]);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string | null>(null);
+  const [gameSummary, setGameSummary] = useState<{
+    totals: {
+      sessions: number;
+      actions: number;
+      actionsSuccess: number;
+      actionsFailure: number;
+      actionAccuracy: number;
+    };
+  } | null>(null);
+  const [gameSummaryLoading, setGameSummaryLoading] = useState(false);
   const profile = useCireernStore((state) => state.onboardingProfile);
-  const skills = useCireernStore((state) => state.skills);
   const sessions = useCireernStore((state) => state.sessions);
-  const actions = useCireernStore((state) => state.actions);
   const level = useCireernStore((state) => state.level);
   void query;
   void category;
+
+  useEffect(() => {
+    let cancelled = false;
+    async function loadGameSummary() {
+      setGameSummaryLoading(true);
+      try {
+        const res = await api<{ totals?: { sessions?: number; actions?: number; actionsSuccess?: number; actionsFailure?: number; actionAccuracy?: number } }>(
+          "/games/summary"
+        );
+        if (cancelled) return;
+        const totals = res.data?.totals;
+        if (!totals) {
+          setGameSummary(null);
+          return;
+        }
+        setGameSummary({
+          totals: {
+            sessions: Number(totals.sessions ?? 0),
+            actions: Number(totals.actions ?? 0),
+            actionsSuccess: Number(totals.actionsSuccess ?? 0),
+            actionsFailure: Number(totals.actionsFailure ?? 0),
+            actionAccuracy: Number(totals.actionAccuracy ?? 0)
+          }
+        });
+      } catch {
+        if (!cancelled) setGameSummary(null);
+      } finally {
+        if (!cancelled) setGameSummaryLoading(false);
+      }
+    }
+    void loadGameSummary();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const right = (
     <RightPanel
@@ -118,9 +172,12 @@ function OverviewPageContent() {
             </ul>
           </section>
 
+          <MotivationModulesGrid />
+
           <section className="rounded-2xl border-2 border-[var(--cg-3d-border)] bg-cg-card p-6 shadow-[var(--cg-3d-shadow)]">
-            <h3 className="font-display text-xl font-bold text-cg-text">Choose a track</h3>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <h3 className="font-display text-xl font-bold text-cg-text">School track assessments</h3>
+            <p className="mt-1 text-sm text-cg-muted">Grade-based full programmes with onboarding intake.</p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {ASSESSMENTS.map((a) => (
                 <article key={a.key} className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-white p-4 shadow-[2px_2px_0_0_var(--cg-3d-border)]">
                   <div className="flex items-center justify-between gap-2">
@@ -131,7 +188,7 @@ function OverviewPageContent() {
                   </div>
                   <p className="mt-2 font-display text-base font-bold text-cg-text">{a.title}</p>
                   <p className="mt-1 text-xs text-cg-muted">{a.tagline}</p>
-                  <div className="mt-3 flex gap-2">
+                  <div className="mt-3 flex flex-col gap-2 sm:flex-row">
                     <Link href={`/assessment?track=${a.key}`} className="rounded-lg border border-[var(--cg-3d-border)] bg-white px-2.5 py-1.5 text-xs font-semibold text-cg-text">
                       Onboarding
                     </Link>
@@ -154,7 +211,7 @@ function OverviewPageContent() {
       return (
         <section className="rounded-2xl border-2 border-[var(--cg-3d-border)] bg-cg-card p-5 shadow-[var(--cg-3d-shadow)]">
           <h2 className="font-display text-xl text-cg-text">{heading}</h2>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {games.map((game) => (
               <article key={game.id} className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-white p-4 shadow-[2px_2px_0_0_var(--cg-3d-border)]">
                 <p className="font-semibold text-cg-text">{game.name}</p>
@@ -182,53 +239,27 @@ function OverviewPageContent() {
     }
 
     if (tab === "reports") {
-      const successfulActions = actions.filter((a) => a.success).length;
-      const failedActions = actions.length - successfulActions;
-      const actionAccuracy = actions.length ? Math.round((successfulActions / actions.length) * 100) : 0;
+      const totals = gameSummary?.totals;
       return (
         <section className="rounded-2xl border-2 border-[var(--cg-3d-border)] bg-cg-card p-5 shadow-[var(--cg-3d-shadow)]">
           <h2 className="font-display text-xl text-cg-text">Reports</h2>
           <p className="mt-2 text-sm text-cg-muted">Generate monthly and session-based reports for parents and learners.</p>
-          <div className="mt-3 space-y-1 text-xs text-cg-muted">
-            <p>Sessions: {sessions.length}</p>
-            <p>Total actions: {actions.length}</p>
-            <p>Successful actions: {successfulActions}</p>
-            <p>Failed actions: {failedActions}</p>
-            <p>Action accuracy: {actionAccuracy}%</p>
-          </div>
+          {gameSummaryLoading ? (
+            <p className="mt-3 text-xs text-cg-muted">Loading tracked data…</p>
+          ) : totals ? (
+            <div className="mt-3 space-y-1 text-xs text-cg-muted">
+              <p>Sessions: {totals.sessions}</p>
+              <p>Total actions: {totals.actions}</p>
+              <p>Successful actions: {totals.actionsSuccess}</p>
+              <p>Failed actions: {totals.actionsFailure}</p>
+              <p>Action accuracy: {Math.round(totals.actionAccuracy)}%</p>
+            </div>
+          ) : (
+            <p className="mt-3 text-xs text-cg-muted">No real report data available yet. Play a game session to start tracking.</p>
+          )}
           <Link href="/reports" className="mt-4 inline-block rounded-lg border-2 border-[var(--cg-3d-border)] bg-white px-3 py-2 text-sm font-semibold text-cg-text shadow-[3px_3px_0_0_var(--cg-3d-border)]">
             Open Reports
           </Link>
-        </section>
-      );
-    }
-
-    if (tab === "profile" || tab === "settings") {
-      const successfulActions = actions.filter((a) => a.success).length;
-      const actionAccuracy = actions.length ? Math.round((successfulActions / actions.length) * 100) : 0;
-      return (
-        <section className="rounded-2xl border-2 border-[var(--cg-3d-border)] bg-cg-card p-5 shadow-[var(--cg-3d-shadow)]">
-          <h2 className="font-display text-xl text-cg-text">Profile</h2>
-          <div className="mt-3 space-y-2 text-sm text-cg-muted">
-            <p>Name: {profile.name || "Not set yet"}</p>
-            <p>Role: {profile.role || "Student"}</p>
-            <p>Age band: {profile.ageBand || "Not set yet"}</p>
-          </div>
-          <div className="mt-4">
-            <h3 className="font-semibold text-cg-text">Skill snapshot</h3>
-            <p className="mt-1 text-xs text-cg-muted">
-              Memory {skills.memory} · Speed {skills.processingSpeed} · Logic {skills.logic} · Balance {skills.balance}
-            </p>
-            <p className="mt-2 text-xs text-cg-muted">
-              Sessions {sessions.length} · Actions {actions.length} · Action accuracy {actionAccuracy}%
-            </p>
-            <p className="mt-2 text-xs text-cg-muted">
-              Settings are merged in Profile. Open full profile page to update name and preferences.
-            </p>
-            <Link href="/profile" className="mt-3 inline-block rounded-lg border-2 border-[var(--cg-3d-border)] bg-white px-3 py-1.5 text-xs font-semibold text-cg-text shadow-[2px_2px_0_0_var(--cg-3d-border)]">
-              Open Profile & Settings
-            </Link>
-          </div>
         </section>
       );
     }
@@ -240,20 +271,20 @@ function OverviewPageContent() {
     <DashboardShell right={right}>
       <div className="space-y-1">
         <h1 className="font-display text-2xl font-bold tracking-tight text-cg-text">Overview</h1>
-        <p className="text-sm text-cg-muted">
-          Explore matches, guided modules, and your mentor.
-        </p>
+        <p className="text-sm text-cg-muted">Explore matches, guided modules, and your mentor.</p>
       </div>
 
-      <DashboardHeader
-        searchQuery={query}
-        onSearchQueryChange={setQuery}
-        activeCategory={category}
-        onCategoryChange={setCategory}
-      />
+      {tab === "overview" ? (
+        <DashboardHeader
+          searchQuery={query}
+          onSearchQueryChange={setQuery}
+          activeCategory={category}
+          onCategoryChange={setCategory}
+        />
+      ) : null}
 
-      <div className={tab !== "overview" ? "pt-2 md:pt-3" : ""}>
-        {tab !== "overview" ? renderTab() : null}
+      <div className={tab !== "overview" && tab !== "life-journey" ? "pt-2 md:pt-3" : ""}>
+        {tab !== "overview" && tab !== "life-journey" ? renderTab() : null}
       </div>
 
       {tab === "overview" ? (
@@ -289,7 +320,7 @@ function OverviewPageContent() {
         <div className="mb-4 flex items-end justify-between gap-2">
           <h2 className="text-lg font-semibold text-cg-text">Popular career fits</h2>
         </div>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2">
           <CareerCardWide
             title="Software Engineer"
             subtitle="Vector similarity to your profile"

@@ -7,6 +7,11 @@
 # Local datasets and archives (IPIP/RIASEC sources, notebooks, etc.)
 frontend/data/
 
+# O*NET Excel drops (large; keep data/onet/.gitkeep)
+data/onet/**/*
+!data/onet/.gitkeep
+!data/onet/**/.gitkeep
+
 # Dependencies / build outputs
 node_modules/
 **/node_modules/

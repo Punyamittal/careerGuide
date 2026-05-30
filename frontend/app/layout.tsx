@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { CoachChat } from "@/components/cireern/coach-chat-root";
 import { Providers } from "@/components/providers";
-import { CoachChat } from "@/components/cireern/coach-chat";
 import "./globals.css";
 
 /** Soft geometric sans — body, UI, long copy (Gen Z–friendly, high legibility). */

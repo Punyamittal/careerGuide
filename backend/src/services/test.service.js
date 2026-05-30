@@ -7,6 +7,8 @@ import { ApiError } from "../utils/ApiError.js";
 import { log } from "../utils/logger.js";
 import { evaluateWriting } from "./ai.service.js";
 import { matchCareers } from "./matching.service.js";
+import { matchOccupationsFromScores } from "./occupational/occupationMatching.service.js";
+import { snapshotAttemptOccupationMatches } from "./occupational/snapshot.service.js";
 import { scoreAttempt } from "./scoring.service.js";
 import { validateAttemptResponseValues } from "./submission.validation.js";
 import { mapToVectorArray, scoresToProfileObject } from "./vector.util.js";
@@ -117,6 +119,63 @@ const responseToPlain = (r) => ({
   voiceTranscript: r.voiceTranscript ?? r.voice_transcript,
   mediaUrl: r.mediaUrl ?? r.media_url
 });
+
+const flattenNumericMap = (input, prefix = "") => {
+  if (!input || typeof input !== "object") return [];
+  return Object.entries(input).flatMap(([key, value]) => {
+    const label = prefix ? `${prefix}.${key}` : key;
+    if (typeof value === "number") return [{ label, value }];
+    if (value && typeof value === "object") return flattenNumericMap(value, label);
+    return [];
+  });
+};
+
+const average = (values) => (values.length ? values.reduce((sum, item) => sum + item, 0) / values.length : 0);
+
+const upsertUserProfileVector = async (supabase, userId, scores) => {
+  const flatScores = flattenNumericMap(scores);
+  const cognitiveValues = flatScores
+    .filter((item) => item.label.startsWith("aptitude"))
+    .map((item) => Number(item.value))
+    .filter(Number.isFinite);
+  const confidence = Math.max(20, Math.min(95, Math.round(100 - Math.min(40, flatScores.length * 2))));
+
+  const { error } = await supabase.from("user_profile_vectors").upsert(
+    {
+      user_id: userId,
+      cognitive_score: Math.round(average(cognitiveValues)),
+      personality_traits: scores?.personality ?? {},
+      skill_scores: scores?.aptitude ?? {},
+      confidence_score: confidence,
+      last_updated: new Date().toISOString()
+    },
+    { onConflict: "user_id" }
+  );
+
+  if (error && !/user_profile_vectors|does not exist|schema cache|PGRST/i.test(String(error.message || ""))) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, error.message);
+  }
+};
+
+const saveProgressLogs = async (supabase, userId, previousScores, nextScores) => {
+  const previousMap = new Map(flattenNumericMap(previousScores).map((item) => [item.label, Number(item.value)]));
+  const current = flattenNumericMap(nextScores);
+  if (!current.length) return;
+
+  const rows = current
+    .slice(0, 40)
+    .map((item) => ({
+      user_id: userId,
+      metric: item.label,
+      previous_value: Number(previousMap.get(item.label) ?? 0),
+      new_value: Number(item.value)
+    }));
+
+  const { error } = await supabase.from("progress_logs").insert(rows);
+  if (error && !/progress_logs|does not exist|schema cache|PGRST/i.test(String(error.message || ""))) {
+    throw new ApiError(StatusCodes.BAD_REQUEST, error.message);
+  }
+};
 
 const mergeResponses = (existing, incoming) => {
   const map = new Map(existing.map((r) => [String(responseToPlain(r).questionId), responseToPlain(r)]));
@@ -406,6 +465,19 @@ export const submitAttempt = async (attemptId, userId) => {
   const scores = await scoreAttempt(questionIds, mcqResponses);
   const careerMatches = await matchCareers(scores, 12);
 
+  let occupationMatches = [];
+  let occupationRelease = null;
+  try {
+    const occResult = await matchOccupationsFromScores(scores, 12);
+    occupationMatches = occResult.matches ?? [];
+    occupationRelease = occResult.release ?? null;
+    if (occupationRelease?.id && occupationMatches.length) {
+      await snapshotAttemptOccupationMatches(attemptId, occupationRelease.id, occupationMatches);
+    }
+  } catch (occErr) {
+    log("warn", "occupation_match_skipped", { attemptId, message: occErr?.message });
+  }
+
   const profileObj = scoresToProfileObject(scores);
   const profileVector = PROFILE_VECTOR_KEYS.map((key) => ({
     key,
@@ -421,6 +493,15 @@ export const submitAttempt = async (attemptId, userId) => {
   }
 
   const now = new Date().toISOString();
+  const { data: previousScored } = await supabase
+    .from("test_attempts")
+    .select("scores")
+    .eq("user_id", userId)
+    .eq("status", ATTEMPT_STATUS.SCORED)
+    .neq("id", attemptId)
+    .order("scored_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
   const writingEvalPayload = writingEvaluation
     ? {
         score: writingEvaluation.score,
@@ -448,11 +529,16 @@ export const submitAttempt = async (attemptId, userId) => {
 
   if (error) throw new ApiError(StatusCodes.BAD_REQUEST, error.message);
 
+  await upsertUserProfileVector(supabase, userId, scores);
+  await saveProgressLogs(supabase, userId, previousScored?.scores ?? null, scores);
+
   const mapped = mapAttemptRow(updated);
 
   return {
     attempt: mapped,
     writingEvaluation,
-    userVectorPreview: mapToVectorArray(profileObj)
+    userVectorPreview: mapToVectorArray(profileObj),
+    occupationMatches,
+    occupationRelease
   };
 };

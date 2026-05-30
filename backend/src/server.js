@@ -1,6 +1,11 @@
 import { app } from "./app.js";
 import { env } from "./config/env.js";
 
+process.on("unhandledRejection", (reason) => {
+  // eslint-disable-next-line no-console
+  console.error("[career-guide-backend] Unhandled promise rejection:", reason);
+});
+
 const server = app.listen(env.port, () => {
   // eslint-disable-next-line no-console
   console.log(`Server running on port ${env.port}`);

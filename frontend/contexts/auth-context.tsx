@@ -26,6 +26,21 @@ export type AuthUser = {
   preferences: UserPreferences;
 };
 
+function mapSupabaseNetworkError(message: string): string {
+  const m = message.trim();
+  const looksLikeNetworkFailure =
+    m === "Failed to fetch" ||
+    m.includes("NetworkError") ||
+    /^AuthRetryableFetchError/i.test(m);
+  if (looksLikeNetworkFailure) {
+    return (
+      "Cannot reach Supabase: the Project URL in frontend/.env (VITE_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_URL) does not resolve. " +
+      "Copy a new Project URL and anon key from Supabase → Project Settings → API, update frontend/.env, restart the Next dev server, and set backend SUPABASE_URL to the same project."
+    );
+  }
+  return message;
+}
+
 function normalizeUser(raw: {
   id: string;
   name: string;
@@ -110,21 +125,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const supabase = getSupabaseBrowser();
-    refreshSession();
+    let cancelled = false;
+
+    const safety = window.setTimeout(() => {
+      if (!cancelled) setLoading(false);
+    }, 12_000);
+
+    void refreshSession().finally(() => {
+      window.clearTimeout(safety);
+    });
 
     const {
       data: { subscription }
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      void refreshSession(session);
+      void refreshSession(session ?? null);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      cancelled = true;
+      window.clearTimeout(safety);
+      subscription.unsubscribe();
+    };
   }, [refreshSession]);
 
   const login = useCallback(async (email: string, password: string) => {
     const supabase = getSupabaseBrowser();
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) throw new Error(error.message);
+    if (error) throw new Error(mapSupabaseNetworkError(error.message));
     const accessToken =
       data.session?.access_token ?? (await supabase.auth.getSession()).data.session?.access_token;
     if (!accessToken) throw new Error("No session after login — try again.");
@@ -132,6 +159,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!res.data?.user) throw new Error("Could not load profile");
     const u = normalizeUser(res.data.user);
     setUser(u);
+    setLoading(false);
     if (typeof window !== "undefined") {
       saveClientSettings(u.preferences);
     }
@@ -144,7 +172,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       password,
       options: { data: { name } }
     });
-    if (error) throw new Error(error.message);
+    if (error) throw new Error(mapSupabaseNetworkError(error.message));
     if (!data.session) {
       throw new Error(
         "Check your email to confirm your account, or disable email confirmation in Supabase Auth settings for local dev."
@@ -161,6 +189,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (res.data?.user) {
       const u = normalizeUser(res.data.user);
       setUser(u);
+      setLoading(false);
       if (typeof window !== "undefined") {
         saveClientSettings(u.preferences);
       }

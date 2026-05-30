@@ -1,0 +1,6 @@
+-- Run in Supabase SQL Editor before ETL import:
+-- 1. supabase/migrations/010_onet_foundation.sql
+-- 2. (optional later) 011_onet_pgvector_optional.sql
+--
+-- Then from repo root:
+--   npm run etl:onet -- --release 2023.08 --path "path/to/ONET/folder"

@@ -1,0 +1,275 @@
+{
+  "generated_at": "2026-05-19T15:17:23.095Z",
+  "release_id": "b87807e4-f5b2-4bf0-adc1-fb7b465e0e21",
+  "release_version": "2023.08",
+  "totals": {
+    "occupations_in_database": 1016,
+    "classified_accepted": 923,
+    "discarded_removed": 93,
+    "duplicate_removals": 0
+  },
+  "classification": {
+    "rule": "accepted = RIASEC vector present, unique SOC/title, not catch-all archived title",
+    "accepted": 923,
+    "discarded": 93
+  },
+  "missing_fields": {
+    "description": 0,
+    "job_zone": 0,
+    "median_salary": 923,
+    "bright_outlook": 923
+  },
+  "null_value_counts": {
+    "occupations_description": 0,
+    "occupations_job_zone": 0,
+    "abilities": 46488,
+    "skills": 8940,
+    "alternate_titles": 0,
+    "task_statements": "not_loaded",
+    "education": "not_loaded",
+    "tools_used": "not_loaded",
+    "vectors": 1846
+  },
+  "duplicate_cleanup": {
+    "count": 0,
+    "samples": []
+  },
+  "orphaned_relationships": {
+    "related_occupations": 0,
+    "samples": []
+  },
+  "invalid_mappings": [],
+  "excel_enrichment_loaded": false,
+  "discarded_samples": [
+    {
+      "soc_code": "45-2099.00",
+      "title": "Agricultural Workers, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "55-3011.00",
+      "title": "Air Crew Members",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "55-1011.00",
+      "title": "Air Crew Officers",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "55-1012.00",
+      "title": "Aircraft Launch and Recovery Officers",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "55-3012.00",
+      "title": "Aircraft Launch and Recovery Specialists",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "55-3013.00",
+      "title": "Armored Assault Vehicle Crew Members",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "55-1013.00",
+      "title": "Armored Assault Vehicle Officers",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "55-3014.00",
+      "title": "Artillery and Missile Crew Members",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "55-1014.00",
+      "title": "Artillery and Missile Officers",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "27-1019.00",
+      "title": "Artists and Related Workers, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "51-2099.00",
+      "title": "Assemblers and Fabricators, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "19-1029.00",
+      "title": "Biological Scientists, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "37-2019.00",
+      "title": "Building Cleaning Workers, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "13-1199.00",
+      "title": "Business Operations Specialists, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "55-1015.00",
+      "title": "Command and Control Center Officers",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "55-3015.00",
+      "title": "Command and Control Center Specialists",
+      "discard_reasons": [
+        "no_riasec_vector"
+      ]
+    },
+    {
+      "soc_code": "43-2099.00",
+      "title": "Communications Equipment Operators, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "21-1099.00",
+      "title": "Community and Social Service Specialists, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "15-1299.00",
+      "title": "Computer Occupations, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "47-4099.00",
+      "title": "Construction and Related Workers, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "35-2019.00",
+      "title": "Cooks, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "21-1019.00",
+      "title": "Counselors, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "29-1029.00",
+      "title": "Dentists, All Other Specialists",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "27-1029.00",
+      "title": "Designers, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "17-3019.00",
+      "title": "Drafters, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "11-9039.00",
+      "title": "Education Administrators, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "25-9099.00",
+      "title": "Educational Instruction and Library Workers, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "17-3029.00",
+      "title": "Engineering Technologists and Technicians, Except Drafters, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "17-2199.00",
+      "title": "Engineers, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    },
+    {
+      "soc_code": "27-2099.00",
+      "title": "Entertainers and Performers, Sports and Related Workers, All Other",
+      "discard_reasons": [
+        "no_riasec_vector",
+        "archived_catch_all_title"
+      ]
+    }
+  ]
+}

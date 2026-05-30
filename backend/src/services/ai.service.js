@@ -2,37 +2,6 @@ import { env } from "../config/env.js";
 
 const truncate = (text, max = 4000) => (text.length > max ? `${text.slice(0, max)}…` : text);
 
-export const generateWithOllama = async (prompt) => {
-  const url = `${env.ollama.baseUrl.replace(/\/$/, "")}/api/generate`;
-  const controller = new AbortController();
-  const t = setTimeout(() => controller.abort(), env.ollama.timeoutMs);
-
-  try {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      signal: controller.signal,
-      body: JSON.stringify({
-        model: env.ollama.model,
-        prompt: truncate(prompt, 8000),
-        stream: false
-      })
-    });
-
-    if (!res.ok) {
-      const errText = await res.text().catch(() => "");
-      throw new Error(`Ollama HTTP ${res.status}: ${errText}`);
-    }
-
-    const data = await res.json();
-    const text = data.response?.trim() || "";
-    if (!text) throw new Error("Empty Ollama response");
-    return { text, provider: "ollama" };
-  } finally {
-    clearTimeout(t);
-  }
-};
-
 export const generateWithOpenAI = async (prompt) => {
   if (!env.openai.apiKey) throw new Error("OpenAI not configured");
 
@@ -64,56 +33,68 @@ export const generateWithOpenAI = async (prompt) => {
   return { text, provider: "openai" };
 };
 
-/**
- * Try xAI Grok first, then OpenAI, then Ollama, then static fallback.
- */
+/** xAI Grok (primary AI provider). */
 export const generateWithXAI = async (prompt) => {
-  if (!env.xai.apiKey) throw new Error("xAI not configured");
-
-  const res = await fetch("https://api.x.ai/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${env.xai.apiKey}`
-    },
-    body: JSON.stringify({
-      model: env.xai.model,
-      messages: [
-        { role: "system", content: "You are a concise career coach. Follow output format exactly." },
-        { role: "user", content: truncate(prompt, 12000) }
-      ],
-      temperature: 0.4,
-      max_tokens: 900
-    })
-  });
-
-  if (!res.ok) {
-    const errText = await res.text().catch(() => "");
-    throw new Error(`xAI HTTP ${res.status}: ${errText}`);
+  if (!env.xai.apiKey) {
+    throw new Error("XAI_API_KEY is not configured — set it in backend/.env");
   }
 
-  const data = await res.json();
-  const text = data.choices?.[0]?.message?.content?.trim() || "";
-  if (!text) throw new Error("Empty xAI response");
-  return { text, provider: "grok" };
+  const controller = new AbortController();
+  const t = setTimeout(() => controller.abort(), env.xai.timeoutMs);
+
+  try {
+    const res = await fetch("https://api.x.ai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${env.xai.apiKey}`
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model: env.xai.model,
+        messages: [
+          { role: "system", content: "You are a concise career coach. Follow output format exactly." },
+          { role: "user", content: truncate(prompt, 12000) }
+        ],
+        temperature: 0.4,
+        max_tokens: 900
+      })
+    });
+
+    if (!res.ok) {
+      const errText = await res.text().catch(() => "");
+      throw new Error(`xAI HTTP ${res.status}: ${errText}`);
+    }
+
+    const data = await res.json();
+    const text = data.choices?.[0]?.message?.content?.trim() || "";
+    if (!text) throw new Error("Empty xAI response");
+    return { text, provider: "grok" };
+  } finally {
+    clearTimeout(t);
+  }
 };
 
+const staticFallback = {
+  text: "AI narrative unavailable. See structured scores and career matches below.",
+  provider: "fallback"
+};
+
+/**
+ * Grok first; optional OpenAI if OPENAI_API_KEY is set; otherwise static fallback.
+ */
 export const generateText = async (prompt) => {
   try {
     return await generateWithXAI(prompt);
-  } catch {
-    try {
-      return await generateWithOpenAI(prompt);
-    } catch {
+  } catch (grokErr) {
+    if (env.openai.apiKey) {
       try {
-        return await generateWithOllama(prompt);
+        return await generateWithOpenAI(prompt);
       } catch {
-        return {
-          text: "AI narrative unavailable. See structured scores and career matches below.",
-          provider: "fallback"
-        };
+        return staticFallback;
       }
     }
+    return staticFallback;
   }
 };
 

@@ -1,8 +1,14 @@
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const backendOrigin =
   process.env.BACKEND_ORIGIN?.replace(/\/$/, "") || "http://127.0.0.1:5000";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: path.join(__dirname),
   reactCompiler: false,
   async rewrites() {
     return [

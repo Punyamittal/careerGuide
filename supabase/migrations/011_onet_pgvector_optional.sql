@@ -1,0 +1,11 @@
+-- Optional: enable semantic occupation search (run manually when ready).
+-- Requires Supabase project with pgvector extension enabled.
+
+-- create extension if not exists vector;
+--
+-- alter table public.onet_occupation_embeddings
+--   add column if not exists embedding_vector vector(1536);
+--
+-- create index if not exists onet_occupation_embeddings_hnsw_idx
+--   on public.onet_occupation_embeddings
+--   using hnsw (embedding_vector vector_cosine_ops);

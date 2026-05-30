@@ -58,6 +58,8 @@ export const postSubmit = asyncHandler(async (req, res) => {
   return sendSuccess(res, {
     attempt: result.attempt,
     writingEvaluation: result.writingEvaluation,
-    userVectorPreview: result.userVectorPreview
+    userVectorPreview: result.userVectorPreview,
+    occupationMatches: result.occupationMatches ?? [],
+    occupationRelease: result.occupationRelease ?? null
   });
 });

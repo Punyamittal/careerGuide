@@ -20,6 +20,17 @@ export type GameDefinition = {
   plays: number;
 };
 
+/** Per-game level cap (default 10). Maze Navigation has an extended campaign. */
+export const GAME_MAX_LEVELS: Partial<Record<string, number>> = {
+  "maze-navigation": 20
+};
+
+export const DEFAULT_GAME_MAX_LEVEL = 10;
+
+export function getGameMaxLevel(gameId: string): number {
+  return GAME_MAX_LEVELS[gameId] ?? DEFAULT_GAME_MAX_LEVEL;
+}
+
 export const gameCatalog: GameDefinition[] = [
   {
     id: "maze-navigation",

@@ -8,6 +8,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { getClientSettings } from "@/lib/settings-storage";
 import {
   IconCourses,
+  IconLifeJourney,
   IconLogout,
   IconOverview,
   IconSchedule,
@@ -28,9 +29,22 @@ const NAV = [
   { label: "Assessments", href: "/overview?tab=assessments", icon: IconCourses, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "assessments" },
   { label: "IQ Games", href: "/overview?tab=iq-games", icon: IconSchedule, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "iq-games" },
   { label: "Physiology Games", href: "/overview?tab=physiology-games", icon: IconSchedule, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "physiology-games" },
+  {
+    label: "Life Journey",
+    href: "/life-journey",
+    icon: IconLifeJourney,
+    match: (p: string, _h: string, t?: string | null) =>
+      p === "/life-journey" || (p === "/overview" && t === "life-journey")
+  },
   { label: "Career Matches", href: "/overview?tab=career-matches", icon: IconOverview, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "career-matches" },
   { label: "Reports", href: "/overview?tab=reports", icon: IconWishlist, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "reports" },
-  { label: "Settings", href: "/overview?tab=settings", icon: IconSetting, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "settings" }
+  {
+    label: "Profile",
+    href: "/profile",
+    icon: IconSetting,
+    match: (p: string, _h: string, t?: string | null) =>
+      p === "/profile" || (p === "/overview" && (t === "settings" || t === "profile"))
+  }
 ] as const;
 
 const navActiveClass =

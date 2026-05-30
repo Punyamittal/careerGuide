@@ -1,0 +1,1110 @@
+MyBrainScale (MBS)
+Game-Based Assessment Blueprint
+Version 2.0  |  All 39 Modules  |  Full Technical Specifications
+39Total Modules
+8+14+7+10Module Breakdown
+~90 minAssessment Time
+249+O*NET Dims Covered
+993Occupations
+1. Assessment Philosophy: Behavioral Evidence Over Self-Report
+Traditional psychometric surveys ask students what they think they are like. Mini-games and simulations capture what they actually do under controlled conditions. This is a fundamental shift: behavior does not lie the way self-report does. A student cannot easily fake their reaction time, error rate under pressure, or persistence through a frustrating puzzle series.
+Evidence Tier
+What It Measures
+Examples
+Tier 1 — Behavioral (Strongest)
+Measured by actual performance: speed, accuracy, choices, error patterns
+Reaction time, attention to detail, negotiation simulation, pattern recognition, fine motor trace
+Tier 2 — Simulated Choice (Strong)
+Student chooses between realistic scenarios — indirect behavioral signal
+Career swipe, workplace environment explorer, life design game, conversation fork
+Tier 3 — Stimulus-Based Survey (Acceptable)
+Self-report on concrete, observable stimuli — only where Tier 1/2 impossible
+Physical strength self-report, stamina (cannot be digitally tested)
+2. Complete Module Overview — All 39 Modules
+Purple = Original M1–M8 | Dark purple = Cognitive Extension M9–M22 | Blue = Technology/ICT T1–T7 | Green = Knowledge K1–K10
+ID
+Module Name
+Category
+Sess.
+Duration
+Items
+Evidence
+Tech Stack
+M1
+Interest Explorer
+Interests/RIASEC
+1
+12 min
+66 events
+Tier 1+2
+Phaser.js
+M2
+Work Styles Arena
+Personality/Work Styles
+1
+18 min
+151 events
+Tier 1
+Phaser.js ×8
+M3
+Values & Life Design
+Work Values
+1
+8 min
+34 events
+Tier 2
+Phaser.js
+M4
+Environment Simulator
+Work Context
+1
+10 min
+45 stimuli
+Tier 2
+Phaser.js
+M5
+Cognitive Lab Extended
+Cognitive Abilities
+2
+20 min
+100–130 trials
+Tier 1
+Phaser.js IRT
+M6
+Skills Arena
+O*NET Skills ×12
+2
+18 min
+80–90 tasks
+Tier 1
+Phaser.js
+M7
+Expert Challenge
+Knowledge ×33
+3
+15 min
+Adaptive 8–12/domain
+Tier 1
+Claude API + Phaser
+M8
+Physical & Sensory Lab
+Physical Abilities
+2
+8 min
+44 events
+Tier 1+3
+Phaser.js + Audio
+M9
+Dual N-Back Lite
+Working Memory
+2
+4 min
+40 trials
+Tier 1
+Phaser.js + Audio
+M10
+Split Track
+Time Sharing
+2
+4 min
+30 trials
+Tier 1
+Phaser.js
+M11
+Go/No-Go
+Impulse Control
+2
+3 min
+60 trials
+Tier 1
+Phaser.js
+M12
+Colour-Word Stroop
+Cognitive Flexibility
+2
+4 min
+50 trials
+Tier 1
+Phaser.js
+M13
+Rule Shift
+Category Flexibility
+2
+5 min
+40 trials
+Tier 1
+Phaser.js
+M14
+Name-Face-Role
+Associative Memory
+2
+5 min
+16 items
+Tier 1
+Phaser.js
+M15
+Story Sequence
+Information Ordering
+2
+4 min
+18 decisions
+Tier 1
+Phaser.js
+M16
+Micro-Read
+Social Perceptiveness
+2
+5 min
+20 faces
+Tier 1
+Phaser.js
+M17
+Conversation Fork
+Social Judgment
+2
+6 min
+12 choices
+Tier 2
+Phaser.js/HTML
+M18
+Alternative Uses
+Originality/Divergent
+2
+5 min
+~30 responses
+Tier 1
+Text + Claude API
+M19
+Idea Mesh
+Creative Synthesis
+2
+4 min
+5 pairs
+Tier 1
+Text + Claude API
+M20
+Spot the Break
+Problem Sensitivity
+2
+5 min
+5–10 flaws
+Tier 1
+Phaser.js
+M21
+Domino Effect
+Systems Analysis
+2
+5 min
+18 judgments
+Tier 1
+Phaser.js
+M22
+Steady Trace
+Fine Motor Control
+2
+4 min
+8 traces
+Tier 1
+Phaser.js
+T1
+Logic Flow
+Programming/Tech Design
+3
+8 min
+5 levels
+Tier 1
+Phaser.js + Blockly
+T2
+Debug Den
+Troubleshooting/QCA
+3
+6 min
+5 rounds
+Tier 1
+Phaser.js
+T3
+Network Weave
+Systems/Telecom
+3
+6 min
+4 scenarios
+Tier 1
+Phaser.js
+T4
+Spreadsheet Sprint
+Operations Monitoring
+3
+6 min
+4 tasks
+Tier 1
+HTML interactive
+T5
+Phishing Patrol
+ICT Security
+3
+5 min
+6 messages
+Tier 1
+HTML/Phaser.js
+T6
+API Mapper
+Technology Design
+3
+7 min
+4 scenarios
+Tier 1
+Phaser.js node-graph
+T7
+Equipment Selector
+Operations Analysis
+3
+5 min
+4 problems
+Tier 1
+HTML filterable
+K1
+World Map Mind
+Geography
+3
+6 min
+5 puzzles
+Tier 1
+Phaser.js + SVG map
+K2
+Market Mover
+Economics/Business
+3
+6 min
+3 scenarios
+Tier 2
+HTML + Chart.js
+K3
+Ecosystem Architect
+Biology/Ecology
+3
+6 min
+3 webs
+Tier 2
+Phaser.js
+K4
+Body Blueprint
+Medicine/Anatomy
+3
+5 min
+5 cases
+Tier 2
+Phaser.js
+K5
+Case Classifier
+Law/Policy
+3
+5 min
+5 cases
+Tier 1
+HTML/Phaser.js
+K6
+Structure Stress
+Engineering/Physics
+3
+6 min
+5 puzzles
+Tier 1
+Phaser.js + Matter.js
+K7
+Compound Creator
+Chemistry
+3
+5 min
+6 rounds
+Tier 1
+Phaser.js
+K8
+Argument Architect
+Philosophy/Logic
+3
+5 min
+6 judgments
+Tier 1
+HTML/Phaser.js
+K9
+Crisis Commander
+Public Safety
+3
+10 min
+1 simulation
+Tier 1
+Phaser.js/Godot
+K10
+Period Mapper
+History/Culture
+3
+6 min
+15 events
+Tier 1
+Phaser.js
+3. Full Module Specifications
+GROUP A — Original Modules M1–M8  |  Session 1 (M1–M4) + Session 2 (M5–M8)
+M1
+Interest Explorer
+Session 1  |  ~12 min
+66 behavioral events  |  Tier 1 (Career Swipe — behavioral) + Tier 2 (Workplace Tour — simulated choice)
+Category
+Interests & RIASEC
+O*NET Dimensions
+O*NET Interests: Realistic (R), Investigative (I), Artistic (A), Social (S), Enterprising (E), Conventional (C) — all 6 codes, 10+ data points each
+How It Works
+Students encounter 60 activity cards — images or short animated clips showing real work activities. Swipe right (Like), left (Dislike), up (Neutral). Reaction time secretly recorded: fast likes are stronger signals than slow deliberated ones. After the swipe game, a Workplace Tour: walkthrough of 6 simulated environments (workshop, lab, studio, office, clinic, school) where time-on-screen and engagement clicks per environment are logged.
+Games & Tasks
+Career Swipe (60 cards: 10 per RIASEC code — activities, images, clips) | Workplace Tour (6 environments: dwell time + click engagement logged per environment)
+Scoring
+Each swipe: +2 (fast like <600ms), +1 (slow like), 0 (neutral/skip), -1 (dislike). Workplace Tour dwell time normalised 0–10 per environment. Final RIASEC score: weighted sum per code, scaled 0–100. IRT calibration applied to swipe items after pilot data collected.
+Tech Stack
+Phaser.js (swipe card mechanic with animated transitions and reaction time logging via Date.now())
+M2
+Work Styles Arena
+Session 1  |  ~18 min
+~151 behavioral events across 8 games  |  Tier 1 — Behavioral (all 8 games are performance-based; no self-report)
+Category
+Personality / Work Styles
+O*NET Dimensions
+All 21 O*NET Work Styles: Achievement Orientation, Adaptability, Attention to Detail, Cautiousness, Cooperation, Dependability, Empathy, Humility, Initiative, Innovation, Integrity, Intellectual Curiosity, Leadership Orientation, Optimism, Perseverance, Self-Confidence, Self-Control, Sincerity, Social Orientation, Stress Tolerance, Tolerance for Ambiguity
+How It Works
+Eight mini-games — each game mechanic IS the measurement. Student never answers "how do you rate yourself on X?" — their behavior in the game generates the score. Each game targets 2–4 Work Style dimensions simultaneously.
+Games & Tasks
+Error Hunt (Attention to Detail, Dependability, Cautiousness) — proofread 8 documents with embedded errors | Pressure Lab (Stress Tolerance, Self-Control, Cautiousness) — escalating multi-task puzzle with interruptions | Idea Storm (Innovation, Originality, Intellectual Curiosity, Tolerance for Ambiguity) — alternative uses + unfinished sketches | Persistence Climb (Achievement Orientation, Perseverance, Self-Confidence) — increasingly hard puzzles with Try Again/Hint/Skip choices | Social Lens (Empathy, Social Orientation, Cooperation, Humility, Sincerity) — scenario choices + micro-expression recognition + fault attribution | First Mover (Initiative, Leadership Orientation, Self-Confidence) — ambiguous inbox decisions + group leadership scenarios | Curveball (Adaptability, Tolerance for Ambiguity, Self-Control) — sorting game with silent rule changes | Integrity Check (Integrity, Dependability, Sincerity) — ethical scenarios + consistency trap
+Scoring
+Each game generates raw behavioral scores (accuracy, speed, error rate, choice patterns). IRT or z-score normalisation converts raw counts to 0–100 dimension scores anchored to O*NET 1–5 importance scale.
+Tech Stack
+Phaser.js (8 separate scene modules, shared score bus, single entry point)
+M3
+Values & Life Design
+Session 1  |  ~8 min
+~34 decision events + 6 survey items  |  Tier 2 — Simulated Choice (forced-choice scenarios) + minimal Tier 3 (6 stimulus-anchored survey items)
+Category
+Work Values
+O*NET Dimensions
+O*NET Work Values: Achievement, Independence, Recognition, Relationships, Support, Working Conditions — all 6 dimensions, 5–7 data points each
+How It Works
+Job offer forced-choice simulation: student picks which of two job offers to accept. Each pair is designed to force a trade-off between two work values. 5 pairs per value = 15 forced choices. Then a Schedule Builder game: student constructs an ideal work week from blocks (deep work, meetings, social, solo, creative, admin). Block allocation pattern reveals values under realistic constraint.
+Games & Tasks
+Job Offer Cards (15 forced-choice pairs — each pair tests one value trade-off) | Schedule Builder (drag-and-drop week planner, 7 block types, 40 hours to allocate) | 6 stimulus-anchored survey items (e.g., "Rate how important job security is" shown alongside a workplace image)
+Scoring
+Forced choice: each accepted offer scores +1 for its dominant value. Schedule Builder: time allocation per block type weighted and mapped to value dimensions. Survey items: 1–5 Likert, used to cross-validate choice behavior.
+Tech Stack
+Phaser.js (card choice UI with flip animation + drag-and-drop scheduler with time counter)
+M4
+Environment Simulator
+Session 1  |  ~10 min
+45 stimuli + rating responses  |  Tier 2 — Simulated Choice (students rate comfort with realistic workplace images/clips)
+Category
+Work Context
+O*NET Dimensions
+O*NET Work Context: all 55 dimensions across Physical Environment, Workplace Environment, Social Context, Structural Job Characteristics (physical demands, hazard exposure, communication mode, interpersonal context, job demands)
+How It Works
+Workplace scene explorer: 45 environment stimuli shown as images or short animated clips representing real workplace conditions. Student rates comfort and preference on a simple 3-point scale (Comfortable / Neutral / Uncomfortable). Covers: outdoor vs. indoor, noise levels, hazard presence, social density, physical demand, technology level, autonomy vs. supervision.
+Games & Tasks
+45 scene stimuli across Work Context sub-categories | Rating interface (3-point comfort scale + optional open "Why?" field for qualitative signal)
+Scoring
+Each stimulus mapped to 1–3 Work Context O*NET dimensions. Comfort ratings averaged per dimension. Extreme discomfort flags (3+ uncomfortable in a cluster) are surfaced in the career report as context constraints.
+Tech Stack
+Phaser.js (image carousel with rating overlay; stimuli pre-loaded as image assets)
+M5
+Cognitive Lab (Extended)
+Session 2  |  ~20 min
+100–130 trials (adaptive)  |  Tier 1 — Behavioral ability tests with IRT adaptive difficulty
+Category
+Cognitive Abilities
+O*NET Dimensions
+O*NET Abilities: Oral Comprehension, Written Comprehension, Written Expression, Fluency of Ideas, Originality, Memorisation, Problem Sensitivity, Mathematical Reasoning, Number Facility, Deductive Reasoning, Inductive Reasoning, Information Ordering, plus Perceptual Speed, Category Flexibility (via M13)
+How It Works
+13 distinct cognitive ability tasks. IRT engine selects item difficulty based on prior responses. Each task is a separate Phaser.js scene. Tasks are ordered from lowest to highest cognitive load. Reaction time, accuracy, and error pattern all contribute to scoring.
+Games & Tasks
+Pattern Completion (Inductive Reasoning — find the rule in a matrix of shapes) | Sentence Completion (Oral/Written Comprehension — choose the correct word) | Number Series (Mathematical Reasoning — find next number in sequence) | Rotation Match (Spatial Orientation — which rotated shape matches?) | Reading Comprehension (Written Comprehension — 150-word passage + 4 inference questions) | Number Estimation (Number Facility — rapid approximate arithmetic) | Symbol Substitution (Processing Speed — replace symbols per key as fast as possible) | Error Detection (Perceptual Speed — spot the changed element in a 5×5 grid) | Sentence Unscramble (Deductive Reasoning — reconstruct logical sentence from jumbled words) | Category Sort (Inductive Reasoning — group items by discovered rule) | Figure Series (Fluid Intelligence — predict next figure in animated sequence) | Arithmetic Story Problems (Mathematical Reasoning — word problems with time pressure) | Word Definition (Verbal Ability — choose best definition from 4 options)
+Scoring
+IRT-based scoring: item difficulty (b parameter) calibrated in pilot. Student ability (theta) estimated via maximum likelihood after each response. Final score per dimension expressed as theta with confidence interval. Percentile ranking computed vs. peer group.
+Tech Stack
+Phaser.js (13 task scenes with shared IRT engine in JavaScript; adaptive item bank of 20+ items per task generated by Claude API)
+M6
+Skills Arena
+Session 2  |  ~18 min
+80–90 scenario-based tasks  |  Tier 1 — Performance-based scenario tests (student demonstrates skill, not reports it)
+Category
+O*NET Skills
+O*NET Dimensions
+O*NET Skills (12 of 35): Reading Comprehension, Active Listening, Writing, Speaking, Mathematics, Critical Thinking, Active Learning, Social Perceptiveness, Coordination, Persuasion, Judgment and Decision Making, Complex Problem Solving. New T1–T7 modules cover remaining 23 technical/systems/resource management skills.
+How It Works
+Six scenario-based performance tests. Each test places the student in a realistic task where the skill being measured is required to succeed. Scores emerge from what students do, not what they say about themselves.
+Games & Tasks
+Comprehension Sprint (Reading Comprehension, Active Learning) — read 200-word passage, answer 4 timed inference Qs | Rapid Report (Writing, Active Learning) — given 5 bullet facts, write a 3-sentence summary scored by Claude API for clarity and completeness | Listen & Act (Active Listening) — audio clip plays once, student answers 5 comprehension Qs | Number Challenge (Mathematics) — 10 word problems under time pressure | Logic Ladder (Critical Thinking, Judgment and Decision Making) — 5 argument/decision puzzles | Team Dilemma (Social Perceptiveness, Coordination, Persuasion, Complex Problem Solving) — branching team scenario with 8 decision points
+Scoring
+Each task scored on accuracy and time. Writing tasks: Claude API returns structured score (clarity 0–5, completeness 0–5, accuracy 0–5). Listening tasks: audio played once only (no replay) — penalise misses more than errors. Team Dilemma: prosocial choices vs. self-serving, quality of reasoning in decision points.
+Tech Stack
+Phaser.js (6 scene modules) + Web Audio API (Listen & Act) + Claude API (Rapid Report writing scoring)
+M7
+Expert Challenge
+Session 3  |  ~15 min
+Adaptive: 8–12 items per active domain  |  Tier 1 — IRT adaptive MCQ with AI-generated items (prevents cheating/memorisation)
+Category
+Knowledge (All 33 Domains)
+O*NET Dimensions
+O*NET Knowledge: Administration and Management, Clerical/Administrative, Economics and Accounting, Sales and Marketing, Customer and Personal Service, Personnel and Human Resources, Computers and Electronics, Engineering and Technology, Design, Building and Construction, Mechanical, Mathematics, Physics, Chemistry, Biology, Psychology, Sociology and Anthropology, Geography, Medicine and Dentistry, Therapy and Counseling, Education and Training, English Language, Foreign Language, Fine Arts, History and Archeology, Philosophy and Theology, Public Safety and Security, Law and Government, Telecommunications, Communications and Media, Transportation, Food Production, Production and Processing
+How It Works
+IRT-adaptive MCQ system. Starts with breadth screening (2–3 items per domain from the student's top 6 shortlisted domains based on Session 1–2 results). Strong performance in a domain triggers depth probing (8–12 items). Items generated by Claude API for each session — no item bank to memorise. Student experiences it as a fast-paced knowledge trivia game with subject-specific aesthetics.
+Games & Tasks
+Breadth screening round (2–3 items per shortlisted domain) | Depth round (8–12 adaptive items in confirmed domains) | Items generated by Claude API per session (unique every time)
+Scoring
+IRT theta estimation after each item. Domains above theta threshold receive depth probing. Final knowledge profile: theta score per active domain + confidence interval. Compared against O*NET knowledge importance ratings for matched occupations.
+Tech Stack
+Claude API (item generation with domain + difficulty parameters) + Phaser.js (MCQ interface with subject-themed aesthetics per domain) + IRT engine (JavaScript)
+M8
+Physical & Sensory Lab
+Session 2  |  ~8 min
+40 behavioral trials + 4 survey items  |  Tier 1 (screen-measurable) + Tier 3 (4 survey items for non-digital dimensions)
+Category
+Physical & Sensory Abilities
+O*NET Dimensions
+O*NET Physical Abilities: Near Vision, Far Vision proxy, Colour Discrimination, Depth Perception, Reaction Time, Wrist-Finger Speed, Speed of Limb Movement, Arm-Hand Steadiness. Self-report (SR): Explosive Strength, Static Strength, Trunk Strength, Stamina
+How It Works
+Screen-measurable sensory and motor tests combined with a minimal self-report section (4 items) for dimensions genuinely impossible to test on screen (strength, stamina). The self-report items use concrete observable stimuli (job images) rather than abstract trait questions.
+Games & Tasks
+Colour Hue Discrimination (Farnsworth-Munsell inspired sort game — arrange colour chips in gradient order, scored on error count) | Visual Target Detection (progressively smaller targets in noise — Near Vision proxy) | Reaction Time Tap (tap when target appears, 20 trials, mean + variance) | Steady Trace (arm-hand steadiness — trace path with mouse, deviation measured) | Sound Pattern Match (Web Audio — reproduce a 4-note rhythm pattern by tapping) | Physical Ability Survey (4 items: strength self-assessment, stamina estimate, physical job comfort — shown with job-context images)
+Scoring
+Colour sort: number of out-of-order chips (lower = better). Reaction time: mean RT + standard deviation (consistency signal). Target detection: threshold size at 75% accuracy. Trace: average pixel deviation from path. Sound match: pattern accuracy score. Survey items: 1–5 Likert, flagged as Tier 3 in report.
+Tech Stack
+Phaser.js (all game modules) + Web Audio API (sound pattern match) + touch/mouse event tracking
+GROUP B — Cognitive Extension M9–M22  |  Session 2
+M9
+Dual N-Back Lite
+Session 2  |  ~4 min
+~40 adaptive trials  |  Tier 1 — Behavioral (dual-task working memory paradigm)
+Category
+Working Memory / Cognitive Extension
+O*NET Dimensions
+O*NET Abilities: Working Memory Capacity; also signals: Auditory Attention, Selective Attention, Divided Attention
+How It Works
+Two simultaneous streams: a letter spoken aloud via Web Audio, and a grid position lit up on screen. Student taps a button when the current letter matches what appeared N steps back, and another button when the grid position matches. N starts at 1 and increases adaptively based on accuracy. Classic dual N-back paradigm — gold standard for working memory measurement.
+Games & Tasks
+Dual N-Back task: letter stream (audio) + position stream (visual) | N-level adapts from 1-back to 3-back based on accuracy (80%+ triggers increase) | 40 trials per session
+Scoring
+Hit rate and false alarm rate per N-level. d' (signal detection theory) calculated per stream. Working memory capacity score = maximum N-level sustained above 75% accuracy for >10 trials.
+Tech Stack
+Phaser.js (visual grid) + Web Audio API (letter audio playback) + adaptive N-level controller
+M10
+Split Track
+Session 2  |  ~4 min
+30 dual-task trials  |  Tier 1 — Behavioral (dual-task performance cost paradigm)
+Category
+Time Sharing / Divided Attention
+O*NET Dimensions
+O*NET Abilities: Time Sharing; O*NET Skills: Time Management (behavioral proxy)
+How It Works
+Two simultaneous tasks displayed side-by-side. Left panel: falling objects sorted by colour (tap left/right bin). Right panel: numbers appearing — tap if odd, ignore if even. Scoring uses dual-task cost: performance on each task measured alone first (single-task baseline), then together. The cost = baseline minus dual-task performance.
+Games & Tasks
+Single-task baseline (2 min each task alone) | Dual-task trials (both tasks simultaneously, 30 trials) | Score = dual-task cost index
+Scoring
+Dual-task cost calculated separately for each subtask. Composite Time Sharing score = 1 - (average cost). Higher score = lower performance degradation under divided attention. Normative comparison to peer group.
+Tech Stack
+Phaser.js (two independent game groups in single scene, running simultaneously)
+M11
+Go/No-Go
+Session 2  |  ~3 min
+60 trials (40 Go, 20 No-Go)  |  Tier 1 — Behavioral (classic inhibitory control paradigm)
+Category
+Impulse Control / Sustained Attention
+O*NET Dimensions
+O*NET Abilities: Selective Attention; O*NET Work Styles: Self-Control, Cautiousness
+How It Works
+Shapes appear rapidly on screen. Student taps for circles (Go — 40 trials) and must NOT tap for red circles (No-Go — 20 trials, interspersed). Speed and accuracy both scored. Later rounds introduce distractors (animated borders, similar-looking shapes). False alarms (tapping No-Go) penalised more heavily than misses.
+Games & Tasks
+Go trials (40: tap circle as fast as possible) | No-Go trials (20: inhibit response to red circle) | Distractor phase (rounds 2–3: visual noise added around stimuli)
+Scoring
+False alarm rate (key inhibitory control metric), miss rate, mean RT on Go trials, RT variability (sustained attention). Composite Impulse Control score = weighted combination. Normative percentile vs. peer group.
+Tech Stack
+Phaser.js (fast animation loop, response time logging to millisecond, keyboard + touch input)
+M12
+Colour-Word Stroop
+Session 2  |  ~4 min
+50 trials across 4 conditions  |  Tier 1 — Behavioral (classic Stroop paradigm)
+Category
+Cognitive Flexibility / Processing Speed
+O*NET Dimensions
+O*NET Abilities: Selective Attention, Perceptual Speed; O*NET Work Styles: Self-Control, Adaptability
+How It Works
+The word "RED" appears in blue ink. Student must respond with the INK COLOUR, not the word meaning. Four conditions in sequence: (1) colour patches only — baseline, (2) colour words, congruent — easy, (3) colour words, incongruent — Stroop interference, (4) mixed random — cognitive flexibility demand. Stroop interference score = RT difference between congruent and incongruent conditions.
+Games & Tasks
+Condition 1: colour patches (8 trials, baseline RT) | Condition 2: congruent words (12 trials) | Condition 3: incongruent words (18 trials, interference measured) | Condition 4: mixed (12 trials, flexibility measured)
+Scoring
+Stroop interference index = mean RT(incongruent) - mean RT(congruent). Flexibility index = performance recovery in condition 4. Both normalised to peer group. Lower interference = better cognitive control.
+Tech Stack
+Phaser.js (text rendering with programmable font colour, RT logging, keyboard/button response)
+M13
+Rule Shift
+Session 2  |  ~5 min
+~40 trials with 2 rule shifts  |  Tier 1 — Behavioral (Wisconsin Card Sorting Test inspired)
+Category
+Category Flexibility / Adaptability
+O*NET Dimensions
+O*NET Abilities: Category Flexibility; O*NET Work Styles: Adaptability, Tolerance for Ambiguity
+How It Works
+Cards appear with three attributes: colour, shape, number. Student sorts each card by clicking a category. Initially one sorting rule applies (e.g., sort by colour). After 15 correct sorts, the rule silently changes (now sort by shape) — no announcement. Student must detect the change from feedback alone and shift strategy. A second rule change occurs later.
+Games & Tasks
+Phase 1: Sort by colour (rule given at start, 15 trials) | Phase 2: Rule silently shifts to shape (student detects via error feedback, ~12 trials) | Phase 3: Rule silently shifts to number (student detects, ~13 trials)
+Scoring
+Perseverative errors (continuing to sort by old rule after shift detected) — key rigidity measure. Trials to detect each shift (lower = more flexible). Total correct sorts. Composite Category Flexibility score.
+Tech Stack
+Phaser.js (card display with animated sort feedback; rule controller never shown to student)
+M14
+Name-Face-Role
+Session 2  |  ~5 min
+16 recall items (8 name + 8 role)  |  Tier 1 — Behavioral (episodic associative memory task)
+Category
+Associative Memory
+O*NET Dimensions
+O*NET Abilities: Memorisation, Associative Memory; relevant for: sales, HR, management, teaching, healthcare careers
+How It Works
+8 "people" shown for 5 seconds each — name, AI-generated face image, and job title. Study phase (no pressure, just viewing). Then test phase: face shown alone → student types name; name shown alone → student selects role from 4 options. Order randomised. Designed to simulate real-world professional memory demands.
+Games & Tasks
+Study phase (8 people × 5 seconds each) | Name recall test (8 trials: face → type name) | Role recall test (8 trials: name → select role from 4 options)
+Scoring
+Name recall: exact match = 2 pts, close match (1 letter off) = 1 pt. Role recall: correct = 2 pts, adjacent career = 1 pt. Total out of 32. Converted to 0–100 Associative Memory score.
+Tech Stack
+Phaser.js (face card display, text input with fuzzy matching, 4-choice role selector)
+M15
+Story Sequence
+Session 2  |  ~4 min
+3 sequences × 6 steps = 18 ordering decisions  |  Tier 1 — Behavioral (sequence reconstruction task)
+Category
+Information Ordering
+O*NET Dimensions
+O*NET Abilities: Information Ordering; O*NET Skills: Active Learning (applying sequential logic)
+How It Works
+Three real-world processes are shown in jumbled order (6 steps each). Student drags steps into correct sequence. Three domain-neutral scenarios: (1) scientific experiment setup, (2) patient triage and intake, (3) project launch sequence. Scored on number of correct adjacencies (partial credit), not just binary correct/incorrect.
+Games & Tasks
+Scenario 1: Scientific experiment (6 steps — domain neutral) | Scenario 2: Patient/client intake (6 steps) | Scenario 3: Project launch (6 steps) | Drag-and-drop reordering for each
+Scoring
+Adjacency score per sequence: each correctly adjacent pair = 1 point (max 5 per sequence). Total: 0–15 adjacency points, converted to 0–100 Information Ordering score.
+Tech Stack
+Phaser.js (drag-and-drop list reordering with snap-to-position)
+M16
+Micro-Read
+Session 2  |  ~5 min
+20 face stimuli  |  Tier 1 — Behavioral (rapid emotional face recognition paradigm)
+Category
+Social Perceptiveness / Emotion Recognition
+O*NET Dimensions
+O*NET Skills: Social Perceptiveness; O*NET Work Styles: Empathy, Social Orientation; relevant for healthcare, counselling, HR, sales, teaching
+How It Works
+A face appears for 200–500ms (exposure time decreases as student improves), then student selects the displayed emotion from 6 options. Includes basic emotions (happy, sad, angry, fearful, disgusted, surprised) and complex/ambiguous ones (contempt, pride, discomfort, embarrassment). Confidence calibration: student also rates confidence (1–3); overconfident wrong answers penalised.
+Games & Tasks
+20 face stimuli (12 basic emotion, 8 complex/ambiguous) | Exposure time: 500ms rounds 1–10, 300ms rounds 11–16, 200ms rounds 17–20 | Post-response confidence rating (1–3)
+Scoring
+Accuracy per emotion category. Ambiguous emotion accuracy weighted higher. Confidence calibration score (Brier score): rewards accurate confidence, penalises overconfident errors. Composite Social Perceptiveness score.
+Tech Stack
+Phaser.js (rapid image display with fade + 6-button response overlay; pre-rendered face stimulus set)
+M17
+Conversation Fork
+Session 2  |  ~6 min
+4 scenarios × 3 decision points = 12 choices  |  Tier 2 — Simulated Choice (realistic consequence branching)
+Category
+Social Judgment / Interpersonal Skill
+O*NET Dimensions
+O*NET Skills: Social Perceptiveness, Service Orientation, Coordination; O*NET Work Styles: Cooperation, Empathy, Self-Control
+How It Works
+Text-based branching scenarios in realistic social/workplace situations. An ambiguous situation unfolds. Three decision points per scenario, each with 3 response options. After each choice, the consequence plays out visibly (not hidden). Student can see what happened from their choice before the next decision. Scenarios: (1) team conflict, (2) difficult customer, (3) peer underperformance, (4) ethical grey area.
+Games & Tasks
+4 scenarios, each with 3 decision points | Each decision: 3 response options (vary in empathy, assertiveness, professionalism) | Consequence shown after each choice before proceeding
+Scoring
+Prosocial choice rate (proportion of choices prioritising others' wellbeing). Escalation avoidance score (choosing de-escalation vs. confrontation). Consistency across scenarios. Composite Social Judgment score.
+Tech Stack
+Phaser.js (text adventure engine with branching state machine) or HTML with JavaScript state controller
+M18
+Alternative Uses (AI-Scored)
+Session 2  |  ~5 min
+3 objects × ~10 responses = ~30 scored responses  |  Tier 1 — Behavioral (Guilford Alternative Uses Task with AI scoring)
+Category
+Originality / Divergent Thinking
+O*NET Dimensions
+O*NET Abilities: Fluency of Ideas, Originality; O*NET Work Styles: Innovation, Intellectual Curiosity, Tolerance for Ambiguity
+How It Works
+Show 3 everyday objects one at a time (paperclip, rubber band, shoe). Student types as many uses as possible in 90 seconds per object. Claude API scores each response on 4 dimensions: Fluency (count of valid uses), Originality (how unusual vs. common — rated against distribution of all responses), Category Spread (uses span diverse domains), Elaboration (level of detail). Completely immune to cheating — every run re-scored against live distribution.
+Games & Tasks
+Object 1: paperclip (90 sec free text entry) | Object 2: rubber band (90 sec) | Object 3: shoe (90 sec) | Claude API scoring after each object
+Scoring
+Claude API returns JSON per response: {fluency: n, originality: 0-5, spread: 0-3, elaboration: 0-3}. Composite Originality score = weighted sum across all objects. Normative ranking vs. peer group responses collected in pilot.
+Tech Stack
+HTML text input (timed, 90-sec countdown) + Claude API (scoring endpoint, model: claude-haiku for speed) + JSON score aggregator
+M19
+Idea Mesh
+Session 2  |  ~4 min
+5 concept pairs  |  Tier 1 — Behavioral (remote associates task with AI scoring)
+Category
+Creative Synthesis / Associative Thinking
+O*NET Dimensions
+O*NET Abilities: Originality, Fluency of Ideas; O*NET Work Styles: Intellectual Curiosity, Innovation
+How It Works
+Two unrelated concepts shown (e.g., "submarine" + "hospital"). Student writes one sentence connecting them. 5 pairs, 60 seconds each. Claude API scores: Coherence (is the connection logical?), Creativity (is the bridge surprising and non-obvious?), Specificity (vague vs. concrete and detailed). Different from M18 — this tests synthetic/convergent-creative thinking, not pure divergent fluency.
+Games & Tasks
+5 concept pairs (e.g., submarine + hospital | music + engineering | desert + library | microscope + marketplace | clock + ocean) | 60 seconds per pair | Claude API scoring
+Scoring
+Claude API returns: {coherence: 0-5, creativity: 0-5, specificity: 0-3} per response. Composite Creative Synthesis score = weighted average across 5 pairs.
+Tech Stack
+HTML text input (60-sec countdown per pair) + Claude API scoring
+M20
+Spot the Break
+Session 2  |  ~5 min
+5 scenarios, 1–2 flaws each  |  Tier 1 — Behavioral (flaw detection in process/plan)
+Category
+Problem Sensitivity / Quality Control
+O*NET Dimensions
+O*NET Skills: Quality Control Analysis; O*NET Abilities: Problem Sensitivity; O*NET Work Styles: Attention to Detail, Cautiousness
+How It Works
+A process diagram, plan, or procedure is displayed with one or two deliberate flaws embedded (wrong step order, logical impossibility, missing safety check, incorrect dependency). Student identifies the problem by clicking the affected element. 5 rounds progressing: (1) household analogy — accessible to all, (2) business plan, (3) data pipeline diagram, (4) technical flowchart, (5) multi-system dependency map.
+Games & Tasks
+Round 1: Recipe with wrong cooking step (household — no domain knowledge needed) | Round 2: Business launch plan with impossible timeline | Round 3: Data processing pipeline with wrong transformation order | Round 4: Software deployment flowchart with missing dependency | Round 5: Multi-team project with circular dependency
+Scoring
+Accuracy per round (correct flaw identified). Time to identify (faster = stronger problem sensitivity). False positive rate (clicking non-flaw elements). Composite Problem Sensitivity score.
+Tech Stack
+Phaser.js (interactive flowchart renderer with clickable nodes and highlighted selection)
+M21
+Domino Effect
+Session 2  |  ~5 min
+3 scenarios × 6 effects = 18 causal judgments  |  Tier 1 — Behavioral (causal chain identification)
+Category
+Systems Analysis / Causal Reasoning
+O*NET Dimensions
+O*NET Skills: Systems Analysis, Systems Evaluation; O*NET Work Styles: Analytical Thinking, Dependability
+How It Works
+A trigger event is shown ("Factory shifts schedule 1 hour earlier"). A list of 6 downstream effects appears — some are genuine consequences, some are spurious or unrelated. Student selects which effects are real consequences of the trigger. Three scenarios of increasing complexity: household → organisational → ecological/systemic.
+Games & Tasks
+Scenario 1: Daily schedule change (household — accessible) → 6 effects | Scenario 2: Company policy change → 6 downstream organisational effects | Scenario 3: Environmental intervention → 6 ecological/social consequences
+Scoring
+Each correct identification = 2 pts. Each spurious effect correctly rejected = 1 pt. Each spurious effect incorrectly selected = -1 pt. Composite Systems Analysis score per scenario, weighted for complexity.
+Tech Stack
+Phaser.js (cause-effect chain visual with animated domino sequence + checkbox selection)
+M22
+Steady Trace
+Session 2  |  ~4 min
+8 trace paths of increasing complexity  |  Tier 1 — Behavioral (first digital psychomotor assessment for fine motor; previously required physical apparatus)
+Category
+Fine Motor Control / Psychomotor Precision
+O*NET Dimensions
+O*NET Abilities: Arm-Hand Steadiness, Wrist-Finger Speed, Speed of Limb Movement; career relevance: surgery, dentistry, architecture, jewellery, instrument repair, technical drawing
+How It Works
+A path appears on screen (straight, then curved, then maze-like). Student traces it as precisely as possible with mouse or trackpad, under increasing time pressure. 8 paths from simple to complex. Precision and speed both measured. This is the only game in the library that is significantly harder on trackpad vs. mouse — adaptive difficulty accounts for input device.
+Games & Tasks
+Path 1–2: Simple straight lines (calibration) | Path 3–4: Gentle curves | Path 5–6: Complex curves with reversals | Path 7–8: Maze-like paths under tight time pressure
+Scoring
+Deviation score: mean pixel distance from ideal path. Speed score: time to complete vs. par time. Composite = weighted combination (60% accuracy, 40% speed). Device type detected and normative comparison restricted to same device type.
+Tech Stack
+Phaser.js (pointer event tracking at 60fps, real-time deviation calculation from SVG path, device detection)
+GROUP C — Technology & ICT Skill Games T1–T7  |  Session 3 (Adaptive)
+T1
+Logic Flow
+Session 3  |  ~8 min
+5 levels (adaptive depth)  |  Tier 1 — Behavioral (game mechanic IS the programming skill test)
+Category
+Programming / Technology Design / Computational Thinking
+O*NET Dimensions
+O*NET Skills: Programming, Technology Design, Operations Analysis; O*NET Knowledge: Computers and Electronics, Engineering and Technology
+How It Works
+Visual block-programming interface using Google Blockly (open source, MIT license). No syntax required. Student arranges logic blocks (move, turn, loop, if-condition, nested if) to make a character reach a goal state. 5 levels of increasing complexity. Key signal: students who use loops instead of brute-force repetition reveal computational thinking elegantly. Debugging level (Level 5) presents a broken program — student finds and fixes the error.
+Games & Tasks
+Level 1: Linear sequence (3 moves to goal) | Level 2: Loops (repeated pattern, must use loop block) | Level 3: Conditionals (if-then branching for obstacle) | Level 4: Nested logic (loop + conditional combined) | Level 5: Debug — fix broken program with 2 errors
+Scoring
+Score = levels completed + efficiency score per level (loops vs. brute-force, attempts before success, hint usage). Programming aptitude index derived from efficiency pattern across all 5 levels.
+Tech Stack
+Phaser.js rendering + Google Blockly (open source) for block interface; Blockly generates JavaScript that runs in sandboxed eval() for immediate feedback
+T2
+Debug Den
+Session 3  |  ~6 min
+5 rounds, 1–2 bugs each  |  Tier 1 — Behavioral (fault identification in progressively technical contexts)
+Category
+Troubleshooting / Quality Control Analysis
+O*NET Dimensions
+O*NET Skills: Troubleshooting, Quality Control Analysis, Operations Analysis; O*NET Knowledge: Computers and Electronics, Engineering and Technology
+How It Works
+A process diagram or pseudocode snippet is displayed with 1–2 deliberate errors per round. Student identifies and fixes under time pressure. Rounds escalate in technical specificity: rounds 1–2 use household/business analogies (accessible to all), rounds 3–5 require technical reasoning. Key design principle: all correct answers can be logically derived — no domain memorisation required for rounds 1–3.
+Games & Tasks
+Round 1: Recipe with wrong procedure step (household, no tech needed) | Round 2: Business process with wrong step order | Round 3: Data flow diagram with incorrect transformation | Round 4: Algorithm pseudocode with logic error | Round 5: Server request flowchart with missing error handling
+Scoring
+Accuracy per round (bug identified correctly). Time-to-identify (speed signal). False positive rate. Composite Troubleshooting score, weighted heavier for rounds 3–5.
+Tech Stack
+Phaser.js (interactive flowchart renderer with clickable zones; pseudocode displayed as styled text with line numbers)
+T3
+Network Weave
+Session 3  |  ~6 min
+4 network routing scenarios  |  Tier 1 — Behavioral (real-time network routing decision game)
+Category
+Systems Architecture / Telecommunications Reasoning
+O*NET Dimensions
+O*NET Skills: Systems Analysis, Technology Design; O*NET Knowledge: Telecommunications, Computers and Electronics
+How It Works
+Data packets need to travel from source node to destination node across a network topology. Student routes packets in real time — clicking to draw connections, avoiding congested nodes (shown in red), prioritising urgent packets (shown in gold). 4 scenarios of increasing network complexity. Phaser.js uses A* pathfinding internally; student makes routing decisions, not code.
+Games & Tasks
+Scenario 1: 5-node linear network (simple routing) | Scenario 2: 8-node branched network (avoid 1 congested node) | Scenario 3: 12-node mesh (multiple congestion points, prioritise urgent) | Scenario 4: 15-node full mesh under dynamic load (nodes become congested during routing)
+Scoring
+Routing efficiency score (packets delivered / optimal path ratio). Priority handling (urgent packets delivered first = bonus). Congestion avoidance rate. Composite Network Reasoning score.
+Tech Stack
+Phaser.js (node-graph display with animated packet movement, Matter.js for visual node physics, real-time load simulation)
+T4
+Spreadsheet Sprint
+Session 3  |  ~6 min
+4 data tasks  |  Tier 1 — Behavioral (applied data reasoning without full spreadsheet knowledge required)
+Category
+Operations Monitoring / Data Literacy
+O*NET Dimensions
+O*NET Skills: Operations Monitoring, Quality Control Analysis; O*NET Knowledge: Computers and Electronics, Economics and Accounting
+How It Works
+Business scenarios with an embedded interactive data table (3–5 columns, 8–12 rows). Student applies sorting and filtering to answer a specific operational question: "Which product will run out first?", "Which region had the best growth rate?", "Which employee worked the most hours this week?" 4 tasks of increasing data complexity. Not a full Excel simulation — focused on data reasoning skill.
+Games & Tasks
+Task 1: Inventory — identify which product runs out first (sort by stock/daily rate) | Task 2: Sales — find top region by growth % (filter + compare) | Task 3: HR — identify scheduling conflict (cross-reference two tables) | Task 4: Finance — spot the anomaly in a cost report (pattern detection in data)
+Scoring
+Accuracy per task (correct answer). Steps taken to reach answer (efficiency signal — fewer operations = stronger data intuition). Time per task. Composite Data Literacy score.
+Tech Stack
+HTML interactive table (JavaScript sort/filter with click controls, no external library needed)
+T5
+Phishing Patrol
+Session 3  |  ~5 min
+6 messages across 3 difficulty rounds  |  Tier 1 — Behavioral (threat identification in realistic communication samples)
+Category
+ICT Security Awareness / Critical Evaluation
+O*NET Dimensions
+O*NET Skills: Quality Control Analysis; O*NET Knowledge: Computers and Electronics; O*NET Work Styles: Attention to Detail, Cautiousness
+How It Works
+Six emails or messages displayed one at a time. Student flags each as legitimate or suspicious and identifies the specific red flag (wrong domain, urgency manipulation, impersonation, grammar error, unexpected attachment). Three rounds: Round 1 — obvious phishing (misspelled domain, urgent threat), Round 2 — subtle phishing (correct branding, social engineering), Round 3 — spear phishing (personalised, contextually aware). Scoring is asymmetric: missing a real threat (false negative) costs more than flagging a safe message.
+Games & Tasks
+Round 1 (2 messages): Obvious phishing with clear visual cues | Round 2 (2 messages): Subtle phishing — legitimate-looking brand, social engineering language | Round 3 (2 messages): Spear phishing — uses personal context clues to seem legitimate
+Scoring
+True positive rate (phishing correctly flagged). True negative rate (legitimate correctly cleared). False negative penalty (-3 pts each, larger than false positive -1 pt). Red flag identification accuracy (bonus points for correct identification of specific technique).
+Tech Stack
+HTML/CSS (email mockup renderer with pixel-accurate UI) + Phaser.js overlay for flagging interaction
+T6
+API Mapper
+Session 3  |  ~7 min
+4 integration scenarios  |  Tier 1 — Behavioral (visual systems integration design task)
+Category
+Technology Design / Systems Integration Thinking
+O*NET Dimensions
+O*NET Skills: Technology Design, Programming; O*NET Knowledge: Computers and Electronics, Engineering and Technology
+How It Works
+Visual node-graph interface. Left panel: data sources (weather API, sales database, calendar, CRM). Right panel: output widgets (daily report, automated alert, dashboard chart, email digest). Centre: logic nodes (filter, aggregate, transform, schedule). Student draws connections to build a working integration for each scenario. 4 scenarios of increasing complexity. No coding required — pure systems thinking.
+Games & Tasks
+Scenario 1: Connect weather data to an alert widget (simple 2-node connection) | Scenario 2: Aggregate sales + calendar to generate a weekly report | Scenario 3: Filter CRM data, transform format, push to dashboard with scheduled trigger | Scenario 4: Multi-source integration with conditional logic (if sales > target, trigger alert; else, log to report)
+Scoring
+Correctness of data flow (source → correct logic nodes → correct output). Completeness (all required connections made). Efficiency (minimum nodes used vs. overly complex solution). Composite Systems Integration score.
+Tech Stack
+Phaser.js (custom node-graph editor with Bezier curve connections between draggable nodes; connection validation against correct answer schema)
+T7
+Equipment Selector
+Session 3  |  ~5 min
+4 selection problems  |  Tier 1 — Behavioral (constraint-satisfaction selection task)
+Category
+Operations Analysis / Equipment Selection
+O*NET Dimensions
+O*NET Skills: Operations Analysis, Equipment Selection, Installation; O*NET Knowledge: Engineering and Technology, Building and Construction, Mechanical
+How It Works
+Given a job requirement (build a 3-metre concrete wall in 6 hours, budget 500 units) and a catalogue of tools/equipment with specs (capacity, speed, cost, weight), student selects the optimal combination. 4 problems: construction equipment, laboratory instruments, computing hardware allocation, emergency response equipment. Rounds 1–2 are domain-neutral — pure constraint satisfaction logic.
+Games & Tasks
+Problem 1: Construction — select equipment to meet wall build spec (budget, time, output constraints) | Problem 2: Lab — select instruments for experimental protocol (sensitivity, cost, throughput) | Problem 3: Computing — allocate servers for workload (performance, cost, redundancy) | Problem 4: Emergency — allocate limited response units across 3 simultaneous incidents
+Scoring
+Optimal selection score: how close to ideal (cost-efficient, spec-meeting) solution. Constraint satisfaction rate (all hard constraints met = pass/fail threshold). Time per problem. Composite Operations Analysis score.
+Tech Stack
+HTML (filterable/sortable equipment catalogue with running totals for cost, time, capacity; constraint violation highlighted in real time)
+GROUP D — Knowledge Domain Games K1–K10  |  Session 3 (Adaptive — 3–5 per student)
+K1
+World Map Mind
+Session 3  |  ~6 min
+5 multi-clue puzzles  |  Tier 1 — Behavioral (inference-based geographic reasoning)
+Category
+Geographic Knowledge / Spatial Reasoning
+O*NET Dimensions
+O*NET Knowledge: Geography; O*NET Skills: Active Learning (iterative inference from clues)
+How It Works
+Clues appear one at a time — climate type, landmark description, cultural fact, economic indicator, historical note. Student narrows down to a location by clicking progressively smaller map regions after each clue. Fewer clues used to reach the correct location = higher score. GeoGuessr-inspired but scored on reasoning quality, not guessing luck.
+Games & Tasks
+5 puzzles of increasing geographic specificity | Each puzzle: up to 5 clues available (student stops when confident) | Map interaction: click continent → region → country → city level
+Scoring
+Score per puzzle = (max clues - clues used) × accuracy. Clue efficiency bonus for early correct identification. Total score normalised to 0–100 Geography Knowledge score.
+Tech Stack
+Phaser.js + interactive SVG world map (clickable at continent/country/city level; zoom animation on click)
+Shown To
+Shown to students with career signals in: Environmental Science, Agriculture, Travel & Hospitality, International Relations, Social Studies, Urban Planning, Geography/Earth Science
+K2
+Market Mover
+Session 3  |  ~6 min
+3 scenarios with shock events  |  Tier 2 — Simulated Choice (intuitive economics + prediction)
+Category
+Economic Reasoning / Business Acumen
+O*NET Dimensions
+O*NET Knowledge: Economics and Accounting, Sales and Marketing, Administration and Management; O*NET Skills: Judgment and Decision Making
+How It Works
+Simple supply-demand simulation with live-updating graphs. Student adjusts a price slider and watches quantity demanded change in real time. Then an economic shock occurs (raw material cost rises, competitor enters market, new regulation imposed). Student predicts the new equilibrium by adjusting the supply/demand sliders and confirming their prediction. 3 scenarios: consumer goods → labour market → currency exchange.
+Games & Tasks
+Scenario 1: Consumer goods market (shift price, then demand shock) | Scenario 2: Labour market (minimum wage change + automation shock) | Scenario 3: Currency exchange (interest rate change + trade balance shock)
+Scoring
+Prediction accuracy: distance from correct equilibrium (0–10 scale). Direction correct (moved supply/demand the right way) = partial credit. Speed of correct prediction. Composite Economics Knowledge score.
+Tech Stack
+HTML + Chart.js (live-updating supply-demand chart) + custom slider controls
+Shown To
+Shown to: Business, Finance, Economics, Entrepreneurship, Management, Policy, Commerce domains
+K3
+Ecosystem Architect
+Session 3  |  ~6 min
+3 ecosystems × 1 intervention decision  |  Tier 2 — Simulated Choice (systems consequence prediction)
+Category
+Biological Systems / Ecological Reasoning
+O*NET Dimensions
+O*NET Knowledge: Biology, Food Production; O*NET Skills: Systems Analysis, Science; relevant for ecology, agriculture, veterinary, environmental careers
+How It Works
+A food web with 8 species shown as an animated node-link diagram. Student removes one species — arrows dim and brighten as cascading effects animate across the web. Student observes the consequences. Then a decision question: "The farmer wants to increase crop yield — which intervention has the least ecological disruption?" Three options shown with consequence previews. 3 different ecosystem types.
+Games & Tasks
+Ecosystem 1: Freshwater lake food web | Ecosystem 2: Agricultural field ecosystem | Ecosystem 3: Forest edge ecosystem | Each: species removal observation + intervention decision
+Scoring
+Decision accuracy (correct intervention chosen). Justification quality if open text is offered. Cascade prediction accuracy (did student predict the correct consequences from species removal?). Composite Ecology Knowledge score.
+Tech Stack
+Phaser.js (animated force-directed node-link diagram with cascade simulation on node removal)
+Shown To
+Shown to: Biology, Environmental Science, Agriculture, Veterinary Science, Medicine, Ecology, Conservation domains
+K4
+Body Blueprint
+Session 3  |  ~5 min
+5 clinical reasoning cases  |  Tier 2 — Simulated Choice (diagnostic pathway navigation)
+Category
+Medical Knowledge / Clinical Reasoning
+O*NET Dimensions
+O*NET Knowledge: Medicine and Dentistry, Biology, Therapy and Counseling; relevant for all healthcare careers
+How It Works
+Not an anatomy quiz. A patient presents with symptoms shown as icon clusters. Student routes the diagnostic pathway through a decision tree: which body system is involved? → which test category would you order? → which treatment class makes most sense? 5 cases of increasing ambiguity. Accessible entry point: someone who watches medical dramas can answer round 1 on intuition. Domain knowledge differentiates from round 3 onward.
+Games & Tasks
+Case 1: Classic presentation (obvious system involvement — accessible) | Case 2: Two-system ambiguity | Case 3: Atypical presentation | Case 4: Complication requiring priority triage | Case 5: Rare presentation requiring specialist reasoning
+Scoring
+Decision tree accuracy per case. Pathway efficiency (reached correct diagnosis in fewest steps). Triage priority accuracy (Case 4). Composite Medical Reasoning score.
+Tech Stack
+Phaser.js (symptom icon display + branching decision tree UI with animated pathway)
+Shown To
+Shown to: Medicine, Dentistry, Nursing, Paramedic, Pharmacy, Psychology, Physiotherapy, Veterinary domains
+K5
+Case Classifier
+Session 3  |  ~5 min
+5 legal/regulatory scenarios  |  Tier 1 — Behavioral (legal categorisation and reasoning)
+Category
+Legal Reasoning / Regulatory Literacy
+O*NET Dimensions
+O*NET Knowledge: Law and Government, Public Safety and Security, Personnel and Human Resources; relevant for law, HR, compliance, journalism, policy
+How It Works
+A scenario plays out in 3 sentences describing a real-world situation involving a legal or regulatory dimension. Student classifies it: which area of law applies? → which remedy is most appropriate? → which party has legal standing? Not about citing statutes — about recognising legal patterns and applying categorical reasoning.
+Games & Tasks
+Case 1: Workplace dispute (employment law — accessible) | Case 2: Contract disagreement (commercial law) | Case 3: Environmental violation (regulatory compliance) | Case 4: Data privacy breach (technology law) | Case 5: Intellectual property conflict (IP law)
+Scoring
+Classification accuracy per case (area of law, remedy type, standing). Partial credit for correct area with wrong remedy. Composite Legal Reasoning score.
+Tech Stack
+HTML/Phaser.js (scenario text display + 3-step classification interface with category dropdowns)
+Shown To
+Shown to: Law, HR, Compliance, Public Administration, Journalism, Policy, Finance domains
+K6
+Structure Stress
+Session 3  |  ~6 min
+5 structural puzzles  |  Tier 1 — Behavioral (structural failure identification + reinforcement reasoning)
+Category
+Engineering Knowledge / Physics Intuition
+O*NET Dimensions
+O*NET Knowledge: Engineering and Technology, Physics, Building and Construction; O*NET Skills: Science, Technology Design
+How It Works
+A bridge or building schematic is displayed with a load applied. Student identifies which structural element (joint, beam, cable) will fail first under the load by clicking it. Matter.js calculates the actual failure point and provides feedback. Then: "How would you reinforce it?" — three options shown with live consequence previews. 5 puzzles from simple truss to complex multi-load structure.
+Games & Tasks
+Puzzle 1: Simple beam bridge (2 supports, central load) | Puzzle 2: Cantilevered structure | Puzzle 3: Arch bridge under asymmetric load | Puzzle 4: Multi-storey frame under lateral wind load | Puzzle 5: Cable-stayed bridge under dynamic load
+Scoring
+Failure identification accuracy per puzzle. Reinforcement choice effectiveness (scored against Matter.js simulation outcome). Composite Structural Engineering score.
+Tech Stack
+Phaser.js + Matter.js physics engine (structural member stress simulation; failure point calculated and animated)
+Shown To
+Shown to: Engineering, Architecture, Construction, Manufacturing, Product Design, Materials Science domains
+K7
+Compound Creator
+Session 3  |  ~5 min
+6 chemistry challenges  |  Tier 1 — Behavioral (chemical combination reasoning)
+Category
+Chemistry Knowledge / Reaction Reasoning
+O*NET Dimensions
+O*NET Knowledge: Chemistry, Physics, Production and Processing; relevant for chemistry, pharmaceuticals, materials, food science careers
+How It Works
+Visual periodic table elements shown on screen. Student drags elements to combine them. The game responds: Does this reaction occur? What is the primary product? What safety precaution applies? 6 rounds progressing from household chemistry to industrial and pharmaceutical processes. Rounds 1–2 fully accessible without chemistry knowledge.
+Games & Tasks
+Round 1: Vinegar + baking soda (household — accessible, gas production) | Round 2: Soap + water (emulsification — household) | Round 3: Iron + oxygen (industrial rust/oxide formation) | Round 4: Nitrogen + hydrogen (Haber process — industrial ammonia) | Round 5: Aspirin synthesis (pharmaceutical) | Round 6: Polymer formation (materials science)
+Scoring
+Reaction prediction accuracy per round. Product identification accuracy. Safety precaution accuracy. Weighted scoring: rounds 3–6 worth double rounds 1–2. Composite Chemistry Knowledge score.
+Tech Stack
+Phaser.js (periodic table element tiles with drag-and-drop combination; reaction lookup table in JSON)
+Shown To
+Shown to: Chemistry, Chemical Engineering, Pharmaceuticals, Food Science, Materials Science, Biochemistry domains
+K8
+Argument Architect
+Session 3  |  ~5 min
+3 arguments × 2 judgments = 6 scored decisions  |  Tier 1 — Behavioral (logical fallacy identification + counter-argument selection)
+Category
+Philosophical Reasoning / Logic / Critical Thinking
+O*NET Dimensions
+O*NET Knowledge: Philosophy and Theology; O*NET Skills: Critical Thinking, Active Learning; O*NET Abilities: Deductive Reasoning
+How It Works
+An argument is presented in 3–5 sentences containing a hidden logical flaw. Student identifies the flaw type from 4 options (circular reasoning, false dichotomy, slippery slope, appeal to authority, ad hominem, hasty generalisation). Then selects the strongest counter-argument from 3 options. 3 rounds: (1) obvious fallacy in everyday argument, (2) subtle fallacy in policy debate, (3) compound fallacy in philosophical argument.
+Games & Tasks
+Round 1: Everyday argument with obvious fallacy (accessible — no philosophy needed) | Round 2: Policy debate with subtle false dichotomy | Round 3: Philosophical argument with compound fallacy (strawman + appeal to tradition)
+Scoring
+Fallacy identification accuracy (correct type = 3 pts, adjacent type = 1 pt). Counter-argument selection accuracy (strongest = 3 pts, reasonable = 1 pt). Composite Logical Reasoning score.
+Tech Stack
+HTML/Phaser.js (argument text display + 4-option fallacy selector + 3-option counter-argument selector)
+Shown To
+Shown to: Law, Research, Journalism, Philosophy, Policy, Management, Education, Psychology domains
+K9
+Crisis Commander
+Session 3  |  ~10 min
+1 full real-time simulation  |  Tier 1 — Behavioral (real-time multi-resource emergency management simulation — the most complex module in the library)
+Category
+Emergency Management / Public Safety / Resource Allocation
+O*NET Dimensions
+O*NET Knowledge: Public Safety and Security, Law and Government; O*NET Skills: Judgment and Decision Making, Management of Personnel Resources, Management of Material Resources
+How It Works
+A crisis scenario unfolds in real time. Student plays incident commander. Multiple information feeds arrive simultaneously (radio reports, camera feeds shown as icons, resource status bars). Student allocates limited response units across competing needs, issues prioritised orders (click-to-assign), manages information flow, and adapts as situation evolves. Three act structure: initial response → escalation → resolution. Scored on outcome, efficiency, and communication clarity.
+Games & Tasks
+Act 1: Initial response — first alerts arrive, student assigns first responders | Act 2: Escalation — secondary crisis develops, resources stretched, triage decision required | Act 3: Resolution — manage wind-down, ensure no critical elements missed | Dynamic elements: units run out, situations worsen if unaddressed, new information arrives every 45 seconds
+Scoring
+Outcome score (casualties prevented, containment achieved — compared to optimal strategy). Efficiency score (resources used vs. minimum required). Priority accuracy (critical incidents addressed first). Composite Emergency Management score.
+Tech Stack
+Phaser.js (real-time resource management UI with timeline, unit assignment drag-and-drop, information feed panel) — alternatively Godot WebGL export for richer simulation fidelity
+Shown To
+Shown to: Public Safety, Military, Emergency Services, Hospital/Disaster Management, Police, Fire, Paramedic domains
+K10
+Period Mapper
+Session 3  |  ~6 min
+15 historical events to cluster and connect  |  Tier 1 — Behavioral (historical era clustering + causal chain reasoning)
+Category
+Historical Knowledge / Chronological Reasoning
+O*NET Dimensions
+O*NET Knowledge: History and Archeology, Sociology and Anthropology, Philosophy and Theology; relevant for humanities, journalism, law, policy, international relations
+How It Works
+Historical events described in 2 sentences (without dates) appear as draggable cards on a canvas. Student clusters them into historical eras by proximity and draws causal arrows between events that are causally connected ("This led to this"). Scored on clustering accuracy (correct era groupings), causal chain correctness (real vs. spurious connections), and number of eras correctly identified.
+Games & Tasks
+15 event cards spanning 5 historical periods | Clustering phase: drag cards into era groups on open canvas | Causal mapping phase: draw arrows between causally connected events | No dates shown — era recognition from content alone
+Scoring
+Clustering score: proportion of events in correct era cluster (partial credit for correct-era near-misses). Causal accuracy: correct arrows drawn / total arrows drawn (penalise spurious connections). Era count accuracy. Composite Historical Knowledge score.
+Tech Stack
+Phaser.js (free-placement drag-and-drop canvas with Bezier arrow drawing between event cards)
+Shown To
+Shown to: History, Humanities, Journalism, Law, Policy, International Relations, Archaeology, Education domains
+4. O*NET Dimension Coverage Matrix
+All 8 O*NET psychometric dimension categories — coverage before and after the full 39-module suite.
+O*NET Category
+Total Dims
+Before (survey only)
+After (all 39 modules)
+Modules Responsible
+Abilities (Cognitive)
+52
+~5 items (Phase 6 survey)
+Full coverage — 130+ trials per ability
+M5, M9–M22
+Skills
+35
+12 (Phase 6–7 surveys)
+All 35 covered across behavioral tasks
+M6 (12) + T1–T7 (23)
+Knowledge
+33
+8 (Phase 2 subject list)
+Adaptive depth per student domain profile
+M7 + K1–K10
+Work Activities
+41
+0
+Covered via Work Styles behavioral proxies
+M2 (activity-embedded)
+Work Context
+55
+2 (Phase 2D env. questions)
+Full 55-dimension simulation coverage
+M4 Environment Simulator
+Work Styles (Personality)
+21
+~8 (Phase 3 sliders)
+All 21 covered behaviorally
+M2 Work Styles Arena
+Interests (RIASEC)
+6
+3 (Phase 2 subject preference)
+All 6 codes, 10+ data points each
+M1 Interest Explorer
+Work Values
+6
+2 (Phase 4)
+All 6 values, forced-choice + simulation
+M3 Values & Life Design
+5. Technology Stack Summary
+All 39 modules are buildable using open-source tools. Claude (claude-haiku) handles AI-scored open-ended responses via API.
+Technology
+License
+Used In
+Why
+Phaser.js 3.x
+MIT (free)
+M1–M22, T1–T7, K1–K10 (most modules)
+Industry-standard HTML5 game framework; runs in browser, no app install; massive community; Claude can generate complete scenes from spec
+Google Blockly
+Apache 2.0 (free)
+T1 Logic Flow
+Open-source visual block-programming library; powers Scratch Jr., code.org; embeds in Phaser.js page
+Matter.js
+MIT (free)
+T3 Network Weave, K6 Structure Stress
+2D physics engine, already bundled with Phaser.js; handles structural simulation and particle physics
+Web Audio API
+Browser native (free)
+M8, M9
+Browser built-in; no library needed; handles audio playback and rhythm detection for sensory tasks
+Chart.js
+MIT (free)
+K2 Market Mover
+Live-updating chart for supply-demand simulation; lightweight, excellent animation
+Claude API (Haiku)
+Anthropic API (paid per token)
+M6 (writing scoring), M18, M19 (creativity scoring), M7 (item generation)
+AI scoring of open-ended responses; item generation for Expert Challenge; Haiku is fast and cost-effective for high-frequency scoring
+Godot WebGL export
+MIT (free)
+K9 Crisis Commander (optional)
+For richest simulation fidelity; HTML5 export runs in browser; viable alternative to Phaser.js for complex real-time resource management
+6. Adaptive Selection Logic
+Not all 39 modules are shown to every student. The system selects Session 3 modules based on career domain signals from Sessions 1 and 2. The table below shows which T and K modules are triggered by each domain cluster.
+Career Domain Cluster
+T Modules Activated
+K Modules Activated
+Technology & Engineering
+T1, T2, T3, T4, T6, T7
+K6 (Structure Stress), K7 (Compound Creator)
+Business, Finance & Management
+T4, T7
+K2 (Market Mover), K5 (Case Classifier)
+Healthcare & Medicine
+T4
+K3 (Ecosystem Architect), K4 (Body Blueprint), K7 (Compound Creator)
+Law, Policy & Public Administration
+T5
+K5 (Case Classifier), K8 (Argument Architect), K10 (Period Mapper)
+Science & Research
+T2, T6
+K3 (Ecosystem Architect), K6 (Structure Stress), K7 (Compound Creator), K8 (Argument Architect)
+Creative Arts & Design
+T6
+K1 (World Map Mind), K10 (Period Mapper)
+Education & Social Work
+T4, T5
+K4 (Body Blueprint), K8 (Argument Architect), K10 (Period Mapper)
+Public Safety & Emergency Services
+T7
+K5 (Case Classifier), K9 (Crisis Commander)
+Environmental & Agricultural
+T7
+K1 (World Map Mind), K2 (Market Mover), K3 (Ecosystem Architect)
+All students (minimum baseline)
+T1, T2, T5
+K2 (Market Mover) — economics literacy baseline
+MBS Game-Based Assessment Blueprint v2.0  |  39 Modules  |  Confidential

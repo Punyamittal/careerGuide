@@ -1,0 +1,420 @@
+{
+  "occupations": [
+    {
+      "soc_code": "13-2011.00",
+      "title": "Accountants and Auditors",
+      "description": "Examine, analyze, and interpret accounting records to prepare financial statements, give advice, or audit and evaluate statements prepared by others. Install or advise on systems of recording costs or other financial and budgetary data.",
+      "job_zone": 4,
+      "classification_status": "accepted",
+      "bright_outlook": null,
+      "green_occupation": null,
+      "median_salary": null,
+      "release_id": "b87807e4-f5b2-4bf0-adc1-fb7b465e0e21",
+      "release_version": "2023.08",
+      "riasec_vector": {
+        "ria_A": 0.1542857142857143,
+        "ria_C": 1,
+        "ria_E": 0.5528571428571428,
+        "ria_I": 0.51,
+        "ria_R": 0.16285714285714284,
+        "ria_S": 0.30428571428571427
+      },
+      "profile_v1_vector": {
+        "bf_A": 0.5,
+        "bf_C": 0.5,
+        "bf_E": 0.5,
+        "bf_N": 0.5,
+        "bf_O": 0.5,
+        "ria_A": 0.1542857142857143,
+        "ria_C": 1,
+        "ria_E": 0.5528571428571428,
+        "ria_I": 0.51,
+        "ria_R": 0.16285714285714284,
+        "ria_S": 0.30428571428571427,
+        "mot_data": 0.755,
+        "mot_ideas": 0.3321428571428572,
+        "apt_verbal": 0.7649999999999999,
+        "mot_people": 0.42857142857142855,
+        "mot_things": 0.5814285714285714,
+        "apt_logical": 0.6952,
+        "apt_numerical": 0.6900000000000001
+      },
+      "holland_codes": [
+        "R",
+        "I",
+        "A",
+        "S",
+        "E",
+        "C"
+      ],
+      "interest_scores": [
+        {
+          "element_name": "Realistic",
+          "holland_code": "R",
+          "score": 1.14
+        },
+        {
+          "element_name": "Investigative",
+          "holland_code": "I",
+          "score": 3.57
+        },
+        {
+          "element_name": "Artistic",
+          "holland_code": "A",
+          "score": 1.08
+        },
+        {
+          "element_name": "Social",
+          "holland_code": "S",
+          "score": 2.13
+        },
+        {
+          "element_name": "Enterprising",
+          "holland_code": "E",
+          "score": 3.87
+        },
+        {
+          "element_name": "Conventional",
+          "holland_code": "C",
+          "score": 7
+        }
+      ]
+    },
+    {
+      "soc_code": "27-2011.00",
+      "title": "Actors",
+      "description": "Play parts in stage, television, radio, video, or film productions, or other settings for entertainment, information, or instruction. Interpret serious or comic role by speech, gesture, and body movement to entertain or inform audience. May dance and sing.",
+      "job_zone": 2,
+      "classification_status": "accepted",
+      "bright_outlook": null,
+      "green_occupation": null,
+      "median_salary": null,
+      "release_id": "b87807e4-f5b2-4bf0-adc1-fb7b465e0e21",
+      "release_version": "2023.08",
+      "riasec_vector": {
+        "ria_A": 1,
+        "ria_C": 0.25857142857142856,
+        "ria_E": 0.5714285714285714,
+        "ria_I": 0.3085714285714286,
+        "ria_R": 0.3271428571428571,
+        "ria_S": 0.5828571428571429
+      },
+      "profile_v1_vector": {
+        "bf_A": 0.5,
+        "bf_C": 0.5,
+        "bf_E": 0.5,
+        "bf_N": 0.5,
+        "bf_O": 0.5,
+        "ria_A": 1,
+        "ria_C": 0.25857142857142856,
+        "ria_E": 0.5714285714285714,
+        "ria_I": 0.3085714285714286,
+        "ria_R": 0.3271428571428571,
+        "ria_S": 0.5828571428571429,
+        "mot_data": 0.2835714285714286,
+        "mot_ideas": 0.6542857142857144,
+        "apt_verbal": 0.7457499999999999,
+        "mot_people": 0.5771428571428572,
+        "mot_things": 0.2928571428571428,
+        "apt_logical": 0.5851999999999999,
+        "apt_numerical": 0.24100000000000002
+      },
+      "holland_codes": [
+        "R",
+        "I",
+        "A",
+        "S",
+        "E",
+        "C"
+      ],
+      "interest_scores": [
+        {
+          "element_name": "Realistic",
+          "holland_code": "R",
+          "score": 2.29
+        },
+        {
+          "element_name": "Investigative",
+          "holland_code": "I",
+          "score": 2.16
+        },
+        {
+          "element_name": "Artistic",
+          "holland_code": "A",
+          "score": 7
+        },
+        {
+          "element_name": "Social",
+          "holland_code": "S",
+          "score": 4.08
+        },
+        {
+          "element_name": "Enterprising",
+          "holland_code": "E",
+          "score": 4
+        },
+        {
+          "element_name": "Conventional",
+          "holland_code": "C",
+          "score": 1.81
+        }
+      ]
+    },
+    {
+      "soc_code": "15-2011.00",
+      "title": "Actuaries",
+      "description": "Analyze statistical data, such as mortality, accident, sickness, disability, and retirement rates and construct probability tables to forecast risk and liability for payment of future benefits. May ascertain insurance rates required and cash reserves necessary to ensure payment of future benefits.",
+      "job_zone": 4,
+      "classification_status": "accepted",
+      "bright_outlook": null,
+      "green_occupation": null,
+      "median_salary": null,
+      "release_id": "b87807e4-f5b2-4bf0-adc1-fb7b465e0e21",
+      "release_version": "2023.08",
+      "riasec_vector": {
+        "ria_A": 0.16142857142857142,
+        "ria_C": 0.8985714285714286,
+        "ria_E": 0.4757142857142857,
+        "ria_I": 0.6357142857142858,
+        "ria_R": 0.2542857142857143,
+        "ria_S": 0.35571428571428576
+      },
+      "profile_v1_vector": {
+        "bf_A": 0.5,
+        "bf_C": 0.5,
+        "bf_E": 0.5,
+        "bf_N": 0.5,
+        "bf_O": 0.5,
+        "ria_A": 0.16142857142857142,
+        "ria_C": 0.8985714285714286,
+        "ria_E": 0.4757142857142857,
+        "ria_I": 0.6357142857142858,
+        "ria_R": 0.2542857142857143,
+        "ria_S": 0.35571428571428576,
+        "mot_data": 0.7671428571428571,
+        "mot_ideas": 0.3985714285714286,
+        "apt_verbal": 0.78325,
+        "mot_people": 0.4157142857142857,
+        "mot_things": 0.5764285714285714,
+        "apt_logical": 0.7648,
+        "apt_numerical": 0.8960000000000001
+      },
+      "holland_codes": [
+        "R",
+        "I",
+        "A",
+        "S",
+        "E",
+        "C"
+      ],
+      "interest_scores": [
+        {
+          "element_name": "Realistic",
+          "holland_code": "R",
+          "score": 1.78
+        },
+        {
+          "element_name": "Investigative",
+          "holland_code": "I",
+          "score": 4.45
+        },
+        {
+          "element_name": "Artistic",
+          "holland_code": "A",
+          "score": 1.13
+        },
+        {
+          "element_name": "Social",
+          "holland_code": "S",
+          "score": 2.49
+        },
+        {
+          "element_name": "Enterprising",
+          "holland_code": "E",
+          "score": 3.33
+        },
+        {
+          "element_name": "Conventional",
+          "holland_code": "C",
+          "score": 6.29
+        }
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "1.A.1.a.1",
+      "element_name": "Oral Comprehension",
+      "scale_id": "IM",
+      "scale_name": "Importance",
+      "data_value": 4.62,
+      "importance": 4.62,
+      "level": null,
+      "category": "cognitive"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "1.A.1.a.1",
+      "element_name": "Oral Comprehension",
+      "scale_id": "LV",
+      "scale_name": "Level",
+      "data_value": 4.88,
+      "importance": null,
+      "level": 4.88,
+      "category": "cognitive"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "1.A.1.a.2",
+      "element_name": "Written Comprehension",
+      "scale_id": "IM",
+      "scale_name": "Importance",
+      "data_value": 4.25,
+      "importance": 4.25,
+      "level": null,
+      "category": "cognitive"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "1.A.1.a.2",
+      "element_name": "Written Comprehension",
+      "scale_id": "LV",
+      "scale_name": "Level",
+      "data_value": 4.88,
+      "importance": null,
+      "level": 4.88,
+      "category": "cognitive"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "1.A.1.a.3",
+      "element_name": "Oral Expression",
+      "scale_id": "IM",
+      "scale_name": "Importance",
+      "data_value": 4.5,
+      "importance": 4.5,
+      "level": null,
+      "category": "cognitive"
+    }
+  ],
+  "skills": [
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "2.A.1.a",
+      "element_name": "Reading Comprehension",
+      "scale_id": "IM",
+      "scale_name": "Importance",
+      "data_value": 4.12,
+      "importance": 4.12,
+      "level": null,
+      "skill_category": "basic"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "2.A.1.a",
+      "element_name": "Reading Comprehension",
+      "scale_id": "LV",
+      "scale_name": "Level",
+      "data_value": 4.62,
+      "importance": null,
+      "level": 4.62,
+      "skill_category": "basic"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "2.A.1.b",
+      "element_name": "Active Listening",
+      "scale_id": "IM",
+      "scale_name": "Importance",
+      "data_value": 4,
+      "importance": 4,
+      "level": null,
+      "skill_category": "cross_functional"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "2.A.1.b",
+      "element_name": "Active Listening",
+      "scale_id": "LV",
+      "scale_name": "Level",
+      "data_value": 4.75,
+      "importance": null,
+      "level": 4.75,
+      "skill_category": "cross_functional"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "element_id": "2.A.1.c",
+      "element_name": "Writing",
+      "scale_id": "IM",
+      "scale_name": "Importance",
+      "data_value": 4.12,
+      "importance": 4.12,
+      "level": null,
+      "skill_category": "basic"
+    }
+  ],
+  "technology_skills": [
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "example": "Adobe Acrobat",
+      "commodity_code": 43232202,
+      "commodity_title": "Document management software",
+      "hot_technology": true,
+      "in_demand": false,
+      "category": "software"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "example": "AdSense Tracker",
+      "commodity_code": 43232306,
+      "commodity_title": "Data base user interface and query software",
+      "hot_technology": false,
+      "in_demand": false,
+      "category": "software"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "example": "Atlassian JIRA",
+      "commodity_code": 43232201,
+      "commodity_title": "Content workflow software",
+      "hot_technology": true,
+      "in_demand": false,
+      "category": "software"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "example": "Blackbaud The Raiser's Edge",
+      "commodity_code": 43232303,
+      "commodity_title": "Customer relationship management CRM software",
+      "hot_technology": false,
+      "in_demand": false,
+      "category": "software"
+    },
+    {
+      "soc_code": "11-1011.00",
+      "occupation_title": "Chief Executives",
+      "example": "ComputerEase construction accounting software",
+      "commodity_code": 43231601,
+      "commodity_title": "Accounting software",
+      "hot_technology": false,
+      "in_demand": false,
+      "category": "software"
+    }
+  ]
+}

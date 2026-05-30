@@ -1,0 +1,764 @@
+MyBrainScale (MBS)
+Integrated Assessment Question Flow
+Final Version — All 39 Game Modules + Audited Survey Questions
+3Sessions
+39Game Modules
+~90 minTotal Duration
+249O*NET Dims
+993Occupations
+Flag Legend
+OK (green):  Question is well-placed, unique, sufficient items
+REMOVE (red):  Duplicate / redundant — flag for deletion
+THIN (orange):  Fewer than 5 items for this dimension — supplement with game
+KEEP (teal):  Borderline — retain but monitor
+NOTE (blue):  Reordered or restructured — see audit
+MODULE (purple/blue/green):  New game module — M=cognitive, T=tech, K=knowledge
+Part 1 — Audit Summary
+Five structural issues were identified in the original MBS Question Flow. All are resolved in the final integrated flow below.
+1.1  Duplicates & Redundancies Removed (18 questions)
+The following 18 questions were flagged for removal due to exact or near-identical wording measuring the same construct:
+3A / 3H:  Leader or follower (Phase 3A) vs. "I prefer leading" (Phase 3H) — identical construct, keep 3A
+3B / 3K:  Masculine vs. feminine slider duplicated in Phase 3B and 3K
+3F / 3P:  Both probe creative vs. analytical preference with near-identical wording
+3N / 3R:  Both measure preference for routine vs. variety
+3S / 3E:  Social comfort questions with trivially different framing
+3D / 3X:  Risk tolerance measured twice with different labels
+4C-4 / 4C-8 / 4C-10:  Three overlapping political ideology items; retain 4C-4 only
+4A-2 / 4A-3:  Both measure financial ambition; 4A-2 is more nuanced, remove 4A-3
+4B-1 / 4C-1 / 4C-5:  Leadership aspiration measured 3 times across phases 4B and 4C
+1.2  Overdone Dimensions (4–8 items for same construct)
+Individuality / Introversion-Extraversion:  8 items → trimmed to 5 (1A-1, 1A-2, 1A-3, 1A-5, 2D-2)
+Political Ideology:  7 items → trimmed to 4 (retain items with highest construct validity)
+Leadership Aspiration:  4 near-duplicates across phases 3, 4A, 4B → keep best 2
+Money vs. Recognition motivation:  3 near-identical items → keep 1C-1 only
+1.3  Chronology Issues Fixed
+Real Problems moved Phase 5 → Session 3:  Students need cognitive baseline before open problem reflection is meaningful
+Avoidances moved Phase 1 → Session 3:  Avoidance framing creates negative priming at start; better after personality established
+Subjects moved Phase 2 → Session 3 Phase 11:  Domain knowledge games now replace static subject checklist
+Aptitude/Knowledge moved earlier → Session 2:  Cognitive games now run in dedicated session, not buried in Phase 6
+AI interview now continuous, not end-of-flow only:  AI follow-ups integrated at each phase rather than a single Phase 7 block
+1.4  Completeness — Before vs. After
+Coverage across all 8 O*NET psychometric dimension categories:
+O*NET Category
+Dimensions
+Before (survey items)
+After (games + surveys)
+Abilities (Cognitive)
+52
+~5 (Phase 6)
+M5 + M9–M22: 130+ trials per ability
+Skills
+35
+12 (Phase 6–7)
+M6 + T1–T7: 35/35 dimensions covered
+Knowledge
+33
+8 (Phase 2 subject list)
+M7 + K1–K10: adaptive per domain
+Work Activities
+41
+0
+M2 Work Styles games capture activity proxies
+Work Context
+55
+2 (Phase 2D env.)
+M4 Environment Simulator: 45 stimuli
+Work Styles
+21
+~8 (Phase 3 survey)
+M2 Work Styles Arena: all 21 covered
+Interests (RIASEC)
+6
+3 (Phase 2 subjects)
+M1 Interest Explorer: all 6 codes
+Work Values
+6
+2 (Phase 4)
+M3 Values & Life Design: all 6 covered
+Part 2 — Full Integrated Assessment Flow
+Three sessions across three days. Each session unlocks a mini-report. Session 3 is adaptive — students only take the Technology/ICT and Knowledge games relevant to their top 3 career domain clusters identified in Sessions 1 and 2.
+SESSION 1   |   WHO YOU ARE   |   ~30 minutes
+Mini-report unlocked: "Your Personality Blueprint" — top traits, energy style, 3 career families
+Phase 0  —  Sign-Up & Profiling  |  Demographics, uploads, adaptive branching setup
+Q0-1
+Age (input: number/slider — branches to school/college/workforce flow)
+OK
+Q0-2
+Gender (dropdown: Male / Female / Non-binary / Prefer not to say)
+OK
+Q0-3
+Current education level (determines subject list in Phase 11)
+OK
+Q0-4
+Internships & projects (free text + file upload — AI categorises)
+OK
+Q0-5
+Projects (same structure as Q4, clustered with Q4)
+OK
+[AI STEP]  Claude categorises uploaded internship/project content into: Skills, Knowledge domains, Concerns, Gaps, Development needs.
+Phase 1  —  Likes & Dislikes  |  Personality, social preferences, technology orientation, avoidances
+A. Social Preferences
+1A-1
+I like sitting alone in class vs. I like sitting with a group (Binary)
+→ Individuality Index
+OK
+1A-2
+Talking to people requires effort vs. I can talk effortlessly (Binary)
+→ Social Anxiety sub-score
+OK
+1A-3
+My energy recharges alone vs. recharges with people (Binary + scale)
+→ Introversion/Extraversion
+OK
+1A-4
+Leader on a scale 1–5 (Aspiring leader → Alone)
+→ Leadership Aspiration score
+OK
+1A-5
+Individualism vs. groupism (Binary)
+→ Collectivism dimension
+OK
+B. Technology Preferences
+1B-1
+I use my phone more vs. I use my computer more (Binary)
+→ Tech Type score
+OK
+1B-2
+I find tools & technology fascinating vs. I find people & the world fascinating (Binary)
+→ Tech orientation
+OK
+1B-3
+Science & Maths vs. English & Social Science (Binary)
+→ STEM vs. Humanities signal
+OK
+C. Motivation & Values
+1C-1
+Get money vs. Recognition / Be famous (Binary)
+→ Extrinsic motivation type
+OK
+D. Scales
+1D-1
+Sports vs. Studies on scale 1–5
+→ Activity/academic balance signal
+OK
+[AI STEP]  After Phase 1: Claude analyses social preference pattern and asks one open follow-up (e.g. "Tell me about a time you felt most energised").
+Phase 2  —  Work Environment & Context  |  Physical preferences, group vs. solo, exposure comfort
+2D-1
+Do you prefer working inside or outside? (Binary)
+→ Work Context signal
+OK
+2D-2
+Individual work vs. group work (Binary + scale)
+→ Individuality Index
+OK
+2D-3
+How much public exposure are you comfortable with? (Scale 1–5)
+Score <2 → flag social anxiety
+OK
+Phase 3  —  Comparison Tests — Personality Sliders  |  Binary + scale items; duplicates removed
+Items 3H, 3F, 3K, 3N, 3P, 3R, 3S, 3E, 3D, 3X removed (see audit Section 1.1)
+3A
+Leader or follower (Binary/slider)
+→ Leadership Aspiration
+OK
+3B
+Masculine or feminine (Slider)
+→ Gender expression signal
+OK
+3C
+Introvert or extrovert (Slider)
+→ confirms 1A-1/1A-3
+OK
+3G
+Creative vs. analytical (Slider)
+→ Artistic vs. Conventional RIASEC
+OK
+3I
+Risk-taker vs. risk-avoider (Slider)
+→ Enterprising vs. Conventional
+OK
+3J
+Empathetic vs. logical (Slider)
+→ Social vs. Investigative RIASEC
+OK
+3L
+Detail-oriented vs. big picture (Slider)
+→ Attention to Detail
+OK
+3M
+Structured vs. flexible (Slider)
+→ Work Style: Adaptability vs. Dependability
+OK
+3O
+Competitive vs. collaborative (Slider)
+→ Achievement vs. Cooperation
+OK
+3Q
+Optimistic vs. pessimistic (Slider)
+→ Work Style: Optimism
+OK
+3T
+Curious vs. practical (Slider)
+→ Intellectual Curiosity
+OK
+3U
+Patient vs. restless (Slider)
+→ Perseverance / Stress Tolerance
+OK
+3V
+Organised vs. spontaneous (Slider)
+→ Conscientiousness / Dependability
+OK
+3W
+Emotional vs. rational decision-making (Slider)
+→ Self-Control / Integrity
+OK
+Phase 4  —  Work Values & Ideology  |  Values ranking + ideology; overdone items trimmed
+Items 4B-1, 4C-1, 4C-4 (duplicates), 4C-5, 4C-8, 4C-10, 4A-2, 4A-3 removed (see audit Section 1.1)
+A. Value Comparisons
+4A-1
+Financial ambition vs. purpose (Slider)
+→ Work Values: Achievement vs. Relationships
+OK
+B. Work Style Values
+4B-2
+Autonomy vs. structure preference (Slider)
+→ Work Values: Independence vs. Support
+OK
+4B-3
+Status vs. impact (Slider)
+→ Work Values: Recognition vs. Relationships
+OK
+C. Political & Social Ideology (streamlined to 4 items)
+4C-2
+Progressive vs. traditional values (Slider)
+OK
+4C-3
+Individual vs. state responsibility (Slider)
+OK
+4C-6
+Global vs. local orientation (Slider)
+OK
+4C-7
+Economic growth vs. sustainability (Slider)
+OK
+M1  |  Interest Explorer  |  ~12 min  |  Session 1
+Measures: All 6 RIASEC Interest Codes (Realistic, Investigative, Artistic, Social, Enterprising, Conventional)
+Mechanic: Career Swipe: 60 activity cards (10 per RIASEC code) — swipe right (like), left (dislike), up (neutral). Reaction time secretly recorded. Then Workplace Tour: 6 simulated environments, dwell time and clicks logged.
+O*NET Dimensions: O*NET Interests (6 dimensions) — 10+ data points per code
+Tech Stack: Phaser.js (swipe mechanic + animated card transitions)
+Items / Trials: 66 behavioral events
+M2  |  Work Styles Arena  |  ~18 min  |  Session 1
+Measures: All 21 O*NET Work Style dimensions
+Mechanic: 8 themed mini-games — each game mechanic IS the measurement. Error Hunt (Attention to Detail), Pressure Lab (Stress Tolerance), Idea Storm (Innovation/Originality), Persistence Climb (Achievement/Perseverance), Social Lens (Empathy/Cooperation), First Mover (Initiative/Leadership), Curveball (Adaptability), Integrity Check (Integrity/Sincerity).
+O*NET Dimensions: Achievement Orientation, Adaptability, Attention to Detail, Cautiousness, Cooperation, Dependability, Empathy, Humility, Initiative, Innovation, Integrity, Intellectual Curiosity, Leadership Orientation, Optimism, Perseverance, Self-Confidence, Self-Control, Sincerity, Social Orientation, Stress Tolerance, Tolerance for Ambiguity
+Tech Stack: Phaser.js (8 separate scenes)
+Items / Trials: ~151 behavioral events across 8 games
+M3  |  Values & Life Design  |  ~8 min  |  Session 1
+Measures: All 6 O*NET Work Values + work-life balance signal
+Mechanic: Job offer forced-choice simulation: 5 pairs per value dimension — student picks which offer to accept. Then a Schedule Builder game where student constructs an ideal work week from blocks. Choices reveal values under realistic constraint.
+O*NET Dimensions: O*NET Work Values: Achievement, Independence, Recognition, Relationships, Support, Working Conditions
+Tech Stack: Phaser.js (card choice UI + drag-and-drop scheduler)
+Items / Trials: ~34 decision events + 6 stimulus-anchored survey items
+M4  |  Environment Simulator  |  ~10 min  |  Session 1
+Measures: 55 O*NET Work Context dimensions
+Mechanic: Workplace scene explorer: 45 environment stimuli shown as images/short clips. Student rates comfort and preference. Covers physical environment, hazard exposure, interpersonal context, communication mode, job demands.
+O*NET Dimensions: O*NET Work Context (all 55 dimensions) — physical demands, workplace environment, social conditions, structural job characteristics
+Tech Stack: Phaser.js + image/clip assets
+Items / Trials: 45 stimuli + rating responses
+🏆  MINI-REPORT 1 UNLOCKED  |  "Your Personality Blueprint"
+Top 3 work style traits  |  RIASEC interest profile  |  Core values ranking  |  3 broad career families
+SESSION 2   |   WHAT YOU CAN DO   |   ~40 minutes
+Mini-report unlocked: "Your Ability Fingerprint" — cognitive radar chart + percentile rankings
+Phase 5  —  Core Cognitive Ability Battery  |  M5 + M8 from existing blueprint
+M5  |  Cognitive Lab (Extended)  |  ~20 min  |  Session 2
+Measures: 13 cognitive ability dimensions from O*NET Abilities category
+Mechanic: 13 distinct ability tasks: Pattern Completion (inductive reasoning), Sentence Completion (verbal comprehension), Number Series (mathematical reasoning), Rotation Match (spatial orientation), Reading Comprehension passage (written comprehension), Number Estimation (mathematical reasoning), Symbol Substitution (processing speed), Error Detection (perceptual speed), Sentence Unscramble (deductive reasoning), Category Sort (inductive reasoning), Figure Series (fluid intelligence), Arithmetic Story Problems (mathematical reasoning), Word Definition (verbal ability).
+O*NET Dimensions: Oral Comprehension, Written Comprehension, Oral Expression, Written Expression, Fluency of Ideas, Originality, Memorisation, Problem Sensitivity, Mathematical Reasoning, Number Facility, Deductive Reasoning, Inductive Reasoning, Information Ordering
+Tech Stack: Phaser.js (13 task scenes with IRT adaptive difficulty)
+Items / Trials: 100–130 trials across tasks
+M8  |  Physical & Sensory Lab  |  ~8 min  |  Session 2
+Measures: 19 physical and sensory O*NET ability dimensions
+Mechanic: Screen-measurable tasks: Colour Hue Discrimination (Farnsworth-Munsell style sort game), Visual Acuity proxy (progressively smaller target detection), Reaction Time (tap-when-target-appears), Cursor Precision (steady-hand trace), Sound Pattern Match (audio discrimination). Short self-report for stamina and strength (cannot be digitally measured).
+O*NET Dimensions: Near Vision, Far Vision, Colour Discrimination, Night Vision proxy, Depth Perception, Reaction Time, Wrist-Finger Speed, Speed of Limb Movement, Explosive Strength (SR), Static Strength (SR), Trunk Strength (SR), Stamina (SR)
+Tech Stack: Phaser.js + Web Audio API + touch/mouse tracking; 4 survey items for non-digital dimensions
+Items / Trials: 40 behavioral trials + 4 survey items
+Phase 6  —  Extended Cognitive Battery  |  M9–M13: working memory, attention, flexibility
+M9  |  Dual N-Back Lite  |  ~4 min  |  Session 2
+Measures: Working Memory Capacity, Divided Attention
+Mechanic: Two simultaneous streams: a letter spoken aloud and a grid position lit up. Student taps when either matches what appeared 2 steps back. N increases adaptively from 1-back to 3-back based on accuracy.
+O*NET Dimensions: O*NET Abilities: Working Memory Capacity; also signals: Auditory Attention, Selective Attention
+Tech Stack: Phaser.js + Web Audio API
+Items / Trials: ~40 trials (adaptive)
+M10  |  Split Track  |  ~4 min  |  Session 2
+Measures: Time Sharing, Divided Attention, Multitasking ability
+Mechanic: Two simultaneous tasks on screen: sort falling objects by colour on the left, respond to number parity (odd/even tap) on the right. Scoring: dual-task cost = performance on each task alone vs. together.
+O*NET Dimensions: O*NET Abilities: Time Sharing; O*NET Skills: Time Management proxy
+Tech Stack: Phaser.js (two independent Phaser groups running simultaneously)
+Items / Trials: 30 dual-task trials
+M11  |  Go/No-Go  |  ~3 min  |  Session 2
+Measures: Impulse Control, Sustained Attention, Response Inhibition
+Mechanic: Shapes appear rapidly. Tap for circles (Go), do NOT tap for red circles (No-Go). Speed and error rate scored. Later rounds introduce distractors (flashing borders, similar shapes). False alarms (tapping No-Go) penalise more than misses.
+O*NET Dimensions: O*NET Abilities: Selective Attention; O*NET Work Styles: Self-Control, Cautiousness
+Tech Stack: Phaser.js (fast animation loop, touch + keyboard)
+Items / Trials: 60 trials (40 Go, 20 No-Go)
+M12  |  Colour-Word Stroop  |  ~4 min  |  Session 2
+Measures: Cognitive Flexibility, Inhibitory Control, Processing Speed
+Mechanic: The word "RED" appears in blue ink. Student types the INK COLOUR, not the word meaning. Four conditions in order: (1) colour patches only, (2) congruent words, (3) incongruent words, (4) mixed. Stroop interference score = RT difference between condition 2 and condition 3.
+O*NET Dimensions: O*NET Abilities: Selective Attention, Perceptual Speed; O*NET Work Styles: Self-Control, Adaptability
+Tech Stack: Phaser.js (text rendering + response time logging in milliseconds)
+Items / Trials: 50 trials across 4 conditions
+M13  |  Rule Shift  |  ~5 min  |  Session 2
+Measures: Category Flexibility, Adaptability to Change, Cognitive Set-Shifting
+Mechanic: Wisconsin Card Sort inspired. Cards appear with attributes (colour, shape, number). Student sorts by one rule. Without warning, the sorting rule changes. Student must detect the change and shift strategy. Two rule changes total.
+O*NET Dimensions: O*NET Abilities: Category Flexibility; O*NET Work Styles: Adaptability, Tolerance for Ambiguity
+Tech Stack: Phaser.js (card sorting with silent rule-change events)
+Items / Trials: ~40 trials with 2 rule shifts
+Phase 7  —  Memory Systems  |  M14–M15: associative memory and information ordering
+M14  |  Name-Face-Role  |  ~5 min  |  Session 2
+Measures: Associative Memory, Memory for Names and Faces
+Mechanic: 8 "people" shown for 5 seconds each — name, face (generated), and job title. Then tested in random order: show face → type name, show name → select role from 4 options. Relevant for social, HR, sales, consulting, teaching careers.
+O*NET Dimensions: O*NET Abilities: Memorisation, Associative Memory; O*NET Knowledge: Customer and Personal Service
+Tech Stack: Phaser.js (face card display + recall interface)
+Items / Trials: 16 recall items (8 name + 8 role)
+M15  |  Story Sequence  |  ~4 min  |  Session 2
+Measures: Information Ordering, Sequential Reasoning, Process Understanding
+Mechanic: A 6-step real-world process shown in jumbled order (scientific experiment, patient intake, construction sequence, event planning — 3 different domain-neutral scenarios). Student drags steps into correct order. Scored on number of correct adjacencies, not just total correctness.
+O*NET Dimensions: O*NET Abilities: Information Ordering; O*NET Skills: Active Learning
+Tech Stack: Phaser.js (drag-and-drop sequence builder)
+Items / Trials: 3 sequences × 6 steps = 18 ordering decisions
+Phase 8  —  Social Cognition & Creativity  |  M16–M19: reading people, divergent thinking
+M16  |  Micro-Read  |  ~5 min  |  Session 2
+Measures: Social Perceptiveness, Emotion Recognition, Non-Verbal Sensitivity
+Mechanic: A face appears for 200–500ms, student selects emotion from 6 options (including ambiguous: contempt, pride, discomfort alongside basic 6). 20 faces total. Scored on accuracy + confidence calibration (penalise overconfident wrong answers). Critical differentiator for healthcare, counselling, teaching, HR, sales.
+O*NET Dimensions: O*NET Abilities: Speech Recognition proxy; O*NET Skills: Social Perceptiveness; O*NET Work Styles: Empathy
+Tech Stack: Phaser.js (rapid face display + choice buttons; face images pre-rendered)
+Items / Trials: 20 face stimuli
+M17  |  Conversation Fork  |  ~6 min  |  Session 2
+Measures: Social Judgment, Interpersonal Skill, Tact, Service Orientation
+Mechanic: Text-based branching scenarios — ambiguous workplace/social situations. Three decision points, each with 3 response options, each with visible downstream consequences shown after choice (not right/wrong — shows what actually happens next). Scores: prosocial choice rate, escalation avoidance, acknowledgment of others.
+O*NET Dimensions: O*NET Skills: Social Perceptiveness, Service Orientation, Coordination; O*NET Work Styles: Cooperation, Empathy
+Tech Stack: Phaser.js (text adventure engine) or HTML/CSS state machine
+Items / Trials: 4 scenarios × 3 decision points = 12 choices
+M18  |  Alternative Uses (AI-Scored)  |  ~5 min  |  Session 2
+Measures: Originality, Divergent Thinking, Ideational Fluency, Creative Thinking
+Mechanic: Show 3 everyday objects (paperclip, rubber band, shoe). Student types as many uses as possible in 90 seconds each. Claude API scores each response for: fluency (count), originality (unusual vs. common), category spread (diverse domains), elaboration (detail level). Completely impossible to cheat — every run generates unique scoring baseline.
+O*NET Dimensions: O*NET Abilities: Fluency of Ideas, Originality; O*NET Work Styles: Innovation, Intellectual Curiosity
+Tech Stack: HTML text input + Claude API scoring (JSON output: fluency, originality, spread, elaboration per response)
+Items / Trials: 3 objects × ~10 uses avg = ~30 scored responses
+M19  |  Idea Mesh  |  ~4 min  |  Session 2
+Measures: Creative Synthesis, Associative Thinking, Conceptual Flexibility
+Mechanic: Two unrelated concepts shown (e.g. "submarine" + "hospital", "music" + "engineering"). Student writes a connection in one sentence. 5 pairs total. Claude API scores: coherence of connection (is it logical?), creativity (is the bridge surprising?), specificity (vague vs. detailed).
+O*NET Dimensions: O*NET Abilities: Originality, Fluency of Ideas; O*NET Work Styles: Intellectual Curiosity, Innovation
+Tech Stack: HTML text input + Claude API scoring
+Items / Trials: 5 concept pairs
+Phase 9  —  Analytical & Systems Thinking  |  M20–M22: problem sensitivity, systems, fine motor
+M20  |  Spot the Break  |  ~5 min  |  Session 2
+Measures: Problem Sensitivity, Quality Control Analysis, Critical Evaluation
+Mechanic: A process diagram or plan is shown with one or two deliberate flaws (wrong step order, missing safety check, logical impossibility). Student identifies the problem by clicking it and briefly explaining why. 5 rounds: household analogy → business process → technical system. No domain knowledge required for rounds 1–3.
+O*NET Dimensions: O*NET Skills: Quality Control Analysis; O*NET Abilities: Problem Sensitivity; O*NET Work Styles: Attention to Detail
+Tech Stack: Phaser.js (flowchart renderer with clickable nodes)
+Items / Trials: 5 scenarios × 1–2 flaws each
+M21  |  Domino Effect  |  ~5 min  |  Session 2
+Measures: Systems Analysis, Causal Reasoning, Systems Thinking
+Mechanic: A scenario event shown ("Factory shifts schedule 1 hour earlier"). A chain of 6 downstream effects listed — student selects which are genuine consequences and which are spurious. Three scenarios of increasing complexity (household → organisational → ecological).
+O*NET Dimensions: O*NET Skills: Systems Analysis, Systems Evaluation; O*NET Work Styles: Analytical Thinking
+Tech Stack: Phaser.js (cause-effect chain visual with checkbox selection)
+Items / Trials: 3 scenarios × 6 effects = 18 causal judgments
+M22  |  Steady Trace  |  ~4 min  |  Session 2
+Measures: Fine Motor Control, Eye-Hand Coordination, Psychomotor Precision
+Mechanic: A path appears on screen (varying complexity — straight, curved, maze-like). Student traces it with mouse/trackpad as precisely as possible under time pressure. 8 paths of increasing complexity. Scored: deviation from path (accuracy) + time to complete (speed). First ability test for fine motor control possible without physical apparatus.
+O*NET Dimensions: O*NET Abilities: Wrist-Finger Speed, Arm-Hand Steadiness, Speed of Limb Movement; relevant for surgery, dentistry, architecture, craft
+Tech Stack: Phaser.js (pointer tracking, deviation from SVG path calculated in real time)
+Items / Trials: 8 trace paths
+🏆  MINI-REPORT 2 UNLOCKED  |  "Your Ability Fingerprint"
+Cognitive radar chart across 13 ability clusters  |  Percentile rankings vs. peer group  |  Ability-career fit signal
+SESSION 3   |   YOUR WORLD OF WORK   |   ~25 min (adaptive — not all modules shown to all students)
+Mini-report unlocked: "Your Career Match Report" — ranked occupations, day-in-the-life, learning path
+[ADAPTIVE BRANCHING]  Session 3 modules are selected based on the top 3 career domain clusters identified from Sessions 1 and 2. A student headed toward Technology/Engineering careers takes all T modules and K6 (Structure Stress), K7 (Compound Creator). A Healthcare-oriented student takes K4 (Body Blueprint), K3 (Ecosystem Architect), K8 (Argument Architect). Each student completes 3–5 of the 7 T modules and 3–5 of the 10 K modules. Expected Session 3 duration: 20–30 min.
+Phase 10  —  Technology & ICT Skills Assessment  |  T1–T7: game mechanics embed the skill measurement
+All 7 modules run if student is in a technology/analytical/management domain cluster. At least 2–3 run for all students regardless. Adaptive depth: scoring thresholds unlock harder levels.
+T1  |  Logic Flow  |  ~8 min  |  Session 3
+Measures: Programming Logic, Technology Design, Computational Thinking
+Mechanic: Visual block-programming interface (no syntax). Student arranges logic blocks (move, loop, if-condition) to make a character reach a goal. 5 levels: (1) linear sequence, (2) loops, (3) conditionals, (4) nested logic, (5) debugging a broken program. The process reveals more than the answer — loop vs. brute-force reveals computational elegance.
+O*NET Dimensions: O*NET Skills: Programming, Technology Design, Operations Analysis; O*NET Knowledge: Computers and Electronics
+Tech Stack: Phaser.js with Blockly-style drag-and-drop block system (open source: Google Blockly)
+Items / Trials: 5 levels, adaptive difficulty
+T2  |  Debug Den  |  ~6 min  |  Session 3
+Measures: Troubleshooting, Quality Control Analysis, Systems Diagnosis
+Mechanic: A visual process diagram or pseudocode snippet has 1–2 deliberate errors per round. Student identifies and fixes them under time pressure. 5 rounds: (1) household analogy (recipe with wrong step), (2) business process, (3) data flow diagram, (4) algorithm pseudocode, (5) server request flowchart. Rounds 1–2 accessible without tech background.
+O*NET Dimensions: O*NET Skills: Troubleshooting, Quality Control Analysis, Operations Analysis; O*NET Knowledge: Computers and Electronics, Engineering and Technology
+Tech Stack: Phaser.js (interactive flowchart with clickable error zones)
+Items / Trials: 5 rounds, 1–2 bugs each
+T3  |  Network Weave  |  ~6 min  |  Session 3
+Measures: Systems Analysis, Network Architecture, Telecommunications Reasoning
+Mechanic: Data packets travel from source to destination across a network of nodes. Student routes them in real time — drag connections, avoid congested nodes, prioritise urgent (red) packets. 4 scenarios of increasing network complexity. Phaser A* pathfinding used internally; student makes routing decisions not code.
+O*NET Dimensions: O*NET Skills: Systems Analysis, Technology Design; O*NET Knowledge: Telecommunications, Computers and Electronics
+Tech Stack: Phaser.js (real-time routing game, Matter.js for visual physics)
+Items / Trials: 4 network scenarios
+T4  |  Spreadsheet Sprint  |  ~6 min  |  Session 3
+Measures: Operations Monitoring, Data Literacy, Quantitative Analysis
+Mechanic: Business scenarios with embedded data table (3 columns, 8 rows). Student applies filters/sorting to answer a specific question: "Which product will run out first?", "Which salesperson had the best month?". 4 tasks. Not a full Excel simulation — focused on data reasoning.
+O*NET Dimensions: O*NET Skills: Operations Monitoring, Quality Control Analysis; O*NET Knowledge: Computers and Electronics, Economics and Accounting
+Tech Stack: HTML table with interactive filter/sort controls (no spreadsheet library needed)
+Items / Trials: 4 data tasks
+T5  |  Phishing Patrol  |  ~5 min  |  Session 3
+Measures: ICT Security Awareness, Critical Evaluation, Attention to Detail
+Mechanic: 6 emails/messages shown one at a time. Student flags legitimate vs. suspicious. Scoring: false positives and false negatives scored asymmetrically (missing a real threat costs more). Later rounds include social engineering (urgency manipulation, impersonation). Feels like a real-world challenge.
+O*NET Dimensions: O*NET Skills: Quality Control Analysis; O*NET Knowledge: Computers and Electronics; O*NET Work Styles: Attention to Detail
+Tech Stack: Phaser.js or pure HTML/CSS (email mockup display)
+Items / Trials: 6 messages, 3 rounds of increasing subtlety
+T6  |  API Mapper  |  ~7 min  |  Session 3
+Measures: Technology Design, Systems Integration, Data Architecture
+Mechanic: Visual node-graph interface. Left panel: data sources (weather feed, sales DB, calendar). Right panel: output widgets (report, alert, chart). Centre: logic nodes (filter, aggregate, transform). Student connects them correctly for 4 scenarios of increasing complexity. Tests integration thinking without requiring code knowledge.
+O*NET Dimensions: O*NET Skills: Technology Design, Programming; O*NET Knowledge: Computers and Electronics, Engineering and Technology
+Tech Stack: Phaser.js (custom node-graph with line-drawing between draggable nodes)
+Items / Trials: 4 integration scenarios
+T7  |  Equipment Selector  |  ~5 min  |  Session 3
+Measures: Operations Analysis, Equipment Selection, Constraint Satisfaction
+Mechanic: Given a job requirement (build a 3m wall in 6 hours, budget 500 units) and a catalogue of tools with specs, student selects the best combination. 4 problems: (1) construction equipment, (2) lab instruments, (3) computing hardware selection, (4) emergency equipment allocation. Pure constraint satisfaction — no domain jargon in rounds 1–2.
+O*NET Dimensions: O*NET Skills: Operations Analysis, Equipment Selection, Installation; O*NET Knowledge: Engineering and Technology, Building and Construction
+Tech Stack: HTML (filterable equipment catalogue with running cost/time counter)
+Items / Trials: 4 selection problems
+Phase 11  —  Knowledge Domain Games  |  K1–K10: contextual not recall-based, adaptive selection
+Each student receives 3–5 knowledge games matched to their career domain shortlist from Sessions 1–2. All 10 are described here; only the relevant subset is deployed per student. M7 Expert Challenge runs after the domain games to probe knowledge depth adaptively.
+K1  |  World Map Mind  |  ~6 min  |  Session 3
+Measures: Geographic Knowledge, Spatial Reasoning, Cultural Literacy
+Mechanic: Clues appear one at a time — climate type, landmark description, cultural fact, economic indicator. Student narrows down to a location by clicking progressively smaller map regions. More clues used = lower score. 5 puzzles of increasing geographic specificity. GeoGuessr-inspired but scored on inference reasoning not guessing.
+O*NET Dimensions: O*NET Knowledge: Geography; O*NET Skills: Active Learning (applying new clues iteratively)
+Tech Stack: Phaser.js + SVG world map (clickable regions, zoom on selection)
+Items / Trials: 5 multi-clue puzzles
+Adaptive Rule: Shown to students with signals toward: Environmental, Agriculture, Travel, Social, Public Policy domains
+K2  |  Market Mover  |  ~6 min  |  Session 3
+Measures: Economic Reasoning, Business Acumen, Quantitative Intuition
+Mechanic: Simple supply-demand simulation. Student adjusts a price slider and watches quantity demanded change. Then a shock occurs (raw material cost rises, competitor enters, regulation introduced) — student predicts new equilibrium and adjusts. 3 scenarios: consumer goods, labour market, currency exchange.
+O*NET Dimensions: O*NET Knowledge: Economics and Accounting, Sales and Marketing, Administration and Management
+Tech Stack: HTML + D3.js or Chart.js (live-updating supply-demand curve)
+Items / Trials: 3 scenarios with shock events
+Adaptive Rule: Shown to: Business, Management, Finance, Policy, Entrepreneurship domains
+K3  |  Ecosystem Architect  |  ~6 min  |  Session 3
+Measures: Biological Systems Knowledge, Ecological Reasoning, Environmental Science
+Mechanic: A food web with 8 species shown. Student removes one species — cascading effects animate across the web (arrows dim/brighten). Then a decision: "The farmer wants to increase crop yield — which intervention has the least ecological disruption?" Three options with consequence previews. 3 different ecosystems.
+O*NET Dimensions: O*NET Knowledge: Biology, Food Production; O*NET Skills: Systems Analysis, Science
+Tech Stack: Phaser.js (animated node-link diagram with cascade simulation)
+Items / Trials: 3 ecosystems × 1 intervention decision
+Adaptive Rule: Shown to: Biology, Medicine, Agriculture, Environmental Science, Veterinary domains
+K4  |  Body Blueprint  |  ~5 min  |  Session 3
+Measures: Medical Knowledge, Anatomical Reasoning, Clinical Thinking
+Mechanic: Not an anatomy quiz. A patient presents symptoms (fatigue, swelling, elevated heart rate). Student routes the diagnostic pathway: which system is involved? which test category? which treatment class? 5 cases of increasing ambiguity. Students who have watched medical dramas score on intuition; students with biological knowledge go deeper.
+O*NET Dimensions: O*NET Knowledge: Medicine and Dentistry, Biology, Therapy and Counseling
+Tech Stack: Phaser.js (symptom cards + decision tree UI)
+Items / Trials: 5 clinical reasoning cases
+Adaptive Rule: Shown to: Healthcare, Medicine, Dentistry, Psychology, Nursing, Paramedic domains
+K5  |  Case Classifier  |  ~5 min  |  Session 3
+Measures: Legal Reasoning, Public Policy Knowledge, Regulatory Literacy
+Mechanic: A scenario plays out in 3 sentences — workplace dispute, contract disagreement, environmental violation, data privacy breach. Student classifies: which area of law? which remedy applies? which party has standing? Not statute citation — pattern recognition and categorisation.
+O*NET Dimensions: O*NET Knowledge: Law and Government, Public Safety and Security, Personnel and Human Resources
+Tech Stack: Phaser.js or HTML (card-match classification interface)
+Items / Trials: 5 legal/regulatory scenarios
+Adaptive Rule: Shown to: Law, HR, Compliance, Public Administration, Journalism, Policy domains
+K6  |  Structure Stress  |  ~6 min  |  Session 3
+Measures: Engineering Knowledge, Physics Intuition, Structural Analysis
+Mechanic: A bridge or building schematic with a load applied. Student identifies which joint or member will fail first by clicking it (scored against physics calculation). Then: "How would you reinforce it?" — three options shown with consequence previews. Matter.js calculates actual structural failure for comparison.
+O*NET Dimensions: O*NET Knowledge: Engineering and Technology, Physics, Building and Construction
+Tech Stack: Phaser.js + Matter.js physics engine (structural simulation)
+Items / Trials: 5 structural puzzles
+Adaptive Rule: Shown to: Engineering, Architecture, Construction, Manufacturing, Product Design domains
+K7  |  Compound Creator  |  ~5 min  |  Session 3
+Measures: Chemistry Knowledge, Material Science, Chemical Reasoning
+Mechanic: Visual periodic table elements on screen, drag to combine. Does this reaction happen? What is the product? What safety precaution is required? 6 rounds: household chemistry (rounds 1–2), industrial processes (rounds 3–4), pharmaceutical/materials (rounds 5–6). Accessible entry, domain-diagnostic at upper levels.
+O*NET Dimensions: O*NET Knowledge: Chemistry, Physics, Production and Processing
+Tech Stack: Phaser.js (element drag-and-drop + reaction lookup table)
+Items / Trials: 6 chemistry challenges
+Adaptive Rule: Shown to: Chemistry, Chemical Engineering, Pharmaceuticals, Materials, Food Science domains
+K8  |  Argument Architect  |  ~5 min  |  Session 3
+Measures: Philosophical Reasoning, Logical Analysis, Critical Thinking
+Mechanic: An argument presented with a hidden flaw (circular reasoning, false dichotomy, slippery slope, appeal to authority). Student identifies the flaw type from 4 options, then selects the strongest counter-argument from 3 options. 3 rounds per session. Increasingly subtle fallacies.
+O*NET Dimensions: O*NET Knowledge: Philosophy and Theology; O*NET Skills: Critical Thinking, Active Learning; O*NET Abilities: Deductive Reasoning
+Tech Stack: HTML/Phaser.js (text-based argument display with choice buttons)
+Items / Trials: 3 arguments × 2 judgments each
+Adaptive Rule: Shown to: Law, Research, Journalism, Philosophy, Policy, Management, Education domains
+K9  |  Crisis Commander  |  ~10 min  |  Session 3
+Measures: Emergency Management, Public Safety, Resource Allocation, Decision-Making Under Pressure
+Mechanic: Real-time scenario: a crisis unfolds (fire in building, chemical spill, civil disturbance). Resources are limited. Student allocates response units, issues prioritised orders, manages information from multiple feeds simultaneously. Scored on: outcome (casualties, containment), efficiency (resources used), communication clarity. The richest simulation in the library.
+O*NET Dimensions: O*NET Knowledge: Public Safety and Security, Law and Government; O*NET Skills: Judgment and Decision Making, Management of Personnel Resources
+Tech Stack: Phaser.js (real-time resource management game) or Godot WebGL export
+Items / Trials: 1 full simulation (~10 min)
+Adaptive Rule: Shown to: Public Safety, Military, Emergency Services, Hospital Management, Disaster Risk domains
+K10  |  Period Mapper  |  ~6 min  |  Session 3
+Measures: Historical Knowledge, Chronological Reasoning, Cultural Literacy
+Mechanic: Historical events described without dates appear on screen. Student clusters them into eras and draws causal arrows between events ("This event caused these two downstream events"). Scored on: clustering accuracy, causal chain correctness, number of eras correctly identified. Not a timeline quiz — causal reasoning is the measurement.
+O*NET Dimensions: O*NET Knowledge: History and Archeology, Sociology and Anthropology, Philosophy and Theology
+Tech Stack: Phaser.js (free-placement canvas with arrow-drawing between event cards)
+Items / Trials: 15 historical events to cluster and connect
+Adaptive Rule: Shown to: History, Humanities, Journalism, Law, Policy, International Relations, Education domains
+Phase 12  —  Expert Knowledge Challenge + Reflection  |  M7 adaptive quiz + surviving survey items
+M7  |  Expert Challenge  |  ~15 min  |  Session 3
+Measures: All 33 O*NET Knowledge Domains (adaptive depth)
+Mechanic: IRT-adaptive MCQ: starts with breadth screening (2–3 items per domain) then dives deep into the student's top 3–5 domains. Items generated by Claude API to prevent repetition and cheating. Domains matched from Session 1 interest signals and Session 3 domain games.
+O*NET Dimensions: O*NET Knowledge: all 33 domains — Administration and Management, Clerical, Economics, Sales, Customer Service, Personnel and HR, Computers and Electronics, Engineering and Technology, Design, Building and Construction, Mechanical, Mathematics, Physics, Chemistry, Biology, Psychology, Sociology, Geography, Medicine and Dentistry, Therapy, Education and Training, English Language, Foreign Language, Fine Arts, History, Philosophy, Public Safety, Law, Telecommunications, Communications and Media, Transportation, Food Production, Production and Processing
+Tech Stack: Claude API (item generation) + Phaser.js (MCQ interface) + IRT scoring engine
+Items / Trials: Adaptive: 8–12 items per active domain, 3–5 active domains per student
+Surviving Reflection Questions (Phase 5 — Real Problems, reordered from original flow)
+[NOTE]  Real Problems section moved from Phase 5 to here (Session 3, after cognitive and knowledge baseline established). Students who reflect on genuine challenges after demonstrating their abilities give more grounded, less self-critical responses.
+5A
+What is the main challenge you face in choosing your career direction? (MCQ + open text)
+Moved: Phase 5 → Session 3
+NOTE
+5B
+What stops you from pursuing your first-choice career? (MCQ — financial, family, performance anxiety, lack of info, other)
+Moved: Phase 5 → Session 3
+NOTE
+5C
+Have you ever failed at something you cared about? What did you learn? (Open text — AI analyses)
+OK
+Avoidances (from Phase 1E — reordered)
+[NOTE]  Avoidances moved from start of Phase 1 (negative priming) to end of Session 3 (student is anchored in strengths by now, so avoidance framing is less deflating).
+1E
+I Cannot Do List (multi-select avoidances — see original Phase 1E item list)
+Moved: Phase 1 → Session 3 Phase 12
+NOTE
+🏆  MINI-REPORT 3 UNLOCKED  |  "Your Career Match Report"
+Ranked career matches with fit scores  |  Day-in-the-life for top 3 careers  |  Skill gaps vs. your target career  |  Personalised L&D path
+Summary: Module Library at a Glance
+ID
+Module Name
+Session
+Duration
+Measures
+Tech
+M1
+Interest Explorer
+1
+12 min
+RIASEC ×6
+Phaser.js
+M2
+Work Styles Arena
+1
+18 min
+Work Styles ×21
+Phaser.js ×8
+M3
+Values & Life Design
+1
+8 min
+Work Values ×6
+Phaser.js
+M4
+Environment Simulator
+1
+10 min
+Work Context ×55
+Phaser.js
+M5
+Cognitive Lab Extended
+2
+20 min
+Cognitive Abilities ×13
+Phaser.js IRT
+M6
+Skills Arena
+2
+18 min
+O*NET Skills ×12
+Phaser.js
+M7
+Expert Challenge
+3
+15 min
+Knowledge ×33 (adaptive)
+Claude API + Phaser.js
+M8
+Physical & Sensory Lab
+2
+8 min
+Physical Abilities ×12 + 4SR
+Phaser.js + Web Audio
+M9
+Dual N-Back Lite
+2
+4 min
+Working Memory
+Phaser.js + Audio
+M10
+Split Track
+2
+4 min
+Time Sharing / Divided Attention
+Phaser.js
+M11
+Go/No-Go
+2
+3 min
+Impulse Control / Sustained Attention
+Phaser.js
+M12
+Colour-Word Stroop
+2
+4 min
+Cognitive Flexibility / Processing Speed
+Phaser.js
+M13
+Rule Shift
+2
+5 min
+Category Flexibility
+Phaser.js
+M14
+Name-Face-Role
+2
+5 min
+Associative Memory
+Phaser.js
+M15
+Story Sequence
+2
+4 min
+Information Ordering
+Phaser.js
+M16
+Micro-Read
+2
+5 min
+Social Perceptiveness / Emotion Recognition
+Phaser.js
+M17
+Conversation Fork
+2
+6 min
+Social Judgment / Interpersonal Skill
+Phaser.js / HTML
+M18
+Alternative Uses
+2
+5 min
+Originality / Divergent Thinking
+Text + Claude API
+M19
+Idea Mesh
+2
+4 min
+Creative Synthesis / Associative Thinking
+Text + Claude API
+M20
+Spot the Break
+2
+5 min
+Problem Sensitivity / QC Analysis
+Phaser.js
+M21
+Domino Effect
+2
+5 min
+Systems Analysis / Causal Reasoning
+Phaser.js
+M22
+Steady Trace
+2
+4 min
+Fine Motor / Eye-Hand Coordination
+Phaser.js
+T1
+Logic Flow
+3
+8 min
+Programming / Tech Design
+Phaser.js + Blockly
+T2
+Debug Den
+3
+6 min
+Troubleshooting / QC Analysis
+Phaser.js
+T3
+Network Weave
+3
+6 min
+Systems / Telecom Reasoning
+Phaser.js
+T4
+Spreadsheet Sprint
+3
+6 min
+Operations Monitoring / Data Literacy
+HTML interactive
+T5
+Phishing Patrol
+3
+5 min
+ICT Security / Critical Evaluation
+HTML/Phaser.js
+T6
+API Mapper
+3
+7 min
+Technology Design / Integration
+Phaser.js node-graph
+T7
+Equipment Selector
+3
+5 min
+Operations Analysis / Equipment Selection
+HTML filterable UI
+K1
+World Map Mind
+3
+6 min
+Geography
+Phaser.js + SVG map
+K2
+Market Mover
+3
+6 min
+Economics / Business
+HTML + Chart.js
+K3
+Ecosystem Architect
+3
+6 min
+Biology / Environmental Science
+Phaser.js
+K4
+Body Blueprint
+3
+5 min
+Medicine / Anatomy
+Phaser.js
+K5
+Case Classifier
+3
+5 min
+Law / Public Policy
+HTML/Phaser.js
+K6
+Structure Stress
+3
+6 min
+Engineering / Physics
+Phaser.js + Matter.js
+K7
+Compound Creator
+3
+5 min
+Chemistry / Material Science
+Phaser.js
+K8
+Argument Architect
+3
+5 min
+Philosophy / Logic
+HTML/Phaser.js
+K9
+Crisis Commander
+3
+10 min
+Public Safety / Emergency Mgmt
+Phaser.js / Godot WebGL
+K10
+Period Mapper
+3
+6 min
+History / Cultural Knowledge
+Phaser.js
+MBS — Integrated Question Flow Final Version  |  39 Game Modules  |  3 Sessions  |  Confidential

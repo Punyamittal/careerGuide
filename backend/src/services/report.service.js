@@ -5,6 +5,12 @@ import { getSupabaseAdmin } from "../config/supabase.js";
 import { ApiError } from "../utils/ApiError.js";
 import { generateText } from "./ai.service.js";
 import { getGameSummary } from "./game.service.js";
+import { getSimulationSummary } from "./simulation.service.js";
+import {
+  getAttemptOccupationMatches,
+  analyzeSkillGapsForOccupation,
+  getRelatedOccupations
+} from "./occupational/index.js";
 
 const buildSkillGaps = (scores, topCareers) => {
   const gaps = [];
@@ -43,12 +49,134 @@ const buildSkillGaps = (scores, topCareers) => {
   return gaps.slice(0, 8);
 };
 
+/** Dedupe by skill label (O*NET + legacy gaps often overlap). */
+const mergeSkillGaps = (primary, secondary, max = 10) => {
+  const seen = new Set();
+  const out = [];
+  for (const g of [...primary, ...secondary]) {
+    const key = String(g?.skill ?? "").trim().toLowerCase();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(g);
+    if (out.length >= max) break;
+  }
+  return out;
+};
+
+const flattenNumericMap = (input, prefix = "") => {
+  if (!input || typeof input !== "object") return [];
+  return Object.entries(input).flatMap(([key, value]) => {
+    const label = prefix ? `${prefix}.${key}` : key;
+    if (typeof value === "number") {
+      return [{ label, value }];
+    }
+    if (value && typeof value === "object") {
+      return flattenNumericMap(value, label);
+    }
+    return [];
+  });
+};
+
+const calcConfidenceFromScores = (scores) => {
+  const entries = flattenNumericMap(scores).map((item) => Number(item.value)).filter((v) => Number.isFinite(v));
+  if (!entries.length) return 0;
+  const avg = entries.reduce((sum, v) => sum + v, 0) / entries.length;
+  const variance = entries.reduce((sum, v) => sum + (v - avg) ** 2, 0) / entries.length;
+  const stdDev = Math.sqrt(variance);
+  return Math.max(20, Math.min(95, Math.round(100 - stdDev)));
+};
+
+const buildReasoning = (scores, topCareers) => {
+  const facets = flattenNumericMap(scores).sort((a, b) => b.value - a.value).slice(0, 5);
+  const factors = facets.map((facet, index) => ({
+    factor: facet.label,
+    weight: Math.max(10, 100 - index * 14),
+    description: `${facet.label} scored ${Math.round(facet.value)}, which positively impacts fit confidence.`
+  }));
+  const topCareer = topCareers[0];
+  const flow = [
+    facets[0] ? `High ${facets[0].label} score` : "Strong profile signals",
+    "Observed consistency across assessment dimensions",
+    topCareer ? `Aligned to ${topCareer.title} readiness profile` : "Aligned to top career vectors"
+  ];
+
+  return {
+    scoreBreakdown: facets,
+    contributingFactors: factors,
+    flow,
+    summary:
+      topCareer && facets[0]
+        ? `${facets[0].label} and related strengths indicate a strong fit for ${topCareer.title}.`
+        : "Assessment signals indicate clear strengths with actionable growth areas."
+  };
+};
+
+const getHistoricalSummary = async (supabase, userId, currentAttemptId) => {
+  const { data, error } = await supabase
+    .from("test_attempts")
+    .select("id, scores, created_at")
+    .eq("user_id", userId)
+    .eq("status", ATTEMPT_STATUS.SCORED)
+    .neq("id", currentAttemptId)
+    .order("created_at", { ascending: false })
+    .limit(5);
+  if (error) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message);
+
+  const attempts = (data ?? []).map((row) => mapAttemptRow(row));
+  const trendPoints = attempts
+    .map((attempt) => {
+      const values = flattenNumericMap(attempt.scores).map((entry) => entry.value);
+      if (!values.length) return null;
+      const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+      return { attemptId: attempt.id, average: Math.round(average), createdAt: attempt.createdAt };
+    })
+    .filter(Boolean);
+
+  return {
+    attempts: trendPoints.length,
+    trend: trendPoints.reverse()
+  };
+};
+
+const attachReportExplanations = async (supabase, report) => {
+  if (!report?._id) return report;
+  const { data, error } = await supabase
+    .from("report_explanations")
+    .select("factor, weight, description")
+    .eq("report_id", report._id)
+    .order("weight", { ascending: false });
+  if (error) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message);
+  return { ...report, explanations: data ?? [] };
+};
+
+const attachLiveSummaries = async (report, userId) => {
+  if (!report) return report;
+  const mergedStructured = {
+    ...(report.structuredSummary ?? {}),
+    gameSummary: await getGameSummary(userId),
+    simulationSummary: await getSimulationSummary(userId)
+  };
+  return { ...report, structuredSummary: mergedStructured };
+};
+
+const insertReportExplanations = async (supabase, reportId, factors) => {
+  if (!Array.isArray(factors) || !factors.length) return;
+  const rows = factors.map((factor) => ({
+    report_id: reportId,
+    factor: factor.factor,
+    weight: factor.weight,
+    description: factor.description
+  }));
+  const { error } = await supabase.from("report_explanations").insert(rows);
+  if (error) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message);
+};
+
 const reportPrompt = (structured) => `You are a career mentor. Given this JSON profile, write a concise report using EXACTLY these section headings (in order):
 
 1. Strengths — tie to measurable score areas; no fluff.
 2. Career fit — why top career matches make sense for this profile (no company names).
 3. Skill gaps — 2–4 concrete gaps inferred from scores (aptitude/personality/interests).
-4. Next steps — specific actions for the next 2–4 weeks. Use intakeProfile and gameSummary (axisSignals + careerReadiness) to tailor advice to real constraints and observed performance—do not ignore stated barriers or support gaps.
+4. Next steps — specific actions for the next 2–4 weeks. Use intakeProfile, topOccupations (O*NET), onetSkillGaps, and gameSummary (axisSignals + careerReadiness) to tailor advice—do not ignore stated barriers or support gaps.
 
 Rules:
 - Max 220 words total
@@ -64,7 +192,10 @@ export const generateReportForAttempt = async ({ userId, attemptId }) => {
 
   const { data: existing } = await supabase.from("reports").select("*").eq("attempt_id", attemptId).maybeSingle();
 
-  if (existing) return { report: mapReportRow(existing), created: false };
+  if (existing) {
+    const withExplanations = await attachReportExplanations(supabase, mapReportRow(existing));
+    return { report: await attachLiveSummaries(withExplanations, userId), created: false };
+  }
 
   const { data: row, error: fetchErr } = await supabase
     .from("test_attempts")
@@ -93,15 +224,51 @@ export const generateReportForAttempt = async ({ userId, attemptId }) => {
     slug: c.slug
   }));
 
+  const occupationMatches = await getAttemptOccupationMatches(attemptId);
+  const topOccupations = occupationMatches.slice(0, 5).map((o) => ({
+    socCode: o.socCode,
+    title: o.title,
+    matchScore: o.matchScore,
+    confidenceScore: o.confidenceScore,
+    explanation: o.explanation
+  }));
+
+  let onetSkillGaps = [];
+  let relatedCareers = [];
+  const primarySoc = topOccupations[0]?.socCode;
+  if (primarySoc && attempt.scores) {
+    try {
+      const gapResult = await analyzeSkillGapsForOccupation(attempt.scores, primarySoc, 6);
+      onetSkillGaps = gapResult.gaps ?? [];
+      const rel = await getRelatedOccupations(primarySoc, 6);
+      relatedCareers = rel.related ?? [];
+    } catch {
+      onetSkillGaps = [];
+      relatedCareers = [];
+    }
+  }
+
+  const reasoning = buildReasoning(attempt.scores, topCareers);
+  const historical = await getHistoricalSummary(supabase, userId, attemptId);
+  const confidenceScore = calcConfidenceFromScores(attempt.scores);
   const structuredSummary = {
     scores: attempt.scores,
     topCareers,
+    topOccupations,
+    occupationMatchesSnapshot: topOccupations,
+    onetSkillGaps,
+    relatedOccupations: relatedCareers,
     profileVector: attempt.profileVector,
     intakeProfile: attempt.intakeProfile && typeof attempt.intakeProfile === "object" ? attempt.intakeProfile : {},
-    gameSummary: await getGameSummary(userId)
+    gameSummary: await getGameSummary(userId),
+    simulationSummary: await getSimulationSummary(userId),
+    reasoning,
+    confidenceScore,
+    historical
   };
 
-  const skillGaps = buildSkillGaps(attempt.scores, attempt.careerMatches || []);
+  const legacyGaps = buildSkillGaps(attempt.scores, attempt.careerMatches || []);
+  const skillGaps = mergeSkillGaps(onetSkillGaps, legacyGaps, 10);
 
   const { text: aiNarrative, provider } = await generateText(reportPrompt(structuredSummary));
 
@@ -129,7 +296,15 @@ export const generateReportForAttempt = async ({ userId, attemptId }) => {
 
   if (insErr) throw new ApiError(StatusCodes.BAD_REQUEST, insErr.message);
 
-  return { report: mapReportRow(inserted), created: true };
+  try {
+    await insertReportExplanations(supabase, inserted.id, reasoning.contributingFactors);
+  } catch (error) {
+    await supabase.from("reports").delete().eq("id", inserted.id).eq("user_id", userId);
+    throw error;
+  }
+
+  const withExplanations = await attachReportExplanations(supabase, mapReportRow(inserted));
+  return { report: await attachLiveSummaries(withExplanations, userId), created: true };
 };
 
 export const getReportById = async (id, userId) => {
@@ -138,7 +313,8 @@ export const getReportById = async (id, userId) => {
 
   if (error) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message);
   if (!data) throw new ApiError(StatusCodes.NOT_FOUND, "Report not found");
-  return mapReportRow(data);
+  const withExplanations = await attachReportExplanations(supabase, mapReportRow(data));
+  return attachLiveSummaries(withExplanations, userId);
 };
 
 export const getReportByAttempt = async (attemptId, userId) => {
@@ -152,7 +328,8 @@ export const getReportByAttempt = async (attemptId, userId) => {
 
   if (error) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message);
   if (!data) throw new ApiError(StatusCodes.NOT_FOUND, "Report not found");
-  return mapReportRow(data);
+  const withExplanations = await attachReportExplanations(supabase, mapReportRow(data));
+  return attachLiveSummaries(withExplanations, userId);
 };
 
 export const listReportsForUser = async (userId, limit = 20) => {

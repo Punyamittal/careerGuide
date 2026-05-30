@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 type MentorChatProps = {
   value: string;
@@ -75,7 +77,10 @@ export function MentorChat({ value, onChange, onSubmit, busy, reply }: MentorCha
   const titleId = useId();
   const dragRef = useRef<DragSession | null>(null);
   const fabPosRef = useRef(fabPos);
-  fabPosRef.current = fabPos;
+
+  useEffect(() => {
+    fabPosRef.current = fabPos;
+  }, [fabPos]);
 
   useEffect(() => {
     try {
@@ -83,7 +88,7 @@ export function MentorChat({ value, onChange, onSubmit, busy, reply }: MentorCha
       if (raw) {
         const p = JSON.parse(raw) as { r?: number; b?: number };
         if (typeof p.r === "number" && typeof p.b === "number") {
-          setFabPos(clampFabPos(p.r, p.b));
+          queueMicrotask(() => setFabPos(clampFabPos(p.r, p.b)));
         }
       }
     } catch {
@@ -258,7 +263,7 @@ export function MentorChat({ value, onChange, onSubmit, busy, reply }: MentorCha
                   Career mentor
                 </h2>
                 <p className="mt-0.5 text-[11px] font-medium leading-snug text-cg-muted">
-                  AI uses your latest scores when available (Ollama → Grok → OpenAI → fallback).
+                  AI uses your latest scores when available (Grok → OpenAI fallback if configured).
                 </p>
               </div>
               <button
@@ -271,16 +276,39 @@ export function MentorChat({ value, onChange, onSubmit, busy, reply }: MentorCha
             </div>
 
             <div className="min-h-0 flex-1 overflow-y-auto p-4">
-              {reply ? (
-                <p className="whitespace-pre-wrap rounded-xl border border-[var(--cg-3d-border)] bg-cg-accent-soft/50 p-3 text-sm leading-relaxed text-cg-text">
-                  {reply}
-                </p>
-              ) : (
-                <p className="text-sm font-medium text-cg-muted">
-                  Ask about careers, streams, or how to read your results. Replies stay in this session until you send a
-                  new question.
-                </p>
-              )}
+              <div className="flex items-end gap-2 flex-row">
+                <div className="relative h-14 w-11 shrink-0">
+                  <Image
+                    src="/raghav.png"
+                    alt="Career mentor"
+                    fill
+                    className="object-contain object-bottom"
+                    sizes="44px"
+                  />
+                </div>
+                <div
+                  className={cn(
+                    "relative min-w-0 flex-1 rounded-[16px] border border-black/10 bg-white px-3 py-2.5 text-sm leading-relaxed text-cg-text shadow-sm dark:border-white/10 dark:bg-zinc-800 dark:text-zinc-100"
+                  )}
+                >
+                  <span
+                    className="pointer-events-none absolute top-[28%] z-10 -mt-1 -translate-y-1/2 border-y-[7px] border-r-[9px] border-y-transparent border-r-white dark:border-r-zinc-800"
+                    style={{ left: -8 }}
+                    aria-hidden
+                  />
+                  <span className="block text-[10px] font-bold uppercase tracking-wide text-emerald-800 dark:text-emerald-400">
+                    Raghav · mentor
+                  </span>
+                  {reply ? (
+                    <p className="mt-1 whitespace-pre-wrap">{reply}</p>
+                  ) : (
+                    <p className="mt-1 text-sm font-medium text-cg-muted">
+                      Ask about careers, streams, or how to read your results. Replies stay in this session until you send
+                      a new question.
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
 
             <form

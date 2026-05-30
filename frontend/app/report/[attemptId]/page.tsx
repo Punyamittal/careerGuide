@@ -3,6 +3,19 @@
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis
+} from "recharts";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { RightPanel, type ProgressItem } from "@/components/dashboard/right-panel";
 import { useAuth } from "@/contexts/auth-context";
@@ -18,17 +31,38 @@ const cardClass =
 const backToDashboardClass =
   "inline-flex items-center gap-2 rounded-xl border-2 border-emerald-950 bg-emerald-700 px-5 py-3 text-base font-extrabold tracking-tight text-white shadow-[5px_5px_0_0_var(--cg-3d-border)] transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-emerald-600 hover:shadow-[6px_6px_0_0_var(--cg-3d-border)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[3px_3px_0_0_var(--cg-3d-border)] dark:border-emerald-300 dark:bg-emerald-600 dark:text-white dark:shadow-[5px_5px_0_0_rgb(0,0,0)] dark:hover:bg-emerald-500";
 
+const chartPalette = ["#059669", "#14b8a6", "#3b82f6", "#8b5cf6", "#f97316", "#f59e0b"];
+
 type Report = {
   _id: string;
   structuredSummary: {
     scores?: Record<string, unknown>;
     topCareers?: { title: string; confidence: number; matchScore?: number; slug?: string }[];
+    reasoning?: {
+      scoreBreakdown?: { label: string; value: number }[];
+      contributingFactors?: { factor: string; weight: number; description: string }[];
+      flow?: string[];
+      summary?: string;
+    };
+    confidenceScore?: number;
+    simulationSummary?: {
+      totals?: {
+        sessions: number;
+        avgCompletionScore: number;
+        topTone: string;
+      };
+      latest?: {
+        roleTitle: string;
+        tone: string;
+      } | null;
+    };
   };
   aiNarrative?: string;
   skillGaps?: { skill: string; priority: string; rationale: string }[];
   topCareers?: { title: string; confidence: number; matchScore?: number; slug?: string }[];
   writingEvaluation?: { score: number; feedback: string };
   aiProvider?: string;
+  explanations?: { factor: string; weight: number; description: string }[];
 };
 
 function ScoreBar({ label, value, max = 100 }: { label: string; value: number; max?: number }) {
@@ -118,6 +152,23 @@ export default function ReportPage() {
     }));
   }, [report?.skillGaps]);
 
+  const skillPieData = useMemo(() => {
+    const apt = (report?.structuredSummary?.scores as { aptitude?: Record<string, number> } | undefined)?.aptitude ?? {};
+    return Object.entries(apt)
+      .map(([name, value]) => ({ name, value: Number(value) }))
+      .filter((item) => Number.isFinite(item.value) && item.value > 0)
+      .sort((a, b) => b.value - a.value);
+  }, [report?.structuredSummary?.scores]);
+
+  const personalityBars = useMemo(() => {
+    const personality = (report?.structuredSummary?.scores as { personality?: { bigFive?: Record<string, number> } } | undefined)
+      ?.personality?.bigFive;
+    return Object.entries(personality ?? {})
+      .map(([name, value]) => ({ name: name.toUpperCase(), value: Number(value) }))
+      .filter((item) => Number.isFinite(item.value) && item.value > 0)
+      .sort((a, b) => b.value - a.value);
+  }, [report?.structuredSummary?.scores]);
+
   if (loading || !user) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-cg-canvas font-medium text-cg-muted">
@@ -156,7 +207,7 @@ export default function ReportPage() {
     | undefined;
 
   const main = (
-    <div className="mx-auto max-w-3xl space-y-8 pb-8">
+    <div className="mx-auto max-w-3xl space-y-6 pb-6 md:space-y-8 md:pb-8">
       <div className="space-y-4 border-b-2 border-[var(--cg-3d-border)] pb-8">
         <Link href="/dashboard" className={backToDashboardClass}>
           ← Dashboard
@@ -231,6 +282,138 @@ export default function ReportPage() {
         ) : null}
       </div>
 
+      {(skillPieData.length > 0 || personalityBars.length > 0) && (
+        <section className={cardClass}>
+          <h2 className="font-display text-lg font-bold text-cg-text">Visual score breakdown</h2>
+          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+            {skillPieData.length > 0 ? (
+              <div className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-gradient-to-br from-emerald-50 to-cyan-50 p-3 dark:from-zinc-900 dark:to-zinc-800/80">
+                <p className="text-sm font-semibold text-cg-text">Aptitude mix</p>
+                <div className="mt-2 h-60 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={skillPieData}
+                        dataKey="value"
+                        nameKey="name"
+                        innerRadius={45}
+                        outerRadius={85}
+                        paddingAngle={3}
+                        stroke="#ffffff"
+                        strokeWidth={2}
+                        label={({ name, percent }) => `${name} ${Math.round((percent ?? 0) * 100)}%`}
+                        labelLine={false}
+                      >
+                        {skillPieData.map((entry, index) => (
+                          <Cell key={`${entry.name}-${index}`} fill={chartPalette[index % chartPalette.length]} />
+                        ))}
+                      </Pie>
+                      <Legend verticalAlign="bottom" iconType="circle" wrapperStyle={{ fontSize: 12 }} />
+                      <Tooltip
+                        formatter={(value: number) => [`${Math.round(Number(value))}`, "Score"]}
+                        contentStyle={{ borderRadius: 12, borderColor: "#0f766e" }}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            ) : null}
+
+            {personalityBars.length > 0 ? (
+              <div className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-gradient-to-br from-sky-50 to-indigo-50 p-3 dark:from-zinc-900 dark:to-zinc-800/80">
+                <p className="text-sm font-semibold text-cg-text">Personality strengths</p>
+                <div className="mt-2 h-60 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={personalityBars}>
+                      <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="#cbd5e1" />
+                      <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} />
+                      <YAxis domain={[0, 100]} tick={{ fontSize: 11 }} />
+                      <Tooltip
+                        formatter={(value: number) => [`${Math.round(Number(value))}%`, "Strength"]}
+                        contentStyle={{ borderRadius: 12, borderColor: "#2563eb" }}
+                      />
+                      <Bar dataKey="value" radius={[8, 8, 0, 0]}>
+                        {personalityBars.map((item, index) => (
+                          <Cell key={`${item.name}-${index}`} fill={chartPalette[index % chartPalette.length]} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            ) : null}
+          </div>
+        </section>
+      )}
+
+      {(report.structuredSummary?.reasoning || report.explanations?.length) && (
+        <section className={cardClass}>
+          <h2 className="font-display text-lg font-bold text-cg-text">Why this recommendation</h2>
+          <p className="mt-2 text-sm text-cg-muted">
+            Confidence level: <span className="font-semibold text-cg-text">{report.structuredSummary?.confidenceScore ?? 0}%</span>
+          </p>
+          {report.structuredSummary?.reasoning?.flow?.length ? (
+            <ol className="mt-4 space-y-2">
+              {report.structuredSummary.reasoning.flow.map((item, index) => (
+                <li
+                  key={`${item}-${index}`}
+                  className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-white p-3 text-sm font-medium text-cg-text dark:bg-zinc-900/60"
+                >
+                  <span className="mr-2 font-bold text-emerald-800 dark:text-emerald-300">{index + 1}.</span>
+                  {item}
+                </li>
+              ))}
+            </ol>
+          ) : null}
+          {report.explanations?.length ? (
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {report.explanations.map((factor) => (
+                <div
+                  key={`${factor.factor}-${factor.weight}`}
+                  className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-[#faf7f2] p-3 dark:bg-zinc-900/50"
+                >
+                  <p className="text-sm font-semibold text-cg-text">
+                    {factor.factor} <span className="text-cg-muted">({Math.round(factor.weight)}%)</span>
+                  </p>
+                  <p className="mt-1 text-xs font-medium leading-relaxed text-cg-muted">{factor.description}</p>
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </section>
+      )}
+
+      {report.structuredSummary?.simulationSummary?.totals ? (
+        <section className={cardClass}>
+          <h2 className="font-display text-lg font-bold text-cg-text">Career simulation insights</h2>
+          <div className="mt-3 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-white p-3 dark:bg-zinc-900/60">
+              <p className="text-[11px] font-bold uppercase tracking-wide text-cg-muted">Sessions</p>
+              <p className="mt-1 text-xl font-bold text-cg-text">
+                {report.structuredSummary.simulationSummary.totals.sessions}
+              </p>
+            </div>
+            <div className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-white p-3 dark:bg-zinc-900/60">
+              <p className="text-[11px] font-bold uppercase tracking-wide text-cg-muted">Avg completion</p>
+              <p className="mt-1 text-xl font-bold text-cg-text">
+                {Math.round(report.structuredSummary.simulationSummary.totals.avgCompletionScore)}%
+              </p>
+            </div>
+            <div className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-white p-3 dark:bg-zinc-900/60">
+              <p className="text-[11px] font-bold uppercase tracking-wide text-cg-muted">Decision tone</p>
+              <p className="mt-1 text-xl font-bold capitalize text-cg-text">
+                {report.structuredSummary.simulationSummary.totals.topTone}
+              </p>
+            </div>
+          </div>
+          {report.structuredSummary.simulationSummary.latest?.roleTitle ? (
+            <p className="mt-3 text-sm text-cg-muted">
+              Latest simulation: {report.structuredSummary.simulationSummary.latest.roleTitle}
+            </p>
+          ) : null}
+        </section>
+      ) : null}
+
       {report.topCareers?.length ? (
         <section className={cardClass}>
           <h2 className="font-display text-lg font-bold text-cg-text">Top career matches</h2>
@@ -273,9 +456,9 @@ export default function ReportPage() {
         <section className={cardClass}>
           <h2 className="font-display text-lg font-bold text-cg-text">Skill gaps</h2>
           <ul className="mt-4 space-y-3">
-            {report.skillGaps.map((g) => (
+            {report.skillGaps.map((g, index) => (
               <li
-                key={g.skill}
+                key={`${g.skill}-${g.source ?? "gap"}-${index}`}
                 className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-[#faf7f2] p-4 dark:bg-zinc-900/50"
               >
                 <div className="flex flex-wrap items-center gap-2">
@@ -313,7 +496,7 @@ export default function ReportPage() {
         </section>
       ) : null}
 
-      <div className="flex flex-wrap gap-3 pt-2">
+      <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
         <Link
           href="/overview?tab=assessments"
           className="rounded-xl border-2 border-[var(--cg-3d-border)] bg-emerald-800 px-5 py-3 text-sm font-bold text-white shadow-[4px_4px_0_0_var(--cg-3d-border)] transition hover:-translate-x-px hover:-translate-y-px hover:bg-emerald-700"

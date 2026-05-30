@@ -57,13 +57,14 @@ export async function api<T = unknown>(
       headers: h,
       credentials: "include"
     });
-  } catch (cause) {
+  } catch (cause: unknown) {
     const hint =
       typeof cause === "object" && cause !== null && "message" in cause
         ? String((cause as Error).message)
         : String(cause);
     throw new Error(
-      `Cannot reach API (${url}). ${hint}. Start the backend (port 5000): cd careerGUIDE/backend && npm run dev. The UI proxies /api/v1 to the backend (see next.config.ts BACKEND_ORIGIN). For a remote API, set NEXT_PUBLIC_API_URL.`
+      `Cannot reach API (${url}). ${hint}. Start the backend (port 5000): cd careerGUIDE/backend && npm run dev. The UI proxies /api/v1 to the backend (see next.config.mjs BACKEND_ORIGIN). For a remote API, set NEXT_PUBLIC_API_URL.`,
+      { cause }
     );
   }
 
