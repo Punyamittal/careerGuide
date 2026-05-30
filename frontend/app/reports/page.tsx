@@ -190,7 +190,7 @@ export default function ReportsPage() {
                         <Cell key={`${item.name}-${index}`} fill={chartPalette[index % chartPalette.length]} />
                       ))}
                     </Pie>
-                    <Tooltip formatter={(value: number) => [`${Math.round(Number(value))}`, "Score"]} />
+                    <Tooltip formatter={(value) => [`${Math.round(Number(value ?? 0))}`, "Score"]} />
                   </PieChart>
                 </ResponsiveContainer>
               </div>
@@ -203,7 +203,7 @@ export default function ReportsPage() {
                   <BarChart data={gameBarData}>
                     <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} angle={-12} height={42} />
                     <YAxis />
-                    <Tooltip formatter={(value: number) => `${Math.round(Number(value))}`} />
+                    <Tooltip formatter={(value) => `${Math.round(Number(value ?? 0))}`} />
                     <Bar dataKey="value" radius={[8, 8, 0, 0]}>
                       {gameBarData.map((item, index) => (
                         <Cell key={`${item.name}-${index}`} fill={chartPalette[index % chartPalette.length]} />

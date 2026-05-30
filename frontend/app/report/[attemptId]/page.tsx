@@ -58,7 +58,7 @@ type Report = {
     };
   };
   aiNarrative?: string;
-  skillGaps?: { skill: string; priority: string; rationale: string }[];
+  skillGaps?: { skill: string; priority: string; rationale: string; source?: string }[];
   topCareers?: { title: string; confidence: number; matchScore?: number; slug?: string }[];
   writingEvaluation?: { score: number; feedback: string };
   aiProvider?: string;
@@ -310,7 +310,7 @@ export default function ReportPage() {
                       </Pie>
                       <Legend verticalAlign="bottom" iconType="circle" wrapperStyle={{ fontSize: 12 }} />
                       <Tooltip
-                        formatter={(value: number) => [`${Math.round(Number(value))}`, "Score"]}
+                        formatter={(value) => [`${Math.round(Number(value ?? 0))}`, "Score"]}
                         contentStyle={{ borderRadius: 12, borderColor: "#0f766e" }}
                       />
                     </PieChart>
@@ -329,7 +329,7 @@ export default function ReportPage() {
                       <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} />
                       <YAxis domain={[0, 100]} tick={{ fontSize: 11 }} />
                       <Tooltip
-                        formatter={(value: number) => [`${Math.round(Number(value))}%`, "Strength"]}
+                        formatter={(value) => [`${Math.round(Number(value ?? 0))}%`, "Strength"]}
                         contentStyle={{ borderRadius: 12, borderColor: "#2563eb" }}
                       />
                       <Bar dataKey="value" radius={[8, 8, 0, 0]}>

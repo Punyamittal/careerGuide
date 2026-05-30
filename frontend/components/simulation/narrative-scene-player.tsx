@@ -127,8 +127,8 @@ function SideDialogueBeat({
     const next = displayLine.speaker;
     if (next === renderedSpeaker) return;
 
-    let idleAfterEnter: ReturnType<typeof setTimeout> | undefined;
-    let swap: ReturnType<typeof setTimeout> | undefined;
+    let idleAfterEnter: number | undefined;
+    let swap: number | undefined;
     queueMicrotask(() => {
       setCharMotion("exit");
       swap = window.setTimeout(() => {
@@ -316,7 +316,9 @@ export function NarrativeScenePlayer({
   onBeginSimulation
 }: NarrativeScenePlayerProps) {
   const panelId = useId();
-  const atDecision = narrativePhase === "decision" && decision && decision.options.length > 0;
+  const atDecision = Boolean(
+    narrativePhase === "decision" && decision && decision.options.length > 0
+  );
   const introExhausted = narrativePhase === "done";
 
   useEffect(() => {

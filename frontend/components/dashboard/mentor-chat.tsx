@@ -87,8 +87,9 @@ export function MentorChat({ value, onChange, onSubmit, busy, reply }: MentorCha
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const p = JSON.parse(raw) as { r?: number; b?: number };
-        if (typeof p.r === "number" && typeof p.b === "number") {
-          queueMicrotask(() => setFabPos(clampFabPos(p.r, p.b)));
+        const { r, b } = p;
+        if (typeof r === "number" && typeof b === "number") {
+          queueMicrotask(() => setFabPos(clampFabPos(r, b)));
         }
       }
     } catch {

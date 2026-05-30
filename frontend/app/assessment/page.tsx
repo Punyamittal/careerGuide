@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { AssessmentIntakeForm, type IntakePayload } from "@/components/assessment/intake-form";
 import { useAuth } from "@/contexts/auth-context";
 import { api } from "@/lib/api";
@@ -48,7 +48,7 @@ function normalizeTrack(raw: string | null): AssessmentKey {
   return "career_g11";
 }
 
-export default function AssessmentPage() {
+function AssessmentPageContent() {
   const { user, loading } = useAuth();
   const router = useRouter();
   const search = useSearchParams();
@@ -298,5 +298,19 @@ export default function AssessmentPage() {
         </section>
       ) : null}
     </main>
+  );
+}
+
+export default function AssessmentPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-cg-canvas text-cg-muted">
+          Loading assessment...
+        </div>
+      }
+    >
+      <AssessmentPageContent />
+    </Suspense>
   );
 }
