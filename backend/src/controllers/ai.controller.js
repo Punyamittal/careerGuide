@@ -1,6 +1,7 @@
 import { getSupabaseAdmin } from "../config/supabase.js";
 import { getAdaptiveCareerQuizStep } from "../services/adaptiveQuiz.service.js";
 import { careerChat } from "../services/chat.service.js";
+import { buildCoachContext } from "../services/coachContext.service.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { sendSuccess } from "../utils/apiResponse.js";
 
@@ -13,6 +14,13 @@ export const postChat = asyncHandler(async (req, res) => {
       : {};
 
   if (req.user?.id) {
+    try {
+      const coachContext = await buildCoachContext(req.user.id);
+      serverContext = { ...serverContext, coach: coachContext };
+    } catch {
+      /* coach context is best-effort */
+    }
+
     const supabase = getSupabaseAdmin();
     const { data: latest } = await supabase
       .from("test_attempts")

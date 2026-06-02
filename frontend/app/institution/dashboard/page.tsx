@@ -1,7 +1,7 @@
  "use client";
 
 import { useEffect, useState } from "react";
-import { KPICard } from "@/components/cireern/ui";
+import { KPICard } from "@/components/career/ui";
 import { api } from "@/lib/api";
 
 type InstitutionOverview = {

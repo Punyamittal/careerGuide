@@ -47,7 +47,10 @@ export class TelemetryClient {
     this.emit({ eventType: "module_complete" });
     if (this.timer) clearInterval(this.timer);
     await this.flush();
-    await api(`/assessment/sessions/${this.sessionId}/score`, { method: "POST", body: "{}" });
+    await api(`/assessment/sessions/${this.sessionId}/score`, {
+      method: "POST",
+      body: JSON.stringify({ provider: "rule" })
+    });
   }
 
   abort() {

@@ -7,8 +7,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { dicebearLoreleiAvatar } from "@/components/dashboard/card-art";
 import { innerCardClass } from "@/components/life-journey/ui";
 import { useAuth } from "@/contexts/auth-context";
-import { useCireernStore } from "@/lib/cireern-store";
-import type { SkillAxis } from "@/lib/cireern-data";
+import { useCareerStore } from "@/lib/career-store";
+import type { SkillAxis } from "@/lib/career-data";
 import { getLearnerProfile, saveLearnerProfile } from "@/lib/learner-profile-storage";
 import { cn } from "@/lib/utils";
 
@@ -72,14 +72,14 @@ function Toggle({
 export function ProfileSettingsPanel() {
   const router = useRouter();
   const { user, loading, patchProfile, logout } = useAuth();
-  const skills = useCireernStore((s) => s.skills);
-  const level = useCireernStore((s) => s.level);
-  const xp = useCireernStore((s) => s.xp);
-  const streak = useCireernStore((s) => s.streak);
-  const sessions = useCireernStore((s) => s.sessions);
-  const actions = useCireernStore((s) => s.actions);
-  const onboardingProfile = useCireernStore((s) => s.onboardingProfile);
-  const setOnboardingProfile = useCireernStore((s) => s.setOnboardingProfile);
+  const skills = useCareerStore((s) => s.skills);
+  const level = useCareerStore((s) => s.level);
+  const xp = useCareerStore((s) => s.xp);
+  const streak = useCareerStore((s) => s.streak);
+  const sessions = useCareerStore((s) => s.sessions);
+  const actions = useCareerStore((s) => s.actions);
+  const onboardingProfile = useCareerStore((s) => s.onboardingProfile);
+  const setOnboardingProfile = useCareerStore((s) => s.setOnboardingProfile);
 
   const [name, setName] = useState("");
   const [role, setRole] = useState<"Student" | "Parent">("Student");

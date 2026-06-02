@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
-import { CoachChat } from "@/components/cireern/coach-chat-root";
+import { CoachChat } from "@/components/career/coach-chat-root";
 import { Providers } from "@/components/providers";
 import "./globals.css";
 

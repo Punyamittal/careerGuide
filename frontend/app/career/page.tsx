@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
-import { careerProfiles, cosineSimilarity } from "@/lib/cireern-data";
-import { useCireernStore } from "@/lib/cireern-store";
+import { careerProfiles, cosineSimilarity } from "@/lib/career-data";
+import { useCareerStore } from "@/lib/career-store";
 import { resolveInternshipSlug } from "@/lib/virtual-internships";
 
 export default function CareerPage() {
-  const skills = useCireernStore((state) => state.skills);
+  const skills = useCareerStore((state) => state.skills);
   const matches = useMemo(() => {
     const vector = [
       skills.memory,

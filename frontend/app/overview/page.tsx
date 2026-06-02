@@ -10,8 +10,8 @@ import { RightPanel } from "@/components/dashboard/right-panel";
 import { SectionBlock } from "@/components/dashboard/section-block";
 import { MotivationModulesGrid } from "@/components/assessment-engine/MotivationModulesGrid";
 import { api } from "@/lib/api";
-import { gameCatalog } from "@/lib/cireern-data";
-import { useCireernStore } from "@/lib/cireern-store";
+import { gameCatalog } from "@/lib/career-data";
+import { useCareerStore } from "@/lib/career-store";
 const PROGRAMME_OVERVIEW = {
   eyebrow: "Learning stages · school-friendly documentation",
   title: "Assessment overview",
@@ -89,9 +89,9 @@ function OverviewPageContent() {
     };
   } | null>(null);
   const [gameSummaryLoading, setGameSummaryLoading] = useState(false);
-  const profile = useCireernStore((state) => state.onboardingProfile);
-  const sessions = useCireernStore((state) => state.sessions);
-  const level = useCireernStore((state) => state.level);
+  const profile = useCareerStore((state) => state.onboardingProfile);
+  const sessions = useCareerStore((state) => state.sessions);
+  const level = useCareerStore((state) => state.level);
   void query;
   void category;
 

@@ -2,6 +2,9 @@ import { StatusCodes } from "http-status-codes";
 import { getSupabaseAdmin } from "../../config/supabase.js";
 import { ApiError } from "../../utils/ApiError.js";
 import { MBS_MODULE_REGISTRY, getModuleById } from "../../constants/mbsModuleRegistry.js";
+import { scoreAssessmentFromTelemetry } from "./ruleScoring.service.js";
+import { materializeLearnerMbsProfile } from "../mbs/profileMaterialization.service.js";
+import { log } from "../../utils/logger.js";
 
 export async function listAssessmentModules({ status } = {}) {
   let modules = MBS_MODULE_REGISTRY;
@@ -90,34 +93,44 @@ export async function ingestTelemetry(userId, sessionId, { events, clientSeq, ad
   return { ingested: rows.length };
 }
 
-/** Rule-based scoring stub — Phase 1 */
-export async function scoreSession(userId, sessionId, provider = "rule") {
+/**
+ * Rule-based scoring (source of truth) with optional client summary validation.
+ * @param {string} userId
+ * @param {string} sessionId
+ * @param {{ provider?: string; clientSummary?: Record<string, unknown> }} [opts]
+ */
+export async function scoreSession(userId, sessionId, opts = {}) {
+  const provider = opts.provider ?? "rule";
   const supabase = getSupabaseAdmin();
-  const { data: events, error } = await supabase
+
+  const { data: session, error: sessErr } = await supabase
+    .from("assessment_sessions")
+    .select("id, module_id, user_id")
+    .eq("id", sessionId)
+    .eq("user_id", userId)
+    .maybeSingle();
+
+  if (sessErr) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, sessErr.message);
+  if (!session) throw new ApiError(StatusCodes.NOT_FOUND, "Session not found");
+
+  const mod = getModuleById(session.module_id);
+  if (!mod) throw new ApiError(StatusCodes.BAD_REQUEST, "Unknown module for session");
+
+  const { data: events, error: evErr } = await supabase
     .from("assessment_telemetry_events")
     .select("*")
     .eq("session_id", sessionId)
     .eq("user_id", userId)
-    .eq("event_type", "response");
+    .order("created_at", { ascending: true });
 
-  if (error) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, error.message);
+  if (evErr) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, evErr.message);
 
-  const rts = events.filter((e) => e.response_time_ms != null).map((e) => e.response_time_ms);
-  const correct = events.filter((e) => e.response_correct === true).length;
-  const total = events.length || 1;
-  const accuracy = correct / total;
-  const meanRt = rts.length ? Math.round(rts.reduce((a, b) => a + b, 0) / rts.length) : null;
+  const scored = scoreAssessmentFromTelemetry(mod, events ?? [], {
+    clientSummary: opts.clientSummary
+  });
 
-  const { data: session } = await supabase
-    .from("assessment_sessions")
-    .select("module_id")
-    .eq("id", sessionId)
-    .single();
-
-  const mod = getModuleById(session?.module_id);
-  const constructScores = {};
-  for (const tag of mod?.constructTags ?? []) {
-    constructScores[tag] = Math.round(accuracy * 100) / 100;
+  if (scored.summary.itemsAnswered === 0 && !opts.clientSummary) {
+    log("warn", "assessment_score_no_responses", { sessionId, moduleId: mod.id });
   }
 
   const { data: scoreRow, error: insErr } = await supabase
@@ -128,11 +141,11 @@ export async function scoreSession(userId, sessionId, provider = "rule") {
         user_id: userId,
         module_id: session.module_id,
         scoring_provider: provider,
-        construct_scores: constructScores,
-        summary: { accuracy, meanRt, eventCount: events.length },
-        accuracy,
-        mean_response_time_ms: meanRt,
-        difficulty_reached: Math.max(0, ...(events.map((e) => e.difficulty_level ?? 0)))
+        construct_scores: scored.constructScores,
+        summary: scored.summary,
+        accuracy: scored.accuracy,
+        mean_response_time_ms: scored.meanRt,
+        difficulty_reached: scored.difficultyReached
       },
       { onConflict: "session_id" }
     )
@@ -145,6 +158,15 @@ export async function scoreSession(userId, sessionId, provider = "rule") {
     .from("assessment_sessions")
     .update({ status: "completed", completed_at: new Date().toISOString() })
     .eq("id", sessionId);
+
+  try {
+    await materializeLearnerMbsProfile(userId);
+  } catch (profileErr) {
+    log("error", "learner_mbs_profile_materialization_failed", {
+      userId,
+      message: profileErr.message
+    });
+  }
 
   return scoreRow;
 }

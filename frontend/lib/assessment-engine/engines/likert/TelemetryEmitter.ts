@@ -76,7 +76,7 @@ export class TelemetryEmitter {
     }
   }
 
-  async finalize() {
+  async finalize(clientSummary?: Record<string, unknown>) {
     await this.flush();
     while (this.buffer.length) {
       await this.flush();
@@ -84,7 +84,10 @@ export class TelemetryEmitter {
     try {
       await api(`/assessment/sessions/${this.sessionId}/score`, {
         method: "POST",
-        body: "{}"
+        body: JSON.stringify({
+          provider: "rule",
+          clientSummary: clientSummary ?? undefined
+        })
       });
     } catch {
       /* scoring optional offline */

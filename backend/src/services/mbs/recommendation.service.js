@@ -1,32 +1,51 @@
 import { getSupabaseAdmin } from "../../config/supabase.js";
 import { searchMbsOccupations } from "./classification.service.js";
-
-/** Default construct → MBS domain affinity weights (expand via config) */
-const CONSTRUCT_DOMAIN_WEIGHTS = {
-  DWECK: { "MBS-12": 0.8, "MBS-01": 0.5 },
-  MASLOW: { "MBS-20": 0.7, "MBS-16": 0.6 },
-  COMMUNICATION: { "MBS-11": 0.9, "MBS-15": 0.7 },
-  COLLABORATION: { "MBS-15": 0.8, "MBS-06": 0.6 },
-  ATTENTION: { "MBS-01": 0.7, "MBS-04": 0.6 },
-  COORDINATION: { "MBS-02": 0.8, "MBS-13": 0.5 },
-  GRIT: { "MBS-18": 0.5, "MBS-02": 0.6 },
-  LEWIN_BPE: { "MBS-20": 0.7 },
-  SENSE_MEANING: { "MBS-20": 0.85 }
-};
-
-/** Life Journey psychological signal → construct proxy */
-const SIGNAL_CONSTRUCT_MAP = {
-  confidence: { MASLOW: 0.6, PSYCAP: 0.5 },
-  resilience: { PSYCAP: 0.8, DWECK: 0.5 },
-  ambition: { MCCLELLAND: 0.7, "MBS-06": 0.4 },
-  adaptability: { DWECK: 0.7, ADAPTABILITY: 0.8 },
-  social_trust: { COMMUNICATION: 0.5, "MBS-15": 0.6 }
-};
+import {
+  CONSTRUCT_DOMAIN_WEIGHTS,
+  SIGNAL_CONSTRUCT_MAP
+} from "../../constants/constructDomainWeights.js";
 
 function mergeDomainScores(target, source, scale = 1) {
   for (const [domain, w] of Object.entries(source)) {
     target[domain] = (target[domain] ?? 0) + w * scale;
   }
+}
+
+function topConstructsForDomain(domainId, constructScores) {
+  const contributors = [];
+  for (const [construct, weights] of Object.entries(CONSTRUCT_DOMAIN_WEIGHTS)) {
+    if (!weights[domainId]) continue;
+    const score = constructScores[construct] ?? constructScores[construct.toUpperCase()];
+    if (score == null) continue;
+    contributors.push({
+      construct,
+      score: Number(score),
+      weight: weights[domainId]
+    });
+  }
+  return contributors.sort((a, b) => b.score * b.weight - a.score * a.weight).slice(0, 3);
+}
+
+function buildMatchRationale(domainId, domainScore, constructScores, domainLabel) {
+  const top = topConstructsForDomain(domainId, constructScores);
+  const label = domainLabel ?? domainId;
+  if (!top.length) {
+    return {
+      matchReason: `Aligned with ${label} based on your learner profile.`,
+      constructJustification: []
+    };
+  }
+  const parts = top.map(
+    (c) => `${c.construct} (${Math.round(c.score * 100)}%)`
+  );
+  return {
+    matchReason: `Strong fit for ${label}: your ${parts.join(", ")} scores support this domain.`,
+    constructJustification: top.map((c) => ({
+      construct: c.construct,
+      score: Math.round(c.score * 1000) / 1000,
+      domainWeight: c.weight
+    }))
+  };
 }
 
 /**
@@ -37,10 +56,11 @@ export async function getMbsRecommendations(userId, opts = {}) {
   const supabase = getSupabaseAdmin();
   const limit = Math.min(24, opts.limit ?? 12);
   const domainScores = {};
+  const constructScores = {};
 
   const { data: profile } = await supabase
     .from("learner_mbs_profile")
-    .select("construct_scores, domain_affinities")
+    .select("construct_scores, domain_affinities, source_summary")
     .eq("user_id", userId)
     .maybeSingle();
 
@@ -49,6 +69,7 @@ export async function getMbsRecommendations(userId, opts = {}) {
   }
 
   if (profile?.construct_scores && typeof profile.construct_scores === "object") {
+    Object.assign(constructScores, profile.construct_scores);
     for (const [construct, score] of Object.entries(profile.construct_scores)) {
       const weights = CONSTRUCT_DOMAIN_WEIGHTS[construct.toUpperCase()];
       if (weights) mergeDomainScores(domainScores, weights, Number(score) || 0.5);
@@ -65,7 +86,9 @@ export async function getMbsRecommendations(userId, opts = {}) {
   for (const row of moduleScores ?? []) {
     if (row.construct_scores && typeof row.construct_scores === "object") {
       for (const [construct, score] of Object.entries(row.construct_scores)) {
-        const weights = CONSTRUCT_DOMAIN_WEIGHTS[construct.toUpperCase()];
+        const key = construct.toUpperCase();
+        constructScores[key] = constructScores[key] ?? Number(score);
+        const weights = CONSTRUCT_DOMAIN_WEIGHTS[key];
         if (weights) mergeDomainScores(domainScores, weights, Number(score) || 0.5);
       }
     }
@@ -90,20 +113,35 @@ export async function getMbsRecommendations(userId, opts = {}) {
   const topDomains = Object.entries(domainScores)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3)
-    .map(([id]) => id);
+    .map(([id, score]) => ({ id, score: Math.round(score * 1000) / 1000 }));
 
   if (!topDomains.length) {
-    topDomains.push("MBS-01", "MBS-12", "MBS-06");
+    topDomains.push(
+      { id: "MBS-01", score: 0.5 },
+      { id: "MBS-12", score: 0.45 },
+      { id: "MBS-06", score: 0.4 }
+    );
   }
 
   const recommendations = [];
-  for (const domainId of topDomains) {
-    const { occupations } = await searchMbsOccupations({ mbsDomain: domainId, limit: Math.ceil(limit / topDomains.length) });
+  for (const { id: domainId, score: domainScore } of topDomains) {
+    const { occupations } = await searchMbsOccupations({
+      mbsDomain: domainId,
+      limit: Math.ceil(limit / topDomains.length)
+    });
     for (const occ of occupations) {
+      const { matchReason, constructJustification } = buildMatchRationale(
+        domainId,
+        domainScore,
+        constructScores,
+        occ.mbsDomainLabel
+      );
       recommendations.push({
         ...occ,
-        matchReason: `Aligned with ${domainId} based on assessments and life journey signals`,
-        domainAffinityScore: domainScores[domainId] ?? 0
+        matchReason,
+        constructJustification,
+        domainAffinityScore: domainScores[domainId] ?? domainScore,
+        mbsExplanation: `Occupation classified under ${occ.mbsDomainLabel ?? domainId} in the MBS–O*NET taxonomy.`
       });
     }
   }
@@ -111,7 +149,9 @@ export async function getMbsRecommendations(userId, opts = {}) {
   recommendations.sort((a, b) => b.domainAffinityScore - a.domainAffinityScore);
 
   return {
-    topDomains: topDomains.map((id) => ({ id, score: domainScores[id] ?? 0 })),
-    occupations: recommendations.slice(0, limit)
+    profileConfidence: profile?.source_summary?.profileConfidence ?? null,
+    topDomains,
+    occupations: recommendations.slice(0, limit),
+    constructScoresUsed: constructScores
   };
 }

@@ -391,8 +391,13 @@ export class BranchingScene extends Phaser.Scene {
   private async finish() {
     try {
       this.session = attachBranchingSummaryToSession(this.session, this.config);
+      this.telemetry.emitSessionComplete(
+        this.session.sessionSummary as Record<string, unknown>,
+        this.session.sessionAnalytics as Record<string, unknown>
+      );
+      await this.telemetry.flush();
       await Promise.race([
-        this.telemetry.finalize(),
+        this.telemetry.finalize(this.session.sessionSummary as Record<string, unknown>),
         new Promise<void>((resolve) => {
           this.time.delayedCall(4000, () => resolve());
         })

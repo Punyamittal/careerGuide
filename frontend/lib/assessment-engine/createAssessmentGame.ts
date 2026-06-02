@@ -46,6 +46,26 @@ export async function createAssessmentGame(
         onReady: options.onReady
       });
     }
+    case "tracing": {
+      const { createTracingEngine } = await import("./engines/tracing/TracingEngine");
+      return createTracingEngine({
+        container: options.container,
+        moduleId: options.moduleId,
+        sessionId: options.sessionId,
+        onComplete: options.onComplete as (summary: Record<string, unknown>) => void,
+        onReady: options.onReady
+      });
+    }
+    case "reaction_time": {
+      const { createReactionTimeEngine } = await import("./engines/reaction_time/ReactionTimeEngine");
+      return createReactionTimeEngine({
+        container: options.container,
+        moduleId: options.moduleId,
+        sessionId: options.sessionId,
+        onComplete: options.onComplete as (summary: Record<string, unknown>) => void,
+        onReady: options.onReady
+      });
+    }
     default:
       throw new Error(`Engine "${options.engineType}" is not implemented yet.`);
   }

@@ -14,7 +14,10 @@
     "etl:mbs": "node scripts/etl/mbs/import-mbs-master.mjs",
     "etl:onet:validate": "node scripts/etl/onet/validate-release.mjs",
     "onet:export": "node scripts/etl/onet/export-release.mjs",
-    "onet:excel-export": "node scripts/etl/onet/export-release.mjs --excel"
+    "onet:excel-export": "node scripts/etl/onet/export-release.mjs --excel",
+    "build:scoring-catalog": "node scripts/build-scoring-catalog.mjs",
+    "test": "node --test src/**/*.test.js",
+    "validate:pipeline": "node scripts/validate-assessment-pipeline.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

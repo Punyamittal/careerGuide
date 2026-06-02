@@ -3,8 +3,8 @@
 import { useMemo, useState } from "react";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { RightPanel } from "@/components/dashboard/right-panel";
-import { gameCatalog } from "@/lib/cireern-data";
-import { GameCard } from "@/components/cireern/ui";
+import { gameCatalog } from "@/lib/career-data";
+import { GameCard } from "@/components/career/ui";
 
 export default function PlayPage() {
   const [type, setType] = useState<"all" | "iq" | "physiology">("all");

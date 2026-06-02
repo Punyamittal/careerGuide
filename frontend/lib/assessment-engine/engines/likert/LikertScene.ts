@@ -399,7 +399,7 @@ export class LikertScene extends Phaser.Scene {
     try {
       this.telemetry.emitSessionAnalytics(this.session.sessionAnalytics, this.session.sessionSummary);
       await Promise.race([
-        this.telemetry.finalize(),
+        this.telemetry.finalize(this.session.sessionSummary as Record<string, unknown>),
         new Promise<void>((resolve) => {
           this.time.delayedCall(4000, () => resolve());
         })

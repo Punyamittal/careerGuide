@@ -73,12 +73,34 @@ export class BranchingTelemetryEmitter {
     }
   }
 
-  async finalize() {
+  async finalize(clientSummary?: Record<string, unknown>) {
     while (this.buffer.length) await this.flush();
     try {
-      await api(`/assessment/sessions/${this.sessionId}/score`, { method: "POST", body: "{}" });
+      await api(`/assessment/sessions/${this.sessionId}/score`, {
+        method: "POST",
+        body: JSON.stringify({
+          provider: "rule",
+          clientSummary: clientSummary ?? undefined
+        })
+      });
     } catch {
       /* offline */
     }
+  }
+
+  emitSessionComplete(summary?: Record<string, unknown>, analytics?: Record<string, unknown>) {
+    this.emit({
+      nodeId: "session",
+      hesitationTime: 0,
+      changedChoice: false,
+      branchDepth: 0,
+      escalationScore: 0,
+      empathySignal: 0,
+      metadata: {
+        eventType: "module_complete",
+        sessionSummary: summary,
+        sessionAnalytics: analytics
+      }
+    });
   }
 }

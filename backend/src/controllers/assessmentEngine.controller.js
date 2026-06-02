@@ -30,6 +30,9 @@ export const postTelemetry = asyncHandler(async (req, res) => {
 });
 
 export const postScore = asyncHandler(async (req, res) => {
-  const score = await scoreSession(req.user.id, req.params.sessionId, req.body?.provider ?? "rule");
+  const score = await scoreSession(req.user.id, req.params.sessionId, {
+    provider: req.body?.provider ?? "rule",
+    clientSummary: req.body?.clientSummary
+  });
   return sendSuccess(res, { score });
 });

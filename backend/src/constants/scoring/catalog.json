@@ -1,0 +1,1007 @@
+{
+  "version": 1,
+  "modules": {
+    "M01": {
+      "engineType": "likert",
+      "constructs": [
+        "MASLOW",
+        "MOTIVATION",
+        "INTEREST_EXPLORER_PREP"
+      ],
+      "items": [
+        {
+          "id": "M1-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "safety_security": 1,
+            "emotional_resilience": 0.3
+          }
+        },
+        {
+          "id": "M1-F02",
+          "type": "frequency",
+          "scoringWeight": {
+            "growth_motivation": 1,
+            "challenge_tolerance": 0.4
+          }
+        },
+        {
+          "id": "M1-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "collaboration_independence": 1,
+            "social_energy": 0.5
+          }
+        },
+        {
+          "id": "M1-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "curiosity": 1,
+            "routine_exploration": 0.6
+          }
+        },
+        {
+          "id": "M1-F03",
+          "type": "frequency",
+          "scoringWeight": {
+            "achievement_orientation": 1,
+            "long_term_ambition": 0.4
+          }
+        },
+        {
+          "id": "M1-F04",
+          "type": "frequency",
+          "scoringWeight": {
+            "social_energy": 1,
+            "collaboration_independence": 0.4
+          }
+        },
+        {
+          "id": "M1-B02",
+          "type": "binary",
+          "scoringWeight": {
+            "routine_exploration": 1,
+            "curiosity": 0.5
+          }
+        },
+        {
+          "id": "M1-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "feedback_response": 1,
+            "learning_behavior": 0.6,
+            "emotional_resilience": 0.3
+          }
+        },
+        {
+          "id": "M1-F05",
+          "type": "frequency",
+          "scoringWeight": {
+            "autonomy": 1,
+            "intrinsic_extrinsic": 0.4
+          }
+        },
+        {
+          "id": "M1-F06",
+          "type": "frequency",
+          "scoringWeight": {
+            "challenge_tolerance": 1,
+            "growth_motivation": 0.5
+          }
+        },
+        {
+          "id": "M1-SD03",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "recognition": 1,
+            "achievement_orientation": 0.4,
+            "intrinsic_extrinsic": 0.3
+          }
+        },
+        {
+          "id": "M1-B03",
+          "type": "binary",
+          "scoringWeight": {
+            "intrinsic_extrinsic": 1,
+            "autonomy": 0.4
+          }
+        },
+        {
+          "id": "M1-F07",
+          "type": "frequency",
+          "scoringWeight": {
+            "learning_behavior": 1,
+            "growth_motivation": 0.5,
+            "curiosity": 0.3
+          }
+        },
+        {
+          "id": "M1-SD04",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "long_term_ambition": 1,
+            "achievement_orientation": 0.5
+          }
+        },
+        {
+          "id": "M1-F08",
+          "type": "frequency",
+          "scoringWeight": {
+            "emotional_resilience": 1,
+            "challenge_tolerance": 0.4
+          }
+        },
+        {
+          "id": "M1-F09",
+          "type": "frequency",
+          "scoringWeight": {
+            "growth_motivation": 0.8,
+            "learning_behavior": 0.6,
+            "emotional_resilience": 0.4
+          }
+        },
+        {
+          "id": "M1-SD05",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "collaboration_independence": 1,
+            "social_energy": 0.3,
+            "autonomy": 0.3
+          }
+        },
+        {
+          "id": "M1-B04",
+          "type": "binary",
+          "scoringWeight": {
+            "intrinsic_extrinsic": 1,
+            "long_term_ambition": 0.5,
+            "autonomy": 0.3
+          }
+        }
+      ]
+    },
+    "M02": {
+      "engineType": "likert",
+      "constructs": [
+        "MCCLELLAND",
+        "ACHIEVEMENT",
+        "AFFILIATION",
+        "POWER"
+      ],
+      "items": [
+        {
+          "id": "M2-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "achievement_need": 1,
+            "achievement_orientation": 0.5
+          }
+        },
+        {
+          "id": "M2-F02",
+          "type": "frequency",
+          "scoringWeight": {
+            "achievement_need": 1,
+            "learning_behavior": 0.3
+          }
+        },
+        {
+          "id": "M2-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "achievement_need": 1,
+            "challenge_tolerance": 0.4
+          }
+        },
+        {
+          "id": "M2-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "achievement_need": 1,
+            "achievement_orientation": 0.6
+          }
+        },
+        {
+          "id": "M2-F03",
+          "type": "frequency",
+          "scoringWeight": {
+            "affiliation_need": 1,
+            "collaboration_independence": 0.5
+          }
+        },
+        {
+          "id": "M2-F04",
+          "type": "frequency",
+          "scoringWeight": {
+            "affiliation_need": 1,
+            "social_energy": 0.6
+          }
+        },
+        {
+          "id": "M2-B02",
+          "type": "binary",
+          "scoringWeight": {
+            "affiliation_need": 1,
+            "emotional_resilience": 0.3
+          }
+        },
+        {
+          "id": "M2-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "affiliation_need": 1,
+            "collaboration_independence": 0.4
+          }
+        },
+        {
+          "id": "M2-F05",
+          "type": "frequency",
+          "scoringWeight": {
+            "power_need": 1,
+            "achievement_orientation": 0.3
+          }
+        },
+        {
+          "id": "M2-F06",
+          "type": "frequency",
+          "scoringWeight": {
+            "power_need": 1,
+            "long_term_ambition": 0.4
+          }
+        },
+        {
+          "id": "M2-B03",
+          "type": "binary",
+          "scoringWeight": {
+            "power_need": 1,
+            "autonomy": 0.5
+          }
+        },
+        {
+          "id": "M2-SD03",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "power_need": 1,
+            "emotional_resilience": 0.4
+          }
+        }
+      ]
+    },
+    "M03": {
+      "engineType": "likert",
+      "constructs": [
+        "DWECK",
+        "MOTIVATION"
+      ],
+      "items": [
+        {
+          "id": "M3-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "growth_motivation": 1,
+            "learning_behavior": 0.5
+          },
+          "idealIndex": 5
+        },
+        {
+          "id": "M3-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "challenge_tolerance": 1,
+            "growth_motivation": 0.5
+          },
+          "idealIndex": 5
+        },
+        {
+          "id": "M3-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "feedback_response": 1,
+            "emotional_resilience": 0.4
+          },
+          "idealIndex": 5
+        },
+        {
+          "id": "M3-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "learning_behavior": 1,
+            "feedback_response": 0.6
+          },
+          "idealIndex": 4
+        }
+      ]
+    },
+    "M04": {
+      "engineType": "likert",
+      "constructs": [
+        "HERZBERG",
+        "HYGIENE",
+        "MOTIVATOR",
+        "JOB_SATISFACTION"
+      ],
+      "items": [
+        {
+          "id": "M4-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "hygiene_factors": 1,
+            "intrinsic_extrinsic": 0.4
+          }
+        },
+        {
+          "id": "M4-F02",
+          "type": "frequency",
+          "scoringWeight": {
+            "hygiene_factors": 1,
+            "safety_security": 0.5
+          }
+        },
+        {
+          "id": "M4-F03",
+          "type": "frequency",
+          "scoringWeight": {
+            "hygiene_factors": 1,
+            "autonomy": 0.3
+          }
+        },
+        {
+          "id": "M4-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "hygiene_factors": 1,
+            "emotional_resilience": 0.3
+          }
+        },
+        {
+          "id": "M4-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "hygiene_factors": 1,
+            "job_satisfaction": 0.5
+          }
+        },
+        {
+          "id": "M4-F04",
+          "type": "frequency",
+          "scoringWeight": {
+            "motivator_factors": 1,
+            "achievement_orientation": 0.5
+          }
+        },
+        {
+          "id": "M4-F05",
+          "type": "frequency",
+          "scoringWeight": {
+            "motivator_factors": 1,
+            "recognition": 0.8
+          }
+        },
+        {
+          "id": "M4-F06",
+          "type": "frequency",
+          "scoringWeight": {
+            "motivator_factors": 1,
+            "growth_motivation": 0.7
+          }
+        },
+        {
+          "id": "M4-B02",
+          "type": "binary",
+          "scoringWeight": {
+            "motivator_factors": 1,
+            "challenge_tolerance": 0.5
+          }
+        },
+        {
+          "id": "M4-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "job_satisfaction": 1,
+            "motivator_factors": 0.5,
+            "hygiene_factors": 0.5
+          }
+        },
+        {
+          "id": "M4-F07",
+          "type": "frequency",
+          "scoringWeight": {
+            "job_satisfaction": 1,
+            "motivator_factors": 0.4,
+            "hygiene_factors": 0.4
+          }
+        },
+        {
+          "id": "M4-SD03",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "motivator_factors": 1,
+            "long_term_ambition": 0.4
+          }
+        }
+      ]
+    },
+    "M05": {
+      "engineType": "likert",
+      "constructs": [
+        "EQUITY",
+        "FAIRNESS",
+        "SOCIAL_COMPARISON"
+      ],
+      "items": [
+        {
+          "id": "M5-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "equity_comparison": 1,
+            "social_energy": 0.3
+          }
+        },
+        {
+          "id": "M5-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "perceived_fairness": 1,
+            "recognition": 0.5
+          }
+        },
+        {
+          "id": "M5-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "perceived_fairness": 1,
+            "emotional_resilience": 0.3
+          }
+        },
+        {
+          "id": "M5-F02",
+          "type": "frequency",
+          "scoringWeight": {
+            "reward_distribution": 1,
+            "perceived_fairness": 0.6
+          }
+        },
+        {
+          "id": "M5-F03",
+          "type": "frequency",
+          "scoringWeight": {
+            "equity_comparison": 1,
+            "achievement_orientation": 0.3
+          }
+        },
+        {
+          "id": "M5-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "perceived_fairness": 1,
+            "intrinsic_extrinsic": 0.4
+          }
+        },
+        {
+          "id": "M5-B02",
+          "type": "binary",
+          "scoringWeight": {
+            "reward_distribution": 1,
+            "collaboration_independence": 0.4
+          }
+        },
+        {
+          "id": "M5-F04",
+          "type": "frequency",
+          "scoringWeight": {
+            "perceived_fairness": 1,
+            "growth_motivation": 0.3
+          }
+        },
+        {
+          "id": "M5-SD03",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "equity_comparison": 1,
+            "perceived_fairness": 0.5
+          }
+        },
+        {
+          "id": "M5-F05",
+          "type": "frequency",
+          "scoringWeight": {
+            "reward_distribution": 1,
+            "feedback_response": 0.5,
+            "emotional_resilience": 0.4
+          }
+        }
+      ]
+    },
+    "M06": {
+      "engineType": "likert",
+      "constructs": [
+        "REINFORCEMENT",
+        "FEEDBACK",
+        "CONSEQUENCE_SENSITIVITY"
+      ],
+      "items": [
+        {
+          "id": "M6-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "positive_reinforcement": 1,
+            "recognition": 0.6
+          }
+        },
+        {
+          "id": "M6-F02",
+          "type": "frequency",
+          "scoringWeight": {
+            "feedback_sensitivity": 1,
+            "learning_behavior": 0.6
+          }
+        },
+        {
+          "id": "M6-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "positive_reinforcement": 1,
+            "achievement_orientation": 0.4
+          }
+        },
+        {
+          "id": "M6-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "negative_reinforcement": 1,
+            "challenge_tolerance": 0.5
+          }
+        },
+        {
+          "id": "M6-F03",
+          "type": "frequency",
+          "scoringWeight": {
+            "negative_reinforcement": 1,
+            "emotional_resilience": 0.3
+          }
+        },
+        {
+          "id": "M6-F04",
+          "type": "frequency",
+          "scoringWeight": {
+            "feedback_sensitivity": 1,
+            "learning_behavior": 0.5
+          }
+        },
+        {
+          "id": "M6-B02",
+          "type": "binary",
+          "scoringWeight": {
+            "positive_reinforcement": 1,
+            "intrinsic_extrinsic": 0.5
+          }
+        },
+        {
+          "id": "M6-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "feedback_sensitivity": 1,
+            "feedback_response": 0.7
+          }
+        },
+        {
+          "id": "M6-F05",
+          "type": "frequency",
+          "scoringWeight": {
+            "negative_reinforcement": 1,
+            "emotional_resilience": 0.4
+          }
+        },
+        {
+          "id": "M6-SD03",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "positive_reinforcement": 0.5,
+            "negative_reinforcement": 0.5
+          }
+        }
+      ]
+    },
+    "M07": {
+      "engineType": "likert",
+      "constructs": [
+        "ATTRIBUTION",
+        "LOCUS_OF_CONTROL",
+        "EXPLANATORY_STYLE"
+      ],
+      "items": [
+        {
+          "id": "M7-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "internal_attribution": 1,
+            "achievement_orientation": 0.5
+          }
+        },
+        {
+          "id": "M7-F02",
+          "type": "frequency",
+          "scoringWeight": {
+            "external_attribution": 1,
+            "emotional_resilience": 0.3
+          }
+        },
+        {
+          "id": "M7-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "internal_attribution": 1,
+            "learning_behavior": 0.6
+          }
+        },
+        {
+          "id": "M7-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "locus_of_control": 1,
+            "internal_attribution": 0.7
+          }
+        },
+        {
+          "id": "M7-F03",
+          "type": "frequency",
+          "scoringWeight": {
+            "external_attribution": 1,
+            "perceived_fairness": 0.4
+          }
+        },
+        {
+          "id": "M7-F04",
+          "type": "frequency",
+          "scoringWeight": {
+            "internal_attribution": 1,
+            "growth_motivation": 0.6
+          }
+        },
+        {
+          "id": "M7-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "locus_of_control": 1,
+            "emotional_resilience": 0.5
+          }
+        },
+        {
+          "id": "M7-B02",
+          "type": "binary",
+          "scoringWeight": {
+            "external_attribution": 1,
+            "collaboration_independence": 0.4
+          }
+        },
+        {
+          "id": "M7-F05",
+          "type": "frequency",
+          "scoringWeight": {
+            "locus_of_control": 1,
+            "learning_behavior": 0.5
+          }
+        },
+        {
+          "id": "M7-SD03",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "internal_attribution": 1,
+            "recognition": 0.4
+          }
+        },
+        {
+          "id": "M7-F06",
+          "type": "frequency",
+          "scoringWeight": {
+            "external_attribution": 1,
+            "feedback_response": 0.4
+          }
+        },
+        {
+          "id": "M7-B03",
+          "type": "binary",
+          "scoringWeight": {
+            "locus_of_control": 1,
+            "expectancy_belief": 0.6
+          }
+        }
+      ]
+    },
+    "M08": {
+      "engineType": "likert",
+      "constructs": [
+        "VROOM",
+        "EXPECTANCY",
+        "INSTRUMENTALITY",
+        "VALENCE"
+      ],
+      "items": [
+        {
+          "id": "M8-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "expectancy_belief": 1,
+            "growth_motivation": 0.5
+          }
+        },
+        {
+          "id": "M8-F02",
+          "type": "frequency",
+          "scoringWeight": {
+            "instrumentality": 1,
+            "perceived_fairness": 0.5
+          }
+        },
+        {
+          "id": "M8-F03",
+          "type": "frequency",
+          "scoringWeight": {
+            "valence": 1,
+            "intrinsic_extrinsic": 0.5
+          }
+        },
+        {
+          "id": "M8-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "expectancy_belief": 1,
+            "learning_behavior": 0.5
+          }
+        },
+        {
+          "id": "M8-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "instrumentality": 1,
+            "reward_distribution": 0.5
+          }
+        },
+        {
+          "id": "M8-F04",
+          "type": "frequency",
+          "scoringWeight": {
+            "valence": 1,
+            "long_term_ambition": 0.5
+          }
+        },
+        {
+          "id": "M8-B02",
+          "type": "binary",
+          "scoringWeight": {
+            "instrumentality": 0.5,
+            "valence": 0.5,
+            "intrinsic_extrinsic": 0.6
+          }
+        },
+        {
+          "id": "M8-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "expectancy_belief": 1,
+            "growth_motivation": 0.6
+          }
+        },
+        {
+          "id": "M8-F05",
+          "type": "frequency",
+          "scoringWeight": {
+            "instrumentality": 1,
+            "perceived_fairness": 0.6
+          }
+        },
+        {
+          "id": "M8-F06",
+          "type": "frequency",
+          "scoringWeight": {
+            "valence": 1,
+            "autonomy": 0.4
+          }
+        },
+        {
+          "id": "M8-SD03",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "expectancy_belief": 0.5,
+            "valence": 0.5
+          }
+        },
+        {
+          "id": "M8-B03",
+          "type": "binary",
+          "scoringWeight": {
+            "valence": 1,
+            "recognition": 0.5,
+            "intrinsic_extrinsic": 0.4
+          }
+        }
+      ]
+    },
+    "M09": {
+      "engineType": "likert",
+      "constructs": [
+        "PSYCAP",
+        "HOPE",
+        "EFFICACY",
+        "RESILIENCE",
+        "OPTIMISM"
+      ],
+      "items": [
+        {
+          "id": "M9-F01",
+          "type": "frequency",
+          "scoringWeight": {
+            "hope": 1,
+            "long_term_ambition": 0.5
+          }
+        },
+        {
+          "id": "M9-F02",
+          "type": "frequency",
+          "scoringWeight": {
+            "hope": 1,
+            "learning_behavior": 0.5
+          }
+        },
+        {
+          "id": "M9-B01",
+          "type": "binary",
+          "scoringWeight": {
+            "efficacy": 1,
+            "growth_motivation": 0.6
+          }
+        },
+        {
+          "id": "M9-SD01",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "efficacy": 1,
+            "challenge_tolerance": 0.6
+          }
+        },
+        {
+          "id": "M9-F03",
+          "type": "frequency",
+          "scoringWeight": {
+            "resilience": 1,
+            "emotional_resilience": 0.8
+          }
+        },
+        {
+          "id": "M9-F04",
+          "type": "frequency",
+          "scoringWeight": {
+            "resilience": 1,
+            "emotional_resilience": 0.6
+          }
+        },
+        {
+          "id": "M9-B02",
+          "type": "binary",
+          "scoringWeight": {
+            "optimism": 1,
+            "hope": 0.4
+          }
+        },
+        {
+          "id": "M9-SD02",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "optimism": 1,
+            "long_term_ambition": 0.5
+          }
+        },
+        {
+          "id": "M9-F05",
+          "type": "frequency",
+          "scoringWeight": {
+            "efficacy": 1,
+            "achievement_orientation": 0.5
+          }
+        },
+        {
+          "id": "M9-F06",
+          "type": "frequency",
+          "scoringWeight": {
+            "hope": 1,
+            "resilience": 0.5
+          }
+        },
+        {
+          "id": "M9-SD03",
+          "type": "semantic_differential",
+          "scoringWeight": {
+            "resilience": 1,
+            "feedback_response": 0.5
+          }
+        },
+        {
+          "id": "M9-B03",
+          "type": "binary",
+          "scoringWeight": {
+            "optimism": 1,
+            "resilience": 0.6,
+            "hope": 0.4
+          }
+        }
+      ]
+    },
+    "SS02": {
+      "engineType": "branching",
+      "constructs": [
+        "COMMUNICATION",
+        "SOCIAL_SKILLS",
+        "EMPATHY"
+      ],
+      "signalToConstruct": {
+        "empathy": {
+          "EMPATHY": 0.5,
+          "COMMUNICATION": 0.35,
+          "COLLABORATION": 0.25
+        },
+        "communication": {
+          "COMMUNICATION": 0.55,
+          "COLLABORATION": 0.35
+        },
+        "assertiveness": {
+          "COMMUNICATION": 0.25,
+          "COLLABORATION": 0.2
+        },
+        "escalation": {
+          "COMMUNICATION": -0.15,
+          "COLLABORATION": -0.1
+        }
+      }
+    },
+    "SS03": {
+      "engineType": "branching",
+      "constructs": [
+        "COLLABORATION",
+        "SOCIAL_SKILLS",
+        "TEAMWORK"
+      ],
+      "signalToConstruct": {
+        "empathy": {
+          "EMPATHY": 0.5,
+          "COMMUNICATION": 0.35,
+          "COLLABORATION": 0.25
+        },
+        "communication": {
+          "COMMUNICATION": 0.55,
+          "COLLABORATION": 0.35
+        },
+        "assertiveness": {
+          "COMMUNICATION": 0.25,
+          "COLLABORATION": 0.2
+        },
+        "escalation": {
+          "COMMUNICATION": -0.15,
+          "COLLABORATION": -0.1
+        }
+      }
+    },
+    "T4": {
+      "engineType": "tracing",
+      "constructs": [
+        "COORDINATION"
+      ],
+      "metrics": {
+        "pathAccuracy": 0.6,
+        "completionSpeed": 0.25,
+        "consistency": 0.15
+      }
+    },
+    "T5": {
+      "engineType": "reaction_time",
+      "constructs": [
+        "ATTENTION"
+      ],
+      "metrics": {
+        "accuracy": 0.55,
+        "inhibition": 0.3,
+        "meanRt": 0.15
+      }
+    }
+  }
+}

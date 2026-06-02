@@ -2,8 +2,8 @@
 
 import { useMemo } from "react";
 import { useParams, useSearchParams } from "next/navigation";
-import { GameRunner } from "@/components/cireern/game-runner";
-import { getGameMaxLevel } from "@/lib/cireern-data";
+import { GameRunner } from "@/components/career/game-runner";
+import { getGameMaxLevel } from "@/lib/career-data";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { RightPanel } from "@/components/dashboard/right-panel";
 
