@@ -182,11 +182,10 @@ export async function createTracingEngine(options: TracingEngineOptions) {
   const width = Math.max(320, Math.floor(rect.width || 640));
   const height = Math.max(400, Math.floor(rect.height || 480));
 
-  let game: Phaser.Game | null = null;
   let onComplete = options.onComplete;
 
-  await new Promise<void>((resolve) => {
-    game = new Phaser.Game({
+  const game = await new Promise<Phaser.Game>((resolve) => {
+    const instance = new Phaser.Game({
       type: Phaser.AUTO,
       parent: options.container,
       width,
@@ -196,19 +195,19 @@ export async function createTracingEngine(options: TracingEngineOptions) {
       audio: { noAudio: true },
       banner: false
     });
-    game.scene.start("TracingScene", { sessionId: options.sessionId });
-    game.events.once("ready", () => {
+    instance.scene.start("TracingScene", { sessionId: options.sessionId });
+    instance.events.once("ready", () => {
       options.onReady?.();
-      resolve();
+      resolve(instance);
     });
-    setTimeout(resolve, 400);
+    setTimeout(() => resolve(instance), 400);
   });
 
-  const completeScene = game?.scene.getScene("TracingCompleteScene");
+  const completeScene = game.scene.getScene("TracingCompleteScene");
   if (completeScene) {
-    completeScene.events?.once?.("create", () => {
-      const summary = game?.registry.get("summary");
-      if (summary) onComplete?.(summary);
+    completeScene.events.once("create", () => {
+      const summary = game.registry.get("summary");
+      if (summary) onComplete?.(summary as Record<string, unknown>);
     });
   }
 
@@ -217,8 +216,7 @@ export async function createTracingEngine(options: TracingEngineOptions) {
     previous: () => undefined,
     submit: () => undefined,
     destroy: () => {
-      game?.destroy(true, false);
-      game = null;
+      game.destroy(true, false);
       options.container.replaceChildren();
     }
   };

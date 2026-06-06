@@ -1,6 +1,5 @@
 /** Client-side scenario mirror — keep aligned with backend constants/scenario.ts */
 
-export const SIM_ID = "SIM-NEGOTIATION-NPC-V2";
 export const MAX_ROUNDS = 3;
 
 export const NEGOTIATION_BRANCHES = [

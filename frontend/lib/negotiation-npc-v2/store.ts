@@ -121,6 +121,8 @@ export const useNegotiationStore = create<NegotiationStore>((set, get) => ({
     }
   },
 
+  setProbeDraft: (text) => set({ probeDraft: text }),
+
   finish: async () => {
     const { session, result } = get();
     if (!session) return;
