@@ -1,17 +1,65 @@
 /**
  * Maps assessment module IDs → archive item selection rules.
- * Uses construct tags, item ID prefixes, and block construct_pool values.
+ * Tags use official archive `constructs_fed` codes (e.g. MCC-N-ACH, HZ-MOT, DWECK-GR).
  */
 export const MODULE_ITEM_RULES = {
-  M01: { constructTags: ["MASLOW"], idPrefixes: ["M-"] },
-  M02: { constructTags: ["MCCLELLAND", "ACHIEVE", "POWER", "AFFIL"] },
-  M03: { constructTags: ["DWECK", "MINDSET", "GROWTH"] },
-  M04: { constructTags: ["HERZBERG", "HYGIENE"], pools: ["game:m4"] },
-  M05: { constructTags: ["EQUITY"], pools: ["game:m5"] },
-  M06: { constructTags: ["REINFORCEMENT"] },
-  M07: { constructTags: ["ATTRIBUTION", "ATT-"], pools: ["game:m7"] },
-  M08: { constructTags: ["VROOM", "EXPECT"] },
-  M09: { constructTags: ["PSYCAP", "GRIT", "HOPE", "OPTIM", "RESILI"] },
+  M01: {
+    constructTags: ["MASLOW", "SDT-REL", "SDT-COM", "SDT-AUT", "JCM-MM"],
+    idPrefixes: ["M-00"],
+    excludeConstructTags: ["HZ-", "EQT-", "MCC-N"]
+  },
+  M02: {
+    constructTags: [
+      "MCCLELLAND",
+      "MCC-",
+      "MCC-N-ACH",
+      "MCC-N-POW",
+      "MCC-N-AFF",
+      "WST-ACH",
+      "OWV-ACH",
+      "ACHIEVE",
+      "POWER",
+      "AFFIL"
+    ],
+    idPrefixes: ["M-005"]
+  },
+  M03: {
+    constructTags: ["DWECK", "DWECK-GR", "MINDSET", "GROWTH", "FIXED"]
+  },
+  M04: {
+    constructTags: ["HERZBERG", "HZ-MOT", "HZ-HYG", "HYGIENE", "HYG"],
+    idPrefixes: ["M-005", "M-006"],
+    pools: ["game:m4"]
+  },
+  M05: {
+    constructTags: ["EQUITY", "EQT-", "EQT-S", "EQU"],
+    idPrefixes: ["M-006"]
+  },
+  M06: {
+    constructTags: ["REINFORCEMENT", "REINFOR", "OPERANT", "SKINNER", "BEHAV"]
+  },
+  M07: {
+    constructTags: ["ATTRIBUTION", "LOCUS", "WEINER", "ATT-LOC", "ATT-INT"],
+    pools: ["game:m7"],
+    excludeConstructTags: ["ATT-S", "ATTACHMENT"]
+  },
+  M08: {
+    constructTags: ["VROOM", "EXPECT", "EXPECTANCY", "VALENCE", "INSTRUMENT"]
+  },
+  M09: {
+    constructTags: [
+      "PSYCAP",
+      "GRIT",
+      "GRIT-PE",
+      "HOPE",
+      "OPTIM",
+      "RESILI",
+      "WST-PER",
+      "NEG-PES",
+      "PSYCAP-O",
+      "PSYCAP-R"
+    ]
+  },
   P01: { constructTags: ["BIG5-O", "OPENNESS"], idPrefixes: ["P-"] },
   P02: { constructTags: ["BIG5-C", "CONSCIENT"], idPrefixes: ["P-"] },
   P03: { constructTags: ["BIG5-E", "EXTRAV"], idPrefixes: ["P-"] },
@@ -22,16 +70,32 @@ export const MODULE_ITEM_RULES = {
   I09: { constructTags: ["VERBAL"], idPrefixes: ["I-"] },
   I10: { constructTags: ["NUMERICAL", "QUANT"], idPrefixes: ["I-"] },
   SS01: { constructTags: ["SELF_MANAGEMENT", "SS-"], idPrefixes: ["SS-"] },
-  SS02: { pools: ["comm"], idPrefixes: ["COMM-"], constructTags: ["COMM"] },
-  SS03: { pools: ["teamwork", "team", "collab"], idPrefixes: ["TEAM-"], constructTags: ["TEAM"] },
+  SS02: { pools: ["comm"], idPrefixes: ["COMM-"], constructTags: ["COMM", "SS-COMM"] },
+  SS03: {
+    pools: ["teamwork", "team", "collab"],
+    idPrefixes: ["TEAM-"],
+    constructTags: ["TEAM", "COLLAB"]
+  },
   SS04: { constructTags: ["PROBLEM", "DEC-"], idPrefixes: ["DEC-", "SC-"] },
-  W01: { idPrefixes: ["W-"], constructTags: ["W-EMO", "WELLBEING", "W-FIN", "W-SPI"] },
+  W01: { idPrefixes: ["W-"], constructTags: ["W-EMO", "WELLBEING", "W-FIN", "W-SPI", "W-SOC"] },
   LR01: { constructTags: ["LRN", "LEARNING", "LRND"], idPrefixes: ["LRND-"] },
   SC01: { constructTags: ["STRATEG", "STAKE", "SC-"], idPrefixes: ["SC-"] },
-  /** Ecosystem knowledge — flat ECO-* items */
   ECO01: { idPrefixes: ["ECO-"], constructTags: ["ECO-"] },
   ECO: { idPrefixes: ["ECO-"], constructTags: ["ECO-"] }
 };
+
+/** Motivation modules that may supplement from static TS configs when archive is sparse. */
+export const MOTIVATION_MODULE_IDS = new Set([
+  "M01",
+  "M02",
+  "M03",
+  "M04",
+  "M05",
+  "M06",
+  "M07",
+  "M08",
+  "M09"
+]);
 
 /**
  * @param {string} moduleId
@@ -66,6 +130,10 @@ export function itemMatchesRules(item, rules) {
   const pool = String(item.construct_pool ?? "").toLowerCase();
   const constructs = String(item.constructs_fed ?? "").toUpperCase();
 
+  if (rules.excludeConstructTags?.some((tag) => constructs.includes(tag.toUpperCase()))) {
+    return false;
+  }
+
   if (rules.idPrefixes?.some((p) => itemId.startsWith(p.toUpperCase()))) return true;
 
   if (rules.pools?.some((p) => pool === p.toLowerCase() || pool.includes(p.toLowerCase()))) {
@@ -77,4 +145,12 @@ export function itemMatchesRules(item, rules) {
   }
 
   return false;
+}
+
+export function isMotivationModuleId(moduleId) {
+  const rules = getModuleRules(moduleId);
+  if (!rules) return false;
+  const id = String(moduleId).trim().toUpperCase();
+  const key = id.startsWith("M0") ? id : `M0${id.replace(/^M/, "")}`;
+  return MOTIVATION_MODULE_IDS.has(key) || MOTIVATION_MODULE_IDS.has(id);
 }

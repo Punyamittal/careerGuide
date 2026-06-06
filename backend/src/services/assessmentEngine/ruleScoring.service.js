@@ -25,12 +25,15 @@ export function getScoringRules(moduleId) {
   const bankRules = getModuleScoringFromBank(key);
 
   if (bankRules?.items?.length) {
+    const staticItems = staticRules?.items ?? [];
+    const bankIds = new Set(bankRules.items.map((it) => it.id));
+    const supplemented = staticItems.filter((it) => !bankIds.has(it.id));
     return {
       engineType: bankRules.engineType ?? staticRules?.engineType ?? "likert",
       constructs: bankRules.constructs?.length
         ? bankRules.constructs
         : staticRules?.constructs ?? [],
-      items: bankRules.items,
+      items: [...bankRules.items, ...supplemented],
       signalToConstruct: staticRules?.signalToConstruct
     };
   }

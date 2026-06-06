@@ -1,4 +1,5 @@
-import type { ModuleConfig } from "./module-config.types";
+import type { LikertModuleConfig, ModuleConfig } from "./module-config.types";
+import { isLikertConfig } from "./module-config.types";
 import { fetchModuleBankContent } from "../bank-client";
 import { M1_CONFIG } from "./M1.config";
 import { M2_CONFIG } from "./M2.config";
@@ -51,6 +52,61 @@ const ALIASES: Record<string, string> = {
   M12: "SS03"
 };
 
+const MOTIVATION_MODULE_IDS = new Set([
+  "M01",
+  "M02",
+  "M03",
+  "M04",
+  "M05",
+  "M06",
+  "M07",
+  "M08",
+  "M09"
+]);
+
+function normalizeStem(stem: string): string {
+  return stem.toLowerCase().replace(/\s+/g, " ").trim().slice(0, 140);
+}
+
+/** Archive items first; append legacy static items when the bank slice is smaller than the validation set. */
+function mergeArchiveWithStatic(
+  archive: LikertModuleConfig,
+  staticCfg: LikertModuleConfig
+): LikertModuleConfig {
+  const archiveIds = new Set(archive.items.map((i) => i.id));
+  const archiveStems = new Set(archive.items.map((i) => normalizeStem(i.prompt)));
+  const supplement = staticCfg.items.filter(
+    (item) => !archiveIds.has(item.id) && !archiveStems.has(normalizeStem(item.prompt))
+  );
+
+  if (!supplement.length) {
+    return {
+      ...archive,
+      checkpoints: archive.checkpoints ?? staticCfg.checkpoints,
+      estimatedMinutes: Math.max(archive.estimatedMinutes ?? 0, staticCfg.estimatedMinutes ?? 0)
+    };
+  }
+
+  return {
+    ...staticCfg,
+    ...archive,
+    moduleId: archive.moduleId,
+    title: archive.title,
+    items: [...archive.items, ...supplement],
+    checkpoints: staticCfg.checkpoints,
+    estimatedMinutes: Math.ceil((archive.items.length + supplement.length) * 0.45)
+  };
+}
+
+function enrichArchiveConfig(key: string, config: ModuleConfig): ModuleConfig {
+  if (!isLikertConfig(config)) return config;
+  const staticCfg = staticFallback(key);
+  if (!staticCfg || !isLikertConfig(staticCfg)) return config;
+  if (!MOTIVATION_MODULE_IDS.has(key)) return config;
+  if (config.items.length >= staticCfg.items.length) return config;
+  return mergeArchiveWithStatic(config, staticCfg);
+}
+
 const contentCache = new Map<string, Promise<ModuleConfig>>();
 const resolvedEngineCache = new Map<string, string>();
 
@@ -75,7 +131,7 @@ export async function loadModuleConfig(moduleId: string): Promise<ModuleConfig> 
         const bank = await fetchModuleBankContent(key);
         if (bank?.source === "archive" && bank.config) {
           resolvedEngineCache.set(key, bank.engineType);
-          return bank.config as ModuleConfig;
+          return enrichArchiveConfig(key, bank.config as ModuleConfig);
         }
         const fallback = staticFallback(key);
         if (fallback) return fallback;
@@ -102,6 +158,7 @@ export function listRegisteredConfigIds(): string[] {
 
 export function hasModuleConfig(moduleId: string): boolean {
   const key = normalizeModuleConfigKey(moduleId);
+  if (/^UF-/i.test(moduleId) || /^UF-/i.test(key)) return true;
   return Boolean(STATIC_REGISTRY[key] ?? STATIC_REGISTRY[moduleId.trim().toUpperCase()]);
 }
 

@@ -12,6 +12,14 @@ import {
   resolveEngineType,
   getModuleArchiveItems
 } from "../modules/assessment-bank/likertAdapter.js";
+import {
+  listUserFlowSpecs,
+  resolveUserFlow,
+  getUserFlowBlockContent,
+  getUserFlowBlockContentByModuleId,
+  verifyUserFlows
+} from "../modules/assessment-bank/userFlowLoader.js";
+import { parseFlowBlockModuleId } from "../modules/assessment-bank/userFlowConstants.js";
 import { getModuleById } from "../constants/mbsModuleRegistry.js";
 import { MODULE_ITEM_RULES } from "../modules/assessment-bank/moduleMapper.js";
 import { PROCEDURAL_MODULE_IDS } from "../modules/assessment-bank/constants.js";
@@ -39,11 +47,51 @@ export function getEcosystemItems() {
   return getEcosystemBank();
 }
 
+export function listUserFlows() {
+  return {
+    version: getBankVersion(),
+    flows: listUserFlowSpecs()
+  };
+}
+
+/**
+ * @param {string} userFlowKey
+ */
+export function getUserFlow(userFlowKey) {
+  return resolveUserFlow(userFlowKey);
+}
+
+/**
+ * @param {string} userFlowKey
+ * @param {number} phaseIndex
+ * @param {number} blockIndex
+ */
+export function getFlowBlockContent(userFlowKey, phaseIndex, blockIndex) {
+  return getUserFlowBlockContent(userFlowKey, phaseIndex, blockIndex);
+}
+
+export function runUserFlowVerification() {
+  return verifyUserFlows();
+}
+
 /**
  * @param {string} moduleId
  * @param {{ shuffle?: boolean; seed?: string; adaptiveDifficulty?: number; userFlow?: string; limit?: number }} [opts]
  */
 export function getModuleContent(moduleId, opts = {}) {
+  if (parseFlowBlockModuleId(moduleId)) {
+    const block = getUserFlowBlockContentByModuleId(moduleId);
+    if (!block) return null;
+    return {
+      moduleId: block.moduleId,
+      engineType: block.engineType ?? "likert",
+      source: block.source ?? "archive",
+      config: block.config,
+      itemCount: block.itemCount ?? 0,
+      bankVersion: getBankVersion(),
+      userFlowMeta: block.config?.userFlowMeta ?? null
+    };
+  }
   const mod = getModuleById(moduleId);
   if (!mod) return null;
 
@@ -77,6 +125,21 @@ export function getModuleContent(moduleId, opts = {}) {
  * @param {string} moduleId
  */
 export function getModuleScoringFromBank(moduleId) {
+  if (parseFlowBlockModuleId(moduleId)) {
+    const block = getUserFlowBlockContentByModuleId(moduleId);
+    if (!block?.config?.items?.length) return null;
+    return {
+      engineType: "likert",
+      constructs: block.config.scoring?.constructs ?? [],
+      items: block.config.items.map((item) => ({
+        id: item.id,
+        type: item.type,
+        reverse: item.reverse,
+        idealIndex: item.idealIndex,
+        scoringWeight: item.scoringWeight
+      }))
+    };
+  }
   return buildScoringRules(moduleId);
 }
 

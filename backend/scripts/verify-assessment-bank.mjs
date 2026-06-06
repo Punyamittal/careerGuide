@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * Verify MBS archive question banks: schema, duplicates, module coverage.
- * Usage: node backend/scripts/verify-assessment-bank.mjs
+ * Verify MBS archive question banks + user flow orchestration specs.
  */
 import { runVerification } from "../src/services/assessmentBank.service.js";
 import { getModuleContent } from "../src/services/assessmentBank.service.js";
+import { runUserFlowVerification } from "../src/services/assessmentBank.service.js";
 import { PHASE1_MODULE_IDS } from "../src/constants/mbsModuleRegistry.js";
 
 const report = runVerification();
@@ -56,3 +56,15 @@ if (report.itemsMissingConstructsCount > 0) {
 
 console.log("\nDone.");
 if (process.exitCode) process.exit(process.exitCode);
+
+console.log("\n=== MBS User Flow Verification ===\n");
+for (const row of runUserFlowVerification()) {
+  if (row.error) {
+    console.error(`✗ ${row.key}: ${row.error}`);
+    process.exitCode = 1;
+    continue;
+  }
+  console.log(
+    `  ${row.label ?? row.key}: ${row.phases} phases · ${row.stats.playableBlocks} playable · ${row.stats.gameBlocks} game · ${row.stats.missingItemRefs} missing refs`
+  );
+}

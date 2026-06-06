@@ -106,7 +106,21 @@ LikertEngine / ruleScoring (archive item IDs)
 | `adaptiveDifficulty=1-5` | Order items for adaptive delivery |
 | `limit=N` | Cap item count |
 
-## Not archive-driven (by design)
+## User flow orchestration (User 1–6)
+
+Archive specs: `Archive 2/User_Flows/MBS_UserFlow_User_{1-5}.json`, root `MBS_UserFlow_User_6.json` (extended + ecosystem + clarification).
+
+| Endpoint | Purpose |
+|----------|---------|
+| `GET /assessment/user-flows` | List all 6 flows |
+| `GET /assessment/user-flows/:userFlow` | Resolved phases/blocks + item resolution stats |
+| `GET /assessment/user-flows/:userFlow/phases/:pi/blocks/:bi/content` | Likert config for one block |
+| `GET /assessment/modules/UF-user3-p1-b0/content` | Same via synthetic module id |
+
+Frontend: **`/user-flow/user-1`** … **`/user-flow/user-6`**, grid on **`/overview?tab=assessments`**. School tracks link to matching user flows.
+
+User 6 phase **7.5** links to existing **`/user-6/clarification`**.
+
 
 - **T4 / T5** — procedural tracing / reaction-time engines
 - **Clarification User 6** — separate merged clarification bank + routing matrices

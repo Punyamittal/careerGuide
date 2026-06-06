@@ -9,6 +9,8 @@ import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 import { RightPanel } from "@/components/dashboard/right-panel";
 import { SectionBlock } from "@/components/dashboard/section-block";
 import { MotivationModulesGrid } from "@/components/assessment-engine/MotivationModulesGrid";
+import { UserFlowsGrid } from "@/components/assessment-engine/UserFlowsGrid";
+import { resolveUserFlowFromTrack } from "@/lib/assessment-engine/user-flow-client";
 import { api } from "@/lib/api";
 import { gameCatalog } from "@/lib/career-data";
 import { useCareerStore } from "@/lib/career-store";
@@ -172,6 +174,8 @@ function OverviewPageContent() {
             </ul>
           </section>
 
+          <UserFlowsGrid />
+
           <MotivationModulesGrid />
 
           <section className="rounded-2xl border-2 border-[var(--cg-3d-border)] bg-cg-card p-6 shadow-[var(--cg-3d-shadow)]">
@@ -192,8 +196,8 @@ function OverviewPageContent() {
                     <Link href={`/assessment?track=${a.key}`} className="rounded-lg border border-[var(--cg-3d-border)] bg-white px-2.5 py-1.5 text-xs font-semibold text-cg-text">
                       Onboarding
                     </Link>
-                    <Link href={`/assessment?track=${a.key}`} className="rounded-lg border border-[var(--cg-3d-border)] bg-emerald-800 px-2.5 py-1.5 text-xs font-semibold text-white">
-                      Start here
+                    <Link href={`/user-flow/${resolveUserFlowFromTrack(a.key)}`} className="rounded-lg border border-[var(--cg-3d-border)] bg-emerald-800 px-2.5 py-1.5 text-xs font-semibold text-white">
+                      Start MBS journey
                     </Link>
                   </div>
                 </article>

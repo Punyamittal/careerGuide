@@ -7,7 +7,11 @@ import {
   getBankByUserFlow,
   getEcosystemItems,
   getModuleContent,
-  runVerification
+  runVerification,
+  listUserFlows,
+  getUserFlow,
+  getFlowBlockContent,
+  runUserFlowVerification
 } from "../services/assessmentBank.service.js";
 
 export const getBanks = asyncHandler(async (_req, res) => {
@@ -46,5 +50,24 @@ export const getModuleBankContent = asyncHandler(async (req, res) => {
 
 export const verifyBanks = asyncHandler(async (_req, res) => {
   const report = runVerification();
-  return sendSuccess(res, { report });
+  const userFlows = runUserFlowVerification();
+  return sendSuccess(res, { report, userFlows });
+});
+
+export const getUserFlows = asyncHandler(async (_req, res) => {
+  return sendSuccess(res, listUserFlows());
+});
+
+export const getUserFlowDetail = asyncHandler(async (req, res) => {
+  const flow = getUserFlow(req.params.userFlow);
+  if (!flow) throw new ApiError(StatusCodes.NOT_FOUND, "User flow not found");
+  return sendSuccess(res, { flow });
+});
+
+export const getUserFlowBlock = asyncHandler(async (req, res) => {
+  const phaseIndex = Number(req.params.phaseIndex);
+  const blockIndex = Number(req.params.blockIndex);
+  const content = getFlowBlockContent(req.params.userFlow, phaseIndex, blockIndex);
+  if (!content) throw new ApiError(StatusCodes.NOT_FOUND, "Flow block not found");
+  return sendSuccess(res, content);
 });

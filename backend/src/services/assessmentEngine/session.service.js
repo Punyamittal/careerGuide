@@ -6,6 +6,21 @@ import { scoreAssessmentFromTelemetry } from "./ruleScoring.service.js";
 import { materializeLearnerMbsProfile } from "../mbs/profileMaterialization.service.js";
 import { log } from "../../utils/logger.js";
 import { getModuleContent } from "../assessmentBank.service.js";
+import { parseFlowBlockModuleId } from "../../modules/assessment-bank/userFlowConstants.js";
+import { getUserFlowBlockContentByModuleId } from "../../modules/assessment-bank/userFlowLoader.js";
+
+function resolveModuleMeta(moduleId) {
+  if (parseFlowBlockModuleId(moduleId)) {
+    const block = getUserFlowBlockContentByModuleId(moduleId);
+    if (!block) return null;
+    return {
+      id: moduleId,
+      engineType: block.engineType ?? "likert",
+      constructTags: block.config?.scoring?.constructs ?? ["USER_FLOW"]
+    };
+  }
+  return getModuleById(moduleId);
+}
 
 export async function listAssessmentModules({ status } = {}) {
   let modules = MBS_MODULE_REGISTRY;
@@ -43,7 +58,7 @@ export async function getAssessmentModule(moduleId) {
 }
 
 export async function createAssessmentSession(userId, { moduleId, trackId, clientMeta }) {
-  const mod = getModuleById(moduleId);
+  const mod = resolveModuleMeta(moduleId);
   if (!mod) throw new ApiError(StatusCodes.BAD_REQUEST, "Unknown moduleId");
 
   const supabase = getSupabaseAdmin();
@@ -127,7 +142,7 @@ export async function scoreSession(userId, sessionId, opts = {}) {
   if (sessErr) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, sessErr.message);
   if (!session) throw new ApiError(StatusCodes.NOT_FOUND, "Session not found");
 
-  const mod = getModuleById(session.module_id);
+  const mod = resolveModuleMeta(session.module_id);
   if (!mod) throw new ApiError(StatusCodes.BAD_REQUEST, "Unknown module for session");
 
   const { data: events, error: evErr } = await supabase
