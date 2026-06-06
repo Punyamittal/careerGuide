@@ -5,6 +5,10 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # Required at runtime (Site settings → Environment variables):
+  # BACKEND_ORIGIN = https://your-deployed-backend.example.com  (no trailing slash)
+  # NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY
+  # Optional: NEXT_PUBLIC_API_URL = direct API URL (skips this proxy; needs CORS on backend)
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

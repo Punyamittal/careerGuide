@@ -63,7 +63,7 @@ export async function api<T = unknown>(
         ? String((cause as Error).message)
         : String(cause);
     throw new Error(
-      `Cannot reach API (${url}). ${hint}. Start the backend (port 5000): cd careerGUIDE/backend && npm run dev. The UI proxies /api/v1 to the backend (see next.config.mjs BACKEND_ORIGIN). For a remote API, set NEXT_PUBLIC_API_URL.`,
+      `Cannot reach API (${url}). ${hint}. Local dev: start backend (cd backend && npm run dev). Netlify: set BACKEND_ORIGIN to your deployed API URL (Site settings → Environment variables). Or set NEXT_PUBLIC_API_URL to call the API directly.`,
       { cause }
     );
   }
