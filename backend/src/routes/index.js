@@ -14,6 +14,7 @@ import mbsRoutes from "./mbs.routes.js";
 import clarificationRoutes from "../clarification/routes/clarification.routes.ts";
 import userFlowRoutes from "../modules/clarification/routes/clarification.routes.js";
 import assessmentEngineRoutes from "./assessmentEngine.routes.js";
+import assessmentBankRoutes from "./assessmentBank.routes.js";
 
 const router = Router();
 
@@ -38,6 +39,7 @@ router.use("/", occupationalRoutes);
 router.use("/", lifeJourneyRoutes);
 router.use("/", mbsRoutes);
 router.use("/", assessmentEngineRoutes);
+router.use("/", assessmentBankRoutes);
 router.use("/v6", userFlowRoutes);
 router.use("/v6", clarificationRoutes);
 

@@ -29,6 +29,8 @@ export type LikertItemConfig = {
   telemetryTags: string[];
   /** Per-construct weights for rule-based summary (config-driven) */
   scoringWeight: Record<string, number>;
+  /** Reverse-keyed item (archive `reverse_for`) */
+  reverse?: boolean;
   /** Adaptive routing hints: simple | complex | ambiguous */
   adaptiveTags?: string[];
   idealIndex?: number;

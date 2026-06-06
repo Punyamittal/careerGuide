@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { PhaserHost } from "./phaser/PhaserHost";
 import { AssessmentModuleReport } from "./AssessmentModuleReport";
 import type { AssessmentEngineInstance } from "@/lib/assessment-engine/createAssessmentGame";
-import { normalizeModuleConfigKey } from "@/lib/assessment-engine/configs/loader";
+import { normalizeModuleConfigKey, primeResolvedEngineType } from "@/lib/assessment-engine/configs/loader";
 import type { PersistedSession } from "@/lib/assessment-engine/configs/module-config.types";
 import {
   loadPersistedSession
@@ -23,6 +23,7 @@ export function AssessmentShell({ moduleId }: Props) {
   const [mod, setMod] = useState<AssessmentModule | null>(
     () => resolveModule(MODULE_REGISTRY_STUB, moduleId) ?? resolveModule(MODULE_REGISTRY_STUB, configKey) ?? null
   );
+  const [resolvedEngineType, setResolvedEngineType] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [adaptive, setAdaptive] = useState<AdaptiveState>(initialAdaptiveState);
   const [completed, setCompleted] = useState<PersistedSession | null>(null);
@@ -41,7 +42,13 @@ export function AssessmentShell({ moduleId }: Props) {
       const found =
         resolveModule(res.data?.modules ?? [], moduleId) ??
         resolveModule(res.data?.modules ?? [], configKey);
-      if (found) setMod(found);
+      if (found) {
+        setMod(found);
+        if (found.engineType) {
+          setResolvedEngineType(found.engineType);
+          primeResolvedEngineType(configKey, found.engineType);
+        }
+      }
     });
   }, [moduleId, configKey]);
 
@@ -109,13 +116,15 @@ export function AssessmentShell({ moduleId }: Props) {
     );
   }
 
+  const engineType = resolvedEngineType ?? mod.engineType;
+
   return (
     <div className="space-y-3">
       <header className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <h2 className="font-display text-xl font-bold text-cg-text">{mod.title}</h2>
           <p className="text-xs text-cg-muted">
-            {mod.engineType} · difficulty {adaptive.difficulty} ·{" "}
+            {engineType} · difficulty {adaptive.difficulty} ·{" "}
             {itemProgress.total > 0
               ? `${itemProgress.index} of ${itemProgress.total} questions`
               : `${adaptive.itemsCompleted} answered`}
@@ -124,7 +133,7 @@ export function AssessmentShell({ moduleId }: Props) {
           </p>
         </div>
         <div className="flex gap-2 text-xs">
-          {mod.engineType === "branching" ? (
+          {engineType === "branching" ? (
             <>
               <span className="rounded-full border border-[var(--cg-3d-border)] px-2 py-0.5 text-cg-muted">
                 Tap or 1–4
@@ -145,7 +154,7 @@ export function AssessmentShell({ moduleId }: Props) {
         <>
           <PhaserHost
             moduleId={configKey}
-            engineType={mod.engineType}
+            engineType={engineType}
             sessionId={sessionId}
             onEngineReady={onEngineReady}
             onAdaptiveChange={onAdaptiveChange}

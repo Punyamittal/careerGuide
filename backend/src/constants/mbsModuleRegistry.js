@@ -88,7 +88,8 @@ export const MBS_MODULE_REGISTRY = [
   { id: "LEN02", productCode: "LEN02", title: "Lewin BPE", engineType: "likert", toolkitRef: "LEN02_Lewin_BPE", constructTags: ["LEWIN_BPE"], mbsDomainHints: [], difficultyTier: "intermediate", estimatedMinutes: 7, status: "draft", sortOrder: 71 },
   { id: "LEN03", productCode: "LEN03", title: "Sense & Meaning", engineType: "likert", toolkitRef: "LEN03_Sense_Meaning", constructTags: ["SENSE_MEANING"], mbsDomainHints: ["MBS-20"], difficultyTier: "intermediate", estimatedMinutes: 7, status: "draft", sortOrder: 72 },
   { id: "LEN04", productCode: "LEN04", title: "Reinforcement Lens", engineType: "likert", toolkitRef: "LEN04_Reinforcement_Lens", constructTags: ["NARRATIVE"], mbsDomainHints: [], difficultyTier: "intermediate", estimatedMinutes: 7, status: "draft", sortOrder: 73 },
-  { id: "SC01", productCode: "SC01", title: "Strategic Agency", engineType: "branching", toolkitRef: "SC01_Agency", constructTags: ["STRATEGY"], mbsDomainHints: ["MBS-06"], difficultyTier: "advanced", estimatedMinutes: 10, status: "draft", sortOrder: 74 }
+  { id: "SC01", productCode: "SC01", title: "Strategic Agency", engineType: "branching", toolkitRef: "SC01_Agency", constructTags: ["STRATEGY"], mbsDomainHints: ["MBS-06"], difficultyTier: "advanced", estimatedMinutes: 10, status: "draft", sortOrder: 74 },
+  { id: "ECO01", productCode: "ECO01", title: "Ecosystem Knowledge 2026", engineType: "likert", toolkitRef: null, constructTags: ["ECO-SECTOR", "ECOSYSTEM"], mbsDomainHints: ["MBS-07"], difficultyTier: "intermediate", estimatedMinutes: 12, status: "beta", sortOrder: 75 }
 ];
 
 export function getModuleById(id) {

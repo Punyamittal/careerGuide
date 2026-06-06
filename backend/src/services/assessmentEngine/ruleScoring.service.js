@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { getModuleById } from "../../constants/mbsModuleRegistry.js";
 import { log } from "../../utils/logger.js";
+import { getModuleScoringFromBank } from "../assessmentBank.service.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const catalogPath = path.join(__dirname, "../../constants/scoring/catalog.json");
@@ -20,7 +21,21 @@ export function getScoringRules(moduleId) {
   const mod = getModuleById(moduleId);
   const key = mod?.id ?? moduleId;
   const catalog = loadCatalog();
-  return catalog.modules[key] ?? null;
+  const staticRules = catalog.modules[key] ?? null;
+  const bankRules = getModuleScoringFromBank(key);
+
+  if (bankRules?.items?.length) {
+    return {
+      engineType: bankRules.engineType ?? staticRules?.engineType ?? "likert",
+      constructs: bankRules.constructs?.length
+        ? bankRules.constructs
+        : staticRules?.constructs ?? [],
+      items: bankRules.items,
+      signalToConstruct: staticRules?.signalToConstruct
+    };
+  }
+
+  return staticRules;
 }
 
 const round2 = (n) => Math.round(n * 100) / 100;

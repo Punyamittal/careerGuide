@@ -1,4 +1,5 @@
 import type { ModuleConfig } from "./module-config.types";
+import { fetchModuleBankContent } from "../bank-client";
 import { M1_CONFIG } from "./M1.config";
 import { M2_CONFIG } from "./M2.config";
 import { M3_CONFIG } from "./M3.config";
@@ -11,7 +12,7 @@ import { M9_CONFIG } from "./M9.config";
 import { M11_CONFIG } from "./M11.config";
 import { M12_CONFIG } from "./M12.config";
 
-const REGISTRY: Record<string, ModuleConfig> = {
+const STATIC_REGISTRY: Record<string, ModuleConfig> = {
   M01: M1_CONFIG,
   M1: M1_CONFIG,
   M02: M2_CONFIG,
@@ -50,25 +51,61 @@ const ALIASES: Record<string, string> = {
   M12: "SS03"
 };
 
+const contentCache = new Map<string, Promise<ModuleConfig>>();
+const resolvedEngineCache = new Map<string, string>();
+
 /** Normalize product codes (M1, M11) and registry ids (M01, SS02). */
 export function normalizeModuleConfigKey(moduleId: string): string {
   const id = moduleId.trim().toUpperCase();
   return ALIASES[id] ?? id;
 }
 
+function staticFallback(moduleId: string): ModuleConfig | null {
+  const key = normalizeModuleConfigKey(moduleId);
+  return STATIC_REGISTRY[key] ?? STATIC_REGISTRY[moduleId.trim().toUpperCase()] ?? null;
+}
+
 export async function loadModuleConfig(moduleId: string): Promise<ModuleConfig> {
   const key = normalizeModuleConfigKey(moduleId);
-  const config = REGISTRY[key] ?? REGISTRY[moduleId.trim().toUpperCase()];
-  if (config) return config;
 
-  throw new Error(`No module config registered for "${moduleId}"`);
+  if (!contentCache.has(key)) {
+    contentCache.set(
+      key,
+      (async () => {
+        const bank = await fetchModuleBankContent(key);
+        if (bank?.source === "archive" && bank.config) {
+          resolvedEngineCache.set(key, bank.engineType);
+          return bank.config as ModuleConfig;
+        }
+        const fallback = staticFallback(key);
+        if (fallback) return fallback;
+        throw new Error(`No module config registered for "${moduleId}"`);
+      })()
+    );
+  }
+
+  return contentCache.get(key)!;
+}
+
+export function getResolvedEngineType(moduleId: string): string | null {
+  const key = normalizeModuleConfigKey(moduleId);
+  return resolvedEngineCache.get(key) ?? null;
+}
+
+export function primeResolvedEngineType(moduleId: string, engineType: string): void {
+  resolvedEngineCache.set(normalizeModuleConfigKey(moduleId), engineType);
 }
 
 export function listRegisteredConfigIds(): string[] {
-  return [...new Set(Object.values(REGISTRY).map((c) => c.moduleId))];
+  return [...new Set(Object.values(STATIC_REGISTRY).map((c) => c.moduleId))];
 }
 
 export function hasModuleConfig(moduleId: string): boolean {
   const key = normalizeModuleConfigKey(moduleId);
-  return Boolean(REGISTRY[key] ?? REGISTRY[moduleId.trim().toUpperCase()]);
+  return Boolean(STATIC_REGISTRY[key] ?? STATIC_REGISTRY[moduleId.trim().toUpperCase()]);
+}
+
+export function clearModuleConfigCache(): void {
+  contentCache.clear();
+  resolvedEngineCache.clear();
 }

@@ -5,27 +5,41 @@ import { MBS_MODULE_REGISTRY, getModuleById } from "../../constants/mbsModuleReg
 import { scoreAssessmentFromTelemetry } from "./ruleScoring.service.js";
 import { materializeLearnerMbsProfile } from "../mbs/profileMaterialization.service.js";
 import { log } from "../../utils/logger.js";
+import { getModuleContent } from "../assessmentBank.service.js";
 
 export async function listAssessmentModules({ status } = {}) {
   let modules = MBS_MODULE_REGISTRY;
   if (status) modules = modules.filter((m) => m.status === status);
-  return modules.map((m) => ({
-    id: m.id,
-    productCode: m.productCode,
-    title: m.title,
-    engineType: m.engineType,
-    constructTags: m.constructTags,
-    mbsDomainHints: m.mbsDomainHints,
-    difficultyTier: m.difficultyTier,
-    estimatedMinutes: m.estimatedMinutes,
-    status: m.status
-  }));
+  return modules.map((m) => {
+    const bank = getModuleContent(m.id);
+    return {
+      id: m.id,
+      productCode: m.productCode,
+      title: m.title,
+      engineType: bank?.engineType ?? m.engineType,
+      constructTags: m.constructTags,
+      mbsDomainHints: m.mbsDomainHints,
+      difficultyTier: m.difficultyTier,
+      estimatedMinutes: m.estimatedMinutes,
+      status: m.status,
+      contentSource: bank?.source ?? "static_fallback",
+      archiveItemCount: bank?.itemCount ?? 0,
+      bankVersion: bank?.bankVersion ?? null
+    };
+  });
 }
 
 export async function getAssessmentModule(moduleId) {
   const mod = getModuleById(moduleId);
   if (!mod) throw new ApiError(StatusCodes.NOT_FOUND, "Module not found");
-  return mod;
+  const bank = getModuleContent(mod.id);
+  return {
+    ...mod,
+    engineType: bank?.engineType ?? mod.engineType,
+    contentSource: bank?.source ?? "static_fallback",
+    archiveItemCount: bank?.itemCount ?? 0,
+    bankVersion: bank?.bankVersion ?? null
+  };
 }
 
 export async function createAssessmentSession(userId, { moduleId, trackId, clientMeta }) {

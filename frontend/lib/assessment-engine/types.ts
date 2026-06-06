@@ -20,6 +20,9 @@ export type AssessmentModule = {
   difficultyTier: "beginner" | "intermediate" | "advanced";
   estimatedMinutes: number;
   status: ModuleStatus;
+  contentSource?: "archive" | "static_fallback" | "procedural";
+  archiveItemCount?: number;
+  bankVersion?: string | null;
 };
 
 export type TelemetryEventType =
