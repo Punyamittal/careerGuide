@@ -1,0 +1,312 @@
+{
+  "meta": {
+    "title": "MBS Question Bank — User 1 — Early Learner",
+    "grade": "Class 5",
+    "delivery": "Fully gamified narrative; ZERO Likert. Picture forced-choice, revealed-preference exploration, gentle economic & risk games.",
+    "duration_min": 30,
+    "target_items": 30,
+    "source_bank": "MBS_v3_3_FullQuestionBank.xlsx",
+    "behaviour_first": true,
+    "bias_controls": {
+      "telemetry": "Per-item response latency, long-string & answer-change logging on every block.",
+      "attention_checks": "Embedded attention-check + infrequency items; careless responders flagged.",
+      "validity_band": "Each report carries a confidence band (high / interpret-with-caution).",
+      "scoring": "Forced-choice scored with Thurstonian-IRT; behavioural/game scores weighted above self-report; methods fused by confidence, not naive mean.",
+      "note": "No self-report at all; everything behavioural or forced-choice."
+    },
+    "adaptive_rules": {
+      "pacing": "Auto-pace by engagement speed; narrate all items.",
+      "difficulty": "Easy-only; 2 errors -> easier item.",
+      "no_high_stakes": "No scores shown to child; persona output only.",
+      "wellness": "Only severe signals -> counsellor (never the child)."
+    },
+    "items_in_bank": 21
+  },
+  "phases": [
+    {
+      "phase": "0 Story warm-up",
+      "blocks": [
+        {
+          "block": "Avatar & guide",
+          "delivery_format": "Narrative (unscored)",
+          "construct_pool": "-",
+          "target_count": 0,
+          "adaptive": "Sets pace; no scoring",
+          "anti_bias": "",
+          "items_note": "Game/simulation module — items generated/rendered at runtime by the engine."
+        }
+      ]
+    },
+    {
+      "phase": "1 Curiosity",
+      "blocks": [
+        {
+          "block": "Explore vs follow-the-path",
+          "delivery_format": "Revealed-preference (exploration telemetry)",
+          "construct_pool": "creativity",
+          "target_count": 4,
+          "adaptive": "Openness via side-path exploration",
+          "anti_bias": "Behaviour, not rating — child can't fake exploring",
+          "items": [
+            {
+              "item_id": "I-014",
+              "stem": "When solving problems, I prefer creative leaps over step-by-step logic.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "STR-CRE: Creative intelligence (w=1.0) | BIG5-O: Openness (w=0.6)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "I-049-RANK",
+              "stem": "Rank problem-solving approaches MOST-to-LEAST like you (1=most, 4=least):  (a) Step-by-step method  (b) Creative leap first  (c) Ask what worked for others  (d) Experiment and iterate",
+              "native_type": "Ranking 1–4  (1 = most like me)",
+              "constructs_fed": "STR-ANL: Analytical — rank of (a) | STR-CRE: Creative — rank of (b) | STR-PRA: Practical — rank of (c)/(d)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "I-054-FC",
+              "stem": "Forced-choice: Pick ONE most like you:  (a) I spot errors others miss  (b) I generate ideas others have not thought of  (c) I find shortcuts that actually work  (d) I recall details precisely from memory.",
+              "native_type": "Forced-choice 1-best (ipsative)",
+              "constructs_fed": "STR-ANL: Analytical — if (a) | STR-CRE: Creative — if (b) | STR-PRA: Practical — if (c) | WAIS-WMI: Working Memory — if (d)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "I-072-TASK",
+              "stem": "Alternative Uses: list as many uses as you can for a brick in 60 seconds. (AI-scored: fluency, originality, flexibility)",
+              "native_type": "Short-answer text",
+              "constructs_fed": "STR-CRE: Creative Intelligence (w=1.0) | AUT: Divergent Thinking (w=1.0) | BIG5-O: Openness (w=0.6)",
+              "reverse_for": ""
+            }
+          ]
+        },
+        {
+          "block": "What would you do next?",
+          "delivery_format": "Picture forced-choice",
+          "construct_pool": "big5",
+          "target_count": 2,
+          "adaptive": "",
+          "anti_bias": "Desirability-matched picture options",
+          "items": [
+            {
+              "item_id": "P-001",
+              "stem": "I see myself as someone who is talkative and outgoing.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "BIG5-E: Extraversion (w=1.0) | MBTI-EI: Extraversion vs Introversion (w=1.0) | DISC-I: Influence (w=0.8)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "P-002",
+              "stem": "I tend to be quiet and reserved in groups.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "BIG5-E: Extraversion (w=1.0) | MBTI-EI: Extraversion vs Introversion (w=1.0)",
+              "reverse_for": "BIG5-E, MBTI-EI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "2 Thinking style",
+      "blocks": [
+        {
+          "block": "Picture puzzles",
+          "delivery_format": "Performance task (easy-only)",
+          "construct_pool": "apt_abstract",
+          "target_count": 4,
+          "adaptive": "Eases on 2 errors, no failure framing",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "I-008",
+              "stem": "I can picture how shapes will look when rotated or rearranged.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "GMI-SPA: MI: Spatial (w=1.0) | WAIS-PRI: Perceptual Reasoning (w=1.0) | THUR-S: Thurstone Spatial (w=1.0)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "I-019-TASK",
+              "stem": "A bat and a ball cost ₹110 in total. The bat costs ₹100 more than the ball. How much does the ball cost? (Correct = ₹5)",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "CRT: Cognitive Reflection (w=1.0) | WAIS-PRI: Perceptual Reasoning (w=0.4)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "I-020-TASK",
+              "stem": "If 5 machines make 5 widgets in 5 minutes, how long would 100 machines take to make 100 widgets? (Correct = 5 minutes)",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "CRT: Cognitive Reflection (w=1.0) | WAIS-PRI: Perceptual Reasoning (w=0.5)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "I-027-TASK",
+              "stem": "Vocabulary MCQ: Which word is closest in meaning to \"Tenacious\"?  (a) Flexible  (b) Persistent  (c) Careless  (d) Generous  [Correct = b]",
+              "native_type": "MCQ 4-option (a/b/c/d)",
+              "constructs_fed": "WAIS-VCI: Verbal Comprehension (w=1.0) | CHC-GC: Crystallised intelligence (w=1.0) | THUR-V: Verbal reasoning (w=1.0)",
+              "reverse_for": ""
+            }
+          ]
+        },
+        {
+          "block": "Sorting game",
+          "delivery_format": "Drag-and-drop performance",
+          "construct_pool": "apt_spatial",
+          "target_count": 2,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "I-067-TASK",
+              "stem": "Mental rotation: which of (a)(b)(c)(d) is shape X rotated 90°? [correct = b]",
+              "native_type": "MCQ 4-option (a/b/c/d) - one correct",
+              "constructs_fed": "I-MR: Mental Rotation (w=1.0) | THUR-SP: Spatial Ability (w=1.0)",
+              "reverse_for": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "3 Social style",
+      "blocks": [
+        {
+          "block": "Play alone or with friends",
+          "delivery_format": "Branching story choice",
+          "construct_pool": "disc",
+          "target_count": 4,
+          "adaptive": "",
+          "anti_bias": "Indirect; social preference revealed by choice",
+          "items": [
+            {
+              "item_id": "P-007",
+              "stem": "I sympathise with others' feelings.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "BIG5-A: Agreeableness (w=1.0) | EQ-EM: Empathy (w=1.0) | DISC-S: Steadiness (w=0.6) | SS-COLLAB: Empathy & Care (w=1.0)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "P-011",
+              "stem": "People should pay attention to me — I am a natural leader.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "DT-N: Narcissism (w=1.0) | BIG5-E: Extraversion (w=0.4) | DISC-D: Dominance (w=0.6)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "P-015",
+              "stem": "I am usually the first to volunteer for new tasks or projects.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "BIG5-E: Extraversion (w=0.7) | BIG5-C: Conscientiousness (w=0.6) | DISC-D: Dominance (w=0.5) | GRIT-PE: Perseverance (w=0.4)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "P-018",
+              "stem": "Semantic diff — Social energy: Being around many people makes me feel:  [1 = Drained … 5 = Energised]",
+              "native_type": "Semantic differential 1–5  (Drained ↔ Energised)",
+              "constructs_fed": "BIG5-E: Extraversion (w=1.0) | MBTI-EI: Extraversion vs Introversion (w=0.8) | DISC-I: Influence (w=0.6)",
+              "reverse_for": ""
+            }
+          ]
+        },
+        {
+          "block": "Sticker-sharing game",
+          "delivery_format": "Economic game (Dictator-lite)",
+          "construct_pool": "motivation",
+          "target_count": 2,
+          "adaptive": "",
+          "anti_bias": "Agreeableness from real sharing behaviour",
+          "items": [
+            {
+              "item_id": "M-001",
+              "stem": "Right now, I am mostly focused on basic safety and security in my life.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "MASLOW-1: Physiological/Safety (w=1.0) | W-FIN: Financial wellness (w=0.4)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "M-002",
+              "stem": "I feel close and connected to people who matter to me.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "MASLOW-3: Belonging (w=1.0) | SDT-REL: Relatedness (w=1.0) | W-SOC: Social wellness (w=1.0) | ATT-S: Attachment Security (w=0.8)",
+              "reverse_for": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "4 Sensory & attention",
+      "blocks": [
+        {
+          "block": "Go/No-Go tap",
+          "delivery_format": "Timed game",
+          "construct_pool": "game:M11",
+          "target_count": 3,
+          "adaptive": "Pacing by reaction speed",
+          "anti_bias": "",
+          "game_module": "Go/No-Go (inhibition)",
+          "items_note": "Game/simulation module — items generated/rendered at runtime by the engine."
+        },
+        {
+          "block": "Steady Trace",
+          "delivery_format": "Timed game",
+          "construct_pool": "game:M22",
+          "target_count": 3,
+          "adaptive": "",
+          "anti_bias": "",
+          "game_module": "Steady Trace",
+          "items_note": "Game/simulation module — items generated/rendered at runtime by the engine."
+        }
+      ]
+    },
+    {
+      "phase": "5 Risk & motivation",
+      "blocks": [
+        {
+          "block": "Balloon (gentle)",
+          "delivery_format": "Economic/risk game",
+          "construct_pool": "-",
+          "target_count": 2,
+          "adaptive": "",
+          "anti_bias": "Risk appetite from behaviour, not a question",
+          "items_note": "Game/simulation module — items generated/rendered at runtime by the engine."
+        },
+        {
+          "block": "What makes you happy?",
+          "delivery_format": "Picture ranking",
+          "construct_pool": "motivation",
+          "target_count": 4,
+          "adaptive": "Task/Play/Recognition/Structure",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "M-003",
+              "stem": "I feel respected by the people around me.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "MASLOW-4: Esteem (w=1.0) | SDT-COM: Competence (w=0.6) | OB-PS: Psychological Safety (w=0.6)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "M-004",
+              "stem": "I feel I am living a life that expresses who I truly am.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "MASLOW-5: Self-Actualisation (w=1.0) | W-SPI: Spiritual wellness (w=1.0) | JCM-MM: Meaningful work (w=0.8)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "M-005",
+              "stem": "What energises me most is getting recognition and a sense of achievement.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "HZ-MOT: Herzberg Motivators (w=1.0) | MCC-N-ACH: Need for Achievement (w=1.0)",
+              "reverse_for": ""
+            },
+            {
+              "item_id": "M-006",
+              "stem": "I leave a job/role mostly because of poor conditions, pay or supervision — not because the work itself was unrewarding.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "HZ-HYG: Herzberg Hygiene factors (w=1.0) | EQT-S: Equity Sensitivity (w=0.5)",
+              "reverse_for": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

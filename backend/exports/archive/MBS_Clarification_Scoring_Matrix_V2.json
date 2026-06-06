@@ -1,0 +1,135 @@
+{
+  "version": 2,
+  "fusion": "confidence_weighted_v3",
+  "method_weights": {
+    "simulation": 1.0,
+    "micro_cat": 0.95,
+    "cat": 0.95,
+    "overclaiming": 0.9,
+    "sjt_v2_rubric": 0.88,
+    "sjt": 0.85,
+    "forced_choice": 0.82,
+    "ranking": 0.75,
+    "simulation_ref_hypothetical": 0.0,
+    "neg_likert_blocked": 0.0
+  },
+  "construct_renames": {
+    "NEGT": {
+      "deprecated_for": "negotiation_dimension",
+      "replacement": "NEG-SKILL",
+      "note": "NEGT-001..008 are negative affect; never fuse into negotiation report"
+    }
+  },
+  "NEG-SKILL": {
+    "definition": "Behavioural negotiation: interest probing, creative trade, relationship preservation, assertive boundaries, joint value",
+    "dimensions": {
+      "NEG-INT": { "label": "Interest probing", "weight": 0.25 },
+      "NEG-TRADE": { "label": "Creative trade-offs", "weight": 0.25 },
+      "NEG-REL": { "label": "Relationship preservation", "weight": 0.20 },
+      "NEG-ASSERT": { "label": "Assertive boundaries", "weight": 0.15 },
+      "NEG-JV": { "label": "Joint value optimization", "weight": 0.15 }
+    },
+    "primary_journey": "J2-NEG",
+    "fusion_rule": "0.6 * sim_NEG + 0.4 * sjt_NEG; block if sim missing unless U12 clar completed",
+    "bands": {
+      "developing": [0, 0.45],
+      "capable": [0.45, 0.72],
+      "strong": [0.72, 1.0]
+    },
+    "clarification_boost_cap": 0.10,
+    "report_outputs": [
+      "negotiation_band",
+      "interest_probing_score",
+      "creative_trade_score",
+      "relationship_preservation_score",
+      "evidence_sources: [sim_rounds, sjt_count]"
+    ]
+  },
+  "LRN": {
+    "primary_journey": "J7",
+    "dimensions": {
+      "LRN-ADAPT": { "weight": 0.35 },
+      "LRN-META": { "weight": 0.35 },
+      "LRN-DEL": { "weight": 0.30 }
+    },
+    "fusion_rule": "0.55 * format_lab_clar_gain + 0.45 * j7_sjt; format_lab_rule_change_gain primary telemetry",
+    "bands": {
+      "developing": [0, 0.45],
+      "capable": [0.45, 0.72],
+      "strong": [0.72, 1.0]
+    },
+    "clarification_boost_cap": 0.10
+  },
+  "APT": {
+    "primary_journey": "J8",
+    "constructs": ["I-NUM", "I-VERB", "I-ABS"],
+    "fusion_rule": "micro_cat_theta blended with phase7_cat; divergence triggers U14",
+    "micro_cat": {
+      "max_items": 6,
+      "stop_se": 0.35,
+      "prior": "phase7_theta",
+      "info_max": "2PL IRT"
+    },
+    "clarification_boost_cap": 0.08,
+    "bands": {
+      "developing": [0, 0.45],
+      "capable": [0.45, 0.72],
+      "strong": [0.72, 1.0]
+    }
+  },
+  "construct_map": {
+    "COMM": { "primary_journey": "J1", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "EQ": { "primary_journey": "J1", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "TEAM": { "primary_journey": "J2", "scoring_model": "construct_specific_rubric_v2", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "CONF": { "primary_journey": "J2", "scoring_model": "tk_only_on_conflict_tagged_items", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "SS-SELF": { "primary_journey": "J2", "scoring_model": "ownership_rubric", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "DEC": { "primary_journey": "J3", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "stress": { "primary_journey": "J3", "scoring_model": "stress_split_index", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "Integrity": { "primary_journey": "J4", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "ENT": { "primary_journey": "J5", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "OWV": { "primary_journey": "J5", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "WST": { "primary_journey": "J5", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "ECO-SECTOR": { "primary_journey": "J6", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } },
+    "path_branch": { "primary_journey": "J5", "clarification_boost_cap": 0.10, "bands": { "developing": [0, 0.45], "capable": [0.45, 0.72], "strong": [0.72, 1] } }
+  },
+  "j2_v2_scoring_rubrics": {
+    "inclusive_facilitation": { "constructs": ["TEAM-INC"], "keyed": 1.0, "partial": { "3": 0.4, "1": 0.2 } },
+    "groupthink_resistance": { "constructs": ["TEAM-GT", "TEAM-DA"], "keyed": 1.0, "partial": { "2": 0.5 } },
+    "ownership_initiative": { "constructs": ["SS-SELF", "WST-INIT"], "keyed": 1.0, "tk_not_used": true },
+    "prosocial_credit": { "constructs": ["WST-COOP", "TEAM-SL"], "keyed": 1.0 },
+    "constructive_assertion": { "constructs": ["CONF-COLL", "CONF-COMP"], "keyed": 1.0, "tk_scope": "conflict_tagged_only" },
+    "collaborative_problem_solve": { "constructs": ["CONF-COLL"], "keyed": 1.0 },
+    "bounded_cooperation": { "constructs": ["SS-COLLAB"], "keyed": 1.0 },
+    "blameless_postmortem": { "constructs": ["TEAM-CON"], "keyed": 1.0 }
+  },
+  "validity_interactions": {
+    "interpret_with_caution": {
+      "downweight_methods": { "likert_residual": 0.3, "sjt": 0.7 },
+      "force_journey": "J4",
+      "force_rule": "U10"
+    },
+    "integrity_flag": {
+      "cap_band": "capable",
+      "note": "interpret_with_caution_on_integrity"
+    },
+    "U12_neg_sim_missing": {
+      "block_negotiation_report": true,
+      "fallback": "J2-NEG clar mandatory"
+    }
+  },
+  "psychometric_controls": {
+    "item_exposure_max": 3,
+    "anti_coaching": {
+      "key_distribution_monitor": true,
+      "absurd_distractor_threshold": 0.15,
+      "latency_floor_sec": 2,
+      "answer_change_flag": ">3 changes on SJT"
+    },
+    "reliability_target": {
+      "j2_v2_alpha": 0.75,
+      "neg_skill_alpha": 0.70,
+      "lrn_clar_alpha": 0.68
+    },
+    "pilot_n": 500
+  }
+}

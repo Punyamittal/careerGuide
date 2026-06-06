@@ -1,0 +1,215 @@
+{
+  "version": 2,
+  "phase_id": "7.5",
+  "description": "Ambiguity rules binding primary-flow telemetry to clarification journeys. Each rule maps to explicit triggers in Routing Matrix V2.",
+  "rules": [
+    {
+      "rule_id": "U1",
+      "name": "Cross-method divergence",
+      "condition": "method_divergence_z(COMM, EQ) > 1.0 OR method_divergence_z(COMM, EQD) > 1.0",
+      "journeys": ["J1"],
+      "priority": 2,
+      "why": "High SJT but low affect-reading (or reverse) — single method unreliable",
+      "was_wrong": "Trigger existed but not bound to rule ID; fusion could average conflicting methods",
+      "improved": "Rule ID logged; J1 forced-choice + Read-the-Room sim mandatory when U1 fires",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U2",
+      "name": "Sim vs rubric conflict",
+      "condition": "team_chat_cooperation_score >= 0.7 AND conflict_branch_style IN (compete, avoid) AND z_diff > 1.0",
+      "journeys": ["J2"],
+      "priority": 3,
+      "why": "Team sim shows cooperation but conflict path shows compete/avoid",
+      "was_wrong": "Vague TEAM-COOP vs CONF-CMP divergence string",
+      "improved": "Quantified z-diff on sim-derived subscores; J2-V2 items stratified by fired subconstruct",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U3",
+      "name": "Speed vs quality",
+      "condition": "in_tray_tau < 0.5 AND in_tray_time_to_first_action < p25 AND trap_rank <= 2",
+      "journeys": ["J3"],
+      "priority": 4,
+      "why": "Fast triage but wrong priority on trap items",
+      "was_wrong": "Tau threshold only; no speed interaction",
+      "improved": "Composite U3 index; skip full in-tray re-run if Ph.1 tau >= 0.7 (U17)",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U4",
+      "name": "Deliberation paradox",
+      "condition": "two_doors_clues >= 2 AND time_to_decide < 8s OR two_doors_clues = 0 AND time_to_decide > 120s",
+      "journeys": ["J3"],
+      "priority": 4,
+      "why": "Maximiser clues with impulsive decide, or avoidance without deciding",
+      "was_wrong": "Generic dec_divergence flag",
+      "improved": "Explicit clue-time interaction matrix for Two Doors re-run",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U5",
+      "name": "Integrity vs resume boast",
+      "condition": "honest_dice_overreport > 0 OR eco_d02_fake_familiarity >= 3.5 OR resume_skill_mismatch >= 0.4",
+      "journeys": ["J4"],
+      "priority": 1,
+      "why": "Behavioural integrity signal conflicts with claimed expertise",
+      "was_wrong": "Adequate but not tied to resume AI cluster weights",
+      "improved": "Resume mismatch now explicit trigger; Honest Dice +2 trials on U5",
+      "impact": { "validity": "high", "reliability": "high", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U6",
+      "name": "Values/path ambiguous",
+      "condition": "path_branch_conf < 0.65 OR trade_off_entropy > 0.85 OR abs(ent_signal - job_signal) < 0.12",
+      "journeys": ["J5"],
+      "priority": 5,
+      "why": "Flat allocation or near-equal job vs intrapreneur signals",
+      "was_wrong": "Entropy rule underspecified in Trade-off Island",
+      "improved": "Normalized OWV vector + entropy threshold; Trade-off Island clar mandatory",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "medium" }
+    },
+    {
+      "rule_id": "U7",
+      "name": "Domain vs resume",
+      "condition": "eco_accuracy < 0.60 OR resume_sector_mismatch = true OR expert_challenge_accuracy < 0.55",
+      "journeys": ["J6"],
+      "priority": 6,
+      "why": "Applied domain knowledge does not match claimed sector/role",
+      "was_wrong": "Sector match only",
+      "improved": "Expert Challenge + Ecosystem Architect clar sims added to J6 path",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "medium" }
+    },
+    {
+      "rule_id": "U8",
+      "name": "Ecosystem trend misalignment",
+      "condition": "trend_radar_precision < 0.65 AND target_sector = declared_sector",
+      "journeys": ["J6"],
+      "priority": 6,
+      "why": "Candidate misses sector-specific 2026 forces despite role claim",
+      "was_wrong": "Not explicit in V1 routing",
+      "improved": "U8 binds Trend Radar re-fire with role-weighted decoys",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "low" }
+    },
+    {
+      "rule_id": "U9",
+      "name": "Work style triangulation gap",
+      "condition": "work_styles_arena_vector_conf < 0.65 OR wst_sjt_divergence_z > 1.0",
+      "journeys": ["J5"],
+      "priority": 5,
+      "why": "Work Styles Arena vs SJT workstyle signals disagree",
+      "was_wrong": "Work Styles Arena absent from clar library",
+      "improved": "SIM-WORK-STYLES-ARENA-CLAR added; OWC forced-choice pair included",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U10",
+      "name": "Validity band caution",
+      "condition": "validity_band = interpret_with_caution OR attention_fail = true OR long_string_flag = true",
+      "journeys": ["J4"],
+      "priority": 1,
+      "force": true,
+      "why": "Careless or impression-managed responding detected",
+      "was_wrong": "J4 forced but could be displaced by 2-journey cap",
+      "improved": "U10 always occupies one journey slot; downweights likert_residual to 0.3",
+      "impact": { "validity": "high", "reliability": "high", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U11",
+      "name": "Stress construct split",
+      "condition": "crisis_commander_accuracy >= 0.7 AND in_tray_stress_index < -0.3 OR inverse pattern",
+      "journeys": ["J3"],
+      "priority": 4,
+      "why": "Performance under timer vs sustained inbox load diverge",
+      "was_wrong": "stress_split undefined in scoring matrix",
+      "improved": "Formal stress_split_index = z(crisis) - z(in_tray); Pressure Cooker alt if U17",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U12",
+      "name": "Negotiation unknown",
+      "condition": "neg_sim_telemetry_missing = true OR conf(NEG-SKILL) < 0.65 OR NEGT_likert_used_for_negotiation = true",
+      "journeys": ["J2-NEG"],
+      "priority": 2,
+      "block_report_if": "neg_sim_telemetry_missing AND conf(NEG-SKILL) < 0.55 after clar",
+      "why": "Primary NEGT Likert measured affect not negotiation; sim may never fire",
+      "was_wrong": "NEGT-001..008 irritability items in primary bank fused to negotiation",
+      "improved": "NEG-SKILL construct; NEGT blocked from negotiation dimension; SIM-NEGOTIATION-NPC-V2 required",
+      "impact": { "validity": "critical_fix", "reliability": "high", "fairness": "high" }
+    },
+    {
+      "rule_id": "U13",
+      "name": "Learning agility rule-change failure",
+      "condition": "format_lab_rule_change_gain < 0.15 OR conf(LRN) < 0.65 OR lrn_primary_format_delta < 0.20",
+      "journeys": ["J7"],
+      "priority": 3,
+      "why": "Cannot adapt when task rules or format shift mid-flow",
+      "was_wrong": "Only 3 LRN-FB tags in J1; no Format Lab clar pathway",
+      "improved": "Dedicated J7 journey + SIM-FORMAT-LAB-CLAR (1 rule-change module)",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "medium" }
+    },
+    {
+      "rule_id": "U14",
+      "name": "Aptitude vs problem-solving split",
+      "condition": "method_divergence_z(APT, SS-PS) > 1.0 OR cat_theta_verbal vs ss_ps_verbal z > 1.2",
+      "journeys": ["J8"],
+      "priority": 4,
+      "why": "CAT aptitude disagrees with applied problem-solving SJTs",
+      "was_wrong": "No aptitude clarification journey existed",
+      "improved": "J8 micro-CAT (4-6 items, stop SE<=0.35); refusion with cat weight 0.95",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U15",
+      "name": "Accommodation required",
+      "condition": "intake_accommodation_flag = true OR latency_waiver_requested = true",
+      "journeys": ["ALL"],
+      "priority": 0,
+      "modifiers": {
+        "latency_penalty_disabled": true,
+        "timed_sim_multiplier": 1.5,
+        "crisis_commander_use_tap_rank": true,
+        "min_item_time_floor_sec": 3
+      },
+      "why": "Timed EQ/stress tasks adverse impact on neurodivergent candidates",
+      "was_wrong": "No accommodation routing",
+      "improved": "Global modifier; U15 logged on all clar telemetry",
+      "impact": { "validity": "neutral", "reliability": "medium", "fairness": "critical_fix" }
+    },
+    {
+      "rule_id": "U16",
+      "name": "Item exposure limit",
+      "condition": "item_exposure_count(item_id) >= 3 OR stem_hash_seen_in_cohort >= 0.02",
+      "journeys": ["ALL"],
+      "priority": 0,
+      "action": "exclude_item_force_alternate_pool",
+      "why": "J2 coaching on repeated stems; overclaiming fake memorisation",
+      "was_wrong": "exclude_recent: 5 only within session",
+      "improved": "Cross-session exposure counter; alternate pools J2-V2-A/B, NEG-V2-A/B, fake-concept-rotate",
+      "impact": { "validity": "high", "reliability": "high", "fairness": "neutral" }
+    },
+    {
+      "rule_id": "U17",
+      "name": "Simulation repetition guard",
+      "condition": "sim_completed(IN_TRAY) in primary AND in_tray_tau >= 0.7",
+      "journeys": ["J3"],
+      "priority": 4,
+      "action": "substitute_sim: SIM-PRESSURE-COOKER-CLAR OR SIM-SPOT-THE-BREAK-CLAR",
+      "why": "Duplicate in-tray causes fatigue without new evidence",
+      "was_wrong": "In-tray mini always injected on J3 trigger",
+      "improved": "Conditional sim substitution based on primary performance",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "medium" }
+    }
+  ],
+  "multi_trigger_handling": {
+    "max_journeys_default": 2,
+    "max_journeys_extended": 3,
+    "extended_when": "U10 OR (U5 AND U12) OR (U4 AND U11 AND U10) OR fired_rule_count >= 4",
+    "slot_allocation": [
+      "Reserve slot 1: highest priority forced journey (U10, U5, U12)",
+      "Slot 2: next highest priority unique journey",
+      "Slot 3 (extended): next unique journey not yet covered"
+    ],
+    "dedupe": "Never run two journeys sharing >50% construct overlap unless U10 forces J4"
+  }
+}

@@ -1,0 +1,1462 @@
+{
+  "meta": {
+    "version": 2,
+    "generated": "2026-06-06T13:37:30.206Z",
+    "purpose": "QA-critical/high fixes only; merge with V1 bank at runtime",
+    "counts": {
+      "J2_V2": 28,
+      "NEG_V2": 10,
+      "J7_LRN": 6,
+      "J8_APT": 8
+    },
+    "v1_deprecation": {
+      "CLAR_J2_v1": "retire on merge; exclude item_ids CLAR-J2-01..CLAR-J2-35",
+      "NEGT_likert_primary": "block from negotiation fusion; use NEG-SKILL only"
+    }
+  },
+  "journeys_added": [
+    {
+      "journey_id": "J2-NEG",
+      "name": "Negotiation & Scope",
+      "pool": "NEG-V2",
+      "items_per_session": {
+        "min": 4,
+        "max": 8
+      }
+    },
+    {
+      "journey_id": "J7",
+      "name": "Learning Agility Clarification",
+      "pool": "J7-LRN",
+      "items_per_session": {
+        "min": 4,
+        "max": 6
+      }
+    },
+    {
+      "journey_id": "J8",
+      "name": "Aptitude Micro-Clarification",
+      "pool": "J8-APT",
+      "items_per_session": {
+        "min": 4,
+        "max": 6
+      }
+    }
+  ],
+  "j2_v2_replacement": [
+    {
+      "item_id": "CLAR-J2-V2-01",
+      "journey": "J2",
+      "construct": "TEAM-INC|TEAM-DA|EQ-OA",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Sprint planning: two seniors dominate story-point estimates. A quieter teammate has not spoken. You:",
+      "options": [
+        "Ask them directly: \"What complexity do you see that we might be missing?\"",
+        "Let the seniors decide — they have more experience",
+        "Post your own estimate louder so the meeting moves on",
+        "DM the quiet teammate after the meeting instead of in the room"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-INC +1.0 if key; TEAM-DA +0.5 partial for post-meeting DM (key 3 → 0.4); silent deferral (1) → 0.2",
+      "scoring_rubric": "inclusive_facilitation",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-02",
+      "journey": "J2",
+      "construct": "TEAM-GT|TEAM-CON|COMM-ASRT",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Release review: everyone nods to ship Friday though QA flagged a edge-case bug. You are the newest member. You:",
+      "options": [
+        "Name the specific risk and ask what rollback plan exists before agreeing",
+        "Nod along — challenging seniors this early looks difficult",
+        "Agree verbally but document your concern in the ticket after the meeting",
+        "Ask to delay without explaining the bug to avoid conflict"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-GT +1.0 if key; key 2 → 0.5 (private concern); key 1/3 → 0.15",
+      "scoring_rubric": "groupthink_resistance",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-03",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|BIG5-C",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Your feature flag triggers a production alert at 9 PM. You are not on-call but you shipped the change. You:",
+      "options": [
+        "Acknowledge in the incident channel, share what you know, offer to pair with on-call",
+        "Wait for on-call to figure it out — it is their rotation",
+        "Roll back immediately without posting context",
+        "Message your manager privately only and disconnect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "SS-SELF/WST-INIT keyed; TK not used. Partial credit key 2 if rollback justified with no comms → 0.35",
+      "scoring_rubric": "ownership_initiative",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "ownership",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": null
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-04",
+      "journey": "J2",
+      "construct": "TEAM-SL|WST-COOP|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "In standup your manager praises you for a fix your pair partner did most of. They are on leave. You:",
+      "options": [
+        "Thank them and clarify your partner's contribution and what you will finish when they return",
+        "Accept praise briefly — correcting might embarrass your manager",
+        "Deflect entirely: \"It was nothing\"",
+        "Explain in detail only your own commits to sound competent"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "WST-COOP +1.0; key 1 → 0.45 (avoidance); key 3 → 0.25 (self-focus)",
+      "scoring_rubric": "prosocial_credit",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "credit",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": null
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-05",
+      "journey": "J2",
+      "construct": "CONF-COLL|CONF-COMP|COMM-WR",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "A vendor missed an SLA. Your manager asks you to draft the email. You:",
+      "options": [
+        "Facts, business impact, requested recovery plan with dates — firm but professional",
+        "Threaten contract termination in the first paragraph",
+        "Soften language so much the vendor ignores urgency",
+        "CC the vendor's CEO before giving them a chance to respond"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "CONF-COLL/COMP keyed; not TK compete/avoid mapping",
+      "scoring_rubric": "constructive_assertion",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-06",
+      "journey": "J2",
+      "construct": "CONF-COLL|COMM-DIF|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "A peer says your handoff doc caused their rework. You believe the requirements changed after handoff. You:",
+      "options": [
+        "Ask to walk through the timeline together and agree on a shared handoff template",
+        "Reply-all defending your document line by line",
+        "Apologize for everything to end the thread quickly",
+        "Ask your manager to decide who is at fault"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "CONF-COLL +1.0; key 2 → 0.4 (accommodate without root cause); key 1 → 0.2",
+      "scoring_rubric": "collaborative_problem_solve",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-07",
+      "journey": "J2",
+      "construct": "TEAM-SL|SS-COLLAB|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Teammate asks you to finish their slides tonight; you have your own deadline tomorrow. You:",
+      "options": [
+        "Share your constraint, offer 20 minutes to review structure or pair on one slide",
+        "Take over all slides to preserve the relationship",
+        "Decline bluntly with no alternative",
+        "Do the work but complain in the team channel about unfairness"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "SS-COLLAB +1.0; key 1 → 0.35 (social loafing enable); key 2 → 0.5",
+      "scoring_rubric": "bounded_cooperation",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-08",
+      "journey": "J2",
+      "construct": "CONF-AV|CONF-COMP|EQ-OA",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Cross-team partner keeps missing sync meetings. Your project slips one week. You:",
+      "options": [
+        "Propose async update format + one shared 15-min slot with clear agenda",
+        "Escalate to their director immediately",
+        "Stop inviting them and work around them silently",
+        "Send a passive-aggressive reminder about professionalism"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "CONF-COMP +0.9; key 1 → 0.55 if repeated misses documented; key 3 → 0.15",
+      "scoring_rubric": "structured_deescalation",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-09",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|DEC-RAT",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "You discover a minor data error in a report leadership already shared externally. Fixing it is embarrassing but not catastrophic. You:",
+      "options": [
+        "Notify your manager promptly with corrected figures and suggested correction note",
+        "Fix quietly in the next cycle — it is small",
+        "Blame the extraction script without checking your own validation step",
+        "Wait to see if anyone notices"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "SS-SELF + Integrity overlap 0.3 weight in fusion only",
+      "scoring_rubric": "accountability",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "ownership",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": null
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-10",
+      "journey": "J2",
+      "construct": "TEAM-AB|TEAM-CON|COMM-ASRT",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Retro: everyone agrees the process is fine but privately people DM you complaints. You:",
+      "options": [
+        "Raise one anonymized theme as a question: \"What would make handoffs safer?\"",
+        "Stay silent — not your role as intern",
+        "Name individuals who complained",
+        "Suggest cancelling retros as a waste of time"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-AB +1.0; psychological safety preserving option",
+      "scoring_rubric": "abilene_paradox",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-11",
+      "journey": "J2",
+      "construct": "CONF-CMP|CONF-COLL|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Design deadlock: your approach vs a senior's. Deadline is tomorrow. You:",
+      "options": [
+        "Propose a time-boxed spike on both approaches with agreed decision criteria",
+        "Insist your approach is better in the meeting",
+        "Implement theirs without understanding to save time",
+        "Work overnight on your version without telling anyone"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "CONF-COLL +1.0; key 1 → 0.25 compete; key 2 → 0.4 accommodate",
+      "scoring_rubric": "task_conflict_not_personal",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-12",
+      "journey": "J2",
+      "construct": "TEAM-VOT|TEAM-CON|DEC-RAT",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Team votes 4-1 for a shortcut you think is risky. You were the one dissenting vote. Next step:",
+      "options": [
+        "Ask to document the dissent and the monitoring plan if the shortcut is taken",
+        "Re-open the vote until they agree with you",
+        "Withdraw your concern publicly to fit in",
+        "Slow-walk your tasks as protest"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-DA +0.8; TEAM-CON +0.5 partial on key 1 if constructive",
+      "scoring_rubric": "constructive_dissent",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-13",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|COMM-AL",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Onboarding: unclear who owns client updates. Updates are inconsistent. You:",
+      "options": [
+        "Draft a simple RACI proposal and share in channel for feedback",
+        "Start sending updates without aligning anyone",
+        "Wait until someone senior notices",
+        "Only update your own tasks and ignore client comms"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "WST-INIT +1.0",
+      "scoring_rubric": "initiative_without_overreach",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "ownership",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": null
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-14",
+      "journey": "J2",
+      "construct": "CONF-ACC|CONF-COLL|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Client calls your demo \"disappointing.\" Your teammate built most of the demo. On the call you:",
+      "options": [
+        "Acknowledge gap, ask one clarifying question, commit to written follow-up with owners",
+        "Over-apologize and promise features not in scope",
+        "Explain technical constraints at length without listening",
+        "Let teammate take all blame since they built it"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "EQ-EM + COMM-AL; key 1 → 0.35 over-accommodate",
+      "scoring_rubric": "client_deescalation",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-15",
+      "journey": "J2",
+      "construct": "TEAM-INC|EQ-OA|COMM-NV",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Hybrid meeting: remote teammates' chat is silent while in-room side conversations decide the plan. You:",
+      "options": [
+        "Pause and ask remote colleagues explicitly for input before deciding",
+        "Repeat in-room decision in chat after the meeting",
+        "Assume silence means agreement",
+        "Suggest remote people watch the recording later"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-INC +1.0; fairness/accessibility aligned",
+      "scoring_rubric": "inclusive_hybrid",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-16",
+      "journey": "J2",
+      "construct": "CONF-COMP|COMM-DIF|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager assigns you overtime work with 2 hours notice. You have a non-work commitment you disclosed earlier. You:",
+      "options": [
+        "Restate constraint, offer what you can finish before leaving plus morning completion plan",
+        "Agree on call then miss the commitment without follow-up",
+        "Refuse sharply: \"That is not my job\"",
+        "Accept and cancel your commitment without telling work"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "CONF-COMP + COMM-DIF; socioeconomic fairness — valid boundary path",
+      "scoring_rubric": "boundary_with_alternative",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-17",
+      "journey": "J2",
+      "construct": "SS-SELF|BIG5-C|DEC-RAT",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "You merged code that broke staging. CI is red. Team chat is active. You:",
+      "options": [
+        "Post: \"I see the failure from my merge — investigating now, ETA 20 min\"",
+        "Revert silently hoping nobody connects it to you",
+        "Ask senior to fix without context",
+        "Explain it is probably someone else's flaky test"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "SS-SELF +1.0",
+      "scoring_rubric": "transparent_ownership",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "ownership",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": null
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-18",
+      "journey": "J2",
+      "construct": "TEAM-SL|WST-COOP|SS-COLLAB",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Group project grade depends on shared doc. One member has not contributed in 5 days. You:",
+      "options": [
+        "Direct message: check in, offer help, clarify deadline and split remaining work",
+        "Rewrite their section without telling them",
+        "Report to professor/ manager immediately without contact",
+        "Do entire remainder alone and resent it in the group chat"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-SL inverse; WST-COOP +1.0",
+      "scoring_rubric": "accountability_with_support",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-19",
+      "journey": "J2",
+      "construct": "CONF-COLL|CONF-AV|EQ-OA",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Senior stakeholder rejects your analysis in a public channel. You spent a week on it. You:",
+      "options": [
+        "Ask which assumptions they disagree with and offer a 15-min walkthrough",
+        "Delete your work and repost a version that matches their view without analysis",
+        "Debate them point-by-point in the thread",
+        "Escalate to your skip-level manager in the same channel"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "CONF-COLL + COMM-ASRT; high-context valid path in key 0",
+      "scoring_rubric": "status_respect_with_evidence",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-20",
+      "journey": "J2",
+      "construct": "TEAM-DA|TEAM-GT|DEC-UNC",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Architecture choice: build vs buy. Team prefers familiar build. You found a cheaper SaaS option with trade-offs. You:",
+      "options": [
+        "Share one-page comparison with costs, risks, and recommendation — invite challenge",
+        "Stay quiet — you are too new to influence architecture",
+        "Push SaaS repeatedly without listening to integration concerns",
+        "Share comparison only with your manager privately"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-DA +1.0",
+      "scoring_rubric": "devils_advocate_constructive",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-21",
+      "journey": "J2",
+      "construct": "CONF-ACC|CONF-COLL|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Teammate takes credit in a client email for your analysis. You:",
+      "options": [
+        "Reply adding specific metrics you validated and tag them collaboratively",
+        "Reply-all correcting them sharply",
+        "Say nothing to keep peace",
+        "Forward to HR"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "WST-COOP + CONF-COLL",
+      "scoring_rubric": "credit_restoration_diplomatic",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-22",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|LRN-META",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "You were asked to use a tool you never used. Deadline is 48 hours. You:",
+      "options": [
+        "Block 2 hours for tutorial, list blockers early, deliver minimal viable output with caveats",
+        "Pretend proficiency and deliver late",
+        "Ask for full deadline extension without attempting learning",
+        "Delegate entirely to a friend outside the company"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "SS-SELF + LRN-META partial 0.4",
+      "scoring_rubric": "learning_under_ownership",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "ownership",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": null
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-23",
+      "journey": "J2",
+      "construct": "TEAM-INC|EQ-OA|COMM-AL",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Brainstorm: two voices repeat ideas; a junior's idea was ignored 10 minutes ago. You:",
+      "options": [
+        "\"Building on [name]'s idea earlier — what if we combined it with…\"",
+        "Repeat the idea as your own",
+        "Stop the meeting to lecture about inclusion",
+        "Continue with dominant voices to finish on time"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-INC + EQ-OA; gender fairness intervention pattern",
+      "scoring_rubric": " allyship_in_meeting",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-24",
+      "journey": "J2",
+      "construct": "CONF-COMP|COMM-DIF|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Timezone clash: Mumbai team needs your sign-off at 11 PM your time — recurring. You:",
+      "options": [
+        "Propose rotating async approval doc + one weekly overlap window",
+        "Always stay up without discussing pattern",
+        "Refuse all late requests with no alternative",
+        "Approve without reading to end messages quickly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "CONF-COMP + cultural/timezone fairness",
+      "scoring_rubric": "global_team_norm",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-25",
+      "journey": "J2",
+      "construct": "TEAM-CON|TEAM-INC|DEC-RAT",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Post-incident review: blame language appears in the doc draft. You:",
+      "options": [
+        "Suggest replacing blame with timeline + system fixes + action owners",
+        "Add more blame detail so lessons are \"clear\"",
+        "Remove your sections to avoid association",
+        "Skip the review meeting"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-CON + SS-SELF safety culture",
+      "scoring_rubric": "blameless_postmortem",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-26",
+      "journey": "J2",
+      "construct": "CONF-COLL|EQ-EM|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager gives vague feedback: \"Be more proactive.\" You are unsure what changed. You:",
+      "options": [
+        "Ask for one concrete example and one expected behavior for next week",
+        "Work longer hours generally to look proactive",
+        "Interpret as criticism of your personality and withdraw",
+        "Ask peers what they think you did wrong without manager context"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "COMM-FB + EQ-SA; neurodiversity-friendly explicit ask",
+      "scoring_rubric": "feedback_clarification",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "conflict",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-CONFLICT-BRANCH"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-27",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|DEC-SPD",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Critical customer ticket unassigned in queue; everyone in standup said they are busy. You:",
+      "options": [
+        "Take first triage step, post status update, ask who owns customer relationship",
+        "Wait for manager assignment",
+        "Close ticket as duplicate without verification",
+        "Message customer promising resolution time you cannot confirm"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "WST-INIT +1.0; key 3 → integrity flag cross-check J4",
+      "scoring_rubric": "initiative_with_escalation",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "ownership",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": null
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J2-V2-28",
+      "journey": "J2",
+      "construct": "TEAM-GT|TEAM-DA|CONF-COLL",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Demo in 3 hours; team wants to skip final checklist. You see one unchecked security item. You:",
+      "options": [
+        "Name the item, time to verify, offer to pair on 15-min check",
+        "Skip check — group wants to ship",
+        "Raise alarm without suggesting verification path",
+        "Verify alone after demo without telling anyone"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "TEAM-DA + TEAM-GT",
+      "scoring_rubric": "risk_voice_under_time",
+      "anti_bias_rationale": "Plausible distractors; construct-specific rubric (not blanket TK); key rotation across pool",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR conf(SS-SELF)<0.65",
+      "routing_rules": {
+        "category": "collaboration",
+        "replaces_v1": true,
+        "randomize_options": true,
+        "key_distribution": "balanced_0_3",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO"
+      },
+      "exposure_pool": "J2-V2",
+      "version": 2
+    }
+  ],
+  "negotiation": [
+    {
+      "item_id": "CLAR-NEG-V2-01",
+      "journey": "J2-NEG",
+      "construct": "NEG-INT|NEG-JV|COMM-ASRT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Stakeholder asks for two extra features in the same sprint without removing scope. First move:",
+      "options": [
+        "Ask which outcome matters most and what can move to next sprint",
+        "Say yes to everything to protect relationship",
+        "Flat no without discussion",
+        "Agree then miss deadline quietly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: interest_probing; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "interest_probing",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-02",
+      "journey": "J2-NEG",
+      "construct": "NEG-TRADE|NEG-INT|NEG-REL",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Client wants 30% discount; your manager set a 10% floor. You:",
+      "options": [
+        "Explore volume term length trade-offs before discussing price",
+        "Offer 30% immediately",
+        "End meeting",
+        "Quote 10% without understanding their constraints"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: creative_trade; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "creative_trade",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-03",
+      "journey": "J2-NEG",
+      "construct": "NEG-JV|SS-SELF|COMM-WR",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Cross-team dependency will slip 3 days. Your commit is at risk. You:",
+      "options": [
+        "Share impact, propose phased delivery or resource swap options",
+        "Blame other team publicly in status report",
+        "Hide slip until deadline day",
+        "Accept slip without informing stakeholders"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: joint_value; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "joint_value",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-04",
+      "journey": "J2-NEG",
+      "construct": "NEG-TRADE|NEG-BAT|DEC-RAT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Vendor offers rush fee for faster delivery. Budget is fixed. You:",
+      "options": [
+        "Ask what scope reduction achieves same date within budget",
+        "Pay rush fee without approval",
+        "Cancel vendor",
+        "Accept delay without telling internal stakeholders"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: batna_exploration; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "batna_exploration",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-05",
+      "journey": "J2-NEG",
+      "construct": "NEG-INT|NEG-ASSERT|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager assigns you to negotiate intern stipend with HR; range is undisclosed. You:",
+      "options": [
+        "Ask HR for band and criteria; prepare rationale from role scope and market data",
+        "Demand highest number with no data",
+        "Accept first offer to avoid awkwardness",
+        "Refuse to negotiate — say it feels uncomfortable"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: preparation_assertiveness; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "preparation_assertiveness",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-06",
+      "journey": "J2-NEG",
+      "construct": "NEG-FAC|NEG-JV|TEAM-INC",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Product wants launch date; engineering needs 1 week. Both escalate to you to facilitate. You:",
+      "options": [
+        "Facilitate 30-min options meeting: MVP scope vs date with written decision",
+        "Side with product — dates drive business",
+        "Side with engineering — quality non-negotiable",
+        "Pick a date in the middle without scope discussion"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: facilitation; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "facilitation",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-07",
+      "journey": "J2-NEG",
+      "construct": "NEG-REL|COMM-DIF|TEAM-INC",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Peer asks you to negotiate their workload with PM on their behalf. You:",
+      "options": [
+        "Coach them to raise it with PM; offer to join as support if needed",
+        "Negotiate secretly without PM knowing peer asked",
+        "Tell PM peer is struggling without peer consent",
+        "Ignore request"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: relationship_boundary; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "relationship_boundary",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-08",
+      "journey": "J2-NEG",
+      "construct": "NEG-INT|NEG-TRADE|NEG-REL",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Client threatens churn unless feature added free. Feature costs 2 weeks. You:",
+      "options": [
+        "Clarify churn driver; explore paid phase-2, success metrics, or pilot",
+        "Add feature free with no scoping",
+        "Match threat with legal language immediately",
+        "Ghost until contract renewal"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: interest_under_threat; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "interest_under_threat",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-09",
+      "journey": "J2-NEG",
+      "construct": "NEG-TRADE|COMM-ASRT|DEC-SPD",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "You need design review sign-off; designer is booked 2 days. Your demo is tomorrow. You:",
+      "options": [
+        "Negotiate async review on critical screens + time-boxed sync for blockers",
+        "Ship without review",
+        "Escalate to designer's manager first",
+        "Delay demo without telling sales"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: resource_negotiation; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "resource_negotiation",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-NEG-V2-10",
+      "journey": "J2-NEG",
+      "construct": "NEG-INT|NEG-BAT|EQ-OA",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "After round 1, NPC stakeholder says \"That is my final offer.\" Best response:",
+      "options": [
+        "Summarize shared interests, test if final on all terms or one dimension",
+        "Accept immediately",
+        "Walk away",
+        "Repeat your first offer louder"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "NEG-SKILL rubric: final_offer_probe; partial credit on suboptimal but professional distractors",
+      "scoring_rubric": "final_offer_probe",
+      "anti_bias_rationale": "Behavioural negotiation — not NEGT affect Likert",
+      "follow_up_trigger": "U12_negotiation_unknown OR conf(NEG-SKILL)<0.65 OR neg_sim_missing",
+      "routing_rules": {
+        "requires_sim": "SIM-NEGOTIATION-NPC-V2",
+        "randomize_options": true,
+        "block_neg_likert_fusion": true
+      },
+      "exposure_pool": "NEG-V2",
+      "version": 2
+    }
+  ],
+  "learning_agility": [
+    {
+      "item_id": "CLAR-J7-01",
+      "journey": "J7",
+      "construct": "LRN-ADAPT|LRN-META|LRN-DEL",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Format Lab clarifier: After video tutorial, quiz score 40%; after diagram, 85%. Next task assigned in text-only format. You:",
+      "options": [
+        "Request diagram supplement or sketch your own before starting",
+        "Proceed text-only without adjustment",
+        "Ask someone else to do it",
+        "Complain format is unfair"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "LRN rubric: format_self_advocacy",
+      "scoring_rubric": "format_self_advocacy",
+      "anti_bias_rationale": "Performance/adaptation evidence — not self-rated learning speed",
+      "follow_up_trigger": "U13_lrn_rule_change_low OR conf(LRN)<0.65",
+      "routing_rules": {
+        "sim_follow_up": "SIM-FORMAT-LAB-CLAR",
+        "randomize_options": true
+      },
+      "exposure_pool": "J7-LRN",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J7-02",
+      "journey": "J7",
+      "construct": "LRN-ADAPT|LRN-META",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Mid-project the team switches from Jira to Linear with new workflow labels. You:",
+      "options": [
+        "Map old labels to new in a personal cheat sheet; ask one clarifying question in channel",
+        "Wait weeks until comfortable",
+        "Ignore new workflow",
+        "Revert tickets to old format"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "LRN rubric: tool_switch_adaptation",
+      "scoring_rubric": "tool_switch_adaptation",
+      "anti_bias_rationale": "Performance/adaptation evidence — not self-rated learning speed",
+      "follow_up_trigger": "U13_lrn_rule_change_low OR conf(LRN)<0.65",
+      "routing_rules": {
+        "sim_follow_up": "SIM-FORMAT-LAB-CLAR",
+        "randomize_options": true
+      },
+      "exposure_pool": "J7-LRN",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J7-03",
+      "journey": "J7",
+      "construct": "LRN-META|LRN-DEL|DEC-MAX",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Rule-change round in Format Lab: scoring now penalizes speed over accuracy. Your strategy:",
+      "options": [
+        "Re-read instructions, slow first item, verify pattern on practice item",
+        "Keep same speed strategy",
+        "Skip instructions — rules are obvious",
+        "Stop attempting"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "LRN rubric: rule_change_metacognition",
+      "scoring_rubric": "rule_change_metacognition",
+      "anti_bias_rationale": "Performance/adaptation evidence — not self-rated learning speed",
+      "follow_up_trigger": "U13_lrn_rule_change_low OR conf(LRN)<0.65",
+      "routing_rules": {
+        "sim_follow_up": "SIM-FORMAT-LAB-CLAR",
+        "randomize_options": true
+      },
+      "exposure_pool": "J7-LRN",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J7-04",
+      "journey": "J7",
+      "construct": "LRN-DEL|LRN-META",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "You failed first attempt at spreadsheet task. Second attempt available. You:",
+      "options": [
+        "Review error feedback, isolate one formula mistake, retry focused drill",
+        "Retry immediately with same approach",
+        "Ask for answer key without retry",
+        "Skip task"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "LRN rubric: deliberate_practice",
+      "scoring_rubric": "deliberate_practice",
+      "anti_bias_rationale": "Performance/adaptation evidence — not self-rated learning speed",
+      "follow_up_trigger": "U13_lrn_rule_change_low OR conf(LRN)<0.65",
+      "routing_rules": {
+        "sim_follow_up": "SIM-FORMAT-LAB-CLAR",
+        "randomize_options": true
+      },
+      "exposure_pool": "J7-LRN",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J7-05",
+      "journey": "J7",
+      "construct": "LRN-ADAPT|SS-SELF|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager changes success criteria after you delivered. You:",
+      "options": [
+        "Confirm new criteria in writing, map gap, propose minimal delta plan",
+        "Rebuild everything from scratch without scoping",
+        "Push back emotionally",
+        "Ignore new criteria"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "LRN rubric: criteria_shift_adaptation",
+      "scoring_rubric": "criteria_shift_adaptation",
+      "anti_bias_rationale": "Performance/adaptation evidence — not self-rated learning speed",
+      "follow_up_trigger": "U13_lrn_rule_change_low OR conf(LRN)<0.65",
+      "routing_rules": {
+        "sim_follow_up": "SIM-FORMAT-LAB-CLAR",
+        "randomize_options": true
+      },
+      "exposure_pool": "J7-LRN",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J7-06",
+      "journey": "J7",
+      "construct": "LRN-STYLE|LRN-META",
+      "question_type": "forced-choice",
+      "difficulty": "standard",
+      "stem": "Pick more like you when learning a new API (both sound professional):",
+      "options": [
+        "Build smallest working example before reading full docs",
+        "Read full docs end-to-end before writing any code"
+      ],
+      "correct_answer": "ipsative_score",
+      "scoring_logic": "Thurstonian-IRT ipsative; desirability-matched pair",
+      "scoring_rubric": "thurstonian_ipsative",
+      "anti_bias_rationale": "Performance/adaptation evidence — not self-rated learning speed",
+      "follow_up_trigger": "U13_lrn_rule_change_low OR conf(LRN)<0.65",
+      "routing_rules": {
+        "sim_follow_up": "SIM-FORMAT-LAB-CLAR",
+        "randomize_options": false
+      },
+      "exposure_pool": "J7-LRN",
+      "version": 2
+    }
+  ],
+  "aptitude": [
+    {
+      "item_id": "CLAR-J8-01",
+      "journey": "J8",
+      "construct": "I-VERB|SS-PS",
+      "question_type": "micro-CAT",
+      "difficulty": "standard",
+      "stem": "Argument: \"All interns who completed the project received offers. Raj completed the project. Therefore Raj received an offer.\" Flaw:",
+      "options": [
+        "Assumes completion is the only condition for offers",
+        "Raj might be part-time",
+        "Projects are too short",
+        "Offers are always random"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "IRT b=0.2; 2PL micro-CAT; no negative marking",
+      "scoring_rubric": "aptitude_micro_cat",
+      "anti_bias_rationale": "Figural/numeric minimal verbal load where possible; culture-fair stems",
+      "follow_up_trigger": "U14_aptitude_split OR conf(APT)<0.65",
+      "routing_rules": {
+        "pool": "apt_verbal",
+        "cat_max_items": 6,
+        "cat_stop_se": 0.35,
+        "randomize_options": true
+      },
+      "exposure_pool": "J8-APT",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J8-02",
+      "journey": "J8",
+      "construct": "I-NUM|SS-PS",
+      "question_type": "micro-CAT",
+      "difficulty": "standard",
+      "stem": "Revenue grew 20% to ₹12L. Prior revenue was closest to:",
+      "options": [
+        "₹9.0L",
+        "₹10.0L",
+        "₹11.0L",
+        "₹9.6L"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "IRT b=-0.1; 2PL micro-CAT; no negative marking",
+      "scoring_rubric": "aptitude_micro_cat",
+      "anti_bias_rationale": "Figural/numeric minimal verbal load where possible; culture-fair stems",
+      "follow_up_trigger": "U14_aptitude_split OR conf(APT)<0.65",
+      "routing_rules": {
+        "pool": "apt_numerical",
+        "cat_max_items": 6,
+        "cat_stop_se": 0.35,
+        "randomize_options": true
+      },
+      "exposure_pool": "J8-APT",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J8-03",
+      "journey": "J8",
+      "construct": "I-ABS|SS-PS",
+      "question_type": "micro-CAT",
+      "difficulty": "beginner",
+      "stem": "Sequence: 3, 6, 12, 24, ?",
+      "options": [
+        "30",
+        "36",
+        "48",
+        "42"
+      ],
+      "correct_answer": "2",
+      "scoring_logic": "IRT b=-0.5; 2PL micro-CAT; no negative marking",
+      "scoring_rubric": "aptitude_micro_cat",
+      "anti_bias_rationale": "Figural/numeric minimal verbal load where possible; culture-fair stems",
+      "follow_up_trigger": "U14_aptitude_split OR conf(APT)<0.65",
+      "routing_rules": {
+        "pool": "apt_abstract",
+        "cat_max_items": 6,
+        "cat_stop_se": 0.35,
+        "randomize_options": true
+      },
+      "exposure_pool": "J8-APT",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J8-04",
+      "journey": "J8",
+      "construct": "I-VERB|DEC-RAT",
+      "question_type": "micro-CAT",
+      "difficulty": "stretch",
+      "stem": "Passage: Policy allows WFH 2 days if deliverables on track. Deliverables on track but manager denies WFH citing \"team culture.\" Best inference:",
+      "options": [
+        "Unwritten norms may override written policy",
+        "Policy is illegal",
+        "Employee should quit immediately",
+        "Deliverables were not actually on track"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "IRT b=0.5; 2PL micro-CAT; no negative marking",
+      "scoring_rubric": "aptitude_micro_cat",
+      "anti_bias_rationale": "Figural/numeric minimal verbal load where possible; culture-fair stems",
+      "follow_up_trigger": "U14_aptitude_split OR conf(APT)<0.65",
+      "routing_rules": {
+        "pool": "apt_verbal",
+        "cat_max_items": 6,
+        "cat_stop_se": 0.35,
+        "randomize_options": true
+      },
+      "exposure_pool": "J8-APT",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J8-05",
+      "journey": "J8",
+      "construct": "I-NUM|ECO-PRACTICE",
+      "question_type": "micro-CAT",
+      "difficulty": "stretch",
+      "stem": "Dashboard shows conversion 2.4% (240/10,000). After bot traffic removed (2,000 sessions, 0 conversions), new rate is:",
+      "options": [
+        "2.4%",
+        "3.0%",
+        "2.7%",
+        "3.2%"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "IRT b=0.4; 2PL micro-CAT; no negative marking",
+      "scoring_rubric": "aptitude_micro_cat",
+      "anti_bias_rationale": "Figural/numeric minimal verbal load where possible; culture-fair stems",
+      "follow_up_trigger": "U14_aptitude_split OR conf(APT)<0.65",
+      "routing_rules": {
+        "pool": "apt_numerical",
+        "cat_max_items": 6,
+        "cat_stop_se": 0.35,
+        "randomize_options": true
+      },
+      "exposure_pool": "J8-APT",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J8-06",
+      "journey": "J8",
+      "construct": "I-ABS",
+      "question_type": "micro-CAT",
+      "difficulty": "beginner",
+      "stem": "Which figure completes the pattern: ▲ ● ▲ ● ▲ ?",
+      "options": [
+        "▲",
+        "●",
+        "■",
+        "◆"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "IRT b=-0.8; 2PL micro-CAT; no negative marking",
+      "scoring_rubric": "aptitude_micro_cat",
+      "anti_bias_rationale": "Figural/numeric minimal verbal load where possible; culture-fair stems",
+      "follow_up_trigger": "U14_aptitude_split OR conf(APT)<0.65",
+      "routing_rules": {
+        "pool": "apt_abstract",
+        "cat_max_items": 6,
+        "cat_stop_se": 0.35,
+        "randomize_options": true
+      },
+      "exposure_pool": "J8-APT",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J8-07",
+      "journey": "J8",
+      "construct": "I-VERB",
+      "question_type": "micro-CAT",
+      "difficulty": "standard",
+      "stem": "Statement: \"If A then B. B is true. Therefore A is true.\" Error type:",
+      "options": [
+        "Affirming the consequent",
+        "Denying the antecedent",
+        "Ad hominem",
+        "Straw man"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "IRT b=0; 2PL micro-CAT; no negative marking",
+      "scoring_rubric": "aptitude_micro_cat",
+      "anti_bias_rationale": "Figural/numeric minimal verbal load where possible; culture-fair stems",
+      "follow_up_trigger": "U14_aptitude_split OR conf(APT)<0.65",
+      "routing_rules": {
+        "pool": "apt_verbal",
+        "cat_max_items": 6,
+        "cat_stop_se": 0.35,
+        "randomize_options": true
+      },
+      "exposure_pool": "J8-APT",
+      "version": 2
+    },
+    {
+      "item_id": "CLAR-J8-08",
+      "journey": "J8",
+      "construct": "I-NUM",
+      "question_type": "micro-CAT",
+      "difficulty": "standard",
+      "stem": "Mean of 5 values is 20. One value 40 is replaced with 10. New mean:",
+      "options": [
+        "16",
+        "18",
+        "17",
+        "19"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "IRT b=0.1; 2PL micro-CAT; no negative marking",
+      "scoring_rubric": "aptitude_micro_cat",
+      "anti_bias_rationale": "Figural/numeric minimal verbal load where possible; culture-fair stems",
+      "follow_up_trigger": "U14_aptitude_split OR conf(APT)<0.65",
+      "routing_rules": {
+        "pool": "apt_numerical",
+        "cat_max_items": 6,
+        "cat_stop_se": 0.35,
+        "randomize_options": true
+      },
+      "exposure_pool": "J8-APT",
+      "version": 2
+    }
+  ]
+}

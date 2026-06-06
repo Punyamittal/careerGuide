@@ -5,8 +5,8 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --watch src --watch .env src/server.js",
-    "start": "node src/server.js",
+    "dev": "nodemon --exec \"node --import tsx\" --watch src --watch .env src/server.js",
+    "start": "node --import tsx src/server.js",
     "check": "node --check src/server.js",
     "seed": "node scripts/seed.mjs",
     "promote-admin": "node scripts/promote-admin.mjs",
@@ -17,6 +17,10 @@
     "onet:excel-export": "node scripts/etl/onet/export-release.mjs --excel",
     "build:scoring-catalog": "node scripts/build-scoring-catalog.mjs",
     "test": "node --test src/**/*.test.js",
+    "test:clarification-ts": "npx tsx --test ../frontend/lib/clarification/ambiguityEngine.test.ts",
+    "test:clarification-api": "npx tsx --test src/clarification/clarification.api.test.ts",
+    "test:negotiation-v2": "npx tsx --test src/modules/negotiation-v2/negotiation.engine.test.ts",
+    "typecheck:clarification": "tsc -p tsconfig.clarification.json --noEmit",
     "validate:pipeline": "node scripts/validate-assessment-pipeline.mjs"
   },
   "dependencies": {
@@ -26,11 +30,16 @@
     "exceljs": "^4.4.0",
     "express": "^4.21.2",
     "helmet": "^8.1.0",
+    "mongoose": "^8.19.2",
     "http-status-codes": "^2.3.0",
+    "tsx": "^4.19.2",
     "xlsx": "^0.18.5",
     "zod": "^4.1.11"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.10.0",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.7.2"
   }
 }

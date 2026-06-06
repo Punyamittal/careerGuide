@@ -1,0 +1,368 @@
+{
+  "version": 1,
+  "fusion": "confidence_weighted_v2",
+  "method_weights": {
+    "simulation": 1,
+    "sjt": 0.85,
+    "forced_choice": 0.8,
+    "ranking": 0.75,
+    "overclaiming": 0.9,
+    "cat": 0.95
+  },
+  "construct_map": {
+    "COMM": {
+      "primary_journey": "J1",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "EQ": {
+      "primary_journey": "J1",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "TEAM": {
+      "primary_journey": "J2",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "CONF": {
+      "primary_journey": "J2",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "NEGT": {
+      "primary_journey": "J2",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "DEC": {
+      "primary_journey": "J3",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "BIG5-C": {
+      "primary_journey": "J3",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "stress": {
+      "primary_journey": "J3",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "Integrity": {
+      "primary_journey": "J4",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "LRN": {
+      "primary_journey": "J3",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "SS-SELF": {
+      "primary_journey": "J2",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "ENT": {
+      "primary_journey": "J5",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "OWV": {
+      "primary_journey": "J5",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "WST": {
+      "primary_journey": "J5",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "ECO-SECTOR": {
+      "primary_journey": "J6",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "ECO-TOOLS": {
+      "primary_journey": "J6",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "ECO-TREND": {
+      "primary_journey": "J6",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "ECO-COMPLIANCE": {
+      "primary_journey": "J6",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    },
+    "path_branch": {
+      "primary_journey": "J5",
+      "bands": {
+        "developing": [
+          0,
+          0.45
+        ],
+        "capable": [
+          0.45,
+          0.72
+        ],
+        "strong": [
+          0.72,
+          1
+        ]
+      },
+      "clarification_boost_cap": 0.15
+    }
+  },
+  "validity_interactions": {
+    "interpret_with_caution": {
+      "downweight_methods": [
+        "likert_residual"
+      ],
+      "force_journey": "J4"
+    },
+    "integrity_flag": {
+      "cap_band": "capable",
+      "note": "interpret_with_caution_on_integrity"
+    }
+  }
+}

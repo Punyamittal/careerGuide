@@ -1,0 +1,475 @@
+{
+  "user": "User 4 — Career Explorer",
+  "grade": "Classes 11-12",
+  "age": "~17",
+  "duration_min": 180,
+  "target_items": 130,
+  "purpose": "Full-spectrum map to 20 career domains (4 groups) + fit & next steps. Now incl. communication, EQ, decision, teamwork/conflict, values/meaning.",
+  "delivery": "Behaviour-first: forced-choice personality, interest sims, domain simulations, economic games, AI-scored reflection. New v3.3 tests delivered as SJTs/sims.",
+  "phases": [
+    {
+      "phase": "0 Intake",
+      "blocks": [
+        {
+          "block": "Context & consent",
+          "format": "Survey",
+          "pool": "survey",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "Q0-001",
+            "Q0-002",
+            "Q0-003",
+            "Q0-004",
+            "Q0-005",
+            "Q0-006"
+          ],
+          "items_available": 6,
+          "adaptive": "captures education_level, language",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "1 Personality (behaviour-first)",
+      "blocks": [
+        {
+          "block": "Big Five via forced-choice",
+          "format": "Forced-choice (ipsative)",
+          "pool": "big5",
+          "module": "",
+          "target_count": 20,
+          "item_ids": [
+            "P-001",
+            "P-002",
+            "P-003",
+            "P-004",
+            "P-005",
+            "P-006",
+            "P-007",
+            "P-008",
+            "P-009",
+            "P-010",
+            "P-011",
+            "P-012",
+            "P-013",
+            "P-014",
+            "P-015",
+            "P-016",
+            "P-017",
+            "P-018",
+            "P-019",
+            "P-020"
+          ],
+          "items_available": 20,
+          "adaptive": "",
+          "anti_bias": "Desirability-matched; defeats faking"
+        },
+        {
+          "block": "Conscientiousness in-tray / tidy-desk",
+          "format": "Behavioural residue task",
+          "pool": "game:M4",
+          "module": "Environment Simulator",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "telemetry",
+          "anti_bias": "Reads-instructions & ordering telemetry"
+        },
+        {
+          "block": "DISC pairs",
+          "format": "Forced-choice",
+          "pool": "disc",
+          "module": "",
+          "target_count": 10,
+          "item_ids": [
+            "P-025",
+            "P-026",
+            "P-039",
+            "P-040",
+            "P-041",
+            "P-044"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "2 Interests",
+      "blocks": [
+        {
+          "block": "Career Theme-Park",
+          "format": "Revealed-preference sim",
+          "pool": "riasec",
+          "module": "",
+          "target_count": 12,
+          "item_ids": [
+            "HOL-001",
+            "HOL-002",
+            "HOL-003",
+            "HOL-004",
+            "HOL-005",
+            "HOL-006",
+            "HOL-007",
+            "HOL-008",
+            "HOL-009",
+            "HOL-010",
+            "HOL-011",
+            "HOL-012"
+          ],
+          "items_available": 12,
+          "adaptive": "",
+          "anti_bias": "Dwell-time interest"
+        },
+        {
+          "block": "People/Data/Idea/Thing sort",
+          "format": "Drag-sort",
+          "pool": "motivation",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "M-001",
+            "M-002",
+            "M-003",
+            "M-004",
+            "M-005",
+            "M-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "3 Aptitude / multiple intelligence",
+      "blocks": [
+        {
+          "block": "Verbal & critical",
+          "format": "Performance (CAT)",
+          "pool": "apt_verbal",
+          "module": "",
+          "target_count": 12,
+          "item_ids": [
+            "I-007",
+            "I-023-TASK",
+            "I-027-TASK",
+            "I-028-TASK",
+            "I-042-TASK",
+            "I-043-TASK",
+            "I-068-TASK"
+          ],
+          "items_available": 7,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Numerical & analytical",
+          "format": "Performance (CAT)",
+          "pool": "apt_numerical",
+          "module": "",
+          "target_count": 10,
+          "item_ids": [
+            "I-070-TASK",
+            "I-071-TASK"
+          ],
+          "items_available": 2,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Spatial & visual",
+          "format": "Performance (figural)",
+          "pool": "apt_spatial",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "I-008",
+            "I-067-TASK"
+          ],
+          "items_available": 2,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Abstract (Raven)",
+          "format": "Performance (CAT)",
+          "pool": "apt_abstract",
+          "module": "",
+          "target_count": 10,
+          "item_ids": [
+            "I-019-TASK",
+            "I-020-TASK",
+            "I-029-TASK",
+            "I-030-TASK",
+            "I-031-TASK",
+            "I-032-TASK",
+            "I-033-TASK",
+            "I-034-TASK",
+            "I-035-TASK",
+            "I-037-TASK"
+          ],
+          "items_available": 10,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "4 Work-readiness tests (NEW v3.3)",
+      "blocks": [
+        {
+          "block": "Communication SJT",
+          "format": "SJT / tone-match sim",
+          "pool": "comm",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "COMM-001",
+            "COMM-002",
+            "COMM-003",
+            "COMM-004",
+            "COMM-005",
+            "COMM-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": "Scenario-based, not 'I communicate well'"
+        },
+        {
+          "block": "EQ read-the-room",
+          "format": "Performance task (affect clips)",
+          "pool": "eq",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "EQD-001",
+            "EQD-002",
+            "EQD-003",
+            "EQD-004",
+            "EQD-005",
+            "EQD-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": "Emotion recognition performance, not self-rating"
+        },
+        {
+          "block": "Decision style — Two Doors",
+          "format": "Behavioural decision game",
+          "pool": "decision",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "DEC-001",
+            "DEC-002",
+            "DEC-003",
+            "DEC-004",
+            "DEC-005",
+            "DEC-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": "Maximiser/impulsivity from behaviour"
+        },
+        {
+          "block": "Team & conflict micro-sims",
+          "format": "Branching sim",
+          "pool": "teamwork",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "TEAM-001",
+            "TEAM-002",
+            "TEAM-003",
+            "TEAM-004"
+          ],
+          "items_available": 4,
+          "adaptive": "",
+          "anti_bias": "Choices in a team scene"
+        },
+        {
+          "block": "Conflict-handling SJT",
+          "format": "SJT",
+          "pool": "conflict",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "CONF-001",
+            "CONF-002",
+            "CONF-003",
+            "CONF-004"
+          ],
+          "items_available": 4,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Values & meaning",
+          "format": "Forced-choice + reflection (AI)",
+          "pool": "philosophy",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "PHIL-001",
+            "PHIL-002",
+            "PHIL-003",
+            "PHIL-004"
+          ],
+          "items_available": 4,
+          "adaptive": "",
+          "anti_bias": "Trade-off forced-choice over Likert"
+        }
+      ]
+    },
+    {
+      "phase": "5 Career-domain fit (ADAPTIVE)",
+      "blocks": [
+        {
+          "block": "Day-as-a-___ (top 5-6 domains)",
+          "format": "Branching simulation",
+          "pool": "strategy_career",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "SC-001-SJT",
+            "SC-002-SJT",
+            "SC-003-SJT",
+            "SC-004-SJT",
+            "SC-005-SJT",
+            "SC-006-SJT"
+          ],
+          "items_available": 6,
+          "adaptive": "Only top-cluster domains fire",
+          "anti_bias": "Fit from choices in context"
+        }
+      ]
+    },
+    {
+      "phase": "6 Wellness & reflection",
+      "blocks": [
+        {
+          "block": "Wellness screener",
+          "format": "Validated screener (self-report)",
+          "pool": "wellness",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "W-001",
+            "W-002",
+            "W-003",
+            "W-004",
+            "W-005",
+            "W-006"
+          ],
+          "items_available": 6,
+          "adaptive": "PHQ/GAD/SI -> flag",
+          "anti_bias": "DELIBERATELY self-report (clinical) — not gamified"
+        },
+        {
+          "block": "Failure-reflection & aspiration",
+          "format": "Short-answer (AI-scored)",
+          "pool": "survey",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "Q0-007",
+            "Q0-008",
+            "Q0-009",
+            "Q0-010"
+          ],
+          "items_available": 4,
+          "adaptive": "Sonnet for failure-reflection",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "S3 Games (router)",
+      "blocks": [
+        {
+          "block": "Cognitive/creative games",
+          "format": "Timed games",
+          "pool": "game:M5",
+          "module": "Cognitive Lab",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "fired by ability gaps",
+          "anti_bias": ""
+        },
+        {
+          "block": "ICT games (>=2 T)",
+          "format": "Timed games",
+          "pool": "game:T1",
+          "module": "Logic Flow",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Knowledge games (>=3 K)",
+          "format": "Timed games",
+          "pool": "game:K3",
+          "module": "Ecosystem Architect",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    }
+  ],
+  "career_domain_groups": {
+    "G1 Thinkers/Designers/Builders": [
+      "Engineering",
+      "AI & Data",
+      "Design",
+      "Architecture",
+      "Research"
+    ],
+    "G2 Planners/Analysts/Enablers": [
+      "Finance",
+      "Management",
+      "Law",
+      "Policy",
+      "Armed Forces"
+    ],
+    "G3 Connectors/Communicators": [
+      "Media",
+      "Marketing/Sales",
+      "Teaching",
+      "Entrepreneurship",
+      "Hospitality"
+    ],
+    "G4 Protectors/Healers/Changemakers": [
+      "Healthcare",
+      "Social Work",
+      "Sustainability",
+      "Public Service",
+      "Sports"
+    ]
+  },
+  "adaptive_rules": {
+    "session3_routing": "Router fires modules by RIASEC top-3 + ability (min 2 T + 3 K + matched M).",
+    "domain_firing": "Only top-cluster domain sims shown.",
+    "difficulty": "Per-module easy/standard/stretch.",
+    "wellness_flag": "PHQ/GAD/SI + AI distress -> counsellor + iCall.",
+    "ai_scoring": "Open items scored by Claude."
+  },
+  "bias_controls": {
+    "telemetry": "Per-item response latency, long-string & answer-change logging on every block.",
+    "attention_checks": "Embedded attention-check + infrequency items; careless responders flagged.",
+    "validity_band": "Each report carries a confidence band (high / interpret-with-caution).",
+    "scoring": "Forced-choice scored with Thurstonian-IRT; behavioural/game scores weighted above self-report; methods fused by confidence, not naive mean.",
+    "overclaiming": "Over-claiming module in knowledge section catches exaggeration.",
+    "behaviour_first": "Personality/interests/work-readiness delivered as forced-choice/SJT/sim, not Likert."
+  },
+  "report": "Top-5 domains + fit, full 20-domain matrix, communication/EQ/decision/teamwork scorecard, 'why this fits', next steps, self-awareness quotient.",
+  "_selected_item_count": 117
+}

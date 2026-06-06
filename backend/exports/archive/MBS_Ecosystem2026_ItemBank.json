@@ -1,0 +1,440 @@
+{
+  "meta": {
+    "title": "MBS Ecosystem-2026 Item Bank (User 6)",
+    "note": "Authored behaviour-first ecosystem/domain items; not in the v3.3 master bank.",
+    "count": 27
+  },
+  "items": [
+    {
+      "item_id": "ECO-S01",
+      "stem": "Match each business to how it PRIMARILY makes money.",
+      "native_type": "Matching",
+      "options": [
+        "Quick-commerce app",
+        "IT-services firm (TCS-type)",
+        "FMCG company",
+        "Fintech (UPI app)",
+        "D2C brand"
+      ],
+      "key": {
+        "Quick-commerce app": "commission + delivery fees on fast grocery",
+        "IT-services firm (TCS-type)": "selling outsourced project/maintenance hours to global clients",
+        "FMCG company": "high-volume sales of packaged goods via distribution",
+        "Fintech (UPI app)": "payment take-rate / lending spread",
+        "D2C brand": "direct online sales of own products"
+      },
+      "constructs_fed": "ECO-SECTOR: what-is-sold literacy",
+      "reverse_for": "",
+      "anti_bias": "Applied matching — knowledge, not self-rating"
+    },
+    {
+      "item_id": "ECO-S02",
+      "stem": "A GCC (Global Capability Centre) in India mainly exists to:",
+      "native_type": "SJT",
+      "options": [
+        "Run a captive in-house team for a global parent doing engineering/analytics/finance",
+        "Sell software products to Indian consumers",
+        "Provide low-cost voice support only",
+        "Manufacture hardware"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-SECTOR: GCC vs BPO",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-S03",
+      "stem": "Which is the PRIMARY offering of the BFSI sector?",
+      "native_type": "SJT",
+      "options": [
+        "Loans, deposits, insurance and payments",
+        "Packaged foods",
+        "Logistics fleets",
+        "Advertising creative"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-SECTOR",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-S04",
+      "stem": "ONDC was created to:",
+      "native_type": "SJT",
+      "options": [
+        "Open up e-commerce so even small sellers/kiranas can sell online beyond Amazon/Flipkart",
+        "Replace UPI",
+        "Regulate banks",
+        "Build highways"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-SECTOR: ONDC",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-S05",
+      "stem": "Drag the players into the e-commerce value chain in order: brand -> ? -> ? -> customer.",
+      "native_type": "Ordering",
+      "options": [
+        "marketplace/D2C store",
+        "logistics/3PL",
+        "payment gateway"
+      ],
+      "key": [
+        "marketplace/D2C store",
+        "logistics/3PL",
+        "payment gateway"
+      ],
+      "constructs_fed": "ECO-SECTOR: value chain",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-S06",
+      "stem": "A cloud-kitchen's biggest margin pressure usually comes from:",
+      "native_type": "SJT",
+      "options": [
+        "Aggregator commissions (~18-30%)",
+        "Office rent",
+        "Advertising on TV",
+        "Import duties"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-SECTOR: F&B economics",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-T01",
+      "stem": "Spot the 2026 forces reshaping IT services (select all that apply).",
+      "native_type": "Multi-select",
+      "options": [
+        "GenAI automating routine coding/testing",
+        "Shift to cloud + GCCs",
+        "Return to paper records",
+        "Falling internet use"
+      ],
+      "key": [
+        0,
+        1
+      ],
+      "constructs_fed": "ECO-TREND-2026",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-T02",
+      "stem": "UPI's significance in 2026 is best described as:",
+      "native_type": "SJT",
+      "options": [
+        "The world's largest real-time payments rail, now underpinning lending and onboarding",
+        "A messaging app",
+        "A stock exchange",
+        "A government tax"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-TREND-2026",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-T03",
+      "stem": "Quick-commerce (10-minute delivery) is most disrupting:",
+      "native_type": "SJT",
+      "options": [
+        "Grocery and impulse retail",
+        "Heavy machinery",
+        "Oil refining",
+        "Legal services"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-TREND-2026",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-T04",
+      "stem": "The DPDP Act 2023 requires businesses to:",
+      "native_type": "SJT",
+      "options": [
+        "Protect personal data with consent and safeguards (penalties for breach)",
+        "Pay GST monthly",
+        "Register on GeM",
+        "List on a stock exchange"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-TREND-2026: compliance force",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-T05",
+      "stem": "'China+1' is creating an opportunity for India mainly in:",
+      "native_type": "SJT",
+      "options": [
+        "Specialty chemicals and electronics/components manufacturing",
+        "Crude oil exports",
+        "Hollywood films",
+        "Antarctic mining"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-TREND-2026",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-T06",
+      "stem": "Market Mover: demand for your category is shifting to tier-2 towns and vernacular users. Best growth move?",
+      "native_type": "SJT",
+      "options": [
+        "Vernacular content + COD/UPI + quick-commerce/ONDC distribution",
+        "Only English ads in metros",
+        "Raise prices sharply",
+        "Stop digital marketing"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-TREND-2026: market sense",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-P01",
+      "stem": "Put the 'lead-to-cash' flow in order.",
+      "native_type": "Ordering",
+      "options": [
+        "Marketing generates leads",
+        "Sales converts",
+        "Delivery/ops fulfils",
+        "Finance invoices & collects",
+        "Customer success retains"
+      ],
+      "key": [
+        "Marketing generates leads",
+        "Sales converts",
+        "Delivery/ops fulfils",
+        "Finance invoices & collects",
+        "Customer success retains"
+      ],
+      "constructs_fed": "ECO-PRACTICE: business operating model",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-P02",
+      "stem": "A 'KRA' for a role is:",
+      "native_type": "SJT",
+      "options": [
+        "The key result areas the role is accountable for",
+        "A type of leave",
+        "A tax form",
+        "A software tool"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-PRACTICE",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-P03",
+      "stem": "In an Agile team, a 'sprint' is:",
+      "native_type": "SJT",
+      "options": [
+        "A short fixed cycle to build & ship a slice of work",
+        "An annual appraisal",
+        "A sales target",
+        "A server"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-PRACTICE: SDLC/Agile",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-P04",
+      "stem": "Which team most owns 'CAC and lead generation'?",
+      "native_type": "SJT",
+      "options": [
+        "Marketing",
+        "Finance",
+        "Legal",
+        "Facilities"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-PRACTICE: who owns what",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-P05",
+      "stem": "A startup raising its first institutional cheque is at which stage?",
+      "native_type": "SJT",
+      "options": [
+        "Seed",
+        "Series C",
+        "IPO",
+        "Buyback"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-PRACTICE: funding stages",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-TL1",
+      "stem": "Match the tool to its job.",
+      "native_type": "Matching",
+      "options": [
+        "Jira",
+        "Tally / GST portal",
+        "CRM (Salesforce/Zoho)",
+        "Power BI / Tableau",
+        "Figma"
+      ],
+      "key": {
+        "Jira": "track engineering tickets/sprints",
+        "Tally / GST portal": "accounting & tax filing",
+        "CRM (Salesforce/Zoho)": "manage sales pipeline & customers",
+        "Power BI / Tableau": "dashboards & data viz",
+        "Figma": "UI/UX design"
+      },
+      "constructs_fed": "ECO-TOOLS: tool-to-role",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-TL2",
+      "stem": "Your manager asks for a weekly KPI dashboard. Best tool?",
+      "native_type": "SJT",
+      "options": [
+        "Power BI / Looker / Tableau",
+        "Photoshop",
+        "A PDF reader",
+        "A calculator app"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-TOOLS",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-TL3",
+      "stem": "To raise and track a software bug with the team you'd use:",
+      "native_type": "SJT",
+      "options": [
+        "Jira / a ticketing tool",
+        "WhatsApp status",
+        "A spreadsheet emailed once",
+        "Nothing"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-TOOLS",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-TL4",
+      "stem": "An accountant filing returns mainly works in:",
+      "native_type": "SJT",
+      "options": [
+        "Tally + the GST/TDS portals",
+        "Figma",
+        "Unity",
+        "Blender"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-TOOLS",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-C01",
+      "stem": "GST is:",
+      "native_type": "SJT",
+      "options": [
+        "A unified indirect tax on the supply of goods & services",
+        "A direct income tax",
+        "A labour law",
+        "A stock index"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-COMPLIANCE",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-C02",
+      "stem": "Customer card/payment data must be handled per:",
+      "native_type": "SJT",
+      "options": [
+        "Data-privacy (DPDP) + PCI-DSS rules — never shared",
+        "No rules",
+        "Only company preference",
+        "Marketing's choice"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-COMPLIANCE",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-C03",
+      "stem": "Mandatory statutory deductions for an employee in India include:",
+      "native_type": "SJT",
+      "options": [
+        "PF (EPFO) and ESIC where applicable",
+        "Only income tax",
+        "Nothing",
+        "GST"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-COMPLIANCE",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-D01",
+      "stem": "[Role-adaptive] Pick the correct first step for YOUR target role's core task.",
+      "native_type": "SJT",
+      "options": [
+        "(engine inserts role-specific options from the job-titles KB)"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-DOMAIN: role knowledge",
+      "reverse_for": "",
+      "anti_bias": ""
+    },
+    {
+      "item_id": "ECO-D02",
+      "stem": "Rate your familiarity (some of these are not real concepts).",
+      "native_type": "Overclaiming-rating",
+      "options": [
+        "real concept A",
+        "real concept B",
+        "FAKE concept (planted)",
+        "real concept C",
+        "FAKE concept (planted)"
+      ],
+      "key": {
+        "fakes": [
+          "FAKE concept (planted)"
+        ]
+      },
+      "constructs_fed": "ECO-DOMAIN: over-claiming check",
+      "reverse_for": "",
+      "anti_bias": "Endorsing fake items quantifies exaggeration"
+    },
+    {
+      "item_id": "ECO-D03",
+      "stem": "[Role-adaptive] Which 2026 skill/tool is most in demand for your target role?",
+      "native_type": "SJT",
+      "options": [
+        "(engine inserts from job-titles KB ecosystem_2026)"
+      ],
+      "key": 0,
+      "constructs_fed": "ECO-DOMAIN: role 2026 ecosystem",
+      "reverse_for": "",
+      "anti_bias": ""
+    }
+  ]
+}

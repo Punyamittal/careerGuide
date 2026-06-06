@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "title": "MBS Question Banks — 6 user flows",
+    "source": "MBS_v3_3_FullQuestionBank.xlsx"
+  },
+  "banks": [
+    {
+      "user": "User 1 — Early Learner",
+      "file": "MBS_QBank_User_1.json",
+      "items_in_bank": 21,
+      "target": 30
+    },
+    {
+      "user": "User 2 — Middle Learner",
+      "file": "MBS_QBank_User_2.json",
+      "items_in_bank": 44,
+      "target": 50
+    },
+    {
+      "user": "User 3 — Stream Selector",
+      "file": "MBS_QBank_User_3.json",
+      "items_in_bank": 54,
+      "target": 85
+    },
+    {
+      "user": "User 4 — Career Explorer",
+      "file": "MBS_QBank_User_4.json",
+      "items_in_bank": 117,
+      "target": 130
+    },
+    {
+      "user": "User 5 — Undergraduate / Career-Readiness",
+      "file": "MBS_QBank_User_5.json",
+      "items_in_bank": 169,
+      "target": 150
+    },
+    {
+      "user": "User 6 — Fresher / 1st-Year / Intern",
+      "file": "MBS_QBank_User_6.json",
+      "items_in_bank": 122,
+      "target": 130
+    }
+  ]
+}

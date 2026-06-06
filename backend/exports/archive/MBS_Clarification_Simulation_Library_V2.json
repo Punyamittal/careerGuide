@@ -1,0 +1,161 @@
+{
+  "version": 2,
+  "inherits": "MBS_Clarification_Simulation_Library.json",
+  "new_and_updated": {
+    "SIM-NEGOTIATION-NPC-V2": {
+      "sim_id": "SIM-NEGOTIATION-NPC-V2",
+      "replaces": "SIM-NEGOTIATION-NPC",
+      "module": "negotiation economic sim v2",
+      "journeys": ["J2-NEG"],
+      "ambiguity_rules": ["U12"],
+      "clarification_purpose": "Valid behavioural negotiation evidence when primary NEGT Likert is blocked",
+      "trigger": "neg_sim_telemetry_missing OR conf(NEG-SKILL)<0.65 OR post CLAR-NEG-V2 SJT avg<0.55",
+      "setup": "Stakeholder NPC requests +2 scope items and -2 days on deadline. 3 rounds max. BATNA disclosed in round 2 if probe_count>=1.",
+      "npc_responses": {
+        "round1_hardline": "Reject first offer; open if candidate asks about priorities or constraints",
+        "round2_interest": "Reveal quality vs date trade-off if probed",
+        "round3_final": "Accept creative package: drop nice-to-have OR add contractor day OR phased launch"
+      },
+      "branches": ["probe_interests", "trade_scope_date", "concede_unilateral", "hardball", "walkaway", "facilitate_options_meeting"],
+      "scoring_rubric": {
+        "NEG-INT": "probe_count>=1 AND interest_summary_quality>=0.6",
+        "NEG-TRADE": "creative_trade_flag AND joint_value_delta>0",
+        "NEG-REL": "npc_trust_meter_end>=0.5",
+        "NEG-ASSERT": "no_unilateral_concede_first_move",
+        "NEG-JV": "pareto_score = (scope_preserved * 0.5 + date_preserved * 0.5)"
+      },
+      "composite": "0.25*NEG-INT + 0.25*NEG-TRADE + 0.20*NEG-REL + 0.15*NEG-ASSERT + 0.15*NEG-JV",
+      "telemetry": ["offers", "concessions", "probe_count", "probe_latency_ms", "interest_summary_text", "walk_away", "round_count", "npc_trust_series", "joint_value_score", "batna_referenced"],
+      "success": "composite>=0.65 AND probe_count>=1 AND NOT walkaway_without_probe",
+      "failure": "walkaway_without_probe OR zero_sum_only OR unilateral_concede_round1",
+      "report_outputs": ["negotiation_band", "dimension_subscores", "sim_evidence_summary"],
+      "runtime_spec": {
+        "duration_max_sec": 480,
+        "mobile": "tap-based offer cards; text probe optional voice-to-text",
+        "U15": { "time_multiplier": 1.5, "min_round_pause_sec": 5 }
+      },
+      "why_change": "Primary NEGT measured irritability not negotiation skill",
+      "impact": { "validity": "critical_fix", "reliability": "high", "fairness": "neutral" }
+    },
+    "SIM-FORMAT-LAB-CLAR": {
+      "sim_id": "SIM-FORMAT-LAB-CLAR",
+      "module": "Format Lab clarifier",
+      "journeys": ["J7"],
+      "ambiguity_rules": ["U13"],
+      "clarification_purpose": "Measure rule-change and format-switch adaptation (LRN-ADAPT, LRN-META)",
+      "trigger": "format_lab_rule_change_gain<0.15 OR conf(LRN)<0.65",
+      "setup": "One micro-concept taught in video (90s) then diagram (60s). Quiz 3 items each. Rule-change: round 3 penalizes speed, rewards accuracy. Candidate receives 1 new format (text checklist) for final 2 items.",
+      "scoring_rubric": {
+        "rule_change_gain": "(accuracy_round3 - accuracy_round2) / max(0.01, 1-accuracy_round2)",
+        "format_delta": "best_format_accuracy - worst_format_accuracy",
+        "LRN-META": "instruction_reread_flag AND strategy_switch_flag"
+      },
+      "telemetry": ["format_sequence", "accuracy_by_format", "time_by_item", "rule_change_ack_timestamp", "instruction_reread", "strategy_switch"],
+      "success": "rule_change_gain>=0.15 OR format_delta>=0.20",
+      "failure": "rule_change_gain<0 AND no_instruction_reread",
+      "runtime_spec": { "duration_max_sec": 600, "U15": { "no_speed_penalty": true } },
+      "why_change": "Learning agility had no clar pathway; only 3 LRN-FB tags in J1",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "medium" }
+    },
+    "SIM-WORK-STYLES-ARENA-CLAR": {
+      "sim_id": "SIM-WORK-STYLES-ARENA-CLAR",
+      "module": "Work Styles Arena micro",
+      "journeys": ["J5"],
+      "ambiguity_rules": ["U9"],
+      "clarification_purpose": "Triangulate WST when Arena vector conflicts with SJT workstyle",
+      "trigger": "work_styles_arena_vector_conf<0.65 OR wst_sjt_divergence_z>1.0",
+      "setup": "4 binary choices: structured vs flexible plan, solo vs collaborative deep work, rapid iterate vs thorough spec, visible leadership vs behind-scenes support.",
+      "scoring_rubric": "Vector → WST-INIT, WST-COOP, WST-LEAD, WST-STRUCT; compare cosine to primary Arena",
+      "telemetry": ["choice_vector", "latency_ms", "reversal_count"],
+      "success": "cosine_sim_to_primary>=0.7 OR clar_vector_conf>=0.75",
+      "failure": "random_pattern OR timeout",
+      "runtime_spec": { "duration_max_sec": 240 },
+      "why_change": "Work Styles Arena missing from V1 clar library",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "neutral" }
+    },
+    "SIM-EXPERT-CHALLENGE-CLAR": {
+      "sim_id": "SIM-EXPERT-CHALLENGE-CLAR",
+      "module": "Expert Challenge micro",
+      "journeys": ["J6", "J4"],
+      "ambiguity_rules": ["U7", "U5"],
+      "clarification_purpose": "Role-adaptive domain probe + rotated overclaiming fakes",
+      "trigger": "eco_accuracy<0.60 OR eco_d02_fake_familiarity>=3.5",
+      "setup": "5 items: 3 real role concepts, 2 rotated fakes from pool (alpha/beta/gamma). Timed 120s total.",
+      "scoring_rubric": { "domain_accuracy": "real_items", "fake_familiarity_index": "mean(fake_ratings)", "overclaim": "fake_familiarity>=3.5" },
+      "telemetry": ["item_responses", "latency_per_item", "fake_pool_id", "confidence_rating"],
+      "success": "domain_accuracy>=0.6 AND fake_familiarity<3.0",
+      "failure": "fake_familiarity>=3.5",
+      "runtime_spec": { "fake_rotation": "U16", "never_label_cheat": true },
+      "why_change": "Fixed fake concepts coachable; Expert Challenge not in clar",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "neutral" }
+    },
+    "SIM-ECOSYSTEM-ARCHITECT-CLAR": {
+      "sim_id": "SIM-ECOSYSTEM-ARCHITECT-CLAR",
+      "module": "Ecosystem Architect micro (K3)",
+      "journeys": ["J6"],
+      "ambiguity_rules": ["U7"],
+      "clarification_purpose": "Validate sector value-chain understanding by construction",
+      "trigger": "sector_match_accuracy<0.65 OR resume_sector_mismatch",
+      "setup": "Drag 6 nodes (supplier, platform, customer, regulator, payment, logistics) into valid value chain for target sector.",
+      "scoring_rubric": "Edge accuracy vs expert graph; partial credit for locally valid subgraphs",
+      "telemetry": ["node_placements", "edge_attempts", "time_to_complete", "hint_used"],
+      "success": "edge_accuracy>=0.75",
+      "failure": "edge_accuracy<0.5",
+      "runtime_spec": { "mobile": "tap-to-connect graph", "duration_max_sec": 300 },
+      "why_change": "Ecosystem Architect in primary flow but not clar",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "medium" }
+    },
+    "SIM-SPOT-THE-BREAK-CLAR": {
+      "sim_id": "SIM-SPOT-THE-BREAK-CLAR",
+      "module": "Spot the Break micro (M20)",
+      "journeys": ["J3"],
+      "ambiguity_rules": ["U17"],
+      "clarification_purpose": "Problem sensitivity without repeating in-tray",
+      "trigger": "U17 substitution OR dec_divergence with in_tray_tau>=0.7",
+      "setup": "3 panels: find anomaly in dashboard, chat log, process diagram (60s each).",
+      "scoring_rubric": "Hit rate + false alarm rate; SS-PS linkage",
+      "telemetry": ["clicks", "time_to_find", "false_alarms"],
+      "success": "hit_rate>=0.67 AND false_alarms<=1",
+      "failure": "timeout_zero_found",
+      "runtime_spec": { "duration_max_sec": 200 },
+      "why_change": "Avoid duplicate in-tray fatigue per U17",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "medium" }
+    },
+    "SIM-PRESSURE-COOKER-CLAR": {
+      "sim_id": "SIM-PRESSURE-COOKER-CLAR",
+      "module": "Pressure Cooker micro",
+      "journeys": ["J3"],
+      "ambiguity_rules": ["U11", "U17"],
+      "clarification_purpose": "Stress tolerance when in-tray re-run blocked",
+      "trigger": "stress_split_index beyond threshold AND U17 active",
+      "setup": "Steadiness trace 90s with rising distractors; measure degradation and recovery.",
+      "scoring_rubric": { "stress_tolerance": "1 - normalized_rmse_delta", "recovery": "last_30s vs worst_30s" },
+      "telemetry": ["trace_rmse", "distractor_hits", "recovery_slope", "U15_waiver_flag"],
+      "success": "stress_tolerance>=0.6",
+      "failure": "stress_tolerance<0.4",
+      "runtime_spec": { "U15": { "latency_penalty_disabled": true, "time_multiplier": 1.5 } },
+      "why_change": "U11 stress split needed alternate measure",
+      "impact": { "validity": "high", "reliability": "medium", "fairness": "high" }
+    },
+    "SIM-DAY-AS-JOINER-CLAR": {
+      "sim_id": "SIM-DAY-AS-JOINER-CLAR",
+      "module": "Day-as-new-joiner micro branch",
+      "journeys": ["J2", "J5"],
+      "ambiguity_rules": ["U2", "U6"],
+      "clarification_purpose": "Resolve ownership vs path ambiguity in 3-node branch",
+      "trigger": "ss_self_conf<0.65 AND path_branch_conf<0.65",
+      "setup": "Node1: unclear task assignment. Node2: optional stretch vs deliver minimum. Node3: report status to manager.",
+      "scoring_rubric": "Initiative + realistic scope + transparent comms",
+      "telemetry": ["path", "latency_per_node", "choice_ids"],
+      "success": "initiative>=0.7 AND transparency>=0.7",
+      "failure": "avoid_all OR overcommit_unsustainable",
+      "runtime_spec": { "duration_max_sec": 360 },
+      "why_change": "Day-as-joiner in primary but not clar for ownership/path splits",
+      "impact": { "validity": "medium", "reliability": "medium", "fairness": "neutral" }
+    }
+  },
+  "v1_deprecations": {
+    "simulation_ref_items": "Do not score as simulation method — weight 0.0 in v3 fusion",
+    "SIM-NEGOTIATION-NPC": "Use V2 when U12 fires"
+  }
+}

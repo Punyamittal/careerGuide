@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "MBS — 6 User Flows (concept note v2 + Fresher/Intern)",
+    "source_bank": "MBS_v3_3_FullQuestionBank.xlsx (1016 items)",
+    "users": 6
+  },
+  "flows": [
+    {
+      "user": "User 1 — Early Learner",
+      "grade": "Class 5",
+      "target_items": 30,
+      "selected_from_bank": 21,
+      "file": "MBS_UserFlow_User_1.json"
+    },
+    {
+      "user": "User 2 — Middle Learner",
+      "grade": "Class 8",
+      "target_items": 50,
+      "selected_from_bank": 44,
+      "file": "MBS_UserFlow_User_2.json"
+    },
+    {
+      "user": "User 3 — Stream Selector",
+      "grade": "Classes 9-10",
+      "target_items": 85,
+      "selected_from_bank": 54,
+      "file": "MBS_UserFlow_User_3.json"
+    },
+    {
+      "user": "User 4 — Career Explorer",
+      "grade": "Classes 11-12",
+      "target_items": 130,
+      "selected_from_bank": 117,
+      "file": "MBS_UserFlow_User_4.json"
+    },
+    {
+      "user": "User 5 — Undergraduate / Career-Readiness",
+      "grade": "Undergraduate",
+      "target_items": 150,
+      "selected_from_bank": 169,
+      "file": "MBS_UserFlow_User_5.json"
+    },
+    {
+      "user": "User 6 — Fresher / 1st-Year / Intern",
+      "grade": "Entry-level workforce / interns",
+      "target_items": 130,
+      "selected_from_bank": 122,
+      "file": "MBS_UserFlow_User_6.json"
+    }
+  ]
+}

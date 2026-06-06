@@ -37,5 +37,13 @@ export const env = {
     activeReleaseId: process.env.ONET_ACTIVE_RELEASE_ID?.trim() || null,
     defaultMatchLimit: Math.min(50, Math.max(1, Number(process.env.ONET_MATCH_LIMIT) || 12)),
     catalogCacheTtlMs: Number(process.env.ONET_CATALOG_CACHE_TTL_MS) || 300_000
+  },
+  mongodb: {
+    uri: process.env.MONGODB_URI || "",
+    dbName: process.env.MONGODB_DB_NAME || "careerguide"
+  },
+  clarification: {
+    featureFlag: process.env.USER6_CLARIFICATION_V2 !== "false",
+    assetsDir: process.env.CLARIFICATION_ASSETS_DIR || ""
   }
 };

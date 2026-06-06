@@ -1,0 +1,572 @@
+{
+  "user": "User 5 — Undergraduate / Career-Readiness",
+  "grade": "Undergraduate",
+  "age": "18-23",
+  "duration_min": 190,
+  "target_items": 150,
+  "purpose": "Domain fit PLUS employability: communication, negotiation, conflict, teamwork, decision, EQ, learning agility, entrepreneurship, self-concept, work orientation; job vs founder path.",
+  "delivery": "Simulation-heavy: in-tray, negotiation & team sims, economic games, Trade-off Island, internship evidence; minimal Likert. All new v3.3 tests as sims/SJTs.",
+  "phases": [
+    {
+      "phase": "0 Intake & evidence",
+      "blocks": [
+        {
+          "block": "Context & consent",
+          "format": "Survey",
+          "pool": "survey",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "Q0-001",
+            "Q0-002",
+            "Q0-003",
+            "Q0-004",
+            "Q0-005",
+            "Q0-006"
+          ],
+          "items_available": 6,
+          "adaptive": "education_level=UG",
+          "anti_bias": ""
+        },
+        {
+          "block": "Internship/project upload",
+          "format": "File upload + AI-cluster",
+          "pool": "-",
+          "module": "",
+          "target_count": 2,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "Q0-4/Q0-5 Haiku",
+          "anti_bias": "Objective behavioural evidence"
+        }
+      ]
+    },
+    {
+      "phase": "1 Personality",
+      "blocks": [
+        {
+          "block": "Big Five forced-choice",
+          "format": "Forced-choice (ipsative)",
+          "pool": "big5",
+          "module": "",
+          "target_count": 18,
+          "item_ids": [
+            "P-001",
+            "P-002",
+            "P-003",
+            "P-004",
+            "P-005",
+            "P-006",
+            "P-007",
+            "P-008",
+            "P-009",
+            "P-010",
+            "P-011",
+            "P-012",
+            "P-013",
+            "P-014",
+            "P-015",
+            "P-016",
+            "P-017",
+            "P-018"
+          ],
+          "items_available": 18,
+          "adaptive": "",
+          "anti_bias": "Defeats faking"
+        },
+        {
+          "block": "DISC pairs",
+          "format": "Forced-choice",
+          "pool": "disc",
+          "module": "",
+          "target_count": 10,
+          "item_ids": [
+            "P-019",
+            "P-025",
+            "P-026",
+            "P-039",
+            "P-040",
+            "P-041",
+            "P-044"
+          ],
+          "items_available": 7,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "2 Interests & work orientation",
+      "blocks": [
+        {
+          "block": "Career Theme-Park",
+          "format": "Revealed-preference sim",
+          "pool": "riasec",
+          "module": "",
+          "target_count": 12,
+          "item_ids": [
+            "HOL-001",
+            "HOL-002",
+            "HOL-003",
+            "HOL-004",
+            "HOL-005",
+            "HOL-006",
+            "HOL-007",
+            "HOL-008",
+            "HOL-009",
+            "HOL-010",
+            "HOL-011",
+            "HOL-012"
+          ],
+          "items_available": 12,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Work Styles Arena",
+          "format": "Behavioural sim",
+          "pool": "workstyles",
+          "module": "Work Styles Arena",
+          "target_count": 10,
+          "item_ids": [
+            "WST-001",
+            "WST-002",
+            "WST-003",
+            "WST-004",
+            "WST-005",
+            "WST-006",
+            "WST-007",
+            "WST-008",
+            "WST-009",
+            "WST-010"
+          ],
+          "items_available": 10,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Trade-off Island (values)",
+          "format": "Allocation game",
+          "pool": "workvalues",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "OWV-001",
+            "OWV-002",
+            "OWV-003",
+            "OWV-004",
+            "OWV-005",
+            "OWV-006",
+            "OWV-007",
+            "OWV-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": "Revealed-preference values"
+        },
+        {
+          "block": "Environment Simulator (context)",
+          "format": "Behavioural sim",
+          "pool": "workcontext",
+          "module": "Environment Simulator",
+          "target_count": 6,
+          "item_ids": [
+            "OWC-001",
+            "OWC-002",
+            "OWC-003",
+            "OWC-004",
+            "OWC-005",
+            "OWC-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "3 Work-readiness sims (NEW v3.3)",
+      "blocks": [
+        {
+          "block": "In-tray / in-basket",
+          "format": "Simulation",
+          "pool": "game:M4",
+          "module": "Environment Simulator",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "prioritisation+judgement+stress",
+          "anti_bias": "Almost un-fakeable day-1 task"
+        },
+        {
+          "block": "Communication & tone",
+          "format": "SJT / sim",
+          "pool": "comm",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "COMM-001",
+            "COMM-002",
+            "COMM-003",
+            "COMM-004",
+            "COMM-005",
+            "COMM-006",
+            "COMM-007",
+            "COMM-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Negotiation sim",
+          "format": "Branching/economic sim",
+          "pool": "negotiation",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "NEGT-001",
+            "NEGT-002",
+            "NEGT-003",
+            "NEGT-004",
+            "NEGT-005",
+            "NEGT-006",
+            "NEGT-007",
+            "NEGT-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": "Behaviour in a deal, not self-rating"
+        },
+        {
+          "block": "Conflict resolution SJT",
+          "format": "SJT",
+          "pool": "conflict",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "CONF-001",
+            "CONF-002",
+            "CONF-003",
+            "CONF-004",
+            "CONF-005",
+            "CONF-006",
+            "CONF-007",
+            "CONF-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Team-chat collaboration sim",
+          "format": "Branching sim",
+          "pool": "teamwork",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "TEAM-001",
+            "TEAM-002",
+            "TEAM-003",
+            "TEAM-004",
+            "TEAM-005",
+            "TEAM-006",
+            "TEAM-007",
+            "TEAM-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Decision under ambiguity",
+          "format": "Behavioural game",
+          "pool": "decision",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "DEC-001",
+            "DEC-002",
+            "DEC-003",
+            "DEC-004",
+            "DEC-005",
+            "DEC-006",
+            "DEC-007",
+            "DEC-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "EQ read-the-room",
+          "format": "Performance task",
+          "pool": "eq",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "EQD-001",
+            "EQD-002",
+            "EQD-003",
+            "EQD-004",
+            "EQD-005",
+            "EQD-006",
+            "EQD-007",
+            "EQD-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "4 Employability & skills",
+      "blocks": [
+        {
+          "block": "Tech skills + Expert Challenge",
+          "format": "Checklist + game",
+          "pool": "game:M7",
+          "module": "Expert Challenge",
+          "target_count": 6,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Soft-skill SJTs",
+          "format": "SJT",
+          "pool": "softskills",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "SS-001-SJT",
+            "SS-002-SJT",
+            "SS-003",
+            "SS-004",
+            "SS-005",
+            "SS-006",
+            "SS-007",
+            "SS-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Learning agility (Format Lab)",
+          "format": "Performance task",
+          "pool": "learning_agility",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "LRND-001",
+            "LRND-002",
+            "LRND-003",
+            "LRND-004",
+            "LRND-005",
+            "LRND-006",
+            "LRND-007",
+            "LRND-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": "Performance, not 'I learn fast'"
+        },
+        {
+          "block": "Career adaptability (4Cs)",
+          "format": "Forced-choice",
+          "pool": "strategy_career",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "SC-001-SJT",
+            "SC-002-SJT",
+            "SC-003-SJT",
+            "SC-004-SJT",
+            "SC-005-SJT",
+            "SC-006-SJT",
+            "SC-007",
+            "SC-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "5 Domain, aspiration & self-concept",
+      "blocks": [
+        {
+          "block": "Day-as-a-___ (top domains incl. founder)",
+          "format": "Branching simulation",
+          "pool": "strategy_career",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "SC-009",
+            "SC-010",
+            "SC-011",
+            "SC-012",
+            "SC-013",
+            "SC-014"
+          ],
+          "items_available": 6,
+          "adaptive": "Entrepreneurship path if signal",
+          "anti_bias": ""
+        },
+        {
+          "block": "Entrepreneurial orientation",
+          "format": "Behavioural sim/choice",
+          "pool": "entrepreneur",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "ENT-001",
+            "ENT-002",
+            "ENT-003",
+            "ENT-004",
+            "ENT-005",
+            "ENT-006",
+            "ENT-007",
+            "ENT-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": "Opportunity-spotting & risk behaviour"
+        },
+        {
+          "block": "Self-concept clarity",
+          "format": "Forced-choice + reflection (AI)",
+          "pool": "intrapersonal",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "INTRA-001",
+            "INTRA-002",
+            "INTRA-003",
+            "INTRA-004",
+            "INTRA-005",
+            "INTRA-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Aspiration / influences / challenge",
+          "format": "Short-answer (AI-scored)",
+          "pool": "survey",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "Q0-007",
+            "Q0-008",
+            "Q0-009",
+            "Q0-010"
+          ],
+          "items_available": 4,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "6 Integrity & risk",
+      "blocks": [
+        {
+          "block": "Honest Dice",
+          "format": "Behavioural integrity game",
+          "pool": "-",
+          "module": "",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": "Over-claiming behaviour, handled ethically"
+        },
+        {
+          "block": "Balloon Vault",
+          "format": "Risk game",
+          "pool": "-",
+          "module": "",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": "Risk appetite from behaviour"
+        }
+      ]
+    },
+    {
+      "phase": "7 Wellness",
+      "blocks": [
+        {
+          "block": "Wellness screener",
+          "format": "Validated screener (self-report)",
+          "pool": "wellness",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "W-001",
+            "W-002",
+            "W-003",
+            "W-004",
+            "W-005",
+            "W-006"
+          ],
+          "items_available": 6,
+          "adaptive": "flag -> counsellor + iCall",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "S3 Games (router)",
+      "blocks": [
+        {
+          "block": "ICT games (role-relevant)",
+          "format": "Timed games",
+          "pool": "game:T4",
+          "module": "Spreadsheet Sprint",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Knowledge games (domain)",
+          "format": "Timed games",
+          "pool": "game:K2",
+          "module": "Market Mover",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    }
+  ],
+  "adaptive_rules": {
+    "experience_routing": "Internship AI tags bias domain firing & feedback.",
+    "path_branch": "Forks into JOB-readiness or ENTREPRENEURSHIP path by behaviour+orientation.",
+    "shortening": "Aptitude shortened where school data imported.",
+    "session3_routing": "Router weighted to work readiness.",
+    "wellness_flag": "Distress -> counsellor + iCall.",
+    "ai_scoring": "Internship, aspiration, reflection, sims scored by Claude."
+  },
+  "bias_controls": {
+    "telemetry": "Per-item response latency, long-string & answer-change logging on every block.",
+    "attention_checks": "Embedded attention-check + infrequency items; careless responders flagged.",
+    "validity_band": "Each report carries a confidence band (high / interpret-with-caution).",
+    "scoring": "Forced-choice scored with Thurstonian-IRT; behavioural/game scores weighted above self-report; methods fused by confidence, not naive mean.",
+    "behaviour_first": "Most fakeable population -> simulate the most; self-report only for wellness.",
+    "evidence_weighting": "Internship upload + sims weighted above any remaining self-report."
+  },
+  "report": "Top domains + role fit, employability scorecard (comm/negotiation/conflict/teamwork/decision/EQ/learning-agility/integrity), adaptability index, job vs entrepreneurship path, next-step plan, wellness note.",
+  "_selected_item_count": 169
+}

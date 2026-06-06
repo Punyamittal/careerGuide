@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "phase_id": "7.5",
+  "max_journeys_per_session": 2,
+  "max_items_per_journey": 12,
+  "entry_evaluation": "POST /v6/session/{id}/clarify/evaluate",
+  "journeys": [
+    {
+      "journey_id": "J1",
+      "name": "Communication & EQ",
+      "target_pool_size": 35,
+      "items_per_session": {
+        "min": 6,
+        "max": 12
+      },
+      "triggers": [
+        "conf(COMM)<0.65",
+        "conf(EQ)<0.65",
+        "method_divergence(COMM,EQ)>1.0"
+      ],
+      "priority": 2,
+      "sim_injection": [
+        "READ_THE_ROOM"
+      ]
+    },
+    {
+      "journey_id": "J2",
+      "name": "Collaboration & Conflict",
+      "target_pool_size": 35,
+      "items_per_session": {
+        "min": 6,
+        "max": 12
+      },
+      "triggers": [
+        "conf(TEAM)<0.65",
+        "conf(CONF)<0.65",
+        "TEAM-COOP vs CONF-CMP divergence"
+      ],
+      "priority": 3,
+      "sim_injection": [
+        "TEAM_CHAT_MICRO",
+        "CONFLICT_BRANCH",
+        "NEGOTIATION_NPC"
+      ]
+    },
+    {
+      "journey_id": "J3",
+      "name": "Decision Making & Stress",
+      "target_pool_size": 35,
+      "items_per_session": {
+        "min": 6,
+        "max": 12
+      },
+      "triggers": [
+        "in_tray_tau<0.5",
+        "dec_divergence",
+        "stress_split"
+      ],
+      "priority": 4,
+      "sim_injection": [
+        "IN_TRAY_MINI",
+        "TWO_DOORS",
+        "CRISIS_COMMANDER"
+      ]
+    },
+    {
+      "journey_id": "J4",
+      "name": "Integrity & Evidence Validation",
+      "target_pool_size": 30,
+      "items_per_session": {
+        "min": 6,
+        "max": 12
+      },
+      "triggers": [
+        "honest_dice_overreport",
+        "eco_fake_familiarity",
+        "resume_mismatch",
+        "validity_caution"
+      ],
+      "priority": 1,
+      "sim_injection": [
+        "HONEST_DICE"
+      ]
+    },
+    {
+      "journey_id": "J5",
+      "name": "Career Path Clarification",
+      "target_pool_size": 32,
+      "items_per_session": {
+        "min": 6,
+        "max": 12
+      },
+      "triggers": [
+        "path_branch_conf<0.65",
+        "abs(ent_signal-job_signal)<0.12"
+      ],
+      "priority": 5,
+      "sim_injection": [
+        "TRADE_OFF_ISLAND"
+      ]
+    },
+    {
+      "journey_id": "J6",
+      "name": "Domain Readiness Validation",
+      "target_pool_size": 35,
+      "items_per_session": {
+        "min": 6,
+        "max": 12
+      },
+      "triggers": [
+        "eco_accuracy<0.60",
+        "resume_sector_mismatch"
+      ],
+      "priority": 6,
+      "sim_injection": [
+        "SECTOR_MATCH",
+        "TREND_RADAR",
+        "TOOL_BENCH",
+        "MARKET_MOVER"
+      ]
+    }
+  ],
+  "rotation": {
+    "strategy": "stratified_random",
+    "exclude_recent": 5,
+    "balance_difficulty": true,
+    "randomize_option_order": true
+  },
+  "adaptive_rules": {
+    "construct_confidence_floor": 0.65,
+    "method_divergence_z": 1,
+    "after_journey_refusion": "confidence_weighted_v2",
+    "stop_journey_if": "conf(target_construct)>=0.75 OR items_answered>=12"
+  }
+}

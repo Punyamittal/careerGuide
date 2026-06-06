@@ -1,0 +1,205 @@
+{
+  "user": "User 1 — Early Learner",
+  "grade": "Class 5",
+  "age": "~10",
+  "duration_min": 30,
+  "target_items": 30,
+  "purpose": "Surface intrinsic traits via play — curiosity, social style, thinking preference, early motivation. No career prediction.",
+  "delivery": "Fully gamified narrative; ZERO Likert. Picture forced-choice, revealed-preference exploration, gentle economic & risk games.",
+  "phases": [
+    {
+      "phase": "0 Story warm-up",
+      "blocks": [
+        {
+          "block": "Avatar & guide",
+          "format": "Narrative (unscored)",
+          "pool": "-",
+          "module": "",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "Sets pace; no scoring",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "1 Curiosity",
+      "blocks": [
+        {
+          "block": "Explore vs follow-the-path",
+          "format": "Revealed-preference (exploration telemetry)",
+          "pool": "creativity",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "I-014",
+            "I-049-RANK",
+            "I-054-FC",
+            "I-072-TASK"
+          ],
+          "items_available": 4,
+          "adaptive": "Openness via side-path exploration",
+          "anti_bias": "Behaviour, not rating — child can't fake exploring"
+        },
+        {
+          "block": "What would you do next?",
+          "format": "Picture forced-choice",
+          "pool": "big5",
+          "module": "",
+          "target_count": 2,
+          "item_ids": [
+            "P-001",
+            "P-002"
+          ],
+          "items_available": 2,
+          "adaptive": "",
+          "anti_bias": "Desirability-matched picture options"
+        }
+      ]
+    },
+    {
+      "phase": "2 Thinking style",
+      "blocks": [
+        {
+          "block": "Picture puzzles",
+          "format": "Performance task (easy-only)",
+          "pool": "apt_abstract",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "I-008",
+            "I-019-TASK",
+            "I-020-TASK",
+            "I-027-TASK"
+          ],
+          "items_available": 4,
+          "adaptive": "Eases on 2 errors, no failure framing",
+          "anti_bias": ""
+        },
+        {
+          "block": "Sorting game",
+          "format": "Drag-and-drop performance",
+          "pool": "apt_spatial",
+          "module": "",
+          "target_count": 2,
+          "item_ids": [
+            "I-067-TASK"
+          ],
+          "items_available": 1,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "3 Social style",
+      "blocks": [
+        {
+          "block": "Play alone or with friends",
+          "format": "Branching story choice",
+          "pool": "disc",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "P-007",
+            "P-011",
+            "P-015",
+            "P-018"
+          ],
+          "items_available": 4,
+          "adaptive": "",
+          "anti_bias": "Indirect; social preference revealed by choice"
+        },
+        {
+          "block": "Sticker-sharing game",
+          "format": "Economic game (Dictator-lite)",
+          "pool": "motivation",
+          "module": "",
+          "target_count": 2,
+          "item_ids": [
+            "M-001",
+            "M-002"
+          ],
+          "items_available": 2,
+          "adaptive": "",
+          "anti_bias": "Agreeableness from real sharing behaviour"
+        }
+      ]
+    },
+    {
+      "phase": "4 Sensory & attention",
+      "blocks": [
+        {
+          "block": "Go/No-Go tap",
+          "format": "Timed game",
+          "pool": "game:M11",
+          "module": "Go/No-Go (inhibition)",
+          "target_count": 3,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "Pacing by reaction speed",
+          "anti_bias": ""
+        },
+        {
+          "block": "Steady Trace",
+          "format": "Timed game",
+          "pool": "game:M22",
+          "module": "Steady Trace",
+          "target_count": 3,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "5 Risk & motivation",
+      "blocks": [
+        {
+          "block": "Balloon (gentle)",
+          "format": "Economic/risk game",
+          "pool": "-",
+          "module": "",
+          "target_count": 2,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": "Risk appetite from behaviour, not a question"
+        },
+        {
+          "block": "What makes you happy?",
+          "format": "Picture ranking",
+          "pool": "motivation",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "M-003",
+            "M-004",
+            "M-005",
+            "M-006"
+          ],
+          "items_available": 4,
+          "adaptive": "Task/Play/Recognition/Structure",
+          "anti_bias": ""
+        }
+      ]
+    }
+  ],
+  "adaptive_rules": {
+    "pacing": "Auto-pace by engagement speed; narrate all items.",
+    "difficulty": "Easy-only; 2 errors -> easier item.",
+    "no_high_stakes": "No scores shown to child; persona output only.",
+    "wellness": "Only severe signals -> counsellor (never the child)."
+  },
+  "bias_controls": {
+    "telemetry": "Per-item response latency, long-string & answer-change logging on every block.",
+    "attention_checks": "Embedded attention-check + infrequency items; careless responders flagged.",
+    "validity_band": "Each report carries a confidence band (high / interpret-with-caution).",
+    "scoring": "Forced-choice scored with Thurstonian-IRT; behavioural/game scores weighted above self-report; methods fused by confidence, not naive mean.",
+    "note": "No self-report at all; everything behavioural or forced-choice."
+  },
+  "report": "Learner persona (avatar + metaphor), strength bars, home+school tips, alert zones, NEP portfolio box.",
+  "_selected_item_count": 21
+}

@@ -1,0 +1,159 @@
+{
+  "version": 2,
+  "phase_id": "7.5",
+  "max_journeys_per_session": 2,
+  "max_journeys_extended": 3,
+  "max_items_per_journey": 12,
+  "entry_evaluation": "POST /v6/session/{id}/clarify/evaluate",
+  "ambiguity_rules_ref": "MBS_Ambiguity_Rules_U1_U17.json",
+  "bank_merge": {
+    "v1_bank": "MBS_QBank_User_6_Clarification.json",
+    "v2_supplement": "MBS_QBank_User_6_Clarification_V2_Supplement.json",
+    "deprecate_item_patterns": ["CLAR-J2-0[1-9]", "CLAR-J2-[12][0-9]", "CLAR-J2-3[0-5]"],
+    "prefer_v2_pools": ["J2-V2", "NEG-V2", "J7-LRN", "J8-APT"]
+  },
+  "priority_order": [1, 2, 3, 4, 5, 6],
+  "journeys": [
+    {
+      "journey_id": "J4",
+      "name": "Integrity & Evidence Validation",
+      "target_pool_size": 30,
+      "items_per_session": { "min": 6, "max": 12 },
+      "ambiguity_rules": ["U5", "U10"],
+      "priority": 1,
+      "force_when": ["U10"],
+      "sim_injection": ["SIM-HONEST-DICE"]
+    },
+    {
+      "journey_id": "J2-NEG",
+      "name": "Negotiation & Scope",
+      "target_pool_size": 10,
+      "items_per_session": { "min": 4, "max": 8 },
+      "ambiguity_rules": ["U12"],
+      "priority": 2,
+      "force_when": ["U12"],
+      "sim_injection": ["SIM-NEGOTIATION-NPC-V2"],
+      "blocks": {
+        "neg_likert_fusion": false,
+        "require_sim_telemetry": true
+      }
+    },
+    {
+      "journey_id": "J1",
+      "name": "Communication & EQ",
+      "target_pool_size": 35,
+      "items_per_session": { "min": 6, "max": 12 },
+      "ambiguity_rules": ["U1"],
+      "priority": 2,
+      "sim_injection": ["SIM-READ-THE-ROOM"]
+    },
+    {
+      "journey_id": "J7",
+      "name": "Learning Agility Clarification",
+      "target_pool_size": 6,
+      "items_per_session": { "min": 4, "max": 6 },
+      "ambiguity_rules": ["U13"],
+      "priority": 3,
+      "sim_injection": ["SIM-FORMAT-LAB-CLAR"]
+    },
+    {
+      "journey_id": "J2",
+      "name": "Collaboration & Conflict",
+      "target_pool_size": 28,
+      "items_per_session": { "min": 6, "max": 10 },
+      "pool_source": "J2-V2",
+      "ambiguity_rules": ["U2"],
+      "priority": 3,
+      "sim_injection": ["SIM-TEAM-CHAT-MICRO", "SIM-CONFLICT-BRANCH"],
+      "note": "V1 J2 pool retired; use CLAR-J2-V2-* only"
+    },
+    {
+      "journey_id": "J3",
+      "name": "Decision Making & Stress",
+      "target_pool_size": 35,
+      "items_per_session": { "min": 6, "max": 12 },
+      "ambiguity_rules": ["U3", "U4", "U11", "U17"],
+      "priority": 4,
+      "sim_injection": ["SIM-IN-TRAY-MINI", "SIM-TWO-DOORS", "SIM-CRISIS-COMMANDER", "SIM-PRESSURE-COOKER-CLAR", "SIM-SPOT-THE-BREAK-CLAR"],
+      "sim_substitution": {
+        "U17": ["SIM-PRESSURE-COOKER-CLAR", "SIM-SPOT-THE-BREAK-CLAR"],
+        "default": ["SIM-IN-TRAY-MINI"]
+      }
+    },
+    {
+      "journey_id": "J8",
+      "name": "Aptitude Micro-Clarification",
+      "target_pool_size": 8,
+      "items_per_session": { "min": 4, "max": 6 },
+      "ambiguity_rules": ["U14"],
+      "priority": 4,
+      "delivery": "micro-CAT adaptive",
+      "sim_injection": []
+    },
+    {
+      "journey_id": "J5",
+      "name": "Career Path Clarification",
+      "target_pool_size": 32,
+      "items_per_session": { "min": 6, "max": 12 },
+      "ambiguity_rules": ["U6", "U9"],
+      "priority": 5,
+      "sim_injection": ["SIM-TRADE-OFF-ISLAND", "SIM-WORK-STYLES-ARENA-CLAR"]
+    },
+    {
+      "journey_id": "J6",
+      "name": "Domain Readiness Validation",
+      "target_pool_size": 35,
+      "items_per_session": { "min": 6, "max": 10 },
+      "ambiguity_rules": ["U7", "U8"],
+      "priority": 6,
+      "sim_injection": ["SIM-SECTOR-MATCH", "SIM-TREND-RADAR", "SIM-TOOL-BENCH", "SIM-MARKET-MOVER", "SIM-EXPERT-CHALLENGE-CLAR", "SIM-ECOSYSTEM-ARCHITECT-CLAR"],
+      "region_gate": {
+        "india_specific_items": ["PAN", "DPDP", "ONDC"],
+        "fallback_pool": "ECO-GLOBAL-2026"
+      }
+    }
+  ],
+  "rotation": {
+    "strategy": "stratified_random_with_exposure_control",
+    "exclude_recent_session": 5,
+    "exclude_exposure_global": 3,
+    "alternate_pools": {
+      "J2-V2": ["J2-V2-A", "J2-V2-B"],
+      "NEG-V2": ["NEG-V2-A", "NEG-V2-B"],
+      "J4-overclaim": ["fake-set-alpha", "fake-set-beta", "fake-set-gamma"]
+    },
+    "balance_difficulty": true,
+    "randomize_option_order": true,
+    "key_balance": "enforce_equal_key_distribution_per_pool"
+  },
+  "adaptive_rules": {
+    "construct_confidence_floor": 0.65,
+    "construct_confidence_stop": 0.78,
+    "method_divergence_z": 1.0,
+    "after_journey_refusion": "confidence_weighted_v3",
+    "clarification_boost_cap": 0.10,
+    "stop_journey_if": "conf(target_construct) >= 0.78 OR se(target_construct) <= 0.12 OR items_answered >= max",
+    "stop_journey_never_before": 4,
+    "U15_accommodation_modifiers": "see MBS_Ambiguity_Rules_U1_U17.json U15"
+  },
+  "confidence_update_v3": {
+    "formula": "conf_new = min(1, conf_old + boost * (1 - conf_old) * evidence_quality)",
+    "boost_cap": 0.10,
+    "evidence_quality_weights": {
+      "simulation_telemetry": 1.0,
+      "micro_cat": 0.95,
+      "sjt_v2_construct_rubric": 0.85,
+      "simulation_ref_hypothetical": 0.0
+    },
+    "penalty": {
+      "coaching_pattern_detected": -0.08,
+      "absurd_distractor_only_pass": -0.05
+    }
+  },
+  "three_journey_logic": {
+    "enabled": true,
+    "conditions": ["U10", "U5 AND U12", "fired_rules >= 4"],
+    "max_duration_min": 35,
+    "fatigue_guard": "insert 60s break between journey 2 and 3"
+  }
+}

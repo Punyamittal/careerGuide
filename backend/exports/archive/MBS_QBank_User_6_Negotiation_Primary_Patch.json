@@ -1,0 +1,57 @@
+{
+  "patch_id": "PRIMARY-NEG-SKILL-V2",
+  "target_file": "backend/exports/archive/Archive 2/MBS_QBank_User_6.json",
+  "phase": "3 Collaboration, conflict & negotiation",
+  "block": "Negotiate scope/deadline with NPC",
+  "action": "REPLACE_ITEMS",
+  "why": "NEGT-001..008 measure negative affect (irritability, cynicism) — invalid for negotiation per Bias Strategy §4 and U12",
+  "was_wrong": "Likert stems like 'I hold grudges longer than I should' fused to negotiation dimension",
+  "improved": "Branching negotiation sim items + 2 anchor SJTs; construct NEG-SKILL",
+  "replacement": {
+    "construct_pool": "negotiation_skill",
+    "delivery_format": "Branching/economic sim + SJT",
+    "target_count": 0,
+    "module": "Negotiation NPC Sim",
+    "anti_bias": "Behaviour in a real scope/deadline ask — not affect self-report",
+    "items_retired": ["NEGT-001", "NEGT-002", "NEGT-003", "NEGT-004", "NEGT-005", "NEGT-006", "NEGT-007", "NEGT-008"],
+    "items_retired_redirect": "v3.3-bank-negative-affect-pool (do not use in User 6 report)",
+    "primary_delivery": {
+      "sim": "SIM-NEGOTIATION-NPC-V2",
+      "min_rounds": 2,
+      "required_telemetry": ["probe_count", "joint_value_score", "npc_trust_meter_end"]
+    },
+    "anchor_sjts": [
+      {
+        "item_id": "NEG-S-001",
+        "stem": "Stakeholder adds scope without extending deadline. Your first response:",
+        "options": [
+          "Clarify priorities and what can move to phase 2",
+          "Accept all scope",
+          "Refuse without discussion",
+          "Delay telling the team"
+        ],
+        "constructs_fed": "NEG-INT (w=1.0) | NEG-JV (w=0.8)"
+      },
+      {
+        "item_id": "NEG-S-002",
+        "stem": "Vendor quotes rush fee you cannot afford. Best next step:",
+        "options": [
+          "Ask which scope reduction hits the same date",
+          "Approve fee without sign-off",
+          "Switch vendors same day",
+          "Miss deadline silently"
+        ],
+        "constructs_fed": "NEG-TRADE (w=1.0) | NEG-BAT (w=0.6)"
+      }
+    ]
+  },
+  "fusion_guard": {
+    "block_constructs": ["NEG-IRR", "NEG-CYN", "NEG-GRD", "NEG-CON", "NEG-RUM", "NEG-SUS", "NEG-HOS", "NEG-PES"],
+    "from_user6_negotiation_score": true,
+    "alert_if_present": "U12_negotiation_contaminated"
+  },
+  "user_flow_patch": {
+    "phase_3_block_item_ids": ["NEG-S-001", "NEG-S-002"],
+    "note": "Sim carries primary weight; SJTs are anchors only"
+  }
+}

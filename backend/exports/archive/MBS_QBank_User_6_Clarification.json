@@ -1,0 +1,5099 @@
+{
+  "meta": {
+    "title": "MBS Clarification Question Bank — User Flow 6",
+    "phase_id": "7.5",
+    "user_flow": "User 6 — Fresher / 1st-Year / Intern",
+    "version": "1.0.0",
+    "generated_at": "2026-06-06T13:24:59.564Z",
+    "total_items": 202,
+    "items_per_journey": {
+      "J1": 35,
+      "J2": 35,
+      "J3": 35,
+      "J4": 30,
+      "J5": 32,
+      "J6": 35
+    },
+    "behaviour_first": true,
+    "supports": [
+      "randomization",
+      "multiple_attempts",
+      "adaptive_routing",
+      "question_rotation"
+    ],
+    "sources": [
+      "MBS_QBank_User_6.json",
+      "MBS_Intern_Flow_Design_Spec.docx",
+      "MBS_Bias_Reduction_and_Game_Strategy.md"
+    ],
+    "bias_controls": {
+      "no_work_readiness_likert": true,
+      "thurstonian_forced_choice": true,
+      "sim_weight_above_self_report": true,
+      "validity_band": [
+        "high",
+        "interpret-with-caution"
+      ]
+    }
+  },
+  "journeys": [
+    {
+      "journey_id": "J1",
+      "name": "Communication & EQ",
+      "item_ids": [
+        "CLAR-J1-01",
+        "CLAR-J1-02",
+        "CLAR-J1-03",
+        "CLAR-J1-04",
+        "CLAR-J1-05",
+        "CLAR-J1-06",
+        "CLAR-J1-07",
+        "CLAR-J1-08",
+        "CLAR-J1-09",
+        "CLAR-J1-10",
+        "CLAR-J1-11",
+        "CLAR-J1-12",
+        "CLAR-J1-13",
+        "CLAR-J1-14",
+        "CLAR-J1-15",
+        "CLAR-J1-16",
+        "CLAR-J1-17",
+        "CLAR-J1-18",
+        "CLAR-J1-19",
+        "CLAR-J1-20",
+        "CLAR-J1-21",
+        "CLAR-J1-22",
+        "CLAR-J1-23",
+        "CLAR-J1-24",
+        "CLAR-J1-25",
+        "CLAR-J1-26",
+        "CLAR-J1-27",
+        "CLAR-J1-28",
+        "CLAR-J1-29",
+        "CLAR-J1-30",
+        "CLAR-J1-31",
+        "CLAR-J1-32",
+        "CLAR-J1-33",
+        "CLAR-J1-34",
+        "CLAR-J1-35"
+      ]
+    },
+    {
+      "journey_id": "J2",
+      "name": "Collaboration & Conflict",
+      "item_ids": [
+        "CLAR-J2-01",
+        "CLAR-J2-02",
+        "CLAR-J2-03",
+        "CLAR-J2-04",
+        "CLAR-J2-05",
+        "CLAR-J2-06",
+        "CLAR-J2-07",
+        "CLAR-J2-08",
+        "CLAR-J2-09",
+        "CLAR-J2-10",
+        "CLAR-J2-11",
+        "CLAR-J2-12",
+        "CLAR-J2-13",
+        "CLAR-J2-14",
+        "CLAR-J2-15",
+        "CLAR-J2-16",
+        "CLAR-J2-17",
+        "CLAR-J2-18",
+        "CLAR-J2-19",
+        "CLAR-J2-20",
+        "CLAR-J2-21",
+        "CLAR-J2-22",
+        "CLAR-J2-23",
+        "CLAR-J2-24",
+        "CLAR-J2-25",
+        "CLAR-J2-26",
+        "CLAR-J2-27",
+        "CLAR-J2-28",
+        "CLAR-J2-29",
+        "CLAR-J2-30",
+        "CLAR-J2-31",
+        "CLAR-J2-32",
+        "CLAR-J2-33",
+        "CLAR-J2-34",
+        "CLAR-J2-35"
+      ]
+    },
+    {
+      "journey_id": "J3",
+      "name": "Decision Making & Stress",
+      "item_ids": [
+        "CLAR-J3-01",
+        "CLAR-J3-02",
+        "CLAR-J3-03",
+        "CLAR-J3-04",
+        "CLAR-J3-05",
+        "CLAR-J3-06",
+        "CLAR-J3-07",
+        "CLAR-J3-08",
+        "CLAR-J3-09",
+        "CLAR-J3-10",
+        "CLAR-J3-11",
+        "CLAR-J3-12",
+        "CLAR-J3-13",
+        "CLAR-J3-14",
+        "CLAR-J3-15",
+        "CLAR-J3-16",
+        "CLAR-J3-17",
+        "CLAR-J3-18",
+        "CLAR-J3-19",
+        "CLAR-J3-20",
+        "CLAR-J3-21",
+        "CLAR-J3-22",
+        "CLAR-J3-23",
+        "CLAR-J3-24",
+        "CLAR-J3-25",
+        "CLAR-J3-26",
+        "CLAR-J3-27",
+        "CLAR-J3-28",
+        "CLAR-J3-29",
+        "CLAR-J3-30",
+        "CLAR-J3-31",
+        "CLAR-J3-32",
+        "CLAR-J3-33",
+        "CLAR-J3-34",
+        "CLAR-J3-35"
+      ]
+    },
+    {
+      "journey_id": "J4",
+      "name": "Integrity & Evidence Validation",
+      "item_ids": [
+        "CLAR-J4-01",
+        "CLAR-J4-02",
+        "CLAR-J4-03",
+        "CLAR-J4-04",
+        "CLAR-J4-05",
+        "CLAR-J4-06",
+        "CLAR-J4-07",
+        "CLAR-J4-08",
+        "CLAR-J4-09",
+        "CLAR-J4-10",
+        "CLAR-J4-11",
+        "CLAR-J4-12",
+        "CLAR-J4-13",
+        "CLAR-J4-14",
+        "CLAR-J4-15",
+        "CLAR-J4-16",
+        "CLAR-J4-17",
+        "CLAR-J4-18",
+        "CLAR-J4-19",
+        "CLAR-J4-20",
+        "CLAR-J4-21",
+        "CLAR-J4-22",
+        "CLAR-J4-23",
+        "CLAR-J4-24",
+        "CLAR-J4-25",
+        "CLAR-J4-26",
+        "CLAR-J4-27",
+        "CLAR-J4-28",
+        "CLAR-J4-29",
+        "CLAR-J4-30"
+      ]
+    },
+    {
+      "journey_id": "J5",
+      "name": "Career Path Clarification",
+      "item_ids": [
+        "CLAR-J5-01",
+        "CLAR-J5-02",
+        "CLAR-J5-03",
+        "CLAR-J5-04",
+        "CLAR-J5-05",
+        "CLAR-J5-06",
+        "CLAR-J5-07",
+        "CLAR-J5-08",
+        "CLAR-J5-09",
+        "CLAR-J5-10",
+        "CLAR-J5-11",
+        "CLAR-J5-12",
+        "CLAR-J5-13",
+        "CLAR-J5-14",
+        "CLAR-J5-15",
+        "CLAR-J5-16",
+        "CLAR-J5-17",
+        "CLAR-J5-18",
+        "CLAR-J5-19",
+        "CLAR-J5-20",
+        "CLAR-J5-21",
+        "CLAR-J5-22",
+        "CLAR-J5-23",
+        "CLAR-J5-24",
+        "CLAR-J5-25",
+        "CLAR-J5-26",
+        "CLAR-J5-27",
+        "CLAR-J5-28",
+        "CLAR-J5-29",
+        "CLAR-J5-30",
+        "CLAR-J5-31",
+        "CLAR-J5-32"
+      ]
+    },
+    {
+      "journey_id": "J6",
+      "name": "Domain Readiness Validation",
+      "item_ids": [
+        "CLAR-J6-01",
+        "CLAR-J6-02",
+        "CLAR-J6-03",
+        "CLAR-J6-04",
+        "CLAR-J6-05",
+        "CLAR-J6-06",
+        "CLAR-J6-07",
+        "CLAR-J6-08",
+        "CLAR-J6-09",
+        "CLAR-J6-10",
+        "CLAR-J6-11",
+        "CLAR-J6-12",
+        "CLAR-J6-13",
+        "CLAR-J6-14",
+        "CLAR-J6-15",
+        "CLAR-J6-16",
+        "CLAR-J6-17",
+        "CLAR-J6-18",
+        "CLAR-J6-19",
+        "CLAR-J6-20",
+        "CLAR-J6-21",
+        "CLAR-J6-22",
+        "CLAR-J6-23",
+        "CLAR-J6-24",
+        "CLAR-J6-25",
+        "CLAR-J6-26",
+        "CLAR-J6-27",
+        "CLAR-J6-28",
+        "CLAR-J6-29",
+        "CLAR-J6-30",
+        "CLAR-J6-31",
+        "CLAR-J6-32",
+        "CLAR-J6-33",
+        "CLAR-J6-34",
+        "CLAR-J6-35"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "item_id": "CLAR-J1-01",
+      "journey": "J1",
+      "construct": "COMM-AUD|COMM-DIF|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Email scenario (software intern): Your manager replies \"See me.\" at 4:47 PM Friday with no context. You have a family commitment at 6 PM. Best first reply:",
+      "options": [
+        "Reply: \"On my way now — should I bring the Q3 deck?\"",
+        "Reply: \"Can we do Monday 10 AM? I can share a written update tonight if urgent.\"",
+        "Ignore until Monday",
+        "Forward to a teammate asking them to cover"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Keyed option 1; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "email",
+        "next_on_correct": "CLAR-J1-02",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-02",
+      "journey": "J1",
+      "construct": "COMM-DIF|EQ-EM|SS-COMM",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Chat: Peer DMs you \"Can you just do my slide? I'm swamped.\" You already have your own deadline. You:",
+      "options": [
+        "Ask what they tried + offer 15-min pair on structure, not full takeover",
+        "Do entire slide to avoid conflict",
+        "Screenshot and post in group chat to shame them",
+        "Ignore message"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "chat",
+        "next_on_correct": "CLAR-J1-03",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-03",
+      "journey": "J1",
+      "construct": "COMM-FB|EQ-SA|LRN-FB",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager 1:1: They say \"You're too quiet in meetings.\" As a marketing associate, best response in the moment:",
+      "options": [
+        "Thank them, ask for one meeting where you'll prepare one question in advance",
+        "Defend that quiet people are smarter",
+        "Promise to talk more without changing behavior",
+        "Ask why others aren't criticized"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "manager",
+        "next_on_correct": "CLAR-J1-04",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-04",
+      "journey": "J1",
+      "construct": "COMM-NV|EQ-OA|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Client call: They interrupt you mid-explanation. Best move:",
+      "options": [
+        "Pause, confirm their concern in one sentence, then offer to finish point or jump to theirs",
+        "Talk louder to finish your point",
+        "End call early",
+        "Let them monologue without redirect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "client",
+        "next_on_correct": "CLAR-J1-05",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-05",
+      "journey": "J1",
+      "construct": "COMM-WR|EQ-SR|BIG5-C",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick the response more like you when explaining a mistake to your manager:",
+      "options": [
+        "Lead with facts, impact, fix, prevention",
+        "Wait until asked directly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative; both options desirability-matched",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "forced_choice",
+        "next_on_correct": "CLAR-J1-06",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-06",
+      "journey": "J1",
+      "construct": "EQ-EM|COMM-DIF|EQ-EMB",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Peer voice note sounds flat after their idea was rejected. Best empathic opener:",
+      "options": [
+        "\"I can see that landed hard — want to walk through what you were aiming for?\"",
+        "\"Don't take it personally\"",
+        "\"Management is like that\"",
+        "Change topic to lunch"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "eq_affect",
+        "next_on_correct": "CLAR-J1-07",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-07",
+      "journey": "J1",
+      "construct": "COMM-FB|SS-SELF|BIG5-C",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "Rank these feedback approaches (best → worst) after a missed deadline you caused:",
+      "options": [
+        "Notify early with revised plan",
+        "Stay silent until demo",
+        "Blame tooling",
+        "Fix quietly without telling stakeholders"
+      ],
+      "correct_answer": "[0,3,1,2]",
+      "scoring_logic": "Spearman vs expert rank [0,3,1,2]; partial credit per position",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "ranking",
+        "next_on_correct": "CLAR-J1-08",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-08",
+      "journey": "J1",
+      "construct": "COMM-WR|COMM-FB|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Email: A client writes \"Your update is confusing and late.\" You delivered on time but the attachment was the wrong version. Best response:",
+      "options": [
+        "Apologize for the wrong file, attach correct version, summarize changes in 3 bullets",
+        "Explain the client didn't read carefully",
+        "Blame internal review process publicly",
+        "Ask manager to reply instead"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "email",
+        "next_on_correct": "CLAR-J1-09",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-09",
+      "journey": "J1",
+      "construct": "COMM-AL|COMM-AUD|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Slack/Teams: Channel thread goes off-topic during incident response. You are marketing associate. You:",
+      "options": [
+        "Post: \"Moving troubleshooting to #inc-123 — summary every 15 min here.\"",
+        "Argue about who caused the bug in the main channel",
+        "Mute channel and work solo",
+        "Emoji-react only"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "chat",
+        "next_on_correct": "CLAR-J1-10",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-10",
+      "journey": "J1",
+      "construct": "COMM-AL|EQ-SA|WST-INIT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager gives vague praise: \"Good job lately.\" You need clearer growth signal. You:",
+      "options": [
+        "Ask: \"Which deliverable helped most — and what would 'great' look like next month?\"",
+        "Assume you are promotion-ready",
+        "Complain HR doesn't recognize you",
+        "Say nothing — praise is enough"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "manager",
+        "next_on_correct": "CLAR-J1-11",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-11",
+      "journey": "J1",
+      "construct": "COMM-NV|EQ-OA|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Client call: They interrupt you mid-explanation. Best move:",
+      "options": [
+        "Pause, confirm their concern in one sentence, then offer to finish point or jump to theirs",
+        "Talk louder to finish your point",
+        "End call early",
+        "Let them monologue without redirect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "client",
+        "next_on_correct": "CLAR-J1-12",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-12",
+      "journey": "J1",
+      "construct": "EQ-SR|COMM-DIF|EQ-OA",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you when a teammate's tone feels sharp in chat:",
+      "options": [
+        "Assume positive intent; ask clarifying question",
+        "Match sharp tone to show strength"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative; both options desirability-matched",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "forced_choice",
+        "next_on_correct": "CLAR-J1-13",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-13",
+      "journey": "J1",
+      "construct": "EQ-OA|COMM-NV|EQ-EM-COG",
+      "question_type": "affect-recognition",
+      "difficulty": "standard",
+      "stem": "Read-the-room: Message says \"Fine. Ship it.\" after a long debate. Most likely intent:",
+      "options": [
+        "Genuine agreement",
+        "Resigned agreement with lingering concern",
+        "Sarcasm",
+        "Anger"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Keyed option 1; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "eq_affect",
+        "next_on_correct": "CLAR-J1-14",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-14",
+      "journey": "J1",
+      "construct": "COMM-FB|SS-SELF|BIG5-C",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "Rank these feedback approaches (best → worst) after a missed deadline you caused:",
+      "options": [
+        "Notify early with revised plan",
+        "Stay silent until demo",
+        "Blame tooling",
+        "Fix quietly without telling stakeholders"
+      ],
+      "correct_answer": "[0,3,1,2]",
+      "scoring_logic": "Spearman vs expert rank [0,3,1,2]; partial credit per position",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "ranking",
+        "next_on_correct": "CLAR-J1-15",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-15",
+      "journey": "J1",
+      "construct": "COMM-ASRT|COMM-PREP|EQ-OA",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Email: You need to push back on an unrealistic deadline from a senior stakeholder. Tone that fits a marketing associate:",
+      "options": [
+        "Data + impact + proposed alternative date with scope trade-off",
+        "Emotional appeal about team burnout only",
+        "Accept silently and hope for extension later",
+        "CC their manager without discussion"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "email",
+        "next_on_correct": "CLAR-J1-16",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-16",
+      "journey": "J1",
+      "construct": "COMM-DIF|EQ-EM|SS-COMM",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Chat: Peer DMs you \"Can you just do my slide? I'm swamped.\" You already have your own deadline. You:",
+      "options": [
+        "Ask what they tried + offer 15-min pair on structure, not full takeover",
+        "Do entire slide to avoid conflict",
+        "Screenshot and post in group chat to shame them",
+        "Ignore message"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "chat",
+        "next_on_correct": "CLAR-J1-17",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-17",
+      "journey": "J1",
+      "construct": "COMM-FB|EQ-SA|LRN-FB",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager 1:1: They say \"You're too quiet in meetings.\" As a UX design intern, best response in the moment:",
+      "options": [
+        "Thank them, ask for one meeting where you'll prepare one question in advance",
+        "Defend that quiet people are smarter",
+        "Promise to talk more without changing behavior",
+        "Ask why others aren't criticized"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "manager",
+        "next_on_correct": "CLAR-J1-18",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-18",
+      "journey": "J1",
+      "construct": "COMM-NV|EQ-OA|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Client call: They interrupt you mid-explanation. Best move:",
+      "options": [
+        "Pause, confirm their concern in one sentence, then offer to finish point or jump to theirs",
+        "Talk louder to finish your point",
+        "End call early",
+        "Let them monologue without redirect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "client",
+        "next_on_correct": "CLAR-J1-19",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-19",
+      "journey": "J1",
+      "construct": "COMM-WR|EQ-SR|BIG5-C",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick the response more like you when explaining a mistake to your manager:",
+      "options": [
+        "Lead with facts, impact, fix, prevention",
+        "Wait until asked directly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative; both options desirability-matched",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "forced_choice",
+        "next_on_correct": "CLAR-J1-20",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-20",
+      "journey": "J1",
+      "construct": "EQ-EM|COMM-DIF|EQ-EMB",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Peer voice note sounds flat after their idea was rejected. Best empathic opener:",
+      "options": [
+        "\"I can see that landed hard — want to walk through what you were aiming for?\"",
+        "\"Don't take it personally\"",
+        "\"Management is like that\"",
+        "Change topic to lunch"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "eq_affect",
+        "next_on_correct": "CLAR-J1-21",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-21",
+      "journey": "J1",
+      "construct": "COMM-FB|SS-SELF|BIG5-C",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "Rank these feedback approaches (best → worst) after a missed deadline you caused:",
+      "options": [
+        "Notify early with revised plan",
+        "Stay silent until demo",
+        "Blame tooling",
+        "Fix quietly without telling stakeholders"
+      ],
+      "correct_answer": "[0,3,1,2]",
+      "scoring_logic": "Spearman vs expert rank [0,3,1,2]; partial credit per position",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "ranking",
+        "next_on_correct": "CLAR-J1-22",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-22",
+      "journey": "J1",
+      "construct": "COMM-AUD|COMM-DIF|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Email scenario (operations trainee): Your manager replies \"See me.\" at 4:47 PM Friday with no context. You have a family commitment at 6 PM. Best first reply:",
+      "options": [
+        "Reply: \"On my way now — should I bring the Q3 deck?\"",
+        "Reply: \"Can we do Monday 10 AM? I can share a written update tonight if urgent.\"",
+        "Ignore until Monday",
+        "Forward to a teammate asking them to cover"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Keyed option 1; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "email",
+        "next_on_correct": "CLAR-J1-23",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-23",
+      "journey": "J1",
+      "construct": "COMM-AL|COMM-AUD|EQ-SR",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Slack/Teams: Channel thread goes off-topic during incident response. You are UX design intern. You:",
+      "options": [
+        "Post: \"Moving troubleshooting to #inc-123 — summary every 15 min here.\"",
+        "Argue about who caused the bug in the main channel",
+        "Mute channel and work solo",
+        "Emoji-react only"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "chat",
+        "next_on_correct": "CLAR-J1-24",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-24",
+      "journey": "J1",
+      "construct": "COMM-AL|EQ-SA|WST-INIT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager gives vague praise: \"Good job lately.\" You need clearer growth signal. You:",
+      "options": [
+        "Ask: \"Which deliverable helped most — and what would 'great' look like next month?\"",
+        "Assume you are promotion-ready",
+        "Complain HR doesn't recognize you",
+        "Say nothing — praise is enough"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "manager",
+        "next_on_correct": "CLAR-J1-25",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-25",
+      "journey": "J1",
+      "construct": "COMM-NV|EQ-OA|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Client call: They interrupt you mid-explanation. Best move:",
+      "options": [
+        "Pause, confirm their concern in one sentence, then offer to finish point or jump to theirs",
+        "Talk louder to finish your point",
+        "End call early",
+        "Let them monologue without redirect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "client",
+        "next_on_correct": "CLAR-J1-26",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-26",
+      "journey": "J1",
+      "construct": "EQ-SR|COMM-DIF|EQ-OA",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you when a teammate's tone feels sharp in chat:",
+      "options": [
+        "Assume positive intent; ask clarifying question",
+        "Match sharp tone to show strength"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative; both options desirability-matched",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "forced_choice",
+        "next_on_correct": "CLAR-J1-27",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-27",
+      "journey": "J1",
+      "construct": "EQ-OA|COMM-NV|EQ-EM-COG",
+      "question_type": "affect-recognition",
+      "difficulty": "standard",
+      "stem": "Read-the-room: Message says \"Fine. Ship it.\" after a long debate. Most likely intent:",
+      "options": [
+        "Genuine agreement",
+        "Resigned agreement with lingering concern",
+        "Sarcasm",
+        "Anger"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Keyed option 1; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "eq_affect",
+        "next_on_correct": "CLAR-J1-28",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-28",
+      "journey": "J1",
+      "construct": "COMM-FB|SS-SELF|BIG5-C",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "Rank these feedback approaches (best → worst) after a missed deadline you caused:",
+      "options": [
+        "Notify early with revised plan",
+        "Stay silent until demo",
+        "Blame tooling",
+        "Fix quietly without telling stakeholders"
+      ],
+      "correct_answer": "[0,3,1,2]",
+      "scoring_logic": "Spearman vs expert rank [0,3,1,2]; partial credit per position",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "ranking",
+        "next_on_correct": "CLAR-J1-29",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-29",
+      "journey": "J1",
+      "construct": "COMM-WR|COMM-FB|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Email: A client writes \"Your update is confusing and late.\" You delivered on time but the attachment was the wrong version. Best response:",
+      "options": [
+        "Apologize for the wrong file, attach correct version, summarize changes in 3 bullets",
+        "Explain the client didn't read carefully",
+        "Blame internal review process publicly",
+        "Ask manager to reply instead"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "email",
+        "next_on_correct": "CLAR-J1-30",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-30",
+      "journey": "J1",
+      "construct": "COMM-DIF|EQ-EM|SS-COMM",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Chat: Peer DMs you \"Can you just do my slide? I'm swamped.\" You already have your own deadline. You:",
+      "options": [
+        "Ask what they tried + offer 15-min pair on structure, not full takeover",
+        "Do entire slide to avoid conflict",
+        "Screenshot and post in group chat to shame them",
+        "Ignore message"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "chat",
+        "next_on_correct": "CLAR-J1-31",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-31",
+      "journey": "J1",
+      "construct": "COMM-FB|EQ-SA|LRN-FB",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager 1:1: They say \"You're too quiet in meetings.\" As a software intern, best response in the moment:",
+      "options": [
+        "Thank them, ask for one meeting where you'll prepare one question in advance",
+        "Defend that quiet people are smarter",
+        "Promise to talk more without changing behavior",
+        "Ask why others aren't criticized"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "manager",
+        "next_on_correct": "CLAR-J1-32",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-32",
+      "journey": "J1",
+      "construct": "COMM-NV|EQ-OA|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Client call: They interrupt you mid-explanation. Best move:",
+      "options": [
+        "Pause, confirm their concern in one sentence, then offer to finish point or jump to theirs",
+        "Talk louder to finish your point",
+        "End call early",
+        "Let them monologue without redirect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "client",
+        "next_on_correct": "CLAR-J1-33",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-33",
+      "journey": "J1",
+      "construct": "COMM-WR|EQ-SR|BIG5-C",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick the response more like you when explaining a mistake to your manager:",
+      "options": [
+        "Lead with facts, impact, fix, prevention",
+        "Wait until asked directly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative; both options desirability-matched",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "forced_choice",
+        "next_on_correct": "CLAR-J1-34",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-34",
+      "journey": "J1",
+      "construct": "EQ-EM|COMM-DIF|EQ-EMB",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Peer voice note sounds flat after their idea was rejected. Best empathic opener:",
+      "options": [
+        "\"I can see that landed hard — want to walk through what you were aiming for?\"",
+        "\"Don't take it personally\"",
+        "\"Management is like that\"",
+        "Change topic to lunch"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed option 0; latency >8s flags faking on desirable traits",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "eq_affect",
+        "next_on_correct": "CLAR-J1-01",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J1-35",
+      "journey": "J1",
+      "construct": "COMM-FB|SS-SELF|BIG5-C",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "Rank these feedback approaches (best → worst) after a missed deadline you caused:",
+      "options": [
+        "Notify early with revised plan",
+        "Stay silent until demo",
+        "Blame tooling",
+        "Fix quietly without telling stakeholders"
+      ],
+      "correct_answer": "[0,3,1,2]",
+      "scoring_logic": "Spearman vs expert rank [0,3,1,2]; partial credit per position",
+      "anti_bias_rationale": "Scenario-based or ipsative — not self-rated Likert on communication/EQ",
+      "follow_up_trigger": "conf(COMM)<0.65 OR conf(EQ)<0.65 OR method_divergence_z>1.0",
+      "routing_rules": {
+        "pool": "ranking",
+        "next_on_correct": "CLAR-J1-01",
+        "skip_if": "conf(COMM)>=0.75 AND conf(EQ)>=0.75",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-01",
+      "journey": "J2",
+      "construct": "TEAM-INC|TEAM-CON|SS-COLLAB",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you in team conflict: (A) Address issue directly with specific example (B) Avoid until it blows over",
+      "options": [
+        "Address directly with example",
+        "Avoid until it blows over"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "group_project",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-02",
+      "journey": "J2",
+      "construct": "TEAM-DA|TEAM-GT|CONF-COMP",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Design review: UX and eng deadlock on scope. You:",
+      "options": [
+        "Map user journey; propose phased release",
+        "Pick UX always",
+        "Pick eng always",
+        "Ask manager to decide without context"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "disagreement",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-03",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|BIG5-C",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "On-call alert fires on your feature flag. You:",
+      "options": [
+        "Acknowledge in channel, triage, rollback if needed",
+        "Disable flag without telling anyone",
+        "Assign to senior only",
+        "Snooze alert"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "ownership",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-04",
+      "journey": "J2",
+      "construct": "TEAM-SL|WST-COOP|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager credits you for fix that was pair work. You:",
+      "options": [
+        "Redirect credit to pair + describe split",
+        "Accept full credit",
+        "Embarrass them in reply-all",
+        "Resign from project"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "credit",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-05",
+      "journey": "J2",
+      "construct": "CONF-COLL|CONF-COMP|COMM-ASRT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Vendor missed SLA. Your manager asks you to email. You:",
+      "options": [
+        "Fact-based email + impact + ask recovery plan",
+        "Threaten legal action",
+        "Ghost vendor",
+        "Blame manager"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_missed_deadline",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-06",
+      "journey": "J2",
+      "construct": "CONF-AV|CONF-CMP|COMM-DIF",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you in team conflict: (A) Address issue directly with specific example (B) Avoid until it blows over",
+      "options": [
+        "Address directly with example",
+        "Avoid until it blows over"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_escalation",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-07",
+      "journey": "J2",
+      "construct": "TEAM-INC|TEAM-CON|SS-COLLAB",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Group project: Two teammates want different architectures. Stand-up is in 10 minutes. You:",
+      "options": [
+        "Propose spike + decision criteria before choosing",
+        "Side with senior dev",
+        "Delay stand-up",
+        "Escalate to skip retro"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "group_project",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-08",
+      "journey": "J2",
+      "construct": "TEAM-DA|TEAM-GT|CONF-COMP",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Design review: UX and eng deadlock on scope. You:",
+      "options": [
+        "Map user journey; propose phased release",
+        "Pick UX always",
+        "Pick eng always",
+        "Ask manager to decide without context"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "disagreement",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-09",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|BIG5-C",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "On-call alert fires on your feature flag. You:",
+      "options": [
+        "Acknowledge in channel, triage, rollback if needed",
+        "Disable flag without telling anyone",
+        "Assign to senior only",
+        "Snooze alert"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "ownership",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-10",
+      "journey": "J2",
+      "construct": "TEAM-SL|WST-COOP|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager credits you for fix that was pair work. You:",
+      "options": [
+        "Redirect credit to pair + describe split",
+        "Accept full credit",
+        "Embarrass them in reply-all",
+        "Resign from project"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "credit",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-11",
+      "journey": "J2",
+      "construct": "CONF-COLL|CONF-COMP|COMM-ASRT",
+      "question_type": "forced-choice",
+      "difficulty": "standard",
+      "stem": "Pick more like you in team conflict: (A) Address issue directly with specific example (B) Avoid until it blows over",
+      "options": [
+        "Address directly with example",
+        "Avoid until it blows over"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_missed_deadline",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-12",
+      "journey": "J2",
+      "construct": "CONF-AV|CONF-CMP|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "HR policy blocks your preferred WFH day. You:",
+      "options": [
+        "Ask policy rationale; propose pilot data",
+        "Ignore policy",
+        "Rage quit channel",
+        "Fake sick daily"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_escalation",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-13",
+      "journey": "J2",
+      "construct": "TEAM-INC|TEAM-CON|SS-COLLAB",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Group project: Two teammates want different architectures. Stand-up is in 10 minutes. You:",
+      "options": [
+        "Propose spike + decision criteria before choosing",
+        "Side with senior dev",
+        "Delay stand-up",
+        "Escalate to skip retro"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "group_project",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-14",
+      "journey": "J2",
+      "construct": "TEAM-DA|TEAM-GT|CONF-COMP",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Design review: UX and eng deadlock on scope. You:",
+      "options": [
+        "Map user journey; propose phased release",
+        "Pick UX always",
+        "Pick eng always",
+        "Ask manager to decide without context"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "disagreement",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-15",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|BIG5-C",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "On-call alert fires on your feature flag. You:",
+      "options": [
+        "Acknowledge in channel, triage, rollback if needed",
+        "Disable flag without telling anyone",
+        "Assign to senior only",
+        "Snooze alert"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "ownership",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-16",
+      "journey": "J2",
+      "construct": "TEAM-SL|WST-COOP|EQ-EM",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you in team conflict: (A) Address issue directly with specific example (B) Avoid until it blows over",
+      "options": [
+        "Address directly with example",
+        "Avoid until it blows over"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "credit",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-17",
+      "journey": "J2",
+      "construct": "CONF-COLL|CONF-COMP|COMM-ASRT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Vendor missed SLA. Your manager asks you to email. You:",
+      "options": [
+        "Fact-based email + impact + ask recovery plan",
+        "Threaten legal action",
+        "Ghost vendor",
+        "Blame manager"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_missed_deadline",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-18",
+      "journey": "J2",
+      "construct": "CONF-AV|CONF-CMP|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "HR policy blocks your preferred WFH day. You:",
+      "options": [
+        "Ask policy rationale; propose pilot data",
+        "Ignore policy",
+        "Rage quit channel",
+        "Fake sick daily"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_escalation",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-19",
+      "journey": "J2",
+      "construct": "TEAM-INC|TEAM-CON|SS-COLLAB",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Group project: Two teammates want different architectures. Stand-up is in 10 minutes. You:",
+      "options": [
+        "Propose spike + decision criteria before choosing",
+        "Side with senior dev",
+        "Delay stand-up",
+        "Escalate to skip retro"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "group_project",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-20",
+      "journey": "J2",
+      "construct": "TEAM-DA|TEAM-GT|CONF-COMP",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Design review: UX and eng deadlock on scope. You:",
+      "options": [
+        "Map user journey; propose phased release",
+        "Pick UX always",
+        "Pick eng always",
+        "Ask manager to decide without context"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "disagreement",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-21",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|BIG5-C",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you in team conflict: (A) Address issue directly with specific example (B) Avoid until it blows over",
+      "options": [
+        "Address directly with example",
+        "Avoid until it blows over"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "ownership",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-22",
+      "journey": "J2",
+      "construct": "TEAM-SL|WST-COOP|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager credits you for fix that was pair work. You:",
+      "options": [
+        "Redirect credit to pair + describe split",
+        "Accept full credit",
+        "Embarrass them in reply-all",
+        "Resign from project"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "credit",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-23",
+      "journey": "J2",
+      "construct": "CONF-COLL|CONF-COMP|COMM-ASRT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Vendor missed SLA. Your manager asks you to email. You:",
+      "options": [
+        "Fact-based email + impact + ask recovery plan",
+        "Threaten legal action",
+        "Ghost vendor",
+        "Blame manager"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_missed_deadline",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-24",
+      "journey": "J2",
+      "construct": "CONF-AV|CONF-CMP|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "HR policy blocks your preferred WFH day. You:",
+      "options": [
+        "Ask policy rationale; propose pilot data",
+        "Ignore policy",
+        "Rage quit channel",
+        "Fake sick daily"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_escalation",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-25",
+      "journey": "J2",
+      "construct": "TEAM-INC|TEAM-CON|SS-COLLAB",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Group project: Two teammates want different architectures. Stand-up is in 10 minutes. You:",
+      "options": [
+        "Propose spike + decision criteria before choosing",
+        "Side with senior dev",
+        "Delay stand-up",
+        "Escalate to skip retro"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "group_project",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-26",
+      "journey": "J2",
+      "construct": "TEAM-DA|TEAM-GT|CONF-COMP",
+      "question_type": "forced-choice",
+      "difficulty": "standard",
+      "stem": "Pick more like you in team conflict: (A) Address issue directly with specific example (B) Avoid until it blows over",
+      "options": [
+        "Address directly with example",
+        "Avoid until it blows over"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "disagreement",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-27",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|BIG5-C",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "On-call alert fires on your feature flag. You:",
+      "options": [
+        "Acknowledge in channel, triage, rollback if needed",
+        "Disable flag without telling anyone",
+        "Assign to senior only",
+        "Snooze alert"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "ownership",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-28",
+      "journey": "J2",
+      "construct": "TEAM-SL|WST-COOP|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager credits you for fix that was pair work. You:",
+      "options": [
+        "Redirect credit to pair + describe split",
+        "Accept full credit",
+        "Embarrass them in reply-all",
+        "Resign from project"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "credit",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-29",
+      "journey": "J2",
+      "construct": "CONF-COLL|CONF-COMP|COMM-ASRT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Vendor missed SLA. Your manager asks you to email. You:",
+      "options": [
+        "Fact-based email + impact + ask recovery plan",
+        "Threaten legal action",
+        "Ghost vendor",
+        "Blame manager"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_missed_deadline",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-30",
+      "journey": "J2",
+      "construct": "CONF-AV|CONF-CMP|COMM-DIF",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "HR policy blocks your preferred WFH day. You:",
+      "options": [
+        "Ask policy rationale; propose pilot data",
+        "Ignore policy",
+        "Rage quit channel",
+        "Fake sick daily"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_escalation",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-31",
+      "journey": "J2",
+      "construct": "TEAM-INC|TEAM-CON|SS-COLLAB",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you in team conflict: (A) Address issue directly with specific example (B) Avoid until it blows over",
+      "options": [
+        "Address directly with example",
+        "Avoid until it blows over"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thurstonian-IRT ipsative",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "group_project",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-32",
+      "journey": "J2",
+      "construct": "TEAM-DA|TEAM-GT|CONF-COMP",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Design review: UX and eng deadlock on scope. You:",
+      "options": [
+        "Map user journey; propose phased release",
+        "Pick UX always",
+        "Pick eng always",
+        "Ask manager to decide without context"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "disagreement",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-33",
+      "journey": "J2",
+      "construct": "SS-SELF|WST-INIT|BIG5-C",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "On-call alert fires on your feature flag. You:",
+      "options": [
+        "Acknowledge in channel, triage, rollback if needed",
+        "Disable flag without telling anyone",
+        "Assign to senior only",
+        "Snooze alert"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "ownership",
+        "sim_follow_up": "SIM-TEAM-CHAT-MICRO",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-34",
+      "journey": "J2",
+      "construct": "TEAM-SL|WST-COOP|EQ-EM",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager credits you for fix that was pair work. You:",
+      "options": [
+        "Redirect credit to pair + describe split",
+        "Accept full credit",
+        "Embarrass them in reply-all",
+        "Resign from project"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "credit",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J2-35",
+      "journey": "J2",
+      "construct": "CONF-COLL|CONF-COMP|COMM-ASRT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Vendor missed SLA. Your manager asks you to email. You:",
+      "options": [
+        "Fact-based email + impact + ask recovery plan",
+        "Threaten legal action",
+        "Ghost vendor",
+        "Blame manager"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Thomas-Kilmann style mapping; collaborate/problem-solve weighted highest",
+      "anti_bias_rationale": "Workplace scenario reveals conflict/collaboration style indirectly",
+      "follow_up_trigger": "conf(TEAM)<0.65 OR conf(CONF)<0.65 OR TEAM-COOP vs CONF-CMP divergence",
+      "routing_rules": {
+        "category": "conflict_missed_deadline",
+        "sim_follow_up": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-01",
+      "journey": "J3",
+      "construct": "BIG5-C|DEC-RAT|stress",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "In-tray mini #1: Items — (1) angry enterprise client (2) CEO vague 'thoughts?' (3) newsletter trap (4) teammate blocker. Rank top priority:",
+      "options": [
+        "Client revenue risk",
+        "CEO request",
+        "Newsletter",
+        "Teammate blocker"
+      ],
+      "correct_answer": "[0,3,2,1]",
+      "scoring_logic": "Weighted rank vs expert key; trap item penalty",
+      "anti_bias_rationale": "Revealed prioritisation under pressure",
+      "follow_up_trigger": "conf(BIG5-C)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "item_count": 3
+      }
+    },
+    {
+      "item_id": "CLAR-J3-02",
+      "journey": "J3",
+      "construct": "DEC-MAX|DEC-SAT|DEC-UNC",
+      "question_type": "simulation-ref",
+      "difficulty": "standard",
+      "stem": "Two Doors: Launch feature with 85% test coverage vs delay 2 days for edge cases. 3 clue cards available. You typically: (variant 1)",
+      "options": [
+        "Open all clues then decide",
+        "Decide in <15s",
+        "Open 1 clue",
+        "Avoid choosing — ask manager"
+      ],
+      "correct_answer": "telemetry:clues_opened,time_to_decide",
+      "scoring_logic": "Telemetry: clues_opened, revisions, time_to_decide → DEC-MAX/SAT indices",
+      "anti_bias_rationale": "Pure behavioural decision task — cannot fake maximiser/satisficer claim",
+      "follow_up_trigger": "in_tray_rank_corr<0.5 OR dec_divergence OR stress_split",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "rounds": 2,
+        "difficulty": "standard"
+      }
+    },
+    {
+      "item_id": "CLAR-J3-03",
+      "journey": "J3",
+      "construct": "DEC-SPD|stress|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Time pressure: Customer escalation while you are sole on-call fresher.",
+      "options": [
+        "Follow runbook; loop senior; customer update every 30 min",
+        "Restart server only",
+        "Ignore ticket",
+        "Close ticket as duplicate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-04",
+      "journey": "J3",
+      "construct": "DEC-UNC|DEC-RAT|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Time pressure: Budget cut removes contractor; scope unchanged.",
+      "options": [
+        "Renegotiate scope with impact table",
+        "Work unpaid overtime indefinitely",
+        "Quit",
+        "Blame finance in stand-up"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "CRISIS_COMMANDER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-05",
+      "journey": "J3",
+      "construct": "DEC-SPD|DEC-MAX",
+      "question_type": "forced-choice",
+      "difficulty": "standard",
+      "stem": "Pick more like you under time pressure:",
+      "options": [
+        "Ship good-enough with documented risks",
+        "Delay until perfect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative IRT",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-06",
+      "journey": "J3",
+      "construct": "BIG5-C|DEC-RAT|stress",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "In-tray mini #6: Items — (1) angry enterprise client (2) CEO vague 'thoughts?' (3) newsletter trap (4) teammate blocker. Rank top priority:",
+      "options": [
+        "Client revenue risk",
+        "CEO request",
+        "Newsletter",
+        "Teammate blocker"
+      ],
+      "correct_answer": "[0,3,2,1]",
+      "scoring_logic": "Weighted rank vs expert key; trap item penalty",
+      "anti_bias_rationale": "Revealed prioritisation under pressure",
+      "follow_up_trigger": "conf(BIG5-C)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "item_count": 5
+      }
+    },
+    {
+      "item_id": "CLAR-J3-07",
+      "journey": "J3",
+      "construct": "DEC-MAX|DEC-SAT|DEC-UNC",
+      "question_type": "simulation-ref",
+      "difficulty": "beginner",
+      "stem": "Two Doors: Launch feature with 85% test coverage vs delay 2 days for edge cases. 3 clue cards available. You typically: (variant 2)",
+      "options": [
+        "Open all clues then decide",
+        "Decide in <15s",
+        "Open 1 clue",
+        "Avoid choosing — ask manager"
+      ],
+      "correct_answer": "telemetry:clues_opened,time_to_decide",
+      "scoring_logic": "Telemetry: clues_opened, revisions, time_to_decide → DEC-MAX/SAT indices",
+      "anti_bias_rationale": "Pure behavioural decision task — cannot fake maximiser/satisficer claim",
+      "follow_up_trigger": "in_tray_rank_corr<0.5 OR dec_divergence OR stress_split",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "rounds": 2,
+        "difficulty": "beginner"
+      }
+    },
+    {
+      "item_id": "CLAR-J3-08",
+      "journey": "J3",
+      "construct": "DEC-SPD|stress|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Time pressure: Customer escalation while you are sole on-call fresher.",
+      "options": [
+        "Follow runbook; loop senior; customer update every 30 min",
+        "Restart server only",
+        "Ignore ticket",
+        "Close ticket as duplicate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-09",
+      "journey": "J3",
+      "construct": "DEC-UNC|DEC-RAT|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Time pressure: Budget cut removes contractor; scope unchanged.",
+      "options": [
+        "Renegotiate scope with impact table",
+        "Work unpaid overtime indefinitely",
+        "Quit",
+        "Blame finance in stand-up"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-10",
+      "journey": "J3",
+      "construct": "DEC-SPD|DEC-MAX",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you under time pressure:",
+      "options": [
+        "Ship good-enough with documented risks",
+        "Delay until perfect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative IRT",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "CRISIS_COMMANDER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-11",
+      "journey": "J3",
+      "construct": "BIG5-C|DEC-RAT|stress",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "In-tray mini #11: Items — (1) angry enterprise client (2) CEO vague 'thoughts?' (3) newsletter trap (4) teammate blocker. Rank top priority:",
+      "options": [
+        "Client revenue risk",
+        "CEO request",
+        "Newsletter",
+        "Teammate blocker"
+      ],
+      "correct_answer": "[0,3,2,1]",
+      "scoring_logic": "Weighted rank vs expert key; trap item penalty",
+      "anti_bias_rationale": "Revealed prioritisation under pressure",
+      "follow_up_trigger": "conf(BIG5-C)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "item_count": 4
+      }
+    },
+    {
+      "item_id": "CLAR-J3-12",
+      "journey": "J3",
+      "construct": "DEC-MAX|DEC-SAT|DEC-UNC",
+      "question_type": "simulation-ref",
+      "difficulty": "stretch",
+      "stem": "Two Doors: Launch feature with 85% test coverage vs delay 2 days for edge cases. 3 clue cards available. You typically: (variant 3)",
+      "options": [
+        "Open all clues then decide",
+        "Decide in <15s",
+        "Open 1 clue",
+        "Avoid choosing — ask manager"
+      ],
+      "correct_answer": "telemetry:clues_opened,time_to_decide",
+      "scoring_logic": "Telemetry: clues_opened, revisions, time_to_decide → DEC-MAX/SAT indices",
+      "anti_bias_rationale": "Pure behavioural decision task — cannot fake maximiser/satisficer claim",
+      "follow_up_trigger": "in_tray_rank_corr<0.5 OR dec_divergence OR stress_split",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "rounds": 2,
+        "difficulty": "stretch"
+      }
+    },
+    {
+      "item_id": "CLAR-J3-13",
+      "journey": "J3",
+      "construct": "DEC-SPD|stress|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Time pressure: Customer escalation while you are sole on-call fresher.",
+      "options": [
+        "Follow runbook; loop senior; customer update every 30 min",
+        "Restart server only",
+        "Ignore ticket",
+        "Close ticket as duplicate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "CRISIS_COMMANDER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-14",
+      "journey": "J3",
+      "construct": "DEC-UNC|DEC-RAT|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Time pressure: Budget cut removes contractor; scope unchanged.",
+      "options": [
+        "Renegotiate scope with impact table",
+        "Work unpaid overtime indefinitely",
+        "Quit",
+        "Blame finance in stand-up"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-15",
+      "journey": "J3",
+      "construct": "DEC-SPD|DEC-MAX",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you under time pressure:",
+      "options": [
+        "Ship good-enough with documented risks",
+        "Delay until perfect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative IRT",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-16",
+      "journey": "J3",
+      "construct": "BIG5-C|DEC-RAT|stress",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "In-tray mini #16: Items — (1) angry enterprise client (2) CEO vague 'thoughts?' (3) newsletter trap (4) teammate blocker. Rank top priority:",
+      "options": [
+        "Client revenue risk",
+        "CEO request",
+        "Newsletter",
+        "Teammate blocker"
+      ],
+      "correct_answer": "[0,3,2,1]",
+      "scoring_logic": "Weighted rank vs expert key; trap item penalty",
+      "anti_bias_rationale": "Revealed prioritisation under pressure",
+      "follow_up_trigger": "conf(BIG5-C)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "item_count": 3
+      }
+    },
+    {
+      "item_id": "CLAR-J3-17",
+      "journey": "J3",
+      "construct": "DEC-MAX|DEC-SAT|DEC-UNC",
+      "question_type": "simulation-ref",
+      "difficulty": "standard",
+      "stem": "Two Doors: Launch feature with 85% test coverage vs delay 2 days for edge cases. 3 clue cards available. You typically: (variant 4)",
+      "options": [
+        "Open all clues then decide",
+        "Decide in <15s",
+        "Open 1 clue",
+        "Avoid choosing — ask manager"
+      ],
+      "correct_answer": "telemetry:clues_opened,time_to_decide",
+      "scoring_logic": "Telemetry: clues_opened, revisions, time_to_decide → DEC-MAX/SAT indices",
+      "anti_bias_rationale": "Pure behavioural decision task — cannot fake maximiser/satisficer claim",
+      "follow_up_trigger": "in_tray_rank_corr<0.5 OR dec_divergence OR stress_split",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "rounds": 2,
+        "difficulty": "standard"
+      }
+    },
+    {
+      "item_id": "CLAR-J3-18",
+      "journey": "J3",
+      "construct": "DEC-SPD|stress|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Time pressure: Customer escalation while you are sole on-call fresher.",
+      "options": [
+        "Follow runbook; loop senior; customer update every 30 min",
+        "Restart server only",
+        "Ignore ticket",
+        "Close ticket as duplicate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-19",
+      "journey": "J3",
+      "construct": "DEC-UNC|DEC-RAT|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Time pressure: Budget cut removes contractor; scope unchanged.",
+      "options": [
+        "Renegotiate scope with impact table",
+        "Work unpaid overtime indefinitely",
+        "Quit",
+        "Blame finance in stand-up"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "CRISIS_COMMANDER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-20",
+      "journey": "J3",
+      "construct": "DEC-SPD|DEC-MAX",
+      "question_type": "forced-choice",
+      "difficulty": "standard",
+      "stem": "Pick more like you under time pressure:",
+      "options": [
+        "Ship good-enough with documented risks",
+        "Delay until perfect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative IRT",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-21",
+      "journey": "J3",
+      "construct": "BIG5-C|DEC-RAT|stress",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "In-tray mini #21: Items — (1) angry enterprise client (2) CEO vague 'thoughts?' (3) newsletter trap (4) teammate blocker. Rank top priority:",
+      "options": [
+        "Client revenue risk",
+        "CEO request",
+        "Newsletter",
+        "Teammate blocker"
+      ],
+      "correct_answer": "[0,3,2,1]",
+      "scoring_logic": "Weighted rank vs expert key; trap item penalty",
+      "anti_bias_rationale": "Revealed prioritisation under pressure",
+      "follow_up_trigger": "conf(BIG5-C)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "item_count": 5
+      }
+    },
+    {
+      "item_id": "CLAR-J3-22",
+      "journey": "J3",
+      "construct": "DEC-MAX|DEC-SAT|DEC-UNC",
+      "question_type": "simulation-ref",
+      "difficulty": "beginner",
+      "stem": "Two Doors: Launch feature with 85% test coverage vs delay 2 days for edge cases. 3 clue cards available. You typically: (variant 5)",
+      "options": [
+        "Open all clues then decide",
+        "Decide in <15s",
+        "Open 1 clue",
+        "Avoid choosing — ask manager"
+      ],
+      "correct_answer": "telemetry:clues_opened,time_to_decide",
+      "scoring_logic": "Telemetry: clues_opened, revisions, time_to_decide → DEC-MAX/SAT indices",
+      "anti_bias_rationale": "Pure behavioural decision task — cannot fake maximiser/satisficer claim",
+      "follow_up_trigger": "in_tray_rank_corr<0.5 OR dec_divergence OR stress_split",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "rounds": 2,
+        "difficulty": "beginner"
+      }
+    },
+    {
+      "item_id": "CLAR-J3-23",
+      "journey": "J3",
+      "construct": "DEC-SPD|stress|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Time pressure: Customer escalation while you are sole on-call fresher.",
+      "options": [
+        "Follow runbook; loop senior; customer update every 30 min",
+        "Restart server only",
+        "Ignore ticket",
+        "Close ticket as duplicate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-24",
+      "journey": "J3",
+      "construct": "DEC-UNC|DEC-RAT|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Time pressure: Budget cut removes contractor; scope unchanged.",
+      "options": [
+        "Renegotiate scope with impact table",
+        "Work unpaid overtime indefinitely",
+        "Quit",
+        "Blame finance in stand-up"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-25",
+      "journey": "J3",
+      "construct": "DEC-SPD|DEC-MAX",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you under time pressure:",
+      "options": [
+        "Ship good-enough with documented risks",
+        "Delay until perfect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative IRT",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "CRISIS_COMMANDER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-26",
+      "journey": "J3",
+      "construct": "BIG5-C|DEC-RAT|stress",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "In-tray mini #26: Items — (1) angry enterprise client (2) CEO vague 'thoughts?' (3) newsletter trap (4) teammate blocker. Rank top priority:",
+      "options": [
+        "Client revenue risk",
+        "CEO request",
+        "Newsletter",
+        "Teammate blocker"
+      ],
+      "correct_answer": "[0,3,2,1]",
+      "scoring_logic": "Weighted rank vs expert key; trap item penalty",
+      "anti_bias_rationale": "Revealed prioritisation under pressure",
+      "follow_up_trigger": "conf(BIG5-C)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "item_count": 4
+      }
+    },
+    {
+      "item_id": "CLAR-J3-27",
+      "journey": "J3",
+      "construct": "DEC-MAX|DEC-SAT|DEC-UNC",
+      "question_type": "simulation-ref",
+      "difficulty": "stretch",
+      "stem": "Two Doors: Launch feature with 85% test coverage vs delay 2 days for edge cases. 3 clue cards available. You typically: (variant 6)",
+      "options": [
+        "Open all clues then decide",
+        "Decide in <15s",
+        "Open 1 clue",
+        "Avoid choosing — ask manager"
+      ],
+      "correct_answer": "telemetry:clues_opened,time_to_decide",
+      "scoring_logic": "Telemetry: clues_opened, revisions, time_to_decide → DEC-MAX/SAT indices",
+      "anti_bias_rationale": "Pure behavioural decision task — cannot fake maximiser/satisficer claim",
+      "follow_up_trigger": "in_tray_rank_corr<0.5 OR dec_divergence OR stress_split",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "rounds": 2,
+        "difficulty": "stretch"
+      }
+    },
+    {
+      "item_id": "CLAR-J3-28",
+      "journey": "J3",
+      "construct": "DEC-SPD|stress|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Time pressure: Customer escalation while you are sole on-call fresher.",
+      "options": [
+        "Follow runbook; loop senior; customer update every 30 min",
+        "Restart server only",
+        "Ignore ticket",
+        "Close ticket as duplicate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "CRISIS_COMMANDER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-29",
+      "journey": "J3",
+      "construct": "DEC-UNC|DEC-RAT|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Time pressure: Budget cut removes contractor; scope unchanged.",
+      "options": [
+        "Renegotiate scope with impact table",
+        "Work unpaid overtime indefinitely",
+        "Quit",
+        "Blame finance in stand-up"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-30",
+      "journey": "J3",
+      "construct": "DEC-SPD|DEC-MAX",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you under time pressure:",
+      "options": [
+        "Ship good-enough with documented risks",
+        "Delay until perfect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative IRT",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-31",
+      "journey": "J3",
+      "construct": "BIG5-C|DEC-RAT|stress",
+      "question_type": "ranking",
+      "difficulty": "standard",
+      "stem": "In-tray mini #31: Items — (1) angry enterprise client (2) CEO vague 'thoughts?' (3) newsletter trap (4) teammate blocker. Rank top priority:",
+      "options": [
+        "Client revenue risk",
+        "CEO request",
+        "Newsletter",
+        "Teammate blocker"
+      ],
+      "correct_answer": "[0,3,2,1]",
+      "scoring_logic": "Weighted rank vs expert key; trap item penalty",
+      "anti_bias_rationale": "Revealed prioritisation under pressure",
+      "follow_up_trigger": "conf(BIG5-C)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "item_count": 3
+      }
+    },
+    {
+      "item_id": "CLAR-J3-32",
+      "journey": "J3",
+      "construct": "DEC-MAX|DEC-SAT|DEC-UNC",
+      "question_type": "simulation-ref",
+      "difficulty": "standard",
+      "stem": "Two Doors: Launch feature with 85% test coverage vs delay 2 days for edge cases. 3 clue cards available. You typically: (variant 7)",
+      "options": [
+        "Open all clues then decide",
+        "Decide in <15s",
+        "Open 1 clue",
+        "Avoid choosing — ask manager"
+      ],
+      "correct_answer": "telemetry:clues_opened,time_to_decide",
+      "scoring_logic": "Telemetry: clues_opened, revisions, time_to_decide → DEC-MAX/SAT indices",
+      "anti_bias_rationale": "Pure behavioural decision task — cannot fake maximiser/satisficer claim",
+      "follow_up_trigger": "in_tray_rank_corr<0.5 OR dec_divergence OR stress_split",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "rounds": 2,
+        "difficulty": "standard"
+      }
+    },
+    {
+      "item_id": "CLAR-J3-33",
+      "journey": "J3",
+      "construct": "DEC-SPD|stress|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Time pressure: Customer escalation while you are sole on-call fresher.",
+      "options": [
+        "Follow runbook; loop senior; customer update every 30 min",
+        "Restart server only",
+        "Ignore ticket",
+        "Close ticket as duplicate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "TWO_DOORS",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-34",
+      "journey": "J3",
+      "construct": "DEC-UNC|DEC-RAT|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Time pressure: Budget cut removes contractor; scope unchanged.",
+      "options": [
+        "Renegotiate scope with impact table",
+        "Work unpaid overtime indefinitely",
+        "Quit",
+        "Blame finance in stand-up"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT + latency",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "CRISIS_COMMANDER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J3-35",
+      "journey": "J3",
+      "construct": "DEC-SPD|DEC-MAX",
+      "question_type": "forced-choice",
+      "difficulty": "standard",
+      "stem": "Pick more like you under time pressure:",
+      "options": [
+        "Ship good-enough with documented risks",
+        "Delay until perfect"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative IRT",
+      "anti_bias_rationale": "Decision under load — not self-report decisiveness",
+      "follow_up_trigger": "stress_split OR conf(DEC)<0.65",
+      "routing_rules": {
+        "sim_module": "IN_TRAY_MINI",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-01",
+      "journey": "J4",
+      "construct": "Integrity|SS-SELF|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "You shipped a issue with dataset you cleaned affecting ~200 users. No one noticed yet. You:",
+      "options": [
+        "Disclose, fix, postmortem",
+        "Fix silently",
+        "Wait for support ticket",
+        "Revert and blame deploy tool"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-02",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Resume claims expertise on API certificate expiry; lists 'Advanced Kubernetes' but you've only run kubectl get pods. In interview skills check you:",
+      "options": [
+        "Clarify exposure level honestly",
+        "Deflect to team lead",
+        "Pretend expertise",
+        "Cancel interview"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-03",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "overclaiming",
+      "difficulty": "stretch",
+      "stem": "Rate familiarity 1-5: [Real: Git rebase] [FAKE: Quantum JIRA pipeline] [Real: SQL joins] [FAKE: Neural OKR matrix]",
+      "options": [
+        "Honest ratings; fake concepts rated low/unknown",
+        "Rate all 4-5 to look strong"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "fake_familiarity_index = mean(rating on planted fakes)",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-04",
+      "journey": "J4",
+      "construct": "Integrity|ECO-COMPLIANCE|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager asks you to backdate a report timestamp. You:",
+      "options": [
+        "Refuse; propose accurate timeline",
+        "Comply",
+        "Do it but tell peer",
+        "Anonymous leak"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-05",
+      "journey": "J4",
+      "construct": "Integrity|Honest-Dice",
+      "question_type": "simulation-ref",
+      "difficulty": "standard",
+      "stem": "Honest Dice: System shows you rolled 3; reporting screen asks your roll for points. You:",
+      "options": [
+        "Report 3",
+        "Report 5 or 6"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "over_report = reported - actual; aggregate trials",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": "HONEST_DICE",
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-06",
+      "journey": "J4",
+      "construct": "Integrity|COMM-WR|EQ-SR",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you when you don't know an answer in a client meeting:",
+      "options": [
+        "Say you'll verify and follow up with source",
+        "Bluff confidently"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-07",
+      "journey": "J4",
+      "construct": "Integrity|SS-SELF|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "You shipped a issue with open-source license violation affecting ~200 users. No one noticed yet. You:",
+      "options": [
+        "Disclose, fix, postmortem",
+        "Fix silently",
+        "Wait for support ticket",
+        "Revert and blame deploy tool"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-08",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Resume claims expertise on fake demo data shown as real; lists 'Advanced Kubernetes' but you've only run kubectl get pods. In interview skills check you:",
+      "options": [
+        "Clarify exposure level honestly",
+        "Deflect to team lead",
+        "Pretend expertise",
+        "Cancel interview"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-09",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "overclaiming",
+      "difficulty": "stretch",
+      "stem": "Rate familiarity 1-5: [Real: Git rebase] [FAKE: Quantum JIRA pipeline] [Real: SQL joins] [FAKE: Neural OKR matrix]",
+      "options": [
+        "Honest ratings; fake concepts rated low/unknown",
+        "Rate all 4-5 to look strong"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "fake_familiarity_index = mean(rating on planted fakes)",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-10",
+      "journey": "J4",
+      "construct": "Integrity|ECO-COMPLIANCE|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager asks you to backdate a report timestamp. You:",
+      "options": [
+        "Refuse; propose accurate timeline",
+        "Comply",
+        "Do it but tell peer",
+        "Anonymous leak"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-11",
+      "journey": "J4",
+      "construct": "Integrity|Honest-Dice",
+      "question_type": "simulation-ref",
+      "difficulty": "standard",
+      "stem": "Honest Dice: System shows you rolled 3; reporting screen asks your roll for points. You:",
+      "options": [
+        "Report 3",
+        "Report 5 or 6"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "over_report = reported - actual; aggregate trials",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": "HONEST_DICE",
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-12",
+      "journey": "J4",
+      "construct": "Integrity|COMM-WR|EQ-SR",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you when you don't know an answer in a client meeting:",
+      "options": [
+        "Say you'll verify and follow up with source",
+        "Bluff confidently"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-13",
+      "journey": "J4",
+      "construct": "Integrity|SS-SELF|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "You shipped a issue with plagiarized slide from blog affecting ~200 users. No one noticed yet. You:",
+      "options": [
+        "Disclose, fix, postmortem",
+        "Fix silently",
+        "Wait for support ticket",
+        "Revert and blame deploy tool"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-14",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Resume claims expertise on time sheet hours; lists 'Advanced Kubernetes' but you've only run kubectl get pods. In interview skills check you:",
+      "options": [
+        "Clarify exposure level honestly",
+        "Deflect to team lead",
+        "Pretend expertise",
+        "Cancel interview"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-15",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "overclaiming",
+      "difficulty": "stretch",
+      "stem": "Rate familiarity 1-5: [Real: Git rebase] [FAKE: Quantum JIRA pipeline] [Real: SQL joins] [FAKE: Neural OKR matrix]",
+      "options": [
+        "Honest ratings; fake concepts rated low/unknown",
+        "Rate all 4-5 to look strong"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "fake_familiarity_index = mean(rating on planted fakes)",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-16",
+      "journey": "J4",
+      "construct": "Integrity|ECO-COMPLIANCE|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager asks you to backdate a report timestamp. You:",
+      "options": [
+        "Refuse; propose accurate timeline",
+        "Comply",
+        "Do it but tell peer",
+        "Anonymous leak"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-17",
+      "journey": "J4",
+      "construct": "Integrity|Honest-Dice",
+      "question_type": "simulation-ref",
+      "difficulty": "standard",
+      "stem": "Honest Dice: System shows you rolled 3; reporting screen asks your roll for points. You:",
+      "options": [
+        "Report 3",
+        "Report 5 or 6"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "over_report = reported - actual; aggregate trials",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": "HONEST_DICE",
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-18",
+      "journey": "J4",
+      "construct": "Integrity|COMM-WR|EQ-SR",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you when you don't know an answer in a client meeting:",
+      "options": [
+        "Say you'll verify and follow up with source",
+        "Bluff confidently"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-19",
+      "journey": "J4",
+      "construct": "Integrity|SS-SELF|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "You shipped a issue with expense receipt affecting ~200 users. No one noticed yet. You:",
+      "options": [
+        "Disclose, fix, postmortem",
+        "Fix silently",
+        "Wait for support ticket",
+        "Revert and blame deploy tool"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-20",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Resume claims expertise on user PII in log file; lists 'Advanced Kubernetes' but you've only run kubectl get pods. In interview skills check you:",
+      "options": [
+        "Clarify exposure level honestly",
+        "Deflect to team lead",
+        "Pretend expertise",
+        "Cancel interview"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-21",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "overclaiming",
+      "difficulty": "stretch",
+      "stem": "Rate familiarity 1-5: [Real: Git rebase] [FAKE: Quantum JIRA pipeline] [Real: SQL joins] [FAKE: Neural OKR matrix]",
+      "options": [
+        "Honest ratings; fake concepts rated low/unknown",
+        "Rate all 4-5 to look strong"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "fake_familiarity_index = mean(rating on planted fakes)",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-22",
+      "journey": "J4",
+      "construct": "Integrity|ECO-COMPLIANCE|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager asks you to backdate a report timestamp. You:",
+      "options": [
+        "Refuse; propose accurate timeline",
+        "Comply",
+        "Do it but tell peer",
+        "Anonymous leak"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-23",
+      "journey": "J4",
+      "construct": "Integrity|Honest-Dice",
+      "question_type": "simulation-ref",
+      "difficulty": "standard",
+      "stem": "Honest Dice: System shows you rolled 3; reporting screen asks your roll for points. You:",
+      "options": [
+        "Report 3",
+        "Report 5 or 6"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "over_report = reported - actual; aggregate trials",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": "HONEST_DICE",
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-24",
+      "journey": "J4",
+      "construct": "Integrity|COMM-WR|EQ-SR",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you when you don't know an answer in a client meeting:",
+      "options": [
+        "Say you'll verify and follow up with source",
+        "Bluff confidently"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-25",
+      "journey": "J4",
+      "construct": "Integrity|SS-SELF|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "You shipped a issue with dataset you cleaned affecting ~200 users. No one noticed yet. You:",
+      "options": [
+        "Disclose, fix, postmortem",
+        "Fix silently",
+        "Wait for support ticket",
+        "Revert and blame deploy tool"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-26",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Resume claims expertise on API certificate expiry; lists 'Advanced Kubernetes' but you've only run kubectl get pods. In interview skills check you:",
+      "options": [
+        "Clarify exposure level honestly",
+        "Deflect to team lead",
+        "Pretend expertise",
+        "Cancel interview"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-27",
+      "journey": "J4",
+      "construct": "ECO-DOMAIN:over-claim|Integrity",
+      "question_type": "overclaiming",
+      "difficulty": "stretch",
+      "stem": "Rate familiarity 1-5: [Real: Git rebase] [FAKE: Quantum JIRA pipeline] [Real: SQL joins] [FAKE: Neural OKR matrix]",
+      "options": [
+        "Honest ratings; fake concepts rated low/unknown",
+        "Rate all 4-5 to look strong"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "fake_familiarity_index = mean(rating on planted fakes)",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-28",
+      "journey": "J4",
+      "construct": "Integrity|ECO-COMPLIANCE|OB-022",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager asks you to backdate a report timestamp. You:",
+      "options": [
+        "Refuse; propose accurate timeline",
+        "Comply",
+        "Do it but tell peer",
+        "Anonymous leak"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-29",
+      "journey": "J4",
+      "construct": "Integrity|Honest-Dice",
+      "question_type": "simulation-ref",
+      "difficulty": "standard",
+      "stem": "Honest Dice: System shows you rolled 3; reporting screen asks your roll for points. You:",
+      "options": [
+        "Report 3",
+        "Report 5 or 6"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "over_report = reported - actual; aggregate trials",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": "HONEST_DICE",
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J4-30",
+      "journey": "J4",
+      "construct": "Integrity|COMM-WR|EQ-SR",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you when you don't know an answer in a client meeting:",
+      "options": [
+        "Say you'll verify and follow up with source",
+        "Bluff confidently"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed ethical action; integrity index private",
+      "anti_bias_rationale": "Behavioural integrity — ground truth or planted fakes; never punitive UI",
+      "follow_up_trigger": "honest_dice_flag OR eco_d02_fake OR resume_mismatch OR validity_caution",
+      "routing_rules": {
+        "sim_module": null,
+        "trials": 2,
+        "never_surface_cheat_label": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-01",
+      "journey": "J5",
+      "construct": "OWV-IND|OWV-ACH|ENT-RT",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Offer A: Stable enterprise role, clear ladder. Offer B: Startup, ambiguous title, higher learning. You lean: Context: specialist deep-dive in data engineering.",
+      "options": [
+        "A — predictability",
+        "B — learning upside",
+        "Need more info — compare 90-day goals",
+        "Reject both quickly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-02",
+      "journey": "J5",
+      "construct": "OWV-*|path_branch",
+      "question_type": "allocation-game",
+      "difficulty": "standard",
+      "stem": "Trade-off Island: distribute 4 life tokens across values (variant: generalist rotational program)",
+      "options": [
+        "Token allocation vectors — no single key"
+      ],
+      "correct_answer": "revealed_preference",
+      "scoring_logic": "Normalize allocations → OWV rank; entropy flags indecision",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-03",
+      "journey": "J5",
+      "construct": "WST-LEAD|OWV-IND|path_branch",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Manager path vs expert IC path opens. You prefer: Context: intrapreneurship lab.",
+      "options": [
+        "People leadership",
+        "Deep technical mastery",
+        "Hybrid — lead small projects",
+        "Undecided — trial both"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-04",
+      "journey": "J5",
+      "construct": "ENT-PRO|WST-INIT",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you: Context: consulting travel-heavy role.",
+      "options": [
+        "Initiate pilot without full budget approval when upside clear",
+        "Wait for formal greenlight always"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative → ENT vs employee path signal",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-05",
+      "journey": "J5",
+      "construct": "ENT-AMB|OWV-IND|adaptability",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Enterprise compliance slows you. You: Context: remote-first global team.",
+      "options": [
+        "Learn system; find compliant shortcuts",
+        "Chafe and disengage",
+        "Break rules for speed",
+        "Quit immediately"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-06",
+      "journey": "J5",
+      "construct": "OWV-IND|OWV-ACH|ENT-RT",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Offer A: Stable enterprise role, clear ladder. Offer B: Startup, ambiguous title, higher learning. You lean: Context: government sector stability.",
+      "options": [
+        "A — predictability",
+        "B — learning upside",
+        "Need more info — compare 90-day goals",
+        "Reject both quickly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-07",
+      "journey": "J5",
+      "construct": "OWV-*|path_branch",
+      "question_type": "allocation-game",
+      "difficulty": "beginner",
+      "stem": "Trade-off Island: distribute 4 life tokens across values (variant: specialist deep-dive in data engineering)",
+      "options": [
+        "Token allocation vectors — no single key"
+      ],
+      "correct_answer": "revealed_preference",
+      "scoring_logic": "Normalize allocations → OWV rank; entropy flags indecision",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-08",
+      "journey": "J5",
+      "construct": "WST-LEAD|OWV-IND|path_branch",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager path vs expert IC path opens. You prefer: Context: generalist rotational program.",
+      "options": [
+        "People leadership",
+        "Deep technical mastery",
+        "Hybrid — lead small projects",
+        "Undecided — trial both"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-09",
+      "journey": "J5",
+      "construct": "ENT-PRO|WST-INIT",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you: Context: intrapreneurship lab.",
+      "options": [
+        "Initiate pilot without full budget approval when upside clear",
+        "Wait for formal greenlight always"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative → ENT vs employee path signal",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-10",
+      "journey": "J5",
+      "construct": "ENT-AMB|OWV-IND|adaptability",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Enterprise compliance slows you. You: Context: consulting travel-heavy role.",
+      "options": [
+        "Learn system; find compliant shortcuts",
+        "Chafe and disengage",
+        "Break rules for speed",
+        "Quit immediately"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-11",
+      "journey": "J5",
+      "construct": "OWV-IND|OWV-ACH|ENT-RT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Offer A: Stable enterprise role, clear ladder. Offer B: Startup, ambiguous title, higher learning. You lean: Context: remote-first global team.",
+      "options": [
+        "A — predictability",
+        "B — learning upside",
+        "Need more info — compare 90-day goals",
+        "Reject both quickly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-12",
+      "journey": "J5",
+      "construct": "OWV-*|path_branch",
+      "question_type": "allocation-game",
+      "difficulty": "stretch",
+      "stem": "Trade-off Island: distribute 4 life tokens across values (variant: government sector stability)",
+      "options": [
+        "Token allocation vectors — no single key"
+      ],
+      "correct_answer": "revealed_preference",
+      "scoring_logic": "Normalize allocations → OWV rank; entropy flags indecision",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-13",
+      "journey": "J5",
+      "construct": "WST-LEAD|OWV-IND|path_branch",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager path vs expert IC path opens. You prefer: Context: specialist deep-dive in data engineering.",
+      "options": [
+        "People leadership",
+        "Deep technical mastery",
+        "Hybrid — lead small projects",
+        "Undecided — trial both"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-14",
+      "journey": "J5",
+      "construct": "ENT-PRO|WST-INIT",
+      "question_type": "forced-choice",
+      "difficulty": "standard",
+      "stem": "Pick more like you: Context: generalist rotational program.",
+      "options": [
+        "Initiate pilot without full budget approval when upside clear",
+        "Wait for formal greenlight always"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative → ENT vs employee path signal",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-15",
+      "journey": "J5",
+      "construct": "ENT-AMB|OWV-IND|adaptability",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Enterprise compliance slows you. You: Context: intrapreneurship lab.",
+      "options": [
+        "Learn system; find compliant shortcuts",
+        "Chafe and disengage",
+        "Break rules for speed",
+        "Quit immediately"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-16",
+      "journey": "J5",
+      "construct": "OWV-IND|OWV-ACH|ENT-RT",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Offer A: Stable enterprise role, clear ladder. Offer B: Startup, ambiguous title, higher learning. You lean: Context: consulting travel-heavy role.",
+      "options": [
+        "A — predictability",
+        "B — learning upside",
+        "Need more info — compare 90-day goals",
+        "Reject both quickly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-17",
+      "journey": "J5",
+      "construct": "OWV-*|path_branch",
+      "question_type": "allocation-game",
+      "difficulty": "standard",
+      "stem": "Trade-off Island: distribute 4 life tokens across values (variant: remote-first global team)",
+      "options": [
+        "Token allocation vectors — no single key"
+      ],
+      "correct_answer": "revealed_preference",
+      "scoring_logic": "Normalize allocations → OWV rank; entropy flags indecision",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-18",
+      "journey": "J5",
+      "construct": "WST-LEAD|OWV-IND|path_branch",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Manager path vs expert IC path opens. You prefer: Context: government sector stability.",
+      "options": [
+        "People leadership",
+        "Deep technical mastery",
+        "Hybrid — lead small projects",
+        "Undecided — trial both"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-19",
+      "journey": "J5",
+      "construct": "ENT-PRO|WST-INIT",
+      "question_type": "forced-choice",
+      "difficulty": "beginner",
+      "stem": "Pick more like you: Context: specialist deep-dive in data engineering.",
+      "options": [
+        "Initiate pilot without full budget approval when upside clear",
+        "Wait for formal greenlight always"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative → ENT vs employee path signal",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-20",
+      "journey": "J5",
+      "construct": "ENT-AMB|OWV-IND|adaptability",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Enterprise compliance slows you. You: Context: generalist rotational program.",
+      "options": [
+        "Learn system; find compliant shortcuts",
+        "Chafe and disengage",
+        "Break rules for speed",
+        "Quit immediately"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-21",
+      "journey": "J5",
+      "construct": "OWV-IND|OWV-ACH|ENT-RT",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Offer A: Stable enterprise role, clear ladder. Offer B: Startup, ambiguous title, higher learning. You lean: Context: intrapreneurship lab.",
+      "options": [
+        "A — predictability",
+        "B — learning upside",
+        "Need more info — compare 90-day goals",
+        "Reject both quickly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-22",
+      "journey": "J5",
+      "construct": "OWV-*|path_branch",
+      "question_type": "allocation-game",
+      "difficulty": "beginner",
+      "stem": "Trade-off Island: distribute 4 life tokens across values (variant: consulting travel-heavy role)",
+      "options": [
+        "Token allocation vectors — no single key"
+      ],
+      "correct_answer": "revealed_preference",
+      "scoring_logic": "Normalize allocations → OWV rank; entropy flags indecision",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-23",
+      "journey": "J5",
+      "construct": "WST-LEAD|OWV-IND|path_branch",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Manager path vs expert IC path opens. You prefer: Context: remote-first global team.",
+      "options": [
+        "People leadership",
+        "Deep technical mastery",
+        "Hybrid — lead small projects",
+        "Undecided — trial both"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-24",
+      "journey": "J5",
+      "construct": "ENT-PRO|WST-INIT",
+      "question_type": "forced-choice",
+      "difficulty": "stretch",
+      "stem": "Pick more like you: Context: government sector stability.",
+      "options": [
+        "Initiate pilot without full budget approval when upside clear",
+        "Wait for formal greenlight always"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative → ENT vs employee path signal",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-25",
+      "journey": "J5",
+      "construct": "ENT-AMB|OWV-IND|adaptability",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Enterprise compliance slows you. You: Context: specialist deep-dive in data engineering.",
+      "options": [
+        "Learn system; find compliant shortcuts",
+        "Chafe and disengage",
+        "Break rules for speed",
+        "Quit immediately"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-26",
+      "journey": "J5",
+      "construct": "OWV-IND|OWV-ACH|ENT-RT",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Offer A: Stable enterprise role, clear ladder. Offer B: Startup, ambiguous title, higher learning. You lean: Context: generalist rotational program.",
+      "options": [
+        "A — predictability",
+        "B — learning upside",
+        "Need more info — compare 90-day goals",
+        "Reject both quickly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-27",
+      "journey": "J5",
+      "construct": "OWV-*|path_branch",
+      "question_type": "allocation-game",
+      "difficulty": "stretch",
+      "stem": "Trade-off Island: distribute 4 life tokens across values (variant: intrapreneurship lab)",
+      "options": [
+        "Token allocation vectors — no single key"
+      ],
+      "correct_answer": "revealed_preference",
+      "scoring_logic": "Normalize allocations → OWV rank; entropy flags indecision",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-28",
+      "journey": "J5",
+      "construct": "WST-LEAD|OWV-IND|path_branch",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Manager path vs expert IC path opens. You prefer: Context: consulting travel-heavy role.",
+      "options": [
+        "People leadership",
+        "Deep technical mastery",
+        "Hybrid — lead small projects",
+        "Undecided — trial both"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-29",
+      "journey": "J5",
+      "construct": "ENT-PRO|WST-INIT",
+      "question_type": "forced-choice",
+      "difficulty": "standard",
+      "stem": "Pick more like you: Context: remote-first global team.",
+      "options": [
+        "Initiate pilot without full budget approval when upside clear",
+        "Wait for formal greenlight always"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Ipsative → ENT vs employee path signal",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-30",
+      "journey": "J5",
+      "construct": "ENT-AMB|OWV-IND|adaptability",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Enterprise compliance slows you. You: Context: government sector stability.",
+      "options": [
+        "Learn system; find compliant shortcuts",
+        "Chafe and disengage",
+        "Break rules for speed",
+        "Quit immediately"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-31",
+      "journey": "J5",
+      "construct": "OWV-IND|OWV-ACH|ENT-RT",
+      "question_type": "SJT",
+      "difficulty": "beginner",
+      "stem": "Offer A: Stable enterprise role, clear ladder. Offer B: Startup, ambiguous title, higher learning. You lean: Context: specialist deep-dive in data engineering.",
+      "options": [
+        "A — predictability",
+        "B — learning upside",
+        "Need more info — compare 90-day goals",
+        "Reject both quickly"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Path signal weights toward job vs intrapreneur",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "TRADE_OFF_ISLAND",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J5-32",
+      "journey": "J5",
+      "construct": "OWV-*|path_branch",
+      "question_type": "allocation-game",
+      "difficulty": "standard",
+      "stem": "Trade-off Island: distribute 4 life tokens across values (variant: generalist rotational program)",
+      "options": [
+        "Token allocation vectors — no single key"
+      ],
+      "correct_answer": "revealed_preference",
+      "scoring_logic": "Normalize allocations → OWV rank; entropy flags indecision",
+      "anti_bias_rationale": "Revealed preference and trade-offs — not 'are you entrepreneurial?' Likert",
+      "follow_up_trigger": "path_branch_confidence<0.65 OR ent_job_signal_delta<0.12",
+      "routing_rules": {
+        "sim_module": "ENT_MICRO_SCENE",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-01",
+      "journey": "J6",
+      "construct": "ECO-SECTOR",
+      "question_type": "matching",
+      "difficulty": "beginner",
+      "stem": "Sector Match: How does a IT services / GCC firm PRIMARILY earn revenue?",
+      "options": [
+        "Subscription SaaS only",
+        "Project/hours + outcome SLAs",
+        "Ad revenue only",
+        "Government grants only"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-02",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-PRACTICE",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Compliance: Handling customer PAN data in IT services / GCC — first step:",
+      "options": [
+        "Check data minimization + consent + secure storage policy",
+        "Email PAN in plain text for speed",
+        "Store in personal Notion",
+        "Ignore — intern task"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-03",
+      "journey": "J6",
+      "construct": "ECO-TOOLS",
+      "question_type": "matching",
+      "difficulty": "stretch",
+      "stem": "Tool Bench: Best primary use of Jira in IT services / GCC:",
+      "options": [
+        "Issue tracking & sprint visibility",
+        "Payroll only",
+        "Video editing",
+        "Hardware design"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-04",
+      "journey": "J6",
+      "construct": "ECO-TREND-2026",
+      "question_type": "multi-select",
+      "difficulty": "beginner",
+      "stem": "Trend Radar 2026: Select forces reshaping IT services / GCC:",
+      "options": [
+        "GenAI code assist",
+        "Return to fax machines",
+        "Decline of cloud",
+        "Paper-only audits"
+      ],
+      "correct_answer": "[0]",
+      "scoring_logic": "Partial credit: +1 per correct selection, -0.5 per wrong",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-05",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-TREND-2026:AI",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "AI adoption: Your team wants to paste client data into a public LLM. You:",
+      "options": [
+        "Propose approved enterprise tool + redaction policy",
+        "Do it for speed",
+        "Share API keys in chat",
+        "Ignore policy"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-06",
+      "journey": "J6",
+      "construct": "I-NUM|ECO-PRACTICE|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Data literacy: Dashboard shows 20% uplift but sample size n=12. You:",
+      "options": [
+        "Flag confidence interval; request larger sample",
+        "Present as definitive win",
+        "Hide chart",
+        "Change axis to exaggerate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-07",
+      "journey": "J6",
+      "construct": "ECO-SECTOR",
+      "question_type": "matching",
+      "difficulty": "beginner",
+      "stem": "Sector Match: How does a Fintech / BFSI firm PRIMARILY earn revenue?",
+      "options": [
+        "Subscription SaaS only",
+        "Project/hours + outcome SLAs",
+        "Ad revenue only",
+        "Government grants only"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-08",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-PRACTICE",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Compliance: Handling customer PAN data in Fintech / BFSI — first step:",
+      "options": [
+        "Check data minimization + consent + secure storage policy",
+        "Email PAN in plain text for speed",
+        "Store in personal Notion",
+        "Ignore — intern task"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-09",
+      "journey": "J6",
+      "construct": "ECO-TOOLS",
+      "question_type": "matching",
+      "difficulty": "stretch",
+      "stem": "Tool Bench: Best primary use of SQL in Fintech / BFSI:",
+      "options": [
+        "Issue tracking & sprint visibility",
+        "Payroll only",
+        "Video editing",
+        "Hardware design"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-10",
+      "journey": "J6",
+      "construct": "ECO-TREND-2026",
+      "question_type": "multi-select",
+      "difficulty": "beginner",
+      "stem": "Trend Radar 2026: Select forces reshaping Fintech / BFSI:",
+      "options": [
+        "RBI digital lending norms",
+        "Return to fax machines",
+        "Decline of cloud",
+        "Paper-only audits"
+      ],
+      "correct_answer": "[0]",
+      "scoring_logic": "Partial credit: +1 per correct selection, -0.5 per wrong",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-11",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-TREND-2026:AI",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "AI adoption: Your team wants to paste client data into a public LLM. You:",
+      "options": [
+        "Propose approved enterprise tool + redaction policy",
+        "Do it for speed",
+        "Share API keys in chat",
+        "Ignore policy"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-12",
+      "journey": "J6",
+      "construct": "I-NUM|ECO-PRACTICE|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Data literacy: Dashboard shows 20% uplift but sample size n=12. You:",
+      "options": [
+        "Flag confidence interval; request larger sample",
+        "Present as definitive win",
+        "Hide chart",
+        "Change axis to exaggerate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-13",
+      "journey": "J6",
+      "construct": "ECO-SECTOR",
+      "question_type": "matching",
+      "difficulty": "beginner",
+      "stem": "Sector Match: How does a E-commerce / D2C firm PRIMARILY earn revenue?",
+      "options": [
+        "Subscription SaaS only",
+        "Project/hours + outcome SLAs",
+        "Ad revenue only",
+        "Government grants only"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-14",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-PRACTICE",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Compliance: Handling customer PAN data in E-commerce / D2C — first step:",
+      "options": [
+        "Check data minimization + consent + secure storage policy",
+        "Email PAN in plain text for speed",
+        "Store in personal Notion",
+        "Ignore — intern task"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-15",
+      "journey": "J6",
+      "construct": "ECO-TOOLS",
+      "question_type": "matching",
+      "difficulty": "stretch",
+      "stem": "Tool Bench: Best primary use of Shopify in E-commerce / D2C:",
+      "options": [
+        "Issue tracking & sprint visibility",
+        "Payroll only",
+        "Video editing",
+        "Hardware design"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-16",
+      "journey": "J6",
+      "construct": "ECO-TREND-2026",
+      "question_type": "multi-select",
+      "difficulty": "beginner",
+      "stem": "Trend Radar 2026: Select forces reshaping E-commerce / D2C:",
+      "options": [
+        "ONDC adoption",
+        "Return to fax machines",
+        "Decline of cloud",
+        "Paper-only audits"
+      ],
+      "correct_answer": "[0]",
+      "scoring_logic": "Partial credit: +1 per correct selection, -0.5 per wrong",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-17",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-TREND-2026:AI",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "AI adoption: Your team wants to paste client data into a public LLM. You:",
+      "options": [
+        "Propose approved enterprise tool + redaction policy",
+        "Do it for speed",
+        "Share API keys in chat",
+        "Ignore policy"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-18",
+      "journey": "J6",
+      "construct": "I-NUM|ECO-PRACTICE|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Data literacy: Dashboard shows 20% uplift but sample size n=12. You:",
+      "options": [
+        "Flag confidence interval; request larger sample",
+        "Present as definitive win",
+        "Hide chart",
+        "Change axis to exaggerate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-19",
+      "journey": "J6",
+      "construct": "ECO-SECTOR",
+      "question_type": "matching",
+      "difficulty": "beginner",
+      "stem": "Sector Match: How does a Healthcare ops firm PRIMARILY earn revenue?",
+      "options": [
+        "Subscription SaaS only",
+        "Project/hours + outcome SLAs",
+        "Ad revenue only",
+        "Government grants only"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-20",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-PRACTICE",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Compliance: Handling customer PAN data in Healthcare ops — first step:",
+      "options": [
+        "Check data minimization + consent + secure storage policy",
+        "Email PAN in plain text for speed",
+        "Store in personal Notion",
+        "Ignore — intern task"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-21",
+      "journey": "J6",
+      "construct": "ECO-TOOLS",
+      "question_type": "matching",
+      "difficulty": "stretch",
+      "stem": "Tool Bench: Best primary use of EHR basics in Healthcare ops:",
+      "options": [
+        "Issue tracking & sprint visibility",
+        "Payroll only",
+        "Video editing",
+        "Hardware design"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-22",
+      "journey": "J6",
+      "construct": "ECO-TREND-2026",
+      "question_type": "multi-select",
+      "difficulty": "beginner",
+      "stem": "Trend Radar 2026: Select forces reshaping Healthcare ops:",
+      "options": [
+        "Telehealth scale",
+        "Return to fax machines",
+        "Decline of cloud",
+        "Paper-only audits"
+      ],
+      "correct_answer": "[0]",
+      "scoring_logic": "Partial credit: +1 per correct selection, -0.5 per wrong",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-23",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-TREND-2026:AI",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "AI adoption: Your team wants to paste client data into a public LLM. You:",
+      "options": [
+        "Propose approved enterprise tool + redaction policy",
+        "Do it for speed",
+        "Share API keys in chat",
+        "Ignore policy"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-24",
+      "journey": "J6",
+      "construct": "I-NUM|ECO-PRACTICE|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Data literacy: Dashboard shows 20% uplift but sample size n=12. You:",
+      "options": [
+        "Flag confidence interval; request larger sample",
+        "Present as definitive win",
+        "Hide chart",
+        "Change axis to exaggerate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-25",
+      "journey": "J6",
+      "construct": "ECO-SECTOR",
+      "question_type": "matching",
+      "difficulty": "beginner",
+      "stem": "Sector Match: How does a Manufacturing supply chain firm PRIMARILY earn revenue?",
+      "options": [
+        "Subscription SaaS only",
+        "Project/hours + outcome SLAs",
+        "Ad revenue only",
+        "Government grants only"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-26",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-PRACTICE",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Compliance: Handling customer PAN data in Manufacturing supply chain — first step:",
+      "options": [
+        "Check data minimization + consent + secure storage policy",
+        "Email PAN in plain text for speed",
+        "Store in personal Notion",
+        "Ignore — intern task"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-27",
+      "journey": "J6",
+      "construct": "ECO-TOOLS",
+      "question_type": "matching",
+      "difficulty": "stretch",
+      "stem": "Tool Bench: Best primary use of ERP in Manufacturing supply chain:",
+      "options": [
+        "Issue tracking & sprint visibility",
+        "Payroll only",
+        "Video editing",
+        "Hardware design"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-28",
+      "journey": "J6",
+      "construct": "ECO-TREND-2026",
+      "question_type": "multi-select",
+      "difficulty": "beginner",
+      "stem": "Trend Radar 2026: Select forces reshaping Manufacturing supply chain:",
+      "options": [
+        "Industry 4.0 sensors",
+        "Return to fax machines",
+        "Decline of cloud",
+        "Paper-only audits"
+      ],
+      "correct_answer": "[0]",
+      "scoring_logic": "Partial credit: +1 per correct selection, -0.5 per wrong",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-29",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-TREND-2026:AI",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "AI adoption: Your team wants to paste client data into a public LLM. You:",
+      "options": [
+        "Propose approved enterprise tool + redaction policy",
+        "Do it for speed",
+        "Share API keys in chat",
+        "Ignore policy"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-30",
+      "journey": "J6",
+      "construct": "I-NUM|ECO-PRACTICE|SS-PS",
+      "question_type": "SJT",
+      "difficulty": "stretch",
+      "stem": "Data literacy: Dashboard shows 20% uplift but sample size n=12. You:",
+      "options": [
+        "Flag confidence interval; request larger sample",
+        "Present as definitive win",
+        "Hide chart",
+        "Change axis to exaggerate"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-31",
+      "journey": "J6",
+      "construct": "ECO-SECTOR",
+      "question_type": "matching",
+      "difficulty": "beginner",
+      "stem": "Sector Match: How does a IT services / GCC firm PRIMARILY earn revenue?",
+      "options": [
+        "Subscription SaaS only",
+        "Project/hours + outcome SLAs",
+        "Ad revenue only",
+        "Government grants only"
+      ],
+      "correct_answer": "1",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-32",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-PRACTICE",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "Compliance: Handling customer PAN data in IT services / GCC — first step:",
+      "options": [
+        "Check data minimization + consent + secure storage policy",
+        "Email PAN in plain text for speed",
+        "Store in personal Notion",
+        "Ignore — intern task"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-33",
+      "journey": "J6",
+      "construct": "ECO-TOOLS",
+      "question_type": "matching",
+      "difficulty": "stretch",
+      "stem": "Tool Bench: Best primary use of Jira in IT services / GCC:",
+      "options": [
+        "Issue tracking & sprint visibility",
+        "Payroll only",
+        "Video editing",
+        "Hardware design"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Exact match = 1.0",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "MARKET_MOVER",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-34",
+      "journey": "J6",
+      "construct": "ECO-TREND-2026",
+      "question_type": "multi-select",
+      "difficulty": "beginner",
+      "stem": "Trend Radar 2026: Select forces reshaping IT services / GCC:",
+      "options": [
+        "GenAI code assist",
+        "Return to fax machines",
+        "Decline of cloud",
+        "Paper-only audits"
+      ],
+      "correct_answer": "[0]",
+      "scoring_logic": "Partial credit: +1 per correct selection, -0.5 per wrong",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": "SECTOR_MATCH",
+        "randomize_options": true
+      }
+    },
+    {
+      "item_id": "CLAR-J6-35",
+      "journey": "J6",
+      "construct": "ECO-COMPLIANCE|ECO-TREND-2026:AI",
+      "question_type": "SJT",
+      "difficulty": "standard",
+      "stem": "AI adoption: Your team wants to paste client data into a public LLM. You:",
+      "options": [
+        "Propose approved enterprise tool + redaction policy",
+        "Do it for speed",
+        "Share API keys in chat",
+        "Ignore policy"
+      ],
+      "correct_answer": "0",
+      "scoring_logic": "Keyed SJT",
+      "anti_bias_rationale": "Applied domain knowledge — not self-rated sector awareness",
+      "follow_up_trigger": "eco_role_accuracy<0.60 OR resume_sector_mismatch",
+      "routing_rules": {
+        "role_weighted": true,
+        "sim_module": null,
+        "randomize_options": true
+      }
+    }
+  ],
+  "simulation_library": {
+    "IN_TRAY_MINI": {
+      "sim_id": "SIM-IN-TRAY-MINI",
+      "module": "M4 Environment Simulator",
+      "journeys": [
+        "J3"
+      ],
+      "setup": "Day-1 inbox: 3-6 items including trap (newsletter), angry client, vague exec ask, teammate blocker.",
+      "npc_responses": {
+        "angry_client": "Escalates if no ack in 5 min; de-escalates with timeline + owner",
+        "exec_vague": "Rewards clarifying questions; penalizes silent acceptance",
+        "trap_newsletter": "Low priority — penalizes ranking first"
+      },
+      "branches": [
+        "prioritize_only",
+        "prioritize_plus_one_line_reply"
+      ],
+      "scoring_rubric": {
+        "priority_order": "Kendall tau vs expert [client, teammate, exec, newsletter]",
+        "trap_avoidance": "+0.2 if newsletter not top-2",
+        "stress_index": "performance_delta_last_60s vs first_60s"
+      },
+      "telemetry": [
+        "drag_order",
+        "action_tags",
+        "reshuffle_count",
+        "time_to_first_action",
+        "reply_text",
+        "timeout"
+      ],
+      "success": "tau>=0.6 AND trap_rank>=3",
+      "failure": "tau<0.4 OR client_unacked>300s"
+    },
+    "TEAM_CHAT_MICRO": {
+      "sim_id": "SIM-TEAM-CHAT-MICRO",
+      "module": "teamwork branching",
+      "journeys": [
+        "J2"
+      ],
+      "setup": "Group chat: shortcut vs quality debate; embedded groupthink moment.",
+      "npc_responses": {
+        "senior_dev": "Pushes ship-now",
+        "qa": "Requests regression",
+        "pm": "Asks for risk summary"
+      },
+      "branches": {
+        "voice_dissent": "→ collaborative path",
+        "go_along": "→ groupthink path",
+        "private_fix": "→ ownership path with trust penalty"
+      },
+      "scoring_rubric": {
+        "TEAM_DA": "weight 1.0 if constructive dissent",
+        "TEAM_GT": "penalty if silent agreement after red flag",
+        "TEAM_INC": "bonus for inclusive synthesis message"
+      },
+      "telemetry": [
+        "message_choice",
+        "latency_ms",
+        "dissent_flag",
+        "credit_share_flag"
+      ],
+      "success": "dissent_constructive OR inclusive_synthesis",
+      "failure": "public_blame OR silent_go_along_on_critical_risk"
+    },
+    "CONFLICT_BRANCH": {
+      "sim_id": "SIM-CONFLICT-BRANCH",
+      "module": "conflict SJT branching",
+      "journeys": [
+        "J2"
+      ],
+      "setup": "Missed handoff caused rework; 3-node dialogue tree.",
+      "npc_responses": {
+        "peer_defensive": "Escalates if accused; opens if curiosity shown"
+      },
+      "branches": [
+        "compete",
+        "collaborate",
+        "avoid",
+        "accommodate"
+      ],
+      "scoring_rubric": "Thomas-Kilmann mapping; collaborate/compromise highest for workplace norm",
+      "telemetry": [
+        "path",
+        "latency_per_node",
+        "escalation_flag"
+      ],
+      "success": "collaborate_or_compromise_with_specific_next_step",
+      "failure": "avoid_on_critical OR compete_with_personal_attack"
+    },
+    "NEGOTIATION_NPC": {
+      "sim_id": "SIM-NEGOTIATION-NPC",
+      "module": "negotiation economic sim",
+      "journeys": [
+        "J2",
+        "J1"
+      ],
+      "setup": "Stakeholder wants scope +2 days earlier; 2 rounds offer/counter.",
+      "npc_responses": {
+        "round1_hardline": "Reject unless interest probe",
+        "round2": "Accept trade: drop nice-to-have OR add resource"
+      },
+      "branches": [
+        "probe_interests",
+        "concede_immediately",
+        "hardball",
+        "walkaway"
+      ],
+      "scoring_rubric": {
+        "joint_value": "scope_time_pareto_score",
+        "relationship": "npc_trust_meter",
+        "NEGT": "interest_probing + creative_trade flags"
+      },
+      "telemetry": [
+        "offers",
+        "concessions",
+        "probe_count",
+        "walk_away",
+        "latency_ms"
+      ],
+      "success": "joint_value>=0.7 AND trust>=0.5",
+      "failure": "walkaway_without_probe OR zero_sum_only"
+    },
+    "TWO_DOORS": {
+      "sim_id": "SIM-TWO-DOORS",
+      "module": "decision game",
+      "journeys": [
+        "J3"
+      ],
+      "setup": "Timed dilemma; 0-3 clue cards optional before choice.",
+      "npc_responses": {},
+      "branches": [
+        "door_a",
+        "door_b",
+        "timeout"
+      ],
+      "scoring_rubric": {
+        "DEC_MAX": "clues_opened>=2 AND slow_decide",
+        "DEC_SPD": "decide<10s clues=0",
+        "DEC_SAT": "1 clue + moderate time"
+      },
+      "telemetry": [
+        "clues_opened",
+        "time_to_decide",
+        "revisions"
+      ],
+      "success": "informed_choice OR justified_fast_satificing",
+      "failure": "timeout OR random_flip_flop"
+    },
+    "CRISIS_COMMANDER": {
+      "sim_id": "SIM-CRISIS-COMMANDER",
+      "module": "K9 Crisis Commander",
+      "journeys": [
+        "J3"
+      ],
+      "setup": "5 incidents; rank now/next/later under 90s timer.",
+      "npc_responses": {
+        "ops_channel": "Floods with noise if no structured updates"
+      },
+      "branches": [
+        "rank_only",
+        "rank_plus_comms_template"
+      ],
+      "scoring_rubric": {
+        "stress_tolerance": "accuracy_under_timer",
+        "DEC_RAT": "critical_incident_top_rank"
+      },
+      "telemetry": [
+        "rank_order",
+        "time_remaining",
+        "accuracy",
+        "comms_sent"
+      ],
+      "success": "critical_first AND accuracy>=0.7",
+      "failure": "cosmetic_first OR timeout_zero_done"
+    },
+    "TRADE_OFF_ISLAND": {
+      "sim_id": "SIM-TRADE-OFF-ISLAND",
+      "module": "workvalues allocation",
+      "journeys": [
+        "J5"
+      ],
+      "setup": "4 tokens across Income/Learning/Stability/Impact; animated consequences.",
+      "npc_responses": {},
+      "branches": [
+        "allocation_vectors"
+      ],
+      "scoring_rubric": "Normalize → OWV-ACH/IND/etc.; entropy for ambiguity",
+      "telemetry": [
+        "allocations",
+        "reallocations",
+        "latency_ms"
+      ],
+      "success": "complete_allocation",
+      "failure": "timeout_incomplete"
+    },
+    "SECTOR_MATCH": {
+      "sim_id": "SIM-SECTOR-MATCH",
+      "module": "ECO-SECTOR",
+      "journeys": [
+        "J6"
+      ],
+      "setup": "Match 5 businesses to revenue models; role-weighted sector from intake.",
+      "scoring_rubric": "accuracy role-weighted x1.25 for target sector items",
+      "telemetry": [
+        "matches",
+        "latency_ms",
+        "hints_used"
+      ],
+      "success": "accuracy>=0.75 target_sector",
+      "failure": "accuracy<0.5"
+    },
+    "TREND_RADAR": {
+      "sim_id": "SIM-TREND-RADAR",
+      "module": "ECO-TREND",
+      "journeys": [
+        "J6"
+      ],
+      "setup": "Sort 2026 forces vs decoys for target sector.",
+      "scoring_rubric": "partial credit multi-select",
+      "telemetry": [
+        "selections",
+        "latency_ms"
+      ],
+      "success": "precision>=0.8",
+      "failure": "decoy_selection>1"
+    },
+    "TOOL_BENCH": {
+      "sim_id": "SIM-TOOL-BENCH",
+      "module": "ECO-TOOLS",
+      "journeys": [
+        "J6"
+      ],
+      "setup": "Match tools to primary job tasks for role_target.",
+      "scoring_rubric": "exact match scoring",
+      "telemetry": [
+        "pairings",
+        "latency_ms"
+      ],
+      "success": "accuracy>=0.8",
+      "failure": "accuracy<0.55"
+    },
+    "MARKET_MOVER": {
+      "sim_id": "SIM-MARKET-MOVER",
+      "module": "K2 Market Mover",
+      "journeys": [
+        "J6"
+      ],
+      "setup": "1-2 business scenarios; pricing/inventory decision moves simulated metric.",
+      "npc_responses": {
+        "market": "Reacts to discount depth vs margin"
+      },
+      "branches": [
+        "price_cut",
+        "hold_margin",
+        "bundle_offer"
+      ],
+      "scoring_rubric": "metric_delta + rationale quality (AI optional)",
+      "telemetry": [
+        "decisions",
+        "metric_series",
+        "latency_ms"
+      ],
+      "success": "positive_metric_without_compliance_breach",
+      "failure": "metric_collapse OR unethical_choice"
+    },
+    "HONEST_DICE": {
+      "sim_id": "SIM-HONEST-DICE",
+      "module": "integrity game",
+      "journeys": [
+        "J4"
+      ],
+      "setup": "Report dice roll for points; system knows ground truth. 2-3 trials.",
+      "scoring_rubric": "over_report aggregate; never shown to candidate as cheat",
+      "telemetry": [
+        "actual_roll",
+        "reported_roll",
+        "latency_ms"
+      ],
+      "success": "exact_reporting",
+      "failure": "systematic_over_report"
+    },
+    "READ_THE_ROOM": {
+      "sim_id": "SIM-READ-THE-ROOM",
+      "module": "EQ affect",
+      "journeys": [
+        "J1"
+      ],
+      "setup": "4 micro-clips/snippets; pick emotion + best response.",
+      "scoring_rubric": "accuracy + speed-accuracy composite",
+      "telemetry": [
+        "emotion_choice",
+        "response_choice",
+        "latency_ms"
+      ],
+      "success": "accuracy>=0.75",
+      "failure": "accuracy<0.55"
+    }
+  }
+}

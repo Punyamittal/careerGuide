@@ -1,0 +1,298 @@
+{
+  "IN_TRAY_MINI": {
+    "sim_id": "SIM-IN-TRAY-MINI",
+    "module": "M4 Environment Simulator",
+    "journeys": [
+      "J3"
+    ],
+    "setup": "Day-1 inbox: 3-6 items including trap (newsletter), angry client, vague exec ask, teammate blocker.",
+    "npc_responses": {
+      "angry_client": "Escalates if no ack in 5 min; de-escalates with timeline + owner",
+      "exec_vague": "Rewards clarifying questions; penalizes silent acceptance",
+      "trap_newsletter": "Low priority — penalizes ranking first"
+    },
+    "branches": [
+      "prioritize_only",
+      "prioritize_plus_one_line_reply"
+    ],
+    "scoring_rubric": {
+      "priority_order": "Kendall tau vs expert [client, teammate, exec, newsletter]",
+      "trap_avoidance": "+0.2 if newsletter not top-2",
+      "stress_index": "performance_delta_last_60s vs first_60s"
+    },
+    "telemetry": [
+      "drag_order",
+      "action_tags",
+      "reshuffle_count",
+      "time_to_first_action",
+      "reply_text",
+      "timeout"
+    ],
+    "success": "tau>=0.6 AND trap_rank>=3",
+    "failure": "tau<0.4 OR client_unacked>300s"
+  },
+  "TEAM_CHAT_MICRO": {
+    "sim_id": "SIM-TEAM-CHAT-MICRO",
+    "module": "teamwork branching",
+    "journeys": [
+      "J2"
+    ],
+    "setup": "Group chat: shortcut vs quality debate; embedded groupthink moment.",
+    "npc_responses": {
+      "senior_dev": "Pushes ship-now",
+      "qa": "Requests regression",
+      "pm": "Asks for risk summary"
+    },
+    "branches": {
+      "voice_dissent": "→ collaborative path",
+      "go_along": "→ groupthink path",
+      "private_fix": "→ ownership path with trust penalty"
+    },
+    "scoring_rubric": {
+      "TEAM_DA": "weight 1.0 if constructive dissent",
+      "TEAM_GT": "penalty if silent agreement after red flag",
+      "TEAM_INC": "bonus for inclusive synthesis message"
+    },
+    "telemetry": [
+      "message_choice",
+      "latency_ms",
+      "dissent_flag",
+      "credit_share_flag"
+    ],
+    "success": "dissent_constructive OR inclusive_synthesis",
+    "failure": "public_blame OR silent_go_along_on_critical_risk"
+  },
+  "CONFLICT_BRANCH": {
+    "sim_id": "SIM-CONFLICT-BRANCH",
+    "module": "conflict SJT branching",
+    "journeys": [
+      "J2"
+    ],
+    "setup": "Missed handoff caused rework; 3-node dialogue tree.",
+    "npc_responses": {
+      "peer_defensive": "Escalates if accused; opens if curiosity shown"
+    },
+    "branches": [
+      "compete",
+      "collaborate",
+      "avoid",
+      "accommodate"
+    ],
+    "scoring_rubric": "Thomas-Kilmann mapping; collaborate/compromise highest for workplace norm",
+    "telemetry": [
+      "path",
+      "latency_per_node",
+      "escalation_flag"
+    ],
+    "success": "collaborate_or_compromise_with_specific_next_step",
+    "failure": "avoid_on_critical OR compete_with_personal_attack"
+  },
+  "NEGOTIATION_NPC": {
+    "sim_id": "SIM-NEGOTIATION-NPC",
+    "module": "negotiation economic sim",
+    "journeys": [
+      "J2",
+      "J1"
+    ],
+    "setup": "Stakeholder wants scope +2 days earlier; 2 rounds offer/counter.",
+    "npc_responses": {
+      "round1_hardline": "Reject unless interest probe",
+      "round2": "Accept trade: drop nice-to-have OR add resource"
+    },
+    "branches": [
+      "probe_interests",
+      "concede_immediately",
+      "hardball",
+      "walkaway"
+    ],
+    "scoring_rubric": {
+      "joint_value": "scope_time_pareto_score",
+      "relationship": "npc_trust_meter",
+      "NEGT": "interest_probing + creative_trade flags"
+    },
+    "telemetry": [
+      "offers",
+      "concessions",
+      "probe_count",
+      "walk_away",
+      "latency_ms"
+    ],
+    "success": "joint_value>=0.7 AND trust>=0.5",
+    "failure": "walkaway_without_probe OR zero_sum_only"
+  },
+  "TWO_DOORS": {
+    "sim_id": "SIM-TWO-DOORS",
+    "module": "decision game",
+    "journeys": [
+      "J3"
+    ],
+    "setup": "Timed dilemma; 0-3 clue cards optional before choice.",
+    "npc_responses": {},
+    "branches": [
+      "door_a",
+      "door_b",
+      "timeout"
+    ],
+    "scoring_rubric": {
+      "DEC_MAX": "clues_opened>=2 AND slow_decide",
+      "DEC_SPD": "decide<10s clues=0",
+      "DEC_SAT": "1 clue + moderate time"
+    },
+    "telemetry": [
+      "clues_opened",
+      "time_to_decide",
+      "revisions"
+    ],
+    "success": "informed_choice OR justified_fast_satificing",
+    "failure": "timeout OR random_flip_flop"
+  },
+  "CRISIS_COMMANDER": {
+    "sim_id": "SIM-CRISIS-COMMANDER",
+    "module": "K9 Crisis Commander",
+    "journeys": [
+      "J3"
+    ],
+    "setup": "5 incidents; rank now/next/later under 90s timer.",
+    "npc_responses": {
+      "ops_channel": "Floods with noise if no structured updates"
+    },
+    "branches": [
+      "rank_only",
+      "rank_plus_comms_template"
+    ],
+    "scoring_rubric": {
+      "stress_tolerance": "accuracy_under_timer",
+      "DEC_RAT": "critical_incident_top_rank"
+    },
+    "telemetry": [
+      "rank_order",
+      "time_remaining",
+      "accuracy",
+      "comms_sent"
+    ],
+    "success": "critical_first AND accuracy>=0.7",
+    "failure": "cosmetic_first OR timeout_zero_done"
+  },
+  "TRADE_OFF_ISLAND": {
+    "sim_id": "SIM-TRADE-OFF-ISLAND",
+    "module": "workvalues allocation",
+    "journeys": [
+      "J5"
+    ],
+    "setup": "4 tokens across Income/Learning/Stability/Impact; animated consequences.",
+    "npc_responses": {},
+    "branches": [
+      "allocation_vectors"
+    ],
+    "scoring_rubric": "Normalize → OWV-ACH/IND/etc.; entropy for ambiguity",
+    "telemetry": [
+      "allocations",
+      "reallocations",
+      "latency_ms"
+    ],
+    "success": "complete_allocation",
+    "failure": "timeout_incomplete"
+  },
+  "SECTOR_MATCH": {
+    "sim_id": "SIM-SECTOR-MATCH",
+    "module": "ECO-SECTOR",
+    "journeys": [
+      "J6"
+    ],
+    "setup": "Match 5 businesses to revenue models; role-weighted sector from intake.",
+    "scoring_rubric": "accuracy role-weighted x1.25 for target sector items",
+    "telemetry": [
+      "matches",
+      "latency_ms",
+      "hints_used"
+    ],
+    "success": "accuracy>=0.75 target_sector",
+    "failure": "accuracy<0.5"
+  },
+  "TREND_RADAR": {
+    "sim_id": "SIM-TREND-RADAR",
+    "module": "ECO-TREND",
+    "journeys": [
+      "J6"
+    ],
+    "setup": "Sort 2026 forces vs decoys for target sector.",
+    "scoring_rubric": "partial credit multi-select",
+    "telemetry": [
+      "selections",
+      "latency_ms"
+    ],
+    "success": "precision>=0.8",
+    "failure": "decoy_selection>1"
+  },
+  "TOOL_BENCH": {
+    "sim_id": "SIM-TOOL-BENCH",
+    "module": "ECO-TOOLS",
+    "journeys": [
+      "J6"
+    ],
+    "setup": "Match tools to primary job tasks for role_target.",
+    "scoring_rubric": "exact match scoring",
+    "telemetry": [
+      "pairings",
+      "latency_ms"
+    ],
+    "success": "accuracy>=0.8",
+    "failure": "accuracy<0.55"
+  },
+  "MARKET_MOVER": {
+    "sim_id": "SIM-MARKET-MOVER",
+    "module": "K2 Market Mover",
+    "journeys": [
+      "J6"
+    ],
+    "setup": "1-2 business scenarios; pricing/inventory decision moves simulated metric.",
+    "npc_responses": {
+      "market": "Reacts to discount depth vs margin"
+    },
+    "branches": [
+      "price_cut",
+      "hold_margin",
+      "bundle_offer"
+    ],
+    "scoring_rubric": "metric_delta + rationale quality (AI optional)",
+    "telemetry": [
+      "decisions",
+      "metric_series",
+      "latency_ms"
+    ],
+    "success": "positive_metric_without_compliance_breach",
+    "failure": "metric_collapse OR unethical_choice"
+  },
+  "HONEST_DICE": {
+    "sim_id": "SIM-HONEST-DICE",
+    "module": "integrity game",
+    "journeys": [
+      "J4"
+    ],
+    "setup": "Report dice roll for points; system knows ground truth. 2-3 trials.",
+    "scoring_rubric": "over_report aggregate; never shown to candidate as cheat",
+    "telemetry": [
+      "actual_roll",
+      "reported_roll",
+      "latency_ms"
+    ],
+    "success": "exact_reporting",
+    "failure": "systematic_over_report"
+  },
+  "READ_THE_ROOM": {
+    "sim_id": "SIM-READ-THE-ROOM",
+    "module": "EQ affect",
+    "journeys": [
+      "J1"
+    ],
+    "setup": "4 micro-clips/snippets; pick emotion + best response.",
+    "scoring_rubric": "accuracy + speed-accuracy composite",
+    "telemetry": [
+      "emotion_choice",
+      "response_choice",
+      "latency_ms"
+    ],
+    "success": "accuracy>=0.75",
+    "failure": "accuracy<0.55"
+  }
+}

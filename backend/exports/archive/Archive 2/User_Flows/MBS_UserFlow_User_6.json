@@ -1,0 +1,493 @@
+{
+  "user": "User 6 — Fresher / 1st-Year / Intern",
+  "grade": "Entry-level workforce / interns",
+  "age": "20-25",
+  "duration_min": 150,
+  "target_items": 130,
+  "purpose": "On-the-job readiness for a first role: how they actually behave at work — communication, collaboration, conflict, negotiation, decision-making under ambiguity, EQ, learning agility, integrity, stress, ownership; plus role fit & 30-60-90 plan.",
+  "delivery": "Simulation-FIRST. A day-in-the-job runs through in-tray, team chat, a tough conversation, a decision under ambiguity, an ethics moment. Self-report only for wellness.",
+  "phases": [
+    {
+      "phase": "0 Intake & evidence",
+      "blocks": [
+        {
+          "block": "Role/context & consent",
+          "format": "Survey",
+          "pool": "survey",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "Q0-001",
+            "Q0-002",
+            "Q0-003",
+            "Q0-004"
+          ],
+          "items_available": 4,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Resume / internship upload",
+          "format": "File upload + AI-cluster",
+          "pool": "-",
+          "module": "",
+          "target_count": 2,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": "Objective evidence over claims"
+        }
+      ]
+    },
+    {
+      "phase": "1 The workday simulation (core)",
+      "blocks": [
+        {
+          "block": "In-tray: triage your day-1 inbox",
+          "format": "Simulation (timed)",
+          "pool": "game:M4",
+          "module": "Environment Simulator",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "prioritisation+ownership+stress",
+          "anti_bias": "Reads conscientiousness/judgement/stress at once — un-fakeable"
+        },
+        {
+          "block": "Day-as-a-new-joiner branching",
+          "format": "Branching simulation",
+          "pool": "strategy_career",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "SC-001-SJT",
+            "SC-002-SJT",
+            "SC-003-SJT",
+            "SC-004-SJT",
+            "SC-005-SJT",
+            "SC-006-SJT"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": "Workstyle revealed by choices"
+        }
+      ]
+    },
+    {
+      "phase": "2 Communication & EQ",
+      "blocks": [
+        {
+          "block": "Write/choose the right message (tone)",
+          "format": "SJT / tone-match sim",
+          "pool": "comm",
+          "module": "",
+          "target_count": 10,
+          "item_ids": [
+            "COMM-001",
+            "COMM-002",
+            "COMM-003",
+            "COMM-004",
+            "COMM-005",
+            "COMM-006",
+            "COMM-007",
+            "COMM-008",
+            "COMM-009",
+            "COMM-010"
+          ],
+          "items_available": 10,
+          "adaptive": "",
+          "anti_bias": "Scenario, not self-rating"
+        },
+        {
+          "block": "Read-the-room (manager/peer cues)",
+          "format": "Performance task (affect)",
+          "pool": "eq",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "EQD-001",
+            "EQD-002",
+            "EQD-003",
+            "EQD-004",
+            "EQD-005",
+            "EQD-006",
+            "EQD-007",
+            "EQD-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": "Emotion-recognition performance"
+        }
+      ]
+    },
+    {
+      "phase": "3 Collaboration, conflict & negotiation",
+      "blocks": [
+        {
+          "block": "Team-chat collaboration sim",
+          "format": "Branching sim",
+          "pool": "teamwork",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "TEAM-001",
+            "TEAM-002",
+            "TEAM-003",
+            "TEAM-004",
+            "TEAM-005",
+            "TEAM-006",
+            "TEAM-007",
+            "TEAM-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Tough conversation / conflict",
+          "format": "SJT + branching",
+          "pool": "conflict",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "CONF-001",
+            "CONF-002",
+            "CONF-003",
+            "CONF-004",
+            "CONF-005",
+            "CONF-006",
+            "CONF-007",
+            "CONF-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Negotiate scope/deadline with NPC",
+          "format": "Branching/economic sim",
+          "pool": "negotiation",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "NEGT-001",
+            "NEGT-002",
+            "NEGT-003",
+            "NEGT-004",
+            "NEGT-005",
+            "NEGT-006",
+            "NEGT-007",
+            "NEGT-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": "Behaviour in a real ask"
+        }
+      ]
+    },
+    {
+      "phase": "4 Decision-making & problem-solving",
+      "blocks": [
+        {
+          "block": "Decision under ambiguity (Two Doors)",
+          "format": "Behavioural game",
+          "pool": "decision",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "DEC-001",
+            "DEC-002",
+            "DEC-003",
+            "DEC-004",
+            "DEC-005",
+            "DEC-006",
+            "DEC-007",
+            "DEC-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": "Info-gathering & latency"
+        },
+        {
+          "block": "Spot the Break (problem sensitivity)",
+          "format": "Timed game",
+          "pool": "game:M20",
+          "module": "Spot the Break",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Crisis Commander (prioritise under pressure)",
+          "format": "Simulation",
+          "pool": "game:K9",
+          "module": "Crisis Commander",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "5 Ownership, learning agility & integrity",
+      "blocks": [
+        {
+          "block": "Learning agility (Format Lab + adapt)",
+          "format": "Performance task",
+          "pool": "learning_agility",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "LRND-001",
+            "LRND-002",
+            "LRND-003",
+            "LRND-004",
+            "LRND-005",
+            "LRND-006",
+            "LRND-007",
+            "LRND-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": "Performance, not 'I learn fast'"
+        },
+        {
+          "block": "Self-management / ownership SJT",
+          "format": "SJT",
+          "pool": "softskills",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "SS-001-SJT",
+            "SS-002-SJT",
+            "SS-003",
+            "SS-004",
+            "SS-005",
+            "SS-006",
+            "SS-007",
+            "SS-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Honest Dice (integrity)",
+          "format": "Behavioural integrity game",
+          "pool": "-",
+          "module": "",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": "Over-claiming behaviour, ethical handling"
+        },
+        {
+          "block": "Entrepreneurial / intrapreneur orientation",
+          "format": "Behavioural choice",
+          "pool": "entrepreneur",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "ENT-001",
+            "ENT-002",
+            "ENT-003",
+            "ENT-004",
+            "ENT-005",
+            "ENT-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "6 Work orientation & fit",
+      "blocks": [
+        {
+          "block": "Work Styles Arena",
+          "format": "Behavioural sim",
+          "pool": "workstyles",
+          "module": "Work Styles Arena",
+          "target_count": 8,
+          "item_ids": [
+            "WST-001",
+            "WST-002",
+            "WST-003",
+            "WST-004",
+            "WST-005",
+            "WST-006",
+            "WST-007",
+            "WST-008"
+          ],
+          "items_available": 8,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Trade-off Island (work values)",
+          "format": "Allocation game",
+          "pool": "workvalues",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "OWV-001",
+            "OWV-002",
+            "OWV-003",
+            "OWV-004",
+            "OWV-005",
+            "OWV-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Work context preferences",
+          "format": "Forced-choice",
+          "pool": "workcontext",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "OWC-001",
+            "OWC-002",
+            "OWC-003",
+            "OWC-004",
+            "OWC-005",
+            "OWC-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "7 Confirmatory aptitude (short)",
+      "blocks": [
+        {
+          "block": "Numerical/analytical",
+          "format": "Performance (CAT)",
+          "pool": "apt_numerical",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "I-070-TASK",
+            "I-071-TASK"
+          ],
+          "items_available": 2,
+          "adaptive": "shortened if prior data",
+          "anti_bias": ""
+        },
+        {
+          "block": "Verbal/critical",
+          "format": "Performance (CAT)",
+          "pool": "apt_verbal",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "I-007",
+            "I-023-TASK",
+            "I-027-TASK",
+            "I-028-TASK",
+            "I-042-TASK",
+            "I-043-TASK"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Abstract",
+          "format": "Performance (CAT)",
+          "pool": "apt_abstract",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "I-008",
+            "I-019-TASK",
+            "I-020-TASK",
+            "I-029-TASK",
+            "I-030-TASK",
+            "I-031-TASK"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "8 Wellness",
+      "blocks": [
+        {
+          "block": "Wellness screener",
+          "format": "Validated screener (self-report)",
+          "pool": "wellness",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "W-001",
+            "W-002",
+            "W-003",
+            "W-004",
+            "W-005",
+            "W-006"
+          ],
+          "items_available": 6,
+          "adaptive": "flag -> counsellor + iCall",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "S3 Games (router)",
+      "blocks": [
+        {
+          "block": "ICT games (role tools, e.g. Spreadsheet/Phishing)",
+          "format": "Timed games",
+          "pool": "game:T4",
+          "module": "Spreadsheet Sprint",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Domain knowledge games",
+          "format": "Timed games",
+          "pool": "game:K2",
+          "module": "Market Mover",
+          "target_count": 0,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    }
+  ],
+  "adaptive_rules": {
+    "role_routing": "Resume/role tags + interests fire the relevant domain sims, ICT (T) and knowledge (K) games.",
+    "path_branch": "Outputs an employee-readiness path AND an intrapreneur/entrepreneur signal.",
+    "difficulty": "Per-module easy/standard/stretch; aptitude shortened if UG data imported.",
+    "wellness_flag": "Distress -> counsellor + iCall.",
+    "ai_scoring": "Inbox, messages, negotiation, reflection scored by Claude."
+  },
+  "bias_controls": {
+    "telemetry": "Per-item response latency, long-string & answer-change logging on every block.",
+    "attention_checks": "Embedded attention-check + infrequency items; careless responders flagged.",
+    "validity_band": "Each report carries a confidence band (high / interpret-with-caution).",
+    "scoring": "Forced-choice scored with Thurstonian-IRT; behavioural/game scores weighted above self-report; methods fused by confidence, not naive mean.",
+    "behaviour_first": "~85% behavioural/sim/SJT; self-report only for wellness.",
+    "evidence_weighting": "Sim performance + internship evidence dominate the composite."
+  },
+  "report": "Work-readiness scorecard (communication, collaboration, conflict, negotiation, decision-making, EQ, learning agility, integrity, stress, ownership), role/domain fit, strengths & dev areas, a 30-60-90 day plan, and a job-vs-entrepreneurship signal.",
+  "_selected_item_count": 122
+}

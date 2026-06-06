@@ -1,0 +1,1798 @@
+{
+  "meta": {
+    "title": "MBS Question Bank — User 6 (Fresher / 1st-Year / Intern)",
+    "grade": "Entry-level workforce / interns",
+    "delivery": "Simulation-FIRST. A day-in-the-job runs through in-tray, team chat, a tough conversation, a decision under ambiguity, an ethics moment. Self-report only for wellness.",
+    "duration_min": 150,
+    "target_items": 157,
+    "sources": [
+      "MBS_v3_3_FullQuestionBank.xlsx",
+      "MBS_Ecosystem2026_ItemBank.json"
+    ],
+    "behaviour_first": true,
+    "bias_controls": {
+      "telemetry": "Per-item response latency, long-string & answer-change logging on every block.",
+      "attention_checks": "Embedded attention-check + infrequency items; careless responders flagged.",
+      "validity_band": "Each report carries a confidence band (high / interpret-with-caution).",
+      "scoring": "Forced-choice scored with Thurstonian-IRT; behavioural/game scores weighted above self-report; methods fused by confidence, not naive mean.",
+      "behaviour_first": "~85% behavioural/sim/SJT; self-report only for wellness.",
+      "evidence_weighting": "Sim performance + internship evidence dominate the composite.",
+      "ecosystem_2026": "Ecosystem/domain knowledge tested via applied tasks, matching, sims and an over-claiming check — never self-rated awareness."
+    },
+    "adaptive_rules": {
+      "role_routing": "Resume/role tags + interests fire the relevant domain sims, ICT (T) and knowledge (K) games.",
+      "path_branch": "Outputs an employee-readiness path AND an intrapreneur/entrepreneur signal.",
+      "difficulty": "Per-module easy/standard/stretch; aptitude shortened if UG data imported.",
+      "wellness_flag": "Distress -> counsellor + iCall.",
+      "ai_scoring": "Inbox, messages, negotiation, reflection scored by Claude."
+    },
+    "items_in_bank": 149
+  },
+  "phases": [
+    {
+      "phase": "0 Intake & evidence",
+      "blocks": [
+        {
+          "block": "Role/context & consent",
+          "delivery_format": "Survey",
+          "construct_pool": "survey",
+          "target_count": 4,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "Q0-001",
+              "stem": "Age (number/slider — branches to school/college/workforce flow)",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "DEMO-AGE: Age (w=1.0) | ROUTE: Branching (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "Q0-002",
+              "stem": "Gender",
+              "native_type": "Dropdown",
+              "constructs_fed": "DEMO-GEN: Gender (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "Q0-003",
+              "stem": "Current education level (determines subject list in Phase 11)",
+              "native_type": "Dropdown",
+              "constructs_fed": "DEMO-EDU: Education Level (w=1.0) | ROUTE: Branching (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "Q0-004",
+              "stem": "Internships you have done (free text + file upload — AI categorises into domain clusters)",
+              "native_type": "File upload + free text",
+              "constructs_fed": "DEMO-EXP: Work Experience (w=1.0) | CAR-EXP: Career Exposure (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Resume / internship upload",
+          "delivery_format": "File upload + AI-cluster",
+          "construct_pool": "-",
+          "target_count": 2,
+          "adaptive": "",
+          "anti_bias": "Objective evidence over claims",
+          "items_note": "Game/simulation — rendered at runtime."
+        }
+      ]
+    },
+    {
+      "phase": "1 The workday simulation (core)",
+      "blocks": [
+        {
+          "block": "In-tray: triage your day-1 inbox",
+          "delivery_format": "Simulation (timed)",
+          "construct_pool": "game:M4",
+          "target_count": 0,
+          "adaptive": "prioritisation+ownership+stress",
+          "anti_bias": "Reads conscientiousness/judgement/stress at once — un-fakeable",
+          "game_module": "Environment Simulator",
+          "items_note": "Game/simulation — rendered at runtime."
+        },
+        {
+          "block": "Day-as-a-new-joiner branching",
+          "delivery_format": "Branching simulation",
+          "construct_pool": "strategy_career",
+          "target_count": 6,
+          "adaptive": "",
+          "anti_bias": "Workstyle revealed by choices",
+          "items": [
+            {
+              "item_id": "SC-001-SJT",
+              "stem": "You are managing investors' money. A risky choice could make you a big bonus but expose them to loss. Best action: (a) Take the risk — bigger reward justifies it; (b) Disclose the trade-off and let investors decide; (c) Avoid risk altogether to protect your bonus structure; (d) Take a smaller related position quietly.",
+              "native_type": "SJT 4-option (a/b/c/d)",
+              "constructs_fed": "AGENCY: Agency Theory: principal-agent alignment (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SC-002-SJT",
+              "stem": "A regulator informally signals everyone in your industry is moving to Standard X. You would: (a) Adopt X to fit in; (b) Wait and see; (c) Refuse unless required by law; (d) Help shape what X means.",
+              "native_type": "SJT 4-option (a/b/c/d)",
+              "constructs_fed": "INST: Institutional Theory case (w=1.0) | ISO: Isomorphism: coercive/mimetic/normative (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SC-003-SJT",
+              "stem": "A new policy is profitable but will hurt one community group. You would most likely: (a) Prioritise shareholder return only; (b) Map all stakeholders before deciding; (c) Drop the policy; (d) Run a small pilot and adjust.",
+              "native_type": "SJT 4-option (a/b/c/d)",
+              "constructs_fed": "STAKE: Stakeholder Theory orientation (w=1.0) | OB-022: Ethical attitude (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SC-004-SJT",
+              "stem": "Identify your company's strongest competitive advantage from these four: (a) A patented technology only you own; (b) Lowest-cost producer in the market; (c) Best customer service in your city; (d) Most charismatic CEO.",
+              "native_type": "SJT 4-option (a/b/c/d)",
+              "constructs_fed": "RBV: Resource-Based View judgement (w=1.0) | VRIN: VRIN test (Valuable/Rare/Inimitable/Non-substitutable) (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SC-005-SJT",
+              "stem": "Your firm relies on ONE supplier for 70% of inputs. The best strategic move is: (a) Negotiate a tighter contract; (b) Build a second supplier in parallel; (c) Vertically integrate (buy the supplier); (d) Stay dependent — the supplier is reliable.",
+              "native_type": "SJT 4-option (a/b/c/d)",
+              "constructs_fed": "RDT: Resource Dependence Theory (w=1.0) | ROT: Resource Orchestration (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SC-006-SJT",
+              "stem": "Your start-up has 5 founders, 0 process and 12 customers. The right next move is: (a) Hire a CFO and CHRO immediately; (b) Build minimum formal process for sales and product; (c) Stay informal forever — process kills innovation; (d) Sell the company while it's small.",
+              "native_type": "SJT 4-option (a/b/c/d)",
+              "constructs_fed": "LIFECYCLE: Organisational Life-Cycle stage diagnosis (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "2 Communication & EQ",
+      "blocks": [
+        {
+          "block": "Write/choose the right message (tone)",
+          "delivery_format": "SJT / tone-match sim",
+          "construct_pool": "comm",
+          "target_count": 10,
+          "adaptive": "",
+          "anti_bias": "Scenario, not self-rating",
+          "items": [
+            {
+              "item_id": "COMM-001",
+              "stem": "I tailor how I explain something based on who I'm talking to.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "COMM-AUD: Audience Adaptation (w=1.0) | SS-COMM: Communication (w=0.8) | EQ-OA: Other-Awareness (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-002",
+              "stem": "In a tough conversation, I stay curious rather than defensive.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "COMM-DIF: Difficult Conversation (w=1.0) | EQ-SR: Self-Regulation (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-003",
+              "stem": "When giving critical feedback, I lead with what's working before what isn't.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "COMM-FB: Feedback Delivery (w=1.0) | L-COACH: Coaching (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-004",
+              "stem": "I notice non-verbal cues (body language, tone) at least as much as words.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "COMM-NV: Non-Verbal Reading (w=1.0) | SOC-PERC: Social Perceptiveness (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-005",
+              "stem": "I ask follow-up questions that show I was actually listening.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "COMM-AL: Active Listening (w=1.0) | EQ-EM: Empathy (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-006",
+              "stem": "I rehearse important conversations before having them.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "COMM-PREP: Preparation (w=1.0) | BIG5-C: Conscientiousness (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-007",
+              "stem": "When someone gives me feedback, I summarise it back before reacting.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "COMM-AL (w=1.0) | EQ-SR (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-008",
+              "stem": "I'm comfortable speaking up in groups even when I'll be the dissenting voice.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "COMM-ASRT: Assertiveness (w=1.0) | OB-PS: Psychological Safety (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-009",
+              "stem": "In writing, I revise multiple times until the message is sharp.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "COMM-WR: Written Communication (w=1.0) | BIG5-C (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "COMM-010",
+              "stem": "I adjust my tone in writing depending on whether the reader knows me.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "COMM-WR (w=1.0) | COMM-AUD (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Read-the-room (manager/peer cues)",
+          "delivery_format": "Performance task (affect)",
+          "construct_pool": "eq",
+          "target_count": 8,
+          "adaptive": "",
+          "anti_bias": "Emotion-recognition performance",
+          "items": [
+            {
+              "item_id": "EQD-001",
+              "stem": "I can name the specific emotion I'm feeling, not just 'good' or 'bad'.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "EQ-SA: Self-Awareness (w=1.0) | EQ-VOC: Emotional Vocabulary (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "EQD-002",
+              "stem": "I notice the physical sensations of my emotions (tight chest, clenched jaw).",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "EQ-SA (w=1.0) | EQ-EMB: Embodied Awareness (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "EQD-003",
+              "stem": "I know what triggers my strong emotional reactions.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "EQ-SA (w=1.0) | META-EMO: Emotion Metacognition (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "EQD-004",
+              "stem": "I can stay productive even when I'm in a difficult emotional state.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "EQ-SR: Self-Regulation (w=1.0) | WST-SC: Self-Control (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "EQD-005",
+              "stem": "I take time to name what I'm feeling before acting on it.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "EQ-SR (w=1.0) | META-EMO (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "EQD-006",
+              "stem": "I can sit with uncomfortable emotions without numbing or avoiding them.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "EQ-DT: Distress Tolerance (w=1.0) | EQ-SR (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "EQD-007",
+              "stem": "I can sense when someone is upset even before they speak.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "EQ-OA: Other-Awareness (w=1.0) | SOC-PERC (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "EQD-008",
+              "stem": "I can take another person's perspective even when I disagree.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "EQ-EM-COG: Cognitive Empathy (w=1.0) | EQ-EM (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "3 Collaboration, conflict & negotiation",
+      "blocks": [
+        {
+          "block": "Team-chat collaboration sim",
+          "delivery_format": "Branching sim",
+          "construct_pool": "teamwork",
+          "target_count": 8,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "TEAM-001",
+              "stem": "In group decisions, I voice disagreement even when most people agree.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "TEAM-DA: Devil's Advocate (w=1.0) | OB-PS: Psychological Safety (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "TEAM-002",
+              "stem": "I notice when a group is converging too quickly without exploring alternatives.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "TEAM-GT: Groupthink Awareness (w=1.0) | I-CRT (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "TEAM-003",
+              "stem": "In teams, I sometimes do less than my share when others are doing well.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "TEAM-SL: Social Loafing (w=1.0) | BIG5-C (w=0.4)",
+              "reverse_for": "BIG5-C",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "TEAM-004",
+              "stem": "I'd rather make a decision the group can commit to than the optimal one.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "TEAM-CON: Consensus Preference (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "TEAM-005",
+              "stem": "I've gone along with a group decision I privately disagreed with.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "TEAM-AB: Abilene Paradox (w=1.0) | COMM-ASRT (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "TEAM-006",
+              "stem": "I encourage quiet team members to share their views.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "TEAM-INC: Inclusive Facilitation (w=1.0) | OB-PS (w=0.6) | L-MED: Mediation (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "TEAM-007",
+              "stem": "I structure team meetings so everyone speaks before we decide.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "TEAM-INC (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "TEAM-008",
+              "stem": "I'd rather have a vocal majority decide than negotiate consensus.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "TEAM-VOT: Majority Voting (w=1.0) | TEAM-CON (w=0.4)",
+              "reverse_for": "TEAM-CON",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Tough conversation / conflict",
+          "delivery_format": "SJT + branching",
+          "construct_pool": "conflict",
+          "target_count": 8,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "CONF-001",
+              "stem": "When I disagree, I push to win the argument.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "CONF-CMP: Competing (Thomas-Kilmann) (w=1.0) | BIG5-A (w=0.4)",
+              "reverse_for": "BIG5-A",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "CONF-002",
+              "stem": "I'd rather get my way than have everyone happy.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "CONF-CMP (w=1.0) | DISC-D: Dominance (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "CONF-003",
+              "stem": "I avoid conflict whenever I can.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "CONF-AV: Avoiding (w=1.0) | BIG5-A (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "CONF-004",
+              "stem": "I'd rather change the subject than have a hard conversation.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "CONF-AV (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "CONF-005",
+              "stem": "I give up my position to keep the peace.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "CONF-ACC: Accommodating (w=1.0) | BIG5-A (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "CONF-006",
+              "stem": "Others' needs come before mine in disagreements.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "CONF-ACC (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "CONF-007",
+              "stem": "I split the difference to resolve disagreements quickly.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "CONF-COMP: Compromising (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "CONF-008",
+              "stem": "A workable middle-ground is usually fine even if neither side is fully happy.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "CONF-COMP (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Negotiate scope/deadline with NPC",
+          "delivery_format": "Branching/economic sim",
+          "construct_pool": "negotiation",
+          "target_count": 8,
+          "adaptive": "",
+          "anti_bias": "Behaviour in a real ask",
+          "items": [
+            {
+              "item_id": "NEGT-001",
+              "stem": "I'm easily annoyed by small things.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "NEG-IRR: Irritability (w=1.0) | BIG5-N (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "NEGT-002",
+              "stem": "I find that most people can't really be trusted.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "NEG-CYN: Cynicism (w=1.0) | BIG5-A (w=0.6)",
+              "reverse_for": "BIG5-A",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "NEGT-003",
+              "stem": "I hold grudges longer than I should.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "NEG-GRD: Grudge-holding (w=1.0) | BIG5-A: Forgiveness (w=0.5)",
+              "reverse_for": "BIG5-A",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "NEGT-004",
+              "stem": "I often feel contempt for people who are weaker than me.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "NEG-CON: Contempt (w=1.0) | DT-P: Psychopathy (w=0.5) | SDO: Social Dominance (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "NEGT-005",
+              "stem": "I replay negative events in my mind for hours afterward.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "NEG-RUM: Rumination (w=1.0) | BIG5-N (w=0.6) | DEP-SCR (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "NEGT-006",
+              "stem": "I feel suspicious of compliments — they usually have a hidden motive.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "NEG-SUS: Suspicion (w=1.0) | BIG5-A: Trust (w=0.4)",
+              "reverse_for": "BIG5-A",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "NEGT-007",
+              "stem": "I have a short fuse when things don't go my way.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "NEG-HOS: Hostility (w=1.0) | NEG-IRR (w=0.6) | DT-P (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "NEGT-008",
+              "stem": "I expect the worst from new situations.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "NEG-PES: Pessimism (w=1.0) | PSYCAP-O (w=0.6)",
+              "reverse_for": "PSYCAP-O",
+              "source": "v3.3-bank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "4 Decision-making & problem-solving",
+      "blocks": [
+        {
+          "block": "Decision under ambiguity (Two Doors)",
+          "delivery_format": "Behavioural game",
+          "construct_pool": "decision",
+          "target_count": 8,
+          "adaptive": "",
+          "anti_bias": "Info-gathering & latency",
+          "items": [
+            {
+              "item_id": "DEC-001",
+              "stem": "When making a choice, I keep looking until I find the BEST option, even if it takes long.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "DEC-MAX: Maximizer (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "DEC-002",
+              "stem": "I usually settle for an option that's 'good enough' rather than the perfect one.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "DEC-SAT: Satisficer (w=1.0) | DEC-MAX (w=0.5)",
+              "reverse_for": "DEC-MAX",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "DEC-003",
+              "stem": "I often regret decisions soon after making them.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "DEC-REG: Decision Regret (w=1.0) | DEC-MAX (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "DEC-004",
+              "stem": "I avoid making decisions when I don't have all the information.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "DEC-AV: Decision Avoidance (w=1.0) | HOF-UA (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "DEC-005",
+              "stem": "I'm comfortable making decisions with incomplete information.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "DEC-UNC: Decision Under Uncertainty (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "DEC-006",
+              "stem": "I'd rather take a sure ₹5,000 than a 50% chance at ₹20,000.",
+              "native_type": "MCQ 2-option (a/b) - binary",
+              "constructs_fed": "DEC-RA: Risk Aversion (w=1.0) | I-BIAS-LOSS: Loss Aversion (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "DEC-007",
+              "stem": "I make important decisions faster than most people I know.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "DEC-SPD: Decisiveness (w=1.0) | BIG5-C (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "DEC-008",
+              "stem": "I make a written pros-and-cons list for big decisions.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "DEC-RAT: Rational Decision Style (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Spot the Break (problem sensitivity)",
+          "delivery_format": "Timed game",
+          "construct_pool": "game:M20",
+          "target_count": 0,
+          "adaptive": "",
+          "anti_bias": "",
+          "game_module": "Spot the Break",
+          "items_note": "Game/simulation — rendered at runtime."
+        },
+        {
+          "block": "Crisis Commander (prioritise under pressure)",
+          "delivery_format": "Simulation",
+          "construct_pool": "game:K9",
+          "target_count": 0,
+          "adaptive": "",
+          "anti_bias": "",
+          "game_module": "Crisis Commander",
+          "items_note": "Game/simulation — rendered at runtime."
+        }
+      ]
+    },
+    {
+      "phase": "5 Ownership, learning agility & integrity",
+      "blocks": [
+        {
+          "block": "Learning agility (Format Lab + adapt)",
+          "delivery_format": "Performance task",
+          "construct_pool": "learning_agility",
+          "target_count": 8,
+          "adaptive": "",
+          "anti_bias": "Performance, not 'I learn fast'",
+          "items": [
+            {
+              "item_id": "LRND-001",
+              "stem": "I notice when my current learning approach isn't working and change it.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "LRN-META: Metacognition (w=1.0) | SRL-RG: Self-Regulation (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "LRND-002",
+              "stem": "I deliberately practice the parts of a skill I'm worst at.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "LRN-DEL: Deliberate Practice (w=1.0) | DWECK-GR (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "LRND-003",
+              "stem": "I can apply something I learned in one context to a totally different situation.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "LRN-TRA: Transfer of Learning (w=1.0) | I-SYN: Synthesis (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "LRND-004",
+              "stem": "I get curious about topics I don't immediately need to know.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "LRN-CUR: Curiosity (w=1.0) | BIG5-O (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "LRND-005",
+              "stem": "I see myself as someone who learns for life, not just for school/work.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "LRN-ID: Learner Identity (w=1.0) | LEARN-ORI: Learning Orientation (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "LRND-006",
+              "stem": "I track what I'm learning, not just what I'm achieving.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "LRN-MET: Learning Tracking (w=1.0) | META (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "LRND-007",
+              "stem": "I seek feedback even when I don't have to.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "LRN-FB: Feedback Seeking (w=1.0) | DWECK-GR (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "LRND-008",
+              "stem": "I find a way to teach what I've learned to someone else.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "LRN-PROT: Protégé Effect (w=1.0) | DEEP-LRN (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Self-management / ownership SJT",
+          "delivery_format": "SJT",
+          "construct_pool": "softskills",
+          "target_count": 8,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "SS-001-SJT",
+              "stem": "Your friend has misunderstood something you said. You would most likely: (a) Wait for the issue to blow over; (b) Send a brief text explaining; (c) Meet face-to-face and listen first; (d) Get a mutual friend to mediate.",
+              "native_type": "SJT 4-option (a/b/c/d)",
+              "constructs_fed": "SS-COMM: Communication competence (w=1.0) | SS-COLLAB: Relationship repair (w=0.7) | EQ-EM: Empathy (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SS-002-SJT",
+              "stem": "Your group project has one team-mate not contributing. You would most likely: (a) Cover their part silently; (b) Tell the teacher / manager; (c) Have a direct, kind conversation with them; (d) Confront them in front of the group.",
+              "native_type": "SJT 4-option (a/b/c/d)",
+              "constructs_fed": "SS-COLLAB: Collaboration & conflict skill (w=1.0) | SS-COMM: Assertive communication (w=0.7) | L-TRANS: Coaching behaviour (w=0.3)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SS-003",
+              "stem": "I plan my day and stick to my plan most of the time.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "SS-SELF: Self-Management framework (w=1.0) | SELF-GS: Goal-Setting (w=1.0) | BIG5-C: Conscientiousness (w=0.7)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SS-004",
+              "stem": "I delay things I should be doing.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "SS-SELF: Self-Management framework (w=1.0) | SELF-SC: Self-Control (w=1.0) | BIG5-C: Conscientiousness (w=0.6)",
+              "reverse_for": "SS-SELF, SELF-SC, BIG5-C",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SS-005",
+              "stem": "I can break a big, unclear problem into smaller workable parts.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "SS-PS: Problem-solving (w=1.0) | STR-ANL: Analytical intelligence (w=0.6) | KATZ-CON: Conceptual skill (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SS-006",
+              "stem": "Rank how you prefer to absorb new information (1=most preferred, 4=least):  (a) Reading  (b) Watching / listening  (c) Discussing with others  (d) Trying it hands-on",
+              "native_type": "Ranking 1–4  (1 = most preferred)",
+              "constructs_fed": "LR01: Learning style profile (w=1.0) | GMI-LING: Linguistic — (a) | GMI-BOD: Kinesthetic — (d)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SS-007",
+              "stem": "A teammate keeps interrupting you in a meeting. What do you do? (a) Stop talking and let them lead (b) Politely say 'let me finish my point' (c) Speak louder to be heard (d) Send a passive-aggressive message after",
+              "native_type": "SJT 4-option (Situational)",
+              "constructs_fed": "SS-COMM: Communication (w=1.0) | EQ-SR: Self-Regulation (w=0.6) | ASRT: Assertiveness (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "SS-008",
+              "stem": "Your manager gives you feedback you disagree with. You: (a) Argue your case immediately (b) Thank them, ask 2 clarifying questions, then share your view (c) Stay silent and brood (d) Complain to a peer later",
+              "native_type": "SJT 4-option (Situational)",
+              "constructs_fed": "SS-COMM: Communication (w=1.0) | EQ-SR: Self-Regulation (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Honest Dice (integrity)",
+          "delivery_format": "Behavioural integrity game",
+          "construct_pool": "-",
+          "target_count": 0,
+          "adaptive": "",
+          "anti_bias": "Over-claiming behaviour, ethical handling",
+          "items_note": "Game/simulation — rendered at runtime."
+        },
+        {
+          "block": "Entrepreneurial / intrapreneur orientation",
+          "delivery_format": "Behavioural choice",
+          "construct_pool": "entrepreneur",
+          "target_count": 6,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "ENT-001",
+              "stem": "I notice unmet needs in everyday life and think about how to solve them.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "ENT-OR: Opportunity Recognition (w=1.0) | BIG5-O: Openness (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "ENT-002",
+              "stem": "I'm comfortable taking on financial risk for an idea I believe in.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "ENT-RT: Risk-Taking (w=1.0) | SENS: Sensation-Seeking (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "ENT-003",
+              "stem": "I'd rather build something new than improve something that already works.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "ENT-INN: Innovativeness (w=1.0) | BIG5-O (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "ENT-004",
+              "stem": "I act on opportunities before competitors do.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "ENT-PRO: Proactiveness (w=1.0) | WST-INIT: Initiative (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "ENT-005",
+              "stem": "I find ways to do more with less.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "ENT-RES: Resourcefulness / Bricolage (w=1.0) | SS-PROB: Problem-Solving (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "ENT-006",
+              "stem": "I can tolerate not knowing if an idea will work for months at a time.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "ENT-AMB: Ambiguity Tolerance (w=1.0) | HOF-UA: Uncertainty Avoidance (w=0.5)",
+              "reverse_for": "HOF-UA",
+              "source": "v3.3-bank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "6 Work orientation & fit",
+      "blocks": [
+        {
+          "block": "Work Styles Arena",
+          "delivery_format": "Behavioural sim",
+          "construct_pool": "workstyles",
+          "target_count": 8,
+          "adaptive": "",
+          "anti_bias": "",
+          "game_module": "Work Styles Arena",
+          "items": [
+            {
+              "item_id": "WST-001",
+              "stem": "I work hard to achieve more than what is required.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WST-ACH: Achievement/Effort (w=1.0) | MCC-N-ACH: Need for Achievement (w=0.6) | GRIT-PE: Perseverance (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "WST-002",
+              "stem": "I set high standards for myself.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WST-ACH: Achievement/Effort (w=1.0) | BIG5-C: Conscientiousness (Achievement Striving) (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "WST-003",
+              "stem": "I keep going on tasks despite obstacles.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WST-PER: Persistence (w=1.0) | GRIT-PE: Perseverance (w=0.8) | PSYCAP-R: Resilience (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "WST-004",
+              "stem": "I rarely give up when things get hard.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WST-PER: Persistence (w=1.0) | GRIT-PE: Perseverance (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "WST-005",
+              "stem": "I take on new responsibilities without being asked.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WST-INIT: Initiative (w=1.0) | OB-OCB: Org Citizenship (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "WST-006",
+              "stem": "I willingly take charge of group projects.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WST-LEAD: Leadership (w=1.0) | L-INI: Leadership Initiation (w=0.8) | BIG5-E: Assertiveness (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "WST-007",
+              "stem": "I am pleasant to work with even under stress.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WST-COOP: Cooperation (w=1.0) | BIG5-A: Agreeableness (w=0.6) | EQ-SR: Self-Regulation (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "WST-008",
+              "stem": "I am sensitive to others' needs and feelings.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WST-CFO: Concern for Others (w=1.0) | EQ-EM: Empathy (w=0.8) | BIG5-A: Altruism (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Trade-off Island (work values)",
+          "delivery_format": "Allocation game",
+          "construct_pool": "workvalues",
+          "target_count": 6,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "OWV-001",
+              "stem": "Using my skills well and feeling accomplished is essential.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "OWV-ACH: Achievement Value (w=1.0) | SDT-COM: Competence (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWV-002",
+              "stem": "I value seeing the results of my hard work.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "OWV-ACH: Achievement Value (w=1.0) | JCM-FB: Feedback (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWV-003",
+              "stem": "Career progress and challenging goals motivate me.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "OWV-ACH: Achievement Value (w=1.0) | MCC-N-ACH: Need for Achievement (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWV-004",
+              "stem": "I want a job where I can make my own decisions.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "OWV-IND: Independence Value (w=1.0) | SDT-AUT: Autonomy (w=0.8) | WST-IND: Independence (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWV-005",
+              "stem": "I want to choose how and when I work.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "OWV-IND: Independence Value (w=1.0) | JCM-AUT: Autonomy (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWV-006",
+              "stem": "I dislike being told exactly how to do every task.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "OWV-IND: Independence Value (w=1.0) | BIG5-A: Compliance (w=0.4)",
+              "reverse_for": "BIG5-A",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Work context preferences",
+          "delivery_format": "Forced-choice",
+          "construct_pool": "workcontext",
+          "target_count": 6,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "OWC-001",
+              "stem": "I prefer to work indoors most of the time.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WC-IN: Indoor/Outdoor (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWC-002",
+              "stem": "I'm comfortable with physical labour and standing all day.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WC-PHY: Physical Demands (w=1.0) | GMI-BOD: Bodily-Kinaesthetic (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWC-003",
+              "stem": "I prefer to sit at a desk most of the day.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WC-SED: Sedentary (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWC-004",
+              "stem": "I'm comfortable with noisy or chaotic environments.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WC-NOISE: Noise Tolerance (w=1.0) | SS-ADAPT: Adaptability (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWC-005",
+              "stem": "I prefer quiet, focused work settings.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WC-QUIET: Quiet Work (w=1.0) | BIG5-N: Sensory sensitivity (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "OWC-006",
+              "stem": "I'm willing to travel frequently for work.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "WC-TRAVEL: Travel willingness (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "E. Ecosystem & domain knowledge (2026)",
+      "blocks": [
+        {
+          "block": "Sector Match — what's sold",
+          "delivery_format": "Matching game",
+          "construct_pool": "ECO-SECTOR",
+          "target_count": 6,
+          "adaptive": "fires harder for the candidate's target sector",
+          "anti_bias": "Applied knowledge & matching, not self-rated awareness",
+          "items": [
+            {
+              "item_id": "ECO-S01",
+              "stem": "Match each business to how it PRIMARILY makes money.",
+              "native_type": "Matching",
+              "options": [
+                "Quick-commerce app",
+                "IT-services firm (TCS-type)",
+                "FMCG company",
+                "Fintech (UPI app)",
+                "D2C brand"
+              ],
+              "key": {
+                "Quick-commerce app": "commission + delivery fees on fast grocery",
+                "IT-services firm (TCS-type)": "selling outsourced project/maintenance hours to global clients",
+                "FMCG company": "high-volume sales of packaged goods via distribution",
+                "Fintech (UPI app)": "payment take-rate / lending spread",
+                "D2C brand": "direct online sales of own products"
+              },
+              "constructs_fed": "ECO-SECTOR: what-is-sold literacy",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-S02",
+              "stem": "A GCC (Global Capability Centre) in India mainly exists to:",
+              "native_type": "SJT",
+              "options": [
+                "Run a captive in-house team for a global parent doing engineering/analytics/finance",
+                "Sell software products to Indian consumers",
+                "Provide low-cost voice support only",
+                "Manufacture hardware"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-SECTOR: GCC vs BPO",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-S03",
+              "stem": "Which is the PRIMARY offering of the BFSI sector?",
+              "native_type": "SJT",
+              "options": [
+                "Loans, deposits, insurance and payments",
+                "Packaged foods",
+                "Logistics fleets",
+                "Advertising creative"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-SECTOR",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-S04",
+              "stem": "ONDC was created to:",
+              "native_type": "SJT",
+              "options": [
+                "Open up e-commerce so even small sellers/kiranas can sell online beyond Amazon/Flipkart",
+                "Replace UPI",
+                "Regulate banks",
+                "Build highways"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-SECTOR: ONDC",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-S05",
+              "stem": "Drag the players into the e-commerce value chain in order: brand -> ? -> ? -> customer.",
+              "native_type": "Ordering",
+              "options": [
+                "marketplace/D2C store",
+                "logistics/3PL",
+                "payment gateway"
+              ],
+              "key": [
+                "marketplace/D2C store",
+                "logistics/3PL",
+                "payment gateway"
+              ],
+              "constructs_fed": "ECO-SECTOR: value chain",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-S06",
+              "stem": "A cloud-kitchen's biggest margin pressure usually comes from:",
+              "native_type": "SJT",
+              "options": [
+                "Aggregator commissions (~18-30%)",
+                "Office rent",
+                "Advertising on TV",
+                "Import duties"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-SECTOR: F&B economics",
+              "source": "ecosystem-2026"
+            }
+          ]
+        },
+        {
+          "block": "Ecosystem Architect — build the value chain",
+          "delivery_format": "Drag-build game",
+          "construct_pool": "game:K3",
+          "target_count": 0,
+          "adaptive": "by target sector",
+          "anti_bias": "Reveals sector understanding by construction, not claim",
+          "game_module": "Ecosystem Architect",
+          "items_note": "Game/simulation — rendered at runtime."
+        },
+        {
+          "block": "Trend Radar 2026 — spot the forces",
+          "delivery_format": "Spot/sort game",
+          "construct_pool": "ECO-TREND",
+          "target_count": 6,
+          "adaptive": "role/sector-weighted",
+          "anti_bias": "Recognition task on real 2026 forces",
+          "items": [
+            {
+              "item_id": "ECO-T01",
+              "stem": "Spot the 2026 forces reshaping IT services (select all that apply).",
+              "native_type": "Multi-select",
+              "options": [
+                "GenAI automating routine coding/testing",
+                "Shift to cloud + GCCs",
+                "Return to paper records",
+                "Falling internet use"
+              ],
+              "key": [
+                0,
+                1
+              ],
+              "constructs_fed": "ECO-TREND-2026",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-T02",
+              "stem": "UPI's significance in 2026 is best described as:",
+              "native_type": "SJT",
+              "options": [
+                "The world's largest real-time payments rail, now underpinning lending and onboarding",
+                "A messaging app",
+                "A stock exchange",
+                "A government tax"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-TREND-2026",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-T03",
+              "stem": "Quick-commerce (10-minute delivery) is most disrupting:",
+              "native_type": "SJT",
+              "options": [
+                "Grocery and impulse retail",
+                "Heavy machinery",
+                "Oil refining",
+                "Legal services"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-TREND-2026",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-T04",
+              "stem": "The DPDP Act 2023 requires businesses to:",
+              "native_type": "SJT",
+              "options": [
+                "Protect personal data with consent and safeguards (penalties for breach)",
+                "Pay GST monthly",
+                "Register on GeM",
+                "List on a stock exchange"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-TREND-2026: compliance force",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-T05",
+              "stem": "'China+1' is creating an opportunity for India mainly in:",
+              "native_type": "SJT",
+              "options": [
+                "Specialty chemicals and electronics/components manufacturing",
+                "Crude oil exports",
+                "Hollywood films",
+                "Antarctic mining"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-TREND-2026",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-T06",
+              "stem": "Market Mover: demand for your category is shifting to tier-2 towns and vernacular users. Best growth move?",
+              "native_type": "SJT",
+              "options": [
+                "Vernacular content + COD/UPI + quick-commerce/ONDC distribution",
+                "Only English ads in metros",
+                "Raise prices sharply",
+                "Stop digital marketing"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-TREND-2026: market sense",
+              "source": "ecosystem-2026"
+            }
+          ]
+        },
+        {
+          "block": "Market Mover — business sense",
+          "delivery_format": "Business simulation",
+          "construct_pool": "game:K2",
+          "target_count": 0,
+          "adaptive": "adaptive scenarios",
+          "anti_bias": "Decisions move a simulated metric — behaviour, not opinion",
+          "game_module": "Market Mover",
+          "items_note": "Game/simulation — rendered at runtime."
+        },
+        {
+          "block": "How the business runs",
+          "delivery_format": "SJT / assemble",
+          "construct_pool": "ECO-PRACTICE",
+          "target_count": 5,
+          "adaptive": "",
+          "anti_bias": "Operating-model literacy via scenarios & ordering",
+          "items": [
+            {
+              "item_id": "ECO-P01",
+              "stem": "Put the 'lead-to-cash' flow in order.",
+              "native_type": "Ordering",
+              "options": [
+                "Marketing generates leads",
+                "Sales converts",
+                "Delivery/ops fulfils",
+                "Finance invoices & collects",
+                "Customer success retains"
+              ],
+              "key": [
+                "Marketing generates leads",
+                "Sales converts",
+                "Delivery/ops fulfils",
+                "Finance invoices & collects",
+                "Customer success retains"
+              ],
+              "constructs_fed": "ECO-PRACTICE: business operating model",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-P02",
+              "stem": "A 'KRA' for a role is:",
+              "native_type": "SJT",
+              "options": [
+                "The key result areas the role is accountable for",
+                "A type of leave",
+                "A tax form",
+                "A software tool"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-PRACTICE",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-P03",
+              "stem": "In an Agile team, a 'sprint' is:",
+              "native_type": "SJT",
+              "options": [
+                "A short fixed cycle to build & ship a slice of work",
+                "An annual appraisal",
+                "A sales target",
+                "A server"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-PRACTICE: SDLC/Agile",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-P04",
+              "stem": "Which team most owns 'CAC and lead generation'?",
+              "native_type": "SJT",
+              "options": [
+                "Marketing",
+                "Finance",
+                "Legal",
+                "Facilities"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-PRACTICE: who owns what",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-P05",
+              "stem": "A startup raising its first institutional cheque is at which stage?",
+              "native_type": "SJT",
+              "options": [
+                "Seed",
+                "Series C",
+                "IPO",
+                "Buyback"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-PRACTICE: funding stages",
+              "source": "ecosystem-2026"
+            }
+          ]
+        },
+        {
+          "block": "Tool Bench — tool-to-role",
+          "delivery_format": "Matching task",
+          "construct_pool": "ECO-TOOLS",
+          "target_count": 4,
+          "adaptive": "",
+          "anti_bias": "Tools matched to jobs — applied, not self-rated",
+          "items": [
+            {
+              "item_id": "ECO-TL1",
+              "stem": "Match the tool to its job.",
+              "native_type": "Matching",
+              "options": [
+                "Jira",
+                "Tally / GST portal",
+                "CRM (Salesforce/Zoho)",
+                "Power BI / Tableau",
+                "Figma"
+              ],
+              "key": {
+                "Jira": "track engineering tickets/sprints",
+                "Tally / GST portal": "accounting & tax filing",
+                "CRM (Salesforce/Zoho)": "manage sales pipeline & customers",
+                "Power BI / Tableau": "dashboards & data viz",
+                "Figma": "UI/UX design"
+              },
+              "constructs_fed": "ECO-TOOLS: tool-to-role",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-TL2",
+              "stem": "Your manager asks for a weekly KPI dashboard. Best tool?",
+              "native_type": "SJT",
+              "options": [
+                "Power BI / Looker / Tableau",
+                "Photoshop",
+                "A PDF reader",
+                "A calculator app"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-TOOLS",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-TL3",
+              "stem": "To raise and track a software bug with the team you'd use:",
+              "native_type": "SJT",
+              "options": [
+                "Jira / a ticketing tool",
+                "WhatsApp status",
+                "A spreadsheet emailed once",
+                "Nothing"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-TOOLS",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-TL4",
+              "stem": "An accountant filing returns mainly works in:",
+              "native_type": "SJT",
+              "options": [
+                "Tally + the GST/TDS portals",
+                "Figma",
+                "Unity",
+                "Blender"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-TOOLS",
+              "source": "ecosystem-2026"
+            }
+          ]
+        },
+        {
+          "block": "Compliance Checkpoint",
+          "delivery_format": "SJT",
+          "construct_pool": "ECO-COMPLIANCE",
+          "target_count": 3,
+          "adaptive": "",
+          "anti_bias": "Scenario-based compliance literacy",
+          "items": [
+            {
+              "item_id": "ECO-C01",
+              "stem": "GST is:",
+              "native_type": "SJT",
+              "options": [
+                "A unified indirect tax on the supply of goods & services",
+                "A direct income tax",
+                "A labour law",
+                "A stock index"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-COMPLIANCE",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-C02",
+              "stem": "Customer card/payment data must be handled per:",
+              "native_type": "SJT",
+              "options": [
+                "Data-privacy (DPDP) + PCI-DSS rules — never shared",
+                "No rules",
+                "Only company preference",
+                "Marketing's choice"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-COMPLIANCE",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-C03",
+              "stem": "Mandatory statutory deductions for an employee in India include:",
+              "native_type": "SJT",
+              "options": [
+                "PF (EPFO) and ESIC where applicable",
+                "Only income tax",
+                "Nothing",
+                "GST"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-COMPLIANCE",
+              "source": "ecosystem-2026"
+            }
+          ]
+        },
+        {
+          "block": "Role/Domain Expert Challenge (+ over-claiming)",
+          "delivery_format": "Knowledge game + over-claiming",
+          "construct_pool": "ECO-DOMAIN",
+          "target_count": 3,
+          "adaptive": "role-adaptive from job-titles KB; ICT/knowledge games fired by role",
+          "anti_bias": "Applied domain knowledge; planted fake items quantify exaggeration",
+          "game_module": "Expert Challenge",
+          "items": [
+            {
+              "item_id": "ECO-D01",
+              "stem": "[Role-adaptive] Pick the correct first step for YOUR target role's core task.",
+              "native_type": "SJT",
+              "options": [
+                "(engine inserts role-specific options from the job-titles KB)"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-DOMAIN: role knowledge",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-D02",
+              "stem": "Rate your familiarity (some of these are not real concepts).",
+              "native_type": "Overclaiming-rating",
+              "options": [
+                "real concept A",
+                "real concept B",
+                "FAKE concept (planted)",
+                "real concept C",
+                "FAKE concept (planted)"
+              ],
+              "key": {
+                "fakes": [
+                  "FAKE concept (planted)"
+                ]
+              },
+              "constructs_fed": "ECO-DOMAIN: over-claiming check",
+              "source": "ecosystem-2026"
+            },
+            {
+              "item_id": "ECO-D03",
+              "stem": "[Role-adaptive] Which 2026 skill/tool is most in demand for your target role?",
+              "native_type": "SJT",
+              "options": [
+                "(engine inserts from job-titles KB ecosystem_2026)"
+              ],
+              "key": 0,
+              "constructs_fed": "ECO-DOMAIN: role 2026 ecosystem",
+              "source": "ecosystem-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "7 Confirmatory aptitude (short)",
+      "blocks": [
+        {
+          "block": "Numerical/analytical",
+          "delivery_format": "Performance (CAT)",
+          "construct_pool": "apt_numerical",
+          "target_count": 6,
+          "adaptive": "shortened if prior data",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "I-070-TASK",
+              "stem": "If 3 pencils cost ₹24, how much do 8 pencils cost? (₹64)",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "I-NUM: Numerical Reasoning (w=1.0) | CHC-GQ: Quantitative (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-071-TASK",
+              "stem": "Series: 1, 1, 2, 3, 5, 8, ___ (13)",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "I-NUM: Numerical Pattern (w=1.0) | CHC-GF: Fluid (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Verbal/critical",
+          "delivery_format": "Performance (CAT)",
+          "construct_pool": "apt_verbal",
+          "target_count": 6,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "I-007",
+              "stem": "I learn new languages or word patterns easily.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "GMI-LING: MI: Linguistic (w=1.0) | WAIS-VCI: Verbal Comprehension (w=1.0) | CHC-GC: Crystallised intelligence (Gc) (w=0.8) | THUR-V: Thurstone Verbal (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-023-TASK",
+              "stem": "Complete the analogy: Hand is to Glove as Foot is to ___. (Correct = Shoe / Sock)",
+              "native_type": "Short-answer",
+              "constructs_fed": "WAIS-VCI: Verbal Comprehension (w=1.0) | CHC-GC: Crystallised intelligence (Gc) (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-027-TASK",
+              "stem": "Vocabulary MCQ: Which word is closest in meaning to \"Tenacious\"?  (a) Flexible  (b) Persistent  (c) Careless  (d) Generous  [Correct = b]",
+              "native_type": "MCQ 4-option (a/b/c/d)",
+              "constructs_fed": "WAIS-VCI: Verbal Comprehension (w=1.0) | CHC-GC: Crystallised intelligence (w=1.0) | THUR-V: Verbal reasoning (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-028-TASK",
+              "stem": "Odd-one-out: Which word does NOT belong?  (a) Oak  (b) Pine  (c) Rose  (d) Maple  [Correct = c: Rose — not a tree]",
+              "native_type": "MCQ 4-option (a/b/c/d)",
+              "constructs_fed": "WAIS-VCI: Verbal Comprehension (w=0.8) | CHC-GC: Crystallised intelligence (w=0.8) | CHC-GF: Fluid reasoning (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-042-TASK",
+              "stem": "Shape analogy: Circle → Sphere; Square → ___  [Correct = Cube]",
+              "native_type": "Short-answer",
+              "constructs_fed": "WAIS-VCI: Verbal Comprehension (w=0.8) | CHC-GC: Crystallised intelligence (w=0.8) | STR-ANL: Analytical intelligence (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-043-TASK",
+              "stem": "Verbal analogy: Doctor : Hospital :: Teacher : ___  [Correct = School]",
+              "native_type": "Short-answer",
+              "constructs_fed": "WAIS-VCI: Verbal Comprehension (w=1.0) | CHC-GC: Crystallised intelligence (w=0.8) | THUR-V: Verbal reasoning (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        },
+        {
+          "block": "Abstract",
+          "delivery_format": "Performance (CAT)",
+          "construct_pool": "apt_abstract",
+          "target_count": 6,
+          "adaptive": "",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "I-008",
+              "stem": "I can picture how shapes will look when rotated or rearranged.",
+              "native_type": "Likert 1-5 (Strongly Disagree ... Strongly Agree)",
+              "constructs_fed": "GMI-SPA: MI: Spatial (w=1.0) | WAIS-PRI: Perceptual Reasoning (w=1.0) | THUR-S: Thurstone Spatial (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-019-TASK",
+              "stem": "A bat and a ball cost ₹110 in total. The bat costs ₹100 more than the ball. How much does the ball cost? (Correct = ₹5)",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "CRT: Cognitive Reflection (w=1.0) | WAIS-PRI: Perceptual Reasoning (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-020-TASK",
+              "stem": "If 5 machines make 5 widgets in 5 minutes, how long would 100 machines take to make 100 widgets? (Correct = 5 minutes)",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "CRT: Cognitive Reflection (w=1.0) | WAIS-PRI: Perceptual Reasoning (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-029-TASK",
+              "stem": "Syllogism: All Blops are Frims. Some Frims are Goos. Therefore:  (a) All Blops are Goos  (b) Some Blops may be Goos  (c) No Blops are Goos  (d) All Goos are Blops  [Correct = b]",
+              "native_type": "MCQ 4-option (a/b/c/d)",
+              "constructs_fed": "CHC-GF: Fluid reasoning (w=1.0) | STR-ANL: Analytical intelligence (w=1.0) | CRT: Cognitive Reflection (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-030-TASK",
+              "stem": "Number series: What comes next?  3, 6, 12, 24, ___  [Correct = 48]",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "CHC-GF: Fluid reasoning (w=1.0) | WAIS-PRI: Perceptual Reasoning (w=0.8) | RAVEN: Raven matrices style (w=0.8)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "I-031-TASK",
+              "stem": "Arithmetic: A class of 30 splits into groups of 4. How many complete groups?  [Correct = 7]",
+              "native_type": "Short-answer numeric",
+              "constructs_fed": "CHC-GF: Fluid reasoning (w=0.8) | WAIS-PRI: Perceptual Reasoning (w=0.8) | THUR-N: Thurstone Number (w=1.0)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "8 Wellness",
+      "blocks": [
+        {
+          "block": "Wellness screener",
+          "delivery_format": "Validated screener (self-report)",
+          "construct_pool": "wellness",
+          "target_count": 6,
+          "adaptive": "flag -> counsellor + iCall",
+          "anti_bias": "",
+          "items": [
+            {
+              "item_id": "W-001",
+              "stem": "Over the past two weeks, I have felt calm, hopeful and emotionally steady.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "W-EMO: Emotional wellness (w=1.0) | BIG5-N: Neuroticism (w=0.5)",
+              "reverse_for": "BIG5-N",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "W-002",
+              "stem": "I have at least one person I can talk to honestly when things are hard.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "W-SOC: Social wellness (w=1.0) | SDT-REL: Relatedness (w=0.5) | ATT-S: Attachment Secure (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "W-003",
+              "stem": "I get enough sleep, move my body, and eat in a way that supports my energy.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "W-PHY: Physical wellness (w=1.0) | SELF-SC: Self-Control (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "W-004",
+              "stem": "I am learning new things that genuinely interest me right now.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "W-INT: Intellectual wellness (w=1.0) | MIND-G: Growth Mindset (w=0.4) | LR-CUR: Curiosity-driven learning (w=0.6)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "W-005",
+              "stem": "I feel in control of my money and not anxious about my immediate financial situation.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "W-FIN: Financial wellness (w=1.0) | MASLOW-1: Safety needs (w=0.4)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            },
+            {
+              "item_id": "W-006",
+              "stem": "I have a clear sense of purpose or values that guides my choices.",
+              "native_type": "Frequency 1-5 (Never ... Almost Always)",
+              "constructs_fed": "W-SPI: Spiritual wellness (w=1.0) | MASLOW-5: Self-Actualisation (w=0.5) | GMI-EX: Existential intelligence (w=0.5)",
+              "reverse_for": "",
+              "source": "v3.3-bank"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "S3 Games (router)",
+      "blocks": [
+        {
+          "block": "ICT games (role tools, e.g. Spreadsheet/Phishing)",
+          "delivery_format": "Timed games",
+          "construct_pool": "game:T4",
+          "target_count": 0,
+          "adaptive": "",
+          "anti_bias": "",
+          "game_module": "Spreadsheet Sprint",
+          "items_note": "Game/simulation — rendered at runtime."
+        },
+        {
+          "block": "Domain knowledge games",
+          "delivery_format": "Timed games",
+          "construct_pool": "game:K2",
+          "target_count": 0,
+          "adaptive": "",
+          "anti_bias": "",
+          "game_module": "Market Mover",
+          "items_note": "Game/simulation — rendered at runtime."
+        }
+      ]
+    }
+  ]
+}

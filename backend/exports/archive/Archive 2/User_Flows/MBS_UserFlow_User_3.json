@@ -1,0 +1,215 @@
+{
+  "user": "User 3 — Stream Selector",
+  "grade": "Classes 9-10",
+  "age": "~15",
+  "duration_min": 120,
+  "target_items": 85,
+  "purpose": "First high-stakes tool -> ranked STREAM recommendation (PCM/PCB/Commerce/Humanities/Hybrid). Faking pressure is real, so tilt behavioural.",
+  "delivery": "Adaptive aptitude games + culture-fair items + forced-choice personality + interest sims + validity scale.",
+  "phases": [
+    {
+      "phase": "S1 Aptitude (adaptive, culture-fair)",
+      "blocks": [
+        {
+          "block": "Verbal reasoning",
+          "format": "Performance task (CAT)",
+          "pool": "apt_verbal",
+          "module": "",
+          "target_count": 12,
+          "item_ids": [
+            "I-007",
+            "I-023-TASK",
+            "I-027-TASK",
+            "I-028-TASK",
+            "I-042-TASK",
+            "I-043-TASK",
+            "I-068-TASK"
+          ],
+          "items_available": 7,
+          "adaptive": "easy/standard/stretch",
+          "anti_bias": ""
+        },
+        {
+          "block": "Numerical reasoning",
+          "format": "Performance task (CAT)",
+          "pool": "apt_numerical",
+          "module": "",
+          "target_count": 12,
+          "item_ids": [
+            "I-070-TASK",
+            "I-071-TASK"
+          ],
+          "items_available": 2,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Spatial / logical",
+          "format": "Performance task (figural)",
+          "pool": "apt_spatial",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [
+            "I-008",
+            "I-067-TASK"
+          ],
+          "items_available": 2,
+          "adaptive": "",
+          "anti_bias": "Figural items cut language bias"
+        },
+        {
+          "block": "Mechanical / technical",
+          "format": "Performance task",
+          "pool": "apt_mechanical",
+          "module": "",
+          "target_count": 8,
+          "item_ids": [],
+          "items_available": 0,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Abstract (Raven-style)",
+          "format": "Performance task (CAT)",
+          "pool": "apt_abstract",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "I-019-TASK",
+            "I-020-TASK",
+            "I-029-TASK",
+            "I-030-TASK",
+            "I-031-TASK",
+            "I-032-TASK"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": "Culture-fair"
+        }
+      ]
+    },
+    {
+      "phase": "S2 Interests & style (behaviour-first)",
+      "blocks": [
+        {
+          "block": "Career Theme-Park (ride dwell-time)",
+          "format": "Revealed-preference sim",
+          "pool": "riasec",
+          "module": "",
+          "target_count": 12,
+          "item_ids": [
+            "HOL-001",
+            "HOL-002",
+            "HOL-003",
+            "HOL-004",
+            "HOL-005",
+            "HOL-006",
+            "HOL-007",
+            "HOL-008",
+            "HOL-009",
+            "HOL-010",
+            "HOL-011",
+            "HOL-012"
+          ],
+          "items_available": 12,
+          "adaptive": "",
+          "anti_bias": "Interest from dwell/choice, not rating"
+        },
+        {
+          "block": "This-or-that style pairs",
+          "format": "Forced-choice (ipsative)",
+          "pool": "disc",
+          "module": "",
+          "target_count": 12,
+          "item_ids": [
+            "P-001",
+            "P-007",
+            "P-011",
+            "P-015",
+            "P-018",
+            "P-019",
+            "P-025",
+            "P-026",
+            "P-039",
+            "P-040",
+            "P-041",
+            "P-044"
+          ],
+          "items_available": 12,
+          "adaptive": "",
+          "anti_bias": "Defeats social desirability & acquiescence"
+        },
+        {
+          "block": "People/Data/Ideas/Things sort",
+          "format": "Drag-sort behavioural",
+          "pool": "motivation",
+          "module": "",
+          "target_count": 6,
+          "item_ids": [
+            "M-001",
+            "M-002",
+            "M-003",
+            "M-004",
+            "M-005",
+            "M-006"
+          ],
+          "items_available": 6,
+          "adaptive": "",
+          "anti_bias": ""
+        }
+      ]
+    },
+    {
+      "phase": "S3 Validity & stream-fit",
+      "blocks": [
+        {
+          "block": "Subject micro-sims",
+          "format": "SJT / branching sim",
+          "pool": "softskills",
+          "module": "",
+          "target_count": 4,
+          "item_ids": [
+            "SS-001-SJT",
+            "SS-002-SJT",
+            "SS-003",
+            "SS-004"
+          ],
+          "items_available": 4,
+          "adaptive": "",
+          "anti_bias": ""
+        },
+        {
+          "block": "Validity scale (SD + infrequency)",
+          "format": "Embedded check",
+          "pool": "survey",
+          "module": "",
+          "target_count": 3,
+          "item_ids": [
+            "Q0-001",
+            "Q0-002",
+            "Q0-003"
+          ],
+          "items_available": 3,
+          "adaptive": "",
+          "anti_bias": "Detects faking-good; sets confidence band"
+        }
+      ]
+    }
+  ],
+  "adaptive_rules": {
+    "difficulty": "Per-module easy/standard/stretch.",
+    "shortening": "Cut section 20-30% on high confidence.",
+    "stream_routing": "Aptitude+interest+motivation triangulated -> rank streams.",
+    "mismatch_alert": "Flag interest-aptitude conflict.",
+    "stereotype_guard": "No demographic prompts before aptitude."
+  },
+  "bias_controls": {
+    "telemetry": "Per-item response latency, long-string & answer-change logging on every block.",
+    "attention_checks": "Embedded attention-check + infrequency items; careless responders flagged.",
+    "validity_band": "Each report carries a confidence band (high / interpret-with-caution).",
+    "scoring": "Forced-choice scored with Thurstonian-IRT; behavioural/game scores weighted above self-report; methods fused by confidence, not naive mean.",
+    "social_desirability": "SD scale; if high, lean on game scores & show caution band."
+  },
+  "report": "Ranked streams, strength-subject map, compatibility chart, mismatch alert, parent guide.",
+  "_selected_item_count": 54
+}

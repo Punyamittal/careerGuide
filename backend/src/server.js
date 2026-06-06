@@ -1,10 +1,18 @@
 import { app } from "./app.js";
 import { env } from "./config/env.js";
+import { connectMongo } from "./config/mongodb.js";
 
 process.on("unhandledRejection", (reason) => {
   // eslint-disable-next-line no-console
   console.error("[career-guide-backend] Unhandled promise rejection:", reason);
 });
+
+if (env.mongodb.uri) {
+  connectMongo().catch((err) => {
+    // eslint-disable-next-line no-console
+    console.error("[career-guide-backend] MongoDB connection failed:", err.message);
+  });
+}
 
 const server = app.listen(env.port, () => {
   // eslint-disable-next-line no-console
