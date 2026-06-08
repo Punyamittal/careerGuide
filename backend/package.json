@@ -9,6 +9,7 @@
     "start": "node --import tsx src/server.js",
     "check": "node --check src/server.js",
     "seed": "node scripts/seed.mjs",
+    "seed:modules": "node scripts/seed-assessment-modules.mjs",
     "promote-admin": "node scripts/promote-admin.mjs",
     "etl:onet": "node scripts/etl/onet/import-release.mjs",
     "etl:mbs": "node scripts/etl/mbs/import-mbs-master.mjs",
@@ -21,7 +22,8 @@
     "test:clarification-api": "npx tsx --test src/clarification/clarification.api.test.ts",
     "test:negotiation-v2": "npx tsx --test src/modules/negotiation-v2/negotiation.engine.test.ts",
     "typecheck:clarification": "tsc -p tsconfig.clarification.json --noEmit",
-    "validate:pipeline": "node scripts/validate-assessment-pipeline.mjs"
+    "validate:pipeline": "node scripts/validate-assessment-pipeline.mjs",
+    "verify:realtime": "node scripts/realtime-qa-verification.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

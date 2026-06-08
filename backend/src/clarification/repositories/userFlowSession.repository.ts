@@ -13,12 +13,19 @@ export async function createUserFlowSession(
 ): Promise<UserFlowSession> {
   const accommodation = intake.accommodation as Record<string, unknown> | undefined;
   const extendedTime = Boolean(accommodation?.extended_time);
+  const constructSnapshot =
+    (intake.constructSnapshot as Record<string, unknown> | undefined) ??
+    (intake.construct_snapshot as Record<string, unknown> | undefined);
+  const hasConstructs =
+    constructSnapshot && Object.keys(constructSnapshot).length > 0;
+  const startPhase = hasConstructs ? "7" : "0";
 
   const row = {
     user_id: userId,
     flow_id: FLOW_ID_USER_6,
     status: FLOW_STATUS.IN_PROGRESS,
-    current_phase: "0",
+    current_phase: startPhase,
+    construct_snapshot: constructSnapshot ?? {},
     intake_meta: {
       role_target: intake.role_target ?? null,
       region: intake.region ?? "IN",

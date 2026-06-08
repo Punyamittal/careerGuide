@@ -7,12 +7,27 @@ import {
   getFlowSession,
   skipClarification
 } from "./session.service.js";
+import { updateUserFlowSession } from "../repositories/userFlowSession.repository.js";
+
+async function ensurePhase7ForClarification(
+  flowSessionId: string,
+  userId: string,
+  flow: Awaited<ReturnType<typeof getFlowSession>>
+) {
+  if (flow.currentPhase === "7" || flow.currentPhase === "7.5") return flow;
+
+  const phaseNum = Number(flow.currentPhase);
+  if (!Number.isNaN(phaseNum) && phaseNum >= 7) return flow;
+
+  return updateUserFlowSession(flowSessionId, userId, { currentPhase: "7" });
+}
 
 export async function evaluateClarification(
   flowSessionId: string,
   userId: string
 ): Promise<ClarifyEvaluateResponseDto> {
-  const flow = await getFlowSession(flowSessionId, userId);
+  let flow = await getFlowSession(flowSessionId, userId);
+  flow = await ensurePhase7ForClarification(flowSessionId, userId, flow);
   const engineInput = mapFlowToEngineInput(flow);
   const engineOutput = evaluateAmbiguity(engineInput);
 

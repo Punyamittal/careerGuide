@@ -145,12 +145,20 @@ export async function scoreSession(userId, sessionId, opts = {}) {
   const mod = resolveModuleMeta(session.module_id);
   if (!mod) throw new ApiError(StatusCodes.BAD_REQUEST, "Unknown module for session");
 
-  const { data: events, error: evErr } = await supabase
+  let { data: events, error: evErr } = await supabase
     .from("assessment_telemetry_events")
     .select("*")
     .eq("session_id", sessionId)
     .eq("user_id", userId)
-    .order("created_at", { ascending: true });
+    .order("recorded_at", { ascending: true });
+
+  if (evErr && /recorded_at|created_at|does not exist/i.test(String(evErr.message || ""))) {
+    ({ data: events, error: evErr } = await supabase
+      .from("assessment_telemetry_events")
+      .select("*")
+      .eq("session_id", sessionId)
+      .eq("user_id", userId));
+  }
 
   if (evErr) throw new ApiError(StatusCodes.INTERNAL_SERVER_ERROR, evErr.message);
 

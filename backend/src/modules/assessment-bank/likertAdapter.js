@@ -7,7 +7,7 @@ import {
   defaultScaleLabels,
   parseConstructsFed
 } from "./parseConstructs.js";
-import { randomizeItems, orderForAdaptive } from "./randomization.js";
+import { getStaticModuleConfig } from "./staticModuleFallbacks.js";
 
 /** @typedef {import('./loader.js').ArchiveItem} ArchiveItem */
 
@@ -140,7 +140,11 @@ export function buildLikertModuleConfig(moduleId, opts = {}) {
     items = items.filter((i) => i.userFlow === flow || i.userFlow === opts.userFlow);
   }
 
-  if (!items.length) return null;
+  if (!items.length) {
+    const staticCfg = getStaticModuleConfig(normalizedId);
+    if (staticCfg) return staticCfg;
+    return null;
+  }
 
   if (opts.shuffle) {
     items = randomizeItems(items, { seed: opts.seed, limit: opts.limit });

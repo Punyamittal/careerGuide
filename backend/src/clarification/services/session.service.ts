@@ -13,7 +13,10 @@ import {
   skipClarificationFlow
 } from "../repositories/clarificationSession.repository.js";
 import { incrementItemExposure } from "../repositories/clarificationItemExposure.repository.js";
-import { getUserFlowSession } from "../repositories/userFlowSession.repository.js";
+import {
+  getUserFlowSession,
+  updateUserFlowSession
+} from "../repositories/userFlowSession.repository.js";
 
 export interface CreateClarificationPayload {
   firedRules: string[];

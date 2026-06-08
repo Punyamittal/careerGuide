@@ -46,6 +46,36 @@ export const MODULE_ITEM_RULES = {
   M08: {
     constructTags: ["VROOM", "EXPECT", "EXPECTANCY", "VALENCE", "INSTRUMENT"]
   },
+  OB01: {
+    constructTags: ["OB-PS", "OB-OCB", "OB-022", "OB-SC", "OB-"]
+  },
+  OB16: {
+    constructTags: ["OB-PS", "OB-OCB", "OB-022", "OB-SC", "OB-"]
+  },
+  L01: {
+    constructTags: ["LEAD", "TRANSFORM", "L-TRANS", "WST-INIT"],
+    idPrefixes: ["L-"]
+  },
+  L02: {
+    constructTags: ["LEAD", "TRANSACT", "L-TRANS"],
+    idPrefixes: ["L-"]
+  },
+  L11: {
+    constructTags: ["LEAD", "KATZ", "WST-"],
+    idPrefixes: ["WST-", "L11-"]
+  },
+  L12: {
+    constructTags: ["LEAD", "ACTION", "L-MED"],
+    idPrefixes: ["L-"]
+  },
+  I06: {
+    constructTags: ["BIAS", "COGNITIVE"],
+    idPrefixes: ["I06-", "DEC-"]
+  },
+  LEN01: { constructTags: ["MASLOW", "MASLOW-"], idPrefixes: ["M-00", "W-"] },
+  LEN02: { constructTags: ["HERZBERG", "HZ-"], idPrefixes: ["M-00"] },
+  LEN03: { constructTags: ["EQUITY", "EQT-"], idPrefixes: ["M-00"] },
+  LEN04: { constructTags: ["REINFOR", "REINFORCEMENT"], idPrefixes: ["M-00"] },
   M09: {
     constructTags: [
       "PSYCAP",

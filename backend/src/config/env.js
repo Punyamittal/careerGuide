@@ -27,7 +27,7 @@ export const env = {
   },
   xai: {
     apiKey: process.env.XAI_API_KEY || "",
-    model: process.env.XAI_MODEL || "grok-2-latest",
+    model: process.env.XAI_MODEL || "grok-3-mini",
     timeoutMs: Number(process.env.XAI_TIMEOUT_MS) || 120000
   },
   occupational: {
