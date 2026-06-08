@@ -9,11 +9,9 @@ import {
   WRITING_CODES
 } from "../constants/assessmentPlans.js";
 
-const sortByOrder = (a, b) => (a.order ?? 0) - (b.order ?? 0);
-
 /**
- * When questions were seeded without `external_code`, the adaptive engine still needs
- * stable keys (APT_L_1, BF_O_01, RIA_R_01, MOT_01, …). Mirrors seed.mjs ordering; stems need not include codes.
+ * Legacy rows may lack `external_code`. Never map by array index — only explicit codes
+ * or stem prefixes that embed the code (e.g. "RIA_R_03. …").
  *
  * @param {string} assessmentKey
  * @param {object[]} shapedQuestions - output of mapQuestionRow + shapeQuestionForClient
@@ -25,79 +23,46 @@ export function hydrateQuestionCodes(assessmentKey, shapedQuestions, existingByC
   const need = new Set(plan);
   const byCode = { ...existingByCode };
 
-  const logical = shapedQuestions
-    .filter((q) => q.category === QUESTION_CATEGORIES.APTITUDE_LOGICAL)
-    .sort(sortByOrder);
-  const numerical = shapedQuestions
-    .filter((q) => q.category === QUESTION_CATEGORIES.APTITUDE_NUMERICAL)
-    .sort(sortByOrder);
-  const verbal = shapedQuestions
-    .filter((q) => q.category === QUESTION_CATEGORIES.APTITUDE_VERBAL)
-    .sort(sortByOrder);
-  const big5 = shapedQuestions
-    .filter((q) => q.category === QUESTION_CATEGORIES.BIG_FIVE)
-    .sort(sortByOrder);
-  const riasec = shapedQuestions
-    .filter((q) => q.category === QUESTION_CATEGORIES.RIASEC)
-    .sort(sortByOrder);
-  const motivation = shapedQuestions
-    .filter((q) => q.category === QUESTION_CATEGORIES.MOTIVATION)
-    .sort(sortByOrder);
-  const writing = shapedQuestions
-    .filter((q) => q.category === QUESTION_CATEGORIES.WRITING)
-    .sort(sortByOrder);
+  for (const q of shapedQuestions) {
+    const code = q.externalCode;
+    if (code && need.has(code) && !byCode[code]) {
+      byCode[code] = q;
+    }
+  }
 
-  const put = (code, q) => {
-    if (!need.has(code) || !q || byCode[code]) return;
-    byCode[code] = { ...q, externalCode: code };
+  const stemMatchesCode = (q, code) => {
+    const stem = String(q.stem ?? "");
+    return (
+      stem.startsWith(`${code}.`) ||
+      stem.startsWith(`${code} `) ||
+      stem.includes(`${code}. `)
+    );
   };
 
-  const logicalCodes = APTITUDE_CODES.filter((c) => c.startsWith("APT_L_"));
-  const numericalCodes = APTITUDE_CODES.filter((c) => c.startsWith("APT_N_"));
-  const verbalCodes = APTITUDE_CODES.filter((c) => c.startsWith("APT_V_"));
-
-  const putSequential = (codes, arr) => {
-    for (let i = 0; i < codes.length; i += 1) {
-      if (arr[i]) put(codes[i], arr[i]);
+  const hydrateByStem = (codes, category) => {
+    for (const code of codes) {
+      if (byCode[code]) continue;
+      const match = shapedQuestions.find((q) => q.category === category && stemMatchesCode(q, code));
+      if (match) byCode[code] = { ...match, externalCode: code };
     }
   };
-  putSequential(logicalCodes, logical);
-  putSequential(numericalCodes, numerical);
-  putSequential(verbalCodes, verbal);
 
-  for (const code of BIG_FIVE_CODES) {
-    if (byCode[code]) continue;
-    const stemMatch = big5.find(
-      (q) =>
-        String(q.stem).startsWith(`${code}.`) ||
-        String(q.stem).startsWith(`${code} `) ||
-        String(q.stem).includes(`${code}. `)
-    );
-    const idx = BIG_FIVE_CODES.indexOf(code);
-    const q = stemMatch ?? big5[idx];
-    put(code, q);
-  }
-
-  for (const code of RIASEC_CODES) {
-    if (byCode[code]) continue;
-    const stemMatch = riasec.find(
-      (q) =>
-        String(q.stem).startsWith(`${code}.`) ||
-        String(q.stem).startsWith(`${code} `) ||
-        String(q.stem).includes(`${code}. `)
-    );
-    const idx = RIASEC_CODES.indexOf(code);
-    const q = stemMatch ?? riasec[idx];
-    put(code, q);
-  }
-
-  for (let i = 0; i < MOTIVATION_CODES.length; i++) {
-    put(MOTIVATION_CODES[i], motivation[i]);
-  }
-
-  for (const code of WRITING_CODES) {
-    put(code, writing[0]);
-  }
+  hydrateByStem(
+    APTITUDE_CODES.filter((c) => c.startsWith("APT_L_")),
+    QUESTION_CATEGORIES.APTITUDE_LOGICAL
+  );
+  hydrateByStem(
+    APTITUDE_CODES.filter((c) => c.startsWith("APT_N_")),
+    QUESTION_CATEGORIES.APTITUDE_NUMERICAL
+  );
+  hydrateByStem(
+    APTITUDE_CODES.filter((c) => c.startsWith("APT_V_")),
+    QUESTION_CATEGORIES.APTITUDE_VERBAL
+  );
+  hydrateByStem(BIG_FIVE_CODES, QUESTION_CATEGORIES.BIG_FIVE);
+  hydrateByStem(RIASEC_CODES, QUESTION_CATEGORIES.RIASEC);
+  hydrateByStem(MOTIVATION_CODES, QUESTION_CATEGORIES.MOTIVATION);
+  hydrateByStem(WRITING_CODES, QUESTION_CATEGORIES.WRITING);
 
   return byCode;
 }

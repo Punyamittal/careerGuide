@@ -76,7 +76,9 @@ export const generateWithXAI = async (prompt) => {
 };
 
 const staticFallback = {
-  text: "AI narrative unavailable. See structured scores and career matches below.",
+  text:
+    "The AI coach is not configured on this server (set XAI_API_KEY or OPENAI_API_KEY in backend/.env). " +
+    "You can still use assessments, reports, and career matches while an admin enables the coach.",
   provider: "fallback"
 };
 

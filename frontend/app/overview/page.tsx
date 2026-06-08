@@ -66,6 +66,84 @@ const ASSESSMENTS = [
   }
 ] as const;
 
+const OVERVIEW_SEARCH_ITEMS = [
+  {
+    id: "big-five",
+    variant: "card" as const,
+    title: "Big Five in 10 minutes",
+    subtitle: "Personality dimensions",
+    meta: "Self-paced · 10 min",
+    tag: "featured" as const,
+    thumb: "sunset" as const,
+    href: "/overview?tab=assessments",
+    categories: ["design", "marketing"] as const,
+    keywords: ["personality", "big five", "psychometric", "traits"]
+  },
+  {
+    id: "riasec",
+    variant: "card" as const,
+    title: "RIASEC interest map",
+    subtitle: "Holland code primer",
+    meta: "Guide · 8 min",
+    tag: "new" as const,
+    thumb: "mint" as const,
+    href: "/overview?tab=assessments",
+    categories: ["design", "marketing"] as const,
+    keywords: ["riasec", "interests", "holland", "career"]
+  },
+  {
+    id: "aptitude",
+    variant: "card" as const,
+    title: "Aptitude warm-up drills",
+    subtitle: "Logic & verbal",
+    meta: "Practice · 15 min",
+    tag: "featured" as const,
+    thumb: "ocean" as const,
+    href: "/overview?tab=assessments",
+    categories: ["coding", "accounting"] as const,
+    keywords: ["aptitude", "logic", "verbal", "numerical", "practice"]
+  },
+  {
+    id: "software-engineer",
+    variant: "wide" as const,
+    title: "Software Engineer",
+    subtitle: "Vector similarity to your profile",
+    meta: "88% alignment",
+    tag: "featured" as const,
+    thumb: "ocean" as const,
+    href: "/career",
+    categories: ["coding"] as const,
+    keywords: ["software", "engineer", "developer", "tech"]
+  },
+  {
+    id: "ux-designer",
+    variant: "wide" as const,
+    title: "UX / Product Designer",
+    subtitle: "People + ideas cluster",
+    meta: "81% alignment",
+    tag: "new" as const,
+    thumb: "lavender" as const,
+    href: "/career",
+    categories: ["design"] as const,
+    keywords: ["ux", "design", "product", "creative"],
+    tall: true
+  }
+] as const;
+
+function matchesOverviewSearch(
+  item: (typeof OVERVIEW_SEARCH_ITEMS)[number],
+  query: string,
+  category: string | null
+) {
+  if (category && !item.categories.includes(category as (typeof item.categories)[number])) {
+    return false;
+  }
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  const haystack = [item.title, item.subtitle, ...item.keywords].join(" ").toLowerCase();
+  return haystack.includes(q);
+}
+
 function OverviewPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -94,8 +172,12 @@ function OverviewPageContent() {
   const profile = useCareerStore((state) => state.onboardingProfile);
   const sessions = useCareerStore((state) => state.sessions);
   const level = useCareerStore((state) => state.level);
-  void query;
-  void category;
+
+  const filteredSearchItems = OVERVIEW_SEARCH_ITEMS.filter((item) =>
+    matchesOverviewSearch(item, query, category)
+  );
+  const featuredCards = filteredSearchItems.filter((item) => item.variant === "card");
+  const wideCards = filteredSearchItems.filter((item) => item.variant === "wide");
 
   useEffect(() => {
     let cancelled = false;
@@ -293,56 +375,46 @@ function OverviewPageContent() {
 
       {tab === "overview" ? (
       <>
-      <SectionBlock title="Recent search">
-        <CareerCard
-          title="Big Five in 10 minutes"
-          subtitle="Personality dimensions"
-          meta="Self-paced · 10 min"
-          tag="featured"
-          thumb="sunset"
-          href="/overview?tab=assessments"
-        />
-        <CareerCard
-          title="RIASEC interest map"
-          subtitle="Holland code primer"
-          meta="Guide · 8 min"
-          tag="new"
-          thumb="mint"
-          href="/overview?tab=assessments"
-        />
-        <CareerCard
-          title="Aptitude warm-up drills"
-          subtitle="Logic & verbal"
-          meta="Practice · 15 min"
-          tag="featured"
-          thumb="ocean"
-          href="/overview?tab=assessments"
-        />
+      <SectionBlock title={query.trim() || category ? "Search results" : "Recent search"}>
+        {featuredCards.length ? (
+          featuredCards.map((item) => (
+            <CareerCard
+              key={item.id}
+              title={item.title}
+              subtitle={item.subtitle}
+              meta={item.meta}
+              tag={item.tag}
+              thumb={item.thumb}
+              href={item.href}
+            />
+          ))
+        ) : (
+          <p className="text-sm text-cg-muted">No matches — try another keyword or category.</p>
+        )}
       </SectionBlock>
 
       <section className="mt-10">
         <div className="mb-4 flex items-end justify-between gap-2">
           <h2 className="text-lg font-semibold text-cg-text">Popular career fits</h2>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <CareerCardWide
-            title="Software Engineer"
-            subtitle="Vector similarity to your profile"
-            meta="88% alignment"
-            tag="featured"
-            thumb="ocean"
-            href="/career"
-          />
-          <CareerCardWide
-            title="UX / Product Designer"
-            subtitle="People + ideas cluster"
-            meta="81% alignment"
-            tag="new"
-            thumb="lavender"
-            href="/career"
-            tall
-          />
-        </div>
+        {wideCards.length ? (
+          <div className="grid gap-3 sm:grid-cols-2">
+            {wideCards.map((item) => (
+              <CareerCardWide
+                key={item.id}
+                title={item.title}
+                subtitle={item.subtitle}
+                meta={item.meta}
+                tag={item.tag}
+                thumb={item.thumb}
+                href={item.href}
+                tall={"tall" in item ? Boolean(item.tall) : undefined}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-cg-muted">No career fits match your filters.</p>
+        )}
       </section>
       </>
       ) : null}

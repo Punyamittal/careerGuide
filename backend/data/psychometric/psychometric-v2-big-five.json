@@ -1,0 +1,98 @@
+[
+  {
+    "code": "BF_O_01",
+    "stem": "I like learning ideas that are not required for school, simply because they are interesting.",
+    "bigFiveKey": "O",
+    "reverse": false
+  },
+  {
+    "code": "BF_O_02",
+    "stem": "I usually stick to familiar hobbies rather than trying something completely new.",
+    "bigFiveKey": "O",
+    "reverse": true
+  },
+  {
+    "code": "BF_O_03",
+    "stem": "I enjoy imagination-heavy projects—stories, designs, or “what if” debates—more than repeating the same type of task.",
+    "bigFiveKey": "O",
+    "reverse": false
+  },
+  {
+    "code": "BF_C_01",
+    "stem": "I break big assignments into steps and keep track of deadlines without someone reminding me.",
+    "bigFiveKey": "C",
+    "reverse": false
+  },
+  {
+    "code": "BF_C_02",
+    "stem": "My desk, bag, or notes are often messy until the due date is very close.",
+    "bigFiveKey": "C",
+    "reverse": true
+  },
+  {
+    "code": "BF_C_03",
+    "stem": "I double-check important messages or forms before I send them.",
+    "bigFiveKey": "C",
+    "reverse": false
+  },
+  {
+    "code": "BF_E_01",
+    "stem": "Lively group discussions usually give me energy rather than wearing me out.",
+    "bigFiveKey": "E",
+    "reverse": false
+  },
+  {
+    "code": "BF_E_02",
+    "stem": "After a noisy or crowded day, I need a lot of quiet time alone to feel okay again.",
+    "bigFiveKey": "E",
+    "reverse": true
+  },
+  {
+    "code": "BF_E_03",
+    "stem": "I am comfortable starting a short conversation with someone I barely know (for example, before class or in a queue).",
+    "bigFiveKey": "E",
+    "reverse": false
+  },
+  {
+    "code": "BF_A_01",
+    "stem": "Even when I disagree, I try to understand the other person’s point of view before pushing mine.",
+    "bigFiveKey": "A",
+    "reverse": false
+  },
+  {
+    "code": "BF_A_02",
+    "stem": "When I think someone is wrong, I can sound sharp or blunt without meaning to.",
+    "bigFiveKey": "A",
+    "reverse": true
+  },
+  {
+    "code": "BF_A_03",
+    "stem": "I often help classmates who are stuck, even if it slows my own work a little.",
+    "bigFiveKey": "A",
+    "reverse": false
+  },
+  {
+    "code": "BF_N_01",
+    "stem": "Small worries can keep me awake or distracted the night before something important.",
+    "bigFiveKey": "N",
+    "reverse": false
+  },
+  {
+    "code": "BF_N_02",
+    "stem": "When plans change at the last minute, I adapt without feeling thrown off for long.",
+    "bigFiveKey": "N",
+    "reverse": true
+  },
+  {
+    "code": "BF_N_03",
+    "stem": "Useful criticism can still make me doubt myself for a while afterward.",
+    "bigFiveKey": "N",
+    "reverse": false
+  },
+  {
+    "code": "BF_N_04",
+    "stem": "I bounce back quickly after an embarrassing moment in front of others.",
+    "bigFiveKey": "N",
+    "reverse": true
+  }
+]

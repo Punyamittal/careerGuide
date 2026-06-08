@@ -14,6 +14,14 @@ import { randomizeItems, orderForAdaptive } from "./randomization.js";
 /**
  * @param {ArchiveItem} item
  */
+function resolveItemStem(item) {
+  const raw = item.stem ?? item.prompt ?? item.text ?? item.question ?? "";
+  return typeof raw === "string" ? raw.trim() : "";
+}
+
+/**
+ * @param {ArchiveItem} item
+ */
 export function isRenderableLikertItem(item) {
   const t = (item.native_type ?? "").toLowerCase();
   if (
@@ -33,7 +41,7 @@ export function isRenderableLikertItem(item) {
   if ((t.includes("matching") || t.includes("ordering")) && !item.options?.length) {
     return false;
   }
-  return Boolean(item.stem?.trim());
+  return Boolean(resolveItemStem(item));
 }
 
 /**
@@ -70,7 +78,7 @@ export function archiveItemToLikert(item) {
   const likert = {
     id: item.item_id,
     type,
-    prompt: item.stem,
+    prompt: resolveItemStem(item),
     category,
     difficulty: inferDifficulty(item),
     telemetryTags: [category, item.construct_pool ?? "archive"].filter(Boolean),

@@ -227,6 +227,9 @@ alter table public.clarification_sim_results enable row level security;
 alter table public.clarification_item_exposure enable row level security;
 
 -- user_flow_sessions
+drop policy if exists user_flow_sessions_select_own on public.user_flow_sessions;
+drop policy if exists user_flow_sessions_insert_own on public.user_flow_sessions;
+drop policy if exists user_flow_sessions_update_own on public.user_flow_sessions;
 create policy user_flow_sessions_select_own on public.user_flow_sessions
   for select using (auth.uid() = user_id);
 create policy user_flow_sessions_insert_own on public.user_flow_sessions
@@ -235,6 +238,9 @@ create policy user_flow_sessions_update_own on public.user_flow_sessions
   for update using (auth.uid() = user_id);
 
 -- user_flow_block_sessions
+drop policy if exists user_flow_block_sessions_select_own on public.user_flow_block_sessions;
+drop policy if exists user_flow_block_sessions_insert_own on public.user_flow_block_sessions;
+drop policy if exists user_flow_block_sessions_update_own on public.user_flow_block_sessions;
 create policy user_flow_block_sessions_select_own on public.user_flow_block_sessions
   for select using (auth.uid() = user_id);
 create policy user_flow_block_sessions_insert_own on public.user_flow_block_sessions
@@ -243,6 +249,9 @@ create policy user_flow_block_sessions_update_own on public.user_flow_block_sess
   for update using (auth.uid() = user_id);
 
 -- clarification_sessions
+drop policy if exists clarification_sessions_select_own on public.clarification_sessions;
+drop policy if exists clarification_sessions_insert_own on public.clarification_sessions;
+drop policy if exists clarification_sessions_update_own on public.clarification_sessions;
 create policy clarification_sessions_select_own on public.clarification_sessions
   for select using (auth.uid() = user_id);
 create policy clarification_sessions_insert_own on public.clarification_sessions
@@ -251,6 +260,9 @@ create policy clarification_sessions_update_own on public.clarification_sessions
   for update using (auth.uid() = user_id);
 
 -- clarification_responses
+drop policy if exists clarification_responses_select_own on public.clarification_responses;
+drop policy if exists clarification_responses_insert_own on public.clarification_responses;
+drop policy if exists clarification_responses_update_own on public.clarification_responses;
 create policy clarification_responses_select_own on public.clarification_responses
   for select using (auth.uid() = user_id);
 create policy clarification_responses_insert_own on public.clarification_responses
@@ -259,6 +271,9 @@ create policy clarification_responses_update_own on public.clarification_respons
   for update using (auth.uid() = user_id);
 
 -- clarification_sim_results
+drop policy if exists clarification_sim_results_select_own on public.clarification_sim_results;
+drop policy if exists clarification_sim_results_insert_own on public.clarification_sim_results;
+drop policy if exists clarification_sim_results_update_own on public.clarification_sim_results;
 create policy clarification_sim_results_select_own on public.clarification_sim_results
   for select using (auth.uid() = user_id);
 create policy clarification_sim_results_insert_own on public.clarification_sim_results
@@ -267,6 +282,9 @@ create policy clarification_sim_results_update_own on public.clarification_sim_r
   for update using (auth.uid() = user_id);
 
 -- clarification_item_exposure
+drop policy if exists clarification_item_exposure_select_own on public.clarification_item_exposure;
+drop policy if exists clarification_item_exposure_insert_own on public.clarification_item_exposure;
+drop policy if exists clarification_item_exposure_update_own on public.clarification_item_exposure;
 create policy clarification_item_exposure_select_own on public.clarification_item_exposure
   for select using (auth.uid() = user_id);
 create policy clarification_item_exposure_insert_own on public.clarification_item_exposure

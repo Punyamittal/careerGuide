@@ -1,10 +1,6 @@
 import { readFileSync } from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
 import { generateWithXAI } from "./ai.service.js";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(__dirname, "../../../frontend/data");
+import { resolvePsychometricDataPath } from "../constants/psychometricDataDir.js";
 
 const TRACK_MAP = {
   early_g5: { label: "Grade 5", total: 15 },
@@ -23,7 +19,7 @@ const LIKERT_OPTIONS = [
 
 function safeReadJson(fileName, fallback = []) {
   try {
-    return JSON.parse(readFileSync(join(dataDir, fileName), "utf8"));
+    return JSON.parse(readFileSync(resolvePsychometricDataPath(fileName), "utf8"));
   } catch {
     return fallback;
   }

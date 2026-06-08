@@ -1,15 +1,11 @@
 import { readFileSync } from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 import { PROFILE_VECTOR_KEYS, QUESTION_CATEGORIES } from "../src/constants/assessment.js";
 import { assessmentKeysForCode } from "../src/constants/assessmentPlans.js";
+import { resolvePsychometricDataPath } from "../src/constants/psychometricDataDir.js";
 
 dotenv.config();
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(__dirname, "../../frontend/data");
 
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -23,8 +19,12 @@ const supabase = createClient(url, key, {
   auth: { persistSession: false, autoRefreshToken: false }
 });
 
-const bigFiveBank = JSON.parse(readFileSync(join(dataDir, "psychometric-v2-big-five.json"), "utf8"));
-const riasecBank = JSON.parse(readFileSync(join(dataDir, "psychometric-v2-riasec.json"), "utf8"));
+const bigFiveBank = JSON.parse(
+  readFileSync(resolvePsychometricDataPath("psychometric-v2-big-five.json"), "utf8")
+);
+const riasecBank = JSON.parse(
+  readFileSync(resolvePsychometricDataPath("psychometric-v2-riasec.json"), "utf8")
+);
 
 const fullVector = (partial) => {
   const o = {};

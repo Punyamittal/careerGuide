@@ -1,11 +1,8 @@
 import { existsSync, readFileSync } from "fs";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
+import { resolvePsychometricDataPath } from "./psychometricDataDir.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(__dirname, "../../../frontend/data");
-const bigFivePath = join(dataDir, "psychometric-v2-big-five.json");
-const riasecPath = join(dataDir, "psychometric-v2-riasec.json");
+const bigFivePath = resolvePsychometricDataPath("psychometric-v2-big-five.json");
+const riasecPath = resolvePsychometricDataPath("psychometric-v2-riasec.json");
 
 const fallbackBigFiveCodes = [
   "BF_O_01",
@@ -22,22 +19,29 @@ const fallbackBigFiveCodes = [
   "BF_A_03",
   "BF_N_01",
   "BF_N_02",
-  "BF_N_03"
+  "BF_N_03",
+  "BF_N_04"
 ];
 
 const fallbackRiasecCodes = [
   "RIA_R_01",
   "RIA_R_02",
+  "RIA_R_03",
   "RIA_I_01",
   "RIA_I_02",
+  "RIA_I_03",
   "RIA_A_01",
   "RIA_A_02",
+  "RIA_A_03",
   "RIA_S_01",
   "RIA_S_02",
+  "RIA_S_03",
   "RIA_E_01",
   "RIA_E_02",
+  "RIA_E_03",
   "RIA_C_01",
-  "RIA_C_02"
+  "RIA_C_02",
+  "RIA_C_03"
 ];
 
 let bigFiveBank = [];

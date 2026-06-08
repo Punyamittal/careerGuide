@@ -1,0 +1,93 @@
+[
+  {
+    "code": "RIA_R_01",
+    "stem": "I enjoy fixing, assembling, or adjusting physical things—bikes, gadgets, models, or lab equipment—more than only talking about them.",
+    "riasecKey": "R",
+    "flowRules": { "edges": { "_likertGte4": "RIA_R_03" } }
+  },
+  {
+    "code": "RIA_R_02",
+    "stem": "I feel satisfied when a hands-on task has a clear “it works now” moment.",
+    "riasecKey": "R"
+  },
+  {
+    "code": "RIA_R_03",
+    "stem": "I would rather learn a skill by practicing with tools or materials than by reading theory alone.",
+    "riasecKey": "R"
+  },
+  {
+    "code": "RIA_I_01",
+    "stem": "I get pulled into researching why something happens, even when it will not be on the next test.",
+    "riasecKey": "I"
+  },
+  {
+    "code": "RIA_I_02",
+    "stem": "I like problems where I have to weigh evidence or spot what does not fit the pattern.",
+    "riasecKey": "I"
+  },
+  {
+    "code": "RIA_I_03",
+    "stem": "I trust answers more when I can trace the logic or the source myself.",
+    "riasecKey": "I"
+  },
+  {
+    "code": "RIA_A_01",
+    "stem": "How an idea looks, sounds, or feels matters to me—not only whether it is technically correct.",
+    "riasecKey": "A"
+  },
+  {
+    "code": "RIA_A_02",
+    "stem": "I like assignments where I can choose colors, layout, tone, or style—not only the final answer.",
+    "riasecKey": "A"
+  },
+  {
+    "code": "RIA_A_03",
+    "stem": "I would rather create an original poster, sketch, or short piece than fill only blank boxes on a form.",
+    "riasecKey": "A"
+  },
+  {
+    "code": "RIA_S_01",
+    "stem": "Teaching someone step-by-step feels more rewarding than finishing the same task alone in silence.",
+    "riasecKey": "S"
+  },
+  {
+    "code": "RIA_S_02",
+    "stem": "I notice when someone in a group is left out and I try to include them.",
+    "riasecKey": "S"
+  },
+  {
+    "code": "RIA_S_03",
+    "stem": "I pick group projects partly because I like coordinating how people work together.",
+    "riasecKey": "S"
+  },
+  {
+    "code": "RIA_E_01",
+    "stem": "I like pitching an idea, running a short meeting, or steering a group toward a decision.",
+    "riasecKey": "E"
+  },
+  {
+    "code": "RIA_E_02",
+    "stem": "Competitions, debates, or “sell your idea” formats energize me more than they stress me.",
+    "riasecKey": "E"
+  },
+  {
+    "code": "RIA_E_03",
+    "stem": "I often think about how to persuade others or win support for a plan.",
+    "riasecKey": "E"
+  },
+  {
+    "code": "RIA_C_01",
+    "stem": "Clear checklists, tables, or sorted folders make me feel in control of my work.",
+    "riasecKey": "C"
+  },
+  {
+    "code": "RIA_C_02",
+    "stem": "I like tasks with a standard procedure I can follow reliably each time.",
+    "riasecKey": "C"
+  },
+  {
+    "code": "RIA_C_03",
+    "stem": "Spotting a small mistake in numbers, dates, or labels bothers me until it is fixed.",
+    "riasecKey": "C"
+  }
+]

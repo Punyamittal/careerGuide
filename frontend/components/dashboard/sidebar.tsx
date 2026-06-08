@@ -37,6 +37,12 @@ const NAV = [
       p === "/life-journey" || (p === "/overview" && t === "life-journey")
   },
   { label: "Career Matches", href: "/overview?tab=career-matches", icon: IconOverview, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "career-matches" },
+  {
+    label: "Negotiation Sim",
+    href: "/simulations/negotiation-v2",
+    icon: IconSchedule,
+    match: (p: string) => p === "/simulations/negotiation-v2"
+  },
   { label: "Reports", href: "/overview?tab=reports", icon: IconWishlist, match: (p: string, _h: string, t?: string | null) => p === "/overview" && t === "reports" },
   {
     label: "Profile",

@@ -37,7 +37,16 @@ export class LikertEngine {
     if (!isLikertConfig(loaded)) {
       throw new Error(`Module ${this.options.moduleId} is not a likert module`);
     }
-    this.config = loaded;
+    const renderableItems = loaded.items.filter((item) => item.prompt?.trim());
+    if (!renderableItems.length) {
+      throw new Error(
+        `Module ${this.options.moduleId} has no questions with prompts — check archive/API connectivity`
+      );
+    }
+    this.config =
+      renderableItems.length === loaded.items.length
+        ? loaded
+        : { ...loaded, items: renderableItems };
     likertLog("engine-config-loaded", {
       moduleId: this.config.moduleId,
       items: this.config.items.length
